@@ -1,71 +1,34 @@
-# Estado do projeto e encerramento da pesquisa da Fase 1
+# Estado real — desenvolvimento integrado de 2025
 
-Data de referência: 19/10/2026, America/Sao_Paulo.
+Atualizado em 19/10/2026. Flamengo, Brasileirão Série A masculino, temporada completa de 2025, rodadas oficiais 1 a 38. O projeto existente foi ampliado, sem reinicialização, commits ou publicação.
 
-## Resultado
+| Módulo             | Implementado                                                                                                                  | Verificação / limite                                                            |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Núcleo JS/Python   | Agregação, G+A, taxas por 90, razões ponderadas, nulos, quartis e outliers                                                    | Fixtures matemáticas compartilhadas; sem cálculo individual de produção         |
+| Pipeline           | Auditoria, manifesto v2, importação auxiliar Bronze/Silver/Gold, entrada individual condicionada a revisão de hash/permissões | 38 referências reais importadas; reexecução changed=false; individual bloqueado |
+| Backend            | Resumo, jogadores/perfil, rankings, ataque/defesa, posições, distribuição, comparação, CSV condicionado, rate limit           | Testes HTTP e casos de uso; nenhum atleta real liberado                         |
+| PostgreSQL         | Migração aditiva 003, fatos, proveniência, constraints, transações, repositórios de escrita e leitura                         | 25 testes passaram em cluster isolado; banco pessoal não migrado                |
+| Frontend           | Nove páginas, roteamento, filtros, busca, ordenação, paginação, comparador, estados e SVGs originais/Lucide                   | 24 testes passaram; revisão visual bloqueada pela ferramenta                    |
+| Notebooks          | Seis arquivos executados com auditoria real e bloqueios explícitos                                                            | Análises esportivas e gráficos individuais dependem de fonte                    |
+| Power BI           | Modelo, M, DAX, tema, exportador com direito específico e instruções                                                          | Preparação vazia executada; motor Desktop/PBIX/PBIP não validado                |
+| API / documentação | OpenAPI gerado, execução, dicionário, metodologia acadêmica e matriz de aceite                                                | Verificação consolidada aprovada; detalhes em TEST_REPORT.md                    |
 
-A inspeção e a pesquisa solicitadas foram registradas. **A Fase 1 tem uma pendência bloqueante de homologação da fonte; não está liberada a ingestão nem a publicação de estatísticas.** A pesquisa demonstrou maneiras de identificar partidas e rodadas e encontrou estatísticas individuais por partida, mas não comprovou uma base completa, acessível e licenciada para todos os produtos planejados.
+Resultado consolidado: **242 testes aprovados** (backend 26, frontend 24, raiz JS 10, Python 157, PostgreSQL 25), lint/formatação, seis notebooks, build e smoke aprovados. Relatório e limites em [TEST_REPORT.md](TEST_REPORT.md).
 
-O escopo e as tecnologias do contexto foram preservados. Não houve alteração de código de produção, criação de dados fictícios, contratação, cadastro em provedores, envio de mensagens, commit, push ou implantação.
+## Dados e bloqueios
 
-## Inventário observado antes desta tarefa
+OpenFootball está autorizado somente como referência auxiliar CC0, na revisão e hash de [source-approval.json](../contracts/source-approval.json). A importação real preservou os bytes em data/raw, normalizou em data/processed e gerou data/analytics/references.json. A API e a visão geral consomem esses resultados sem atribuí-los a atletas. Não há IDs CBF ou fuso inventados, nem manifesto oficial completo homologado.
 
-`rg --files`, inspeção dos arquivos ocultos e comandos Git mostraram somente:
+A fonte individual permanece sem aprovação. O candidato Cartola contém snapshots acumulados, lacunas e direitos não comprovados; não foi incorporado ao produto. [dataset-approvals.json](../contracts/dataset-approvals.json) não possui datasets aprovados. Sem revisão de conteúdo, granularidade, cobertura, participações e permissões, a entrada individual falha antes de gravar. Exportação CSV e distribuição Power BI têm permissões próprias.
 
-| Artefato | Situação observada |
-| --- | --- |
-| `AGENTS.md` | Existente e lido integralmente |
-| `docs/FLAMENGO_ANALYTICS_CONTEXT.md` | Existente, 1.738 linhas, lido integralmente em trechos |
-| `.git/` | Repositório inicializado, branch `main`, sem commits |
-| Arquivos rastreados pelo Git | Nenhum; os dois documentos estavam não rastreados |
-| Frontend, backend, pipeline e notebooks | Ausentes |
-| Dados Bronze/Silver/Gold, schema e migrações | Ausentes |
-| Power BI, Power Query e DAX | Ausentes |
-| Manifestos de dependências, scripts, lint, build, testes e CI | Ausentes |
-| README, licença de software e configuração de execução | Ausentes na inspeção inicial |
+## Ambiente preservado
 
-Os documentos criados nesta tarefa estão relacionados no [README](../README.md). A estrutura ilustrativa do contexto não corresponde a diretórios implementados.
+Backend e Vite iniciaram localmente em 127.0.0.1:3001 e 127.0.0.1:5173. A API inicia sem banco para referências e indisponibilidade. Com DATABASE_URL, a leitura individual depende da importação aprovada no PostgreSQL. Nenhuma migração automática ocorre no startup.
 
-## Evidência e limites
+As migrações 001/002 e o histórico de 2026 foram preservados. A migração 003 apenas adiciona estrutura. Integrações usam cluster temporário com porta própria; não foram criadas credenciais ou bancos pessoais. Não há containers, Spark ou Hadoop.
 
-- A tabela oficial foi consultada até a rodada 19 e contém número de jogo e rodada. Uma súmula oficial disponibilizada pela FERJ foi lida e conferida visualmente nas três páginas.
-- O caso real de Flamengo × Mirassol, da 4ª rodada, marcado para setembro, evidencia o risco de filtrar por data. Os detalhes e referências estão em [ROUND_SCOPE.md](ROUND_SCOPE.md).
-- FBref expõe registros individuais de 2026 por partida em conteúdo indexado, mas a leitura direta falhou nesta sessão. A cobertura completa não foi auditada e a política de uso não libera automaticamente uma plataforma baseada em coleta.
-- Football-data.org documenta partidas, rodada e eventos; a única consulta sem credencial retornou HTTP 403. Não se comprovou cobertura individual de 2026.
-- API-Football e Sportmonks documentam estatísticas individuais por partida. Não foram consultadas com token. As permissões e diferenças estão em [DATA_SOURCES.md](DATA_SOURCES.md).
-- O catálogo StatsBomb Open Data foi inspecionado e não contém a competição brasileira pretendida. Isso não prova ausência no produto comercial.
+A revisão visual foi tentada com computer-use. O navegador integrado não estava disponível e o controle nativo encerrou por não identificar a URL com confiança para aplicar suas regras. Não foram realizados novos comandos de UI após o bloqueio. DOM, navegação, SVGs e estados têm testes, mas isso não certifica layout desktop/mobile ou acessibilidade completa.
 
-## Roadmap mantido
+## Continuidade
 
-| Fase | Estado real | Dependência de entrada |
-| --- | --- | --- |
-| 1. Pesquisa e descoberta | Pesquisa documentada; homologação pendente | Resolver os critérios abaixo |
-| 2. Inicialização da arquitetura | Não iniciada | Arquitetura proposta registrada; primeiro caso de uso e ambiente definidos |
-| 3. Engenharia de dados | Não iniciada | Fonte homologada, credencial autorizada, manifesto e semântica validados |
-| 4. Modelagem e persistência | Não iniciada | Granularidade e contrato Silver estabilizados |
-| 5. API | Não iniciada | Gold e PostgreSQL validados |
-| 6. React | Não iniciada | Contratos da API e cobertura disponíveis |
-| 7. Power BI | Não iniciada | Gold, licença para o produto e modelo dimensional definidos |
-| 8. Análises e documentação | Não iniciada como análise de resultados | Dados reais validados; documentação evolui desde a Fase 1 |
-| 9. Testes e qualidade | Não iniciada como suíte executável | Testes acompanham cada implementação desde a Fase 2 |
-| 10. Entrega final | Não iniciada | Requisitos essenciais comprovados; publicação depende de autorização |
-
-## Impedimentos e critérios de resolução
-
-| ID | Impedimento | Evidência exigida para resolver |
-| --- | --- | --- |
-| B1 | Nenhuma fonte homologada para todos os usos | Termos ou autorização para coletar, armazenar, transformar, exibir e usar em React/Power BI; esclarecer API pública, CSV e redistribuição |
-| B2 | Cobertura completa não comprovada | Relação das 19 partidas oficiais, IDs do fornecedor, status e dados de todos os atletas que atuaram; matriz por partida e métrica |
-| B3 | Credenciais e acesso ao histórico não disponíveis na pesquisa | Acesso autorizado ao plano que cubra 2026 e consulta real de amostras, sem contratar recursos automaticamente |
-| B4 | Semântica ainda depende da fonte | Minutos, assistências, cartões após o jogo, gols contra, desarmes e passes definidos e reconciliados |
-| B5 | Ambiente da stack ainda não preparado | Verificar compatibilidade e configurar dependências do projeto, PostgreSQL e execução; nenhuma instalação presumida pelo planejamento |
-
-## Próxima sequência concreta
-
-1. Priorizar a validação da Sportmonks como candidata, devido à documentação por atleta/partida e às condições explícitas de uso dentro de produtos. A escolha é uma recomendação de pesquisa, sem contratação ou homologação automática.
-2. Confirmar com documentação contratual os usos de API pública, exportação CSV, arquivo Power BI com dados embutidos, retenção histórica e repositório público. O registro de dúvidas está em DATA_SOURCES.md; nenhum contato foi enviado.
-3. Com acesso autorizado, confrontar a lista de partidas do fornecedor com a referência oficial, incluindo a rodada 4 adiada e a exclusão da rodada 20. Auditar amostras de titular, reserva utilizado e atleta sem atuação; depois verificar as 19 partidas.
-4. Registrar o aceite por métrica, cobertura e direitos. Não remover indicadores ou trocar o recorte se houver lacunas; informar indisponibilidade ou levar a decisão de escopo ao usuário.
-5. Iniciar a Fase 2 com uma fatia pequena: política de elegibilidade no domínio do pipeline, caso de uso de validação do manifesto e testes de recorte. Somente depois conectar uma fonte homologada na Fase 3.
-
-É possível preparar regras internas sem dados de produção em uma futura Fase 2 autorizada. A coleta e a apresentação de resultados permanecem dependentes de B1–B4. Esta tarefa se encerra na documentação da descoberta.
+Verificações e documentação desta ampliação foram concluídas dentro dos limites registrados. O próximo passo externo essencial será obter um artefato individual autorizado e auditar participações/identidades por partida nas 38 rodadas. Só então atualizar os registros revisados, executar o importador, conciliar métricas e validar o relatório no Power BI Desktop. Minutas não enviadas: [SOURCE_PERMISSION_REQUEST.md](SOURCE_PERMISSION_REQUEST.md).

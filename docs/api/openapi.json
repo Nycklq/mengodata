@@ -1,0 +1,1261 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Flamengo Analytics 2025",
+    "version": "0.2.0",
+    "description": "API local de análise individual. Fonte individual ainda não homologada. Referências auxiliares CC0 não comprovam cobertura estatística."
+  },
+  "servers": [{ "url": "http://127.0.0.1:3001" }],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "operationId": "health",
+        "summary": "health",
+        "description": "Saúde do processo ou contrato inicial de prontidão individual.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/metadata": {
+      "get": {
+        "operationId": "metadata",
+        "summary": "metadata",
+        "description": "Saúde do processo ou contrato inicial de prontidão individual.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/data-quality": {
+      "get": {
+        "operationId": "data-quality",
+        "summary": "data-quality",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/references": {
+      "get": {
+        "operationId": "references",
+        "summary": "references",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/dashboard/summary": {
+      "get": {
+        "operationId": "dashboard_summary",
+        "summary": "dashboard/summary",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/summary": {
+      "get": {
+        "operationId": "summary",
+        "summary": "summary",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/players": {
+      "get": {
+        "operationId": "players",
+        "summary": "players",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "default": 1
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 20 }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "display_name",
+                "position",
+                "matches",
+                "starts",
+                "minutes",
+                "goals",
+                "assists",
+                "shots",
+                "shots_on_target",
+                "tackles",
+                "interceptions",
+                "clearances",
+                "blocks",
+                "passes_completed",
+                "passes_attempted",
+                "yellow_cards",
+                "red_cards",
+                "xg",
+                "xa",
+                "contributions",
+                "goals_per90",
+                "assists_per90",
+                "contributions_per90",
+                "conversion_pct",
+                "pass_accuracy_pct"
+              ],
+              "default": "display_name"
+            }
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["asc", "desc"], "default": "asc" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/players/{id}": {
+      "get": {
+        "operationId": "players_id",
+        "summary": "players/{id}",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "404": { "description": "Jogador não encontrado em dataset disponível." },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/players/{id}/stats": {
+      "get": {
+        "operationId": "players_id_stats",
+        "summary": "players/{id}/stats",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "404": { "description": "Jogador não encontrado em dataset disponível." },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/rankings": {
+      "get": {
+        "operationId": "rankings",
+        "summary": "rankings",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "matches",
+                "starts",
+                "minutes",
+                "goals",
+                "assists",
+                "shots",
+                "shots_on_target",
+                "tackles",
+                "interceptions",
+                "clearances",
+                "blocks",
+                "passes_completed",
+                "passes_attempted",
+                "yellow_cards",
+                "red_cards",
+                "xg",
+                "xa",
+                "contributions",
+                "goals_per90",
+                "assists_per90",
+                "contributions_per90",
+                "conversion_pct",
+                "pass_accuracy_pct"
+              ]
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/rankings/goals": {
+      "get": {
+        "operationId": "rankings_goals",
+        "summary": "rankings/goals",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "matches",
+                "starts",
+                "minutes",
+                "goals",
+                "assists",
+                "shots",
+                "shots_on_target",
+                "tackles",
+                "interceptions",
+                "clearances",
+                "blocks",
+                "passes_completed",
+                "passes_attempted",
+                "yellow_cards",
+                "red_cards",
+                "xg",
+                "xa",
+                "contributions",
+                "goals_per90",
+                "assists_per90",
+                "contributions_per90",
+                "conversion_pct",
+                "pass_accuracy_pct"
+              ]
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/rankings/assists": {
+      "get": {
+        "operationId": "rankings_assists",
+        "summary": "rankings/assists",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "matches",
+                "starts",
+                "minutes",
+                "goals",
+                "assists",
+                "shots",
+                "shots_on_target",
+                "tackles",
+                "interceptions",
+                "clearances",
+                "blocks",
+                "passes_completed",
+                "passes_attempted",
+                "yellow_cards",
+                "red_cards",
+                "xg",
+                "xa",
+                "contributions",
+                "goals_per90",
+                "assists_per90",
+                "contributions_per90",
+                "conversion_pct",
+                "pass_accuracy_pct"
+              ]
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/rankings/contributions": {
+      "get": {
+        "operationId": "rankings_contributions",
+        "summary": "rankings/contributions",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "matches",
+                "starts",
+                "minutes",
+                "goals",
+                "assists",
+                "shots",
+                "shots_on_target",
+                "tackles",
+                "interceptions",
+                "clearances",
+                "blocks",
+                "passes_completed",
+                "passes_attempted",
+                "yellow_cards",
+                "red_cards",
+                "xg",
+                "xa",
+                "contributions",
+                "goals_per90",
+                "assists_per90",
+                "contributions_per90",
+                "conversion_pct",
+                "pass_accuracy_pct"
+              ]
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/analytics/offensive": {
+      "get": {
+        "operationId": "analytics_offensive",
+        "summary": "analytics/offensive",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "matches",
+                "starts",
+                "minutes",
+                "goals",
+                "assists",
+                "shots",
+                "shots_on_target",
+                "tackles",
+                "interceptions",
+                "clearances",
+                "blocks",
+                "passes_completed",
+                "passes_attempted",
+                "yellow_cards",
+                "red_cards",
+                "xg",
+                "xa",
+                "contributions",
+                "goals_per90",
+                "assists_per90",
+                "contributions_per90",
+                "conversion_pct",
+                "pass_accuracy_pct"
+              ]
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/analytics/defensive": {
+      "get": {
+        "operationId": "analytics_defensive",
+        "summary": "analytics/defensive",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "matches",
+                "starts",
+                "minutes",
+                "goals",
+                "assists",
+                "shots",
+                "shots_on_target",
+                "tackles",
+                "interceptions",
+                "clearances",
+                "blocks",
+                "passes_completed",
+                "passes_attempted",
+                "yellow_cards",
+                "red_cards",
+                "xg",
+                "xa",
+                "contributions",
+                "goals_per90",
+                "assists_per90",
+                "contributions_per90",
+                "conversion_pct",
+                "pass_accuracy_pct"
+              ]
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/analytics/positions": {
+      "get": {
+        "operationId": "analytics_positions",
+        "summary": "analytics/positions",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/analytics/distribution": {
+      "get": {
+        "operationId": "analytics_distribution",
+        "summary": "analytics/distribution",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "matches",
+                "starts",
+                "minutes",
+                "goals",
+                "assists",
+                "shots",
+                "shots_on_target",
+                "tackles",
+                "interceptions",
+                "clearances",
+                "blocks",
+                "passes_completed",
+                "passes_attempted",
+                "yellow_cards",
+                "red_cards",
+                "xg",
+                "xa",
+                "contributions",
+                "goals_per90",
+                "assists_per90",
+                "contributions_per90",
+                "conversion_pct",
+                "pass_accuracy_pct"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/statistics": {
+      "get": {
+        "operationId": "statistics",
+        "summary": "statistics",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/compare": {
+      "get": {
+        "operationId": "compare",
+        "summary": "compare",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Dois UUIDs distintos separados por vírgula"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resposta válida, inclusive estado indisponível.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsEnvelope" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/exports/players": {
+      "get": {
+        "operationId": "exports_players",
+        "summary": "exports/players",
+        "description": "Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "maxLength": 100 }
+          },
+          {
+            "name": "position",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["goalkeeper", "defender", "midfielder", "forward", "unknown"]
+            }
+          },
+          {
+            "name": "min_minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "CSV autorizado; nulos vazios, UTF-8 e células protegidas contra fórmulas.",
+            "content": { "text/csv": { "schema": { "type": "string" } } }
+          },
+          "400": { "$ref": "#/components/responses/InvalidQuery" },
+          "409": {
+            "description": "EXPORT_NOT_AUTHORIZED: sem fonte ou direitos específicos de exportação."
+          },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalyticsEnvelope": {
+        "type": "object",
+        "required": [
+          "schema_version",
+          "scope",
+          "availability",
+          "reason",
+          "coverage",
+          "dataset_version",
+          "source"
+        ],
+        "properties": {
+          "schema_version": { "const": 1 },
+          "scope": {
+            "const": {
+              "competition_id": "competition:brasileirao-serie-a-men",
+              "season": 2025,
+              "team_id": "club:flamengo",
+              "first_round": 1,
+              "last_round": 38
+            }
+          },
+          "availability": { "enum": ["unavailable", "partial", "available"] },
+          "reason": { "type": ["string", "null"] },
+          "coverage": { "type": ["object", "null"] },
+          "dataset_version": { "type": ["string", "null"] },
+          "source": { "type": ["object", "null"] },
+          "data": {
+            "description": "Objeto, lista ou null conforme o recurso. Valores desconhecidos permanecem null; listas vazias não representam zeros esportivos.",
+            "type": ["object", "array", "null"]
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": ["code"],
+            "properties": { "code": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "responses": {
+      "InvalidQuery": {
+        "description": "INVALID_QUERY: parâmetro, UUID, limite ou ordenação inválida.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": ["error"],
+              "properties": {
+                "error": {
+                  "type": "object",
+                  "required": ["code"],
+                  "properties": { "code": { "type": "string" } }
+                }
+              }
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "RATE_LIMITED: máximo de 300 requisições por IP em 60 segundos, processo local.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": ["error"],
+              "properties": {
+                "error": {
+                  "type": "object",
+                  "required": ["code"],
+                  "properties": { "code": { "type": "string" } }
+                }
+              }
+            }
+          }
+        },
+        "headers": {
+          "Retry-After": {
+            "schema": { "type": "integer" },
+            "description": "Segundos até nova tentativa"
+          }
+        }
+      },
+      "InternalError": {
+        "description": "INTERNAL_ERROR: falha interna sem exposição de detalhes.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": ["error"],
+              "properties": {
+                "error": {
+                  "type": "object",
+                  "required": ["code"],
+                  "properties": { "code": { "type": "string" } }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

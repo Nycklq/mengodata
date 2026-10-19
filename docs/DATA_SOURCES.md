@@ -1,129 +1,85 @@
-# Pesquisa e validação de fontes
+# Fontes de 2025 — pesquisa e homologação
 
-Consulta: 19/10/2026. Escopo: estatísticas individuais pelo Flamengo na Série A masculina de 2026, rodadas oficiais 1 a 19. **Nenhuma fonte está homologada para alimentar a plataforma.** Este documento distingue evidência de existência, capacidade documentada, cobertura auditada e permissão de uso.
+Consulta: 19/10/2026. Universo: atuações pelo Flamengo, Série A masculina/2025, rodadas oficiais 1 a 38. **OpenFootball aprovado somente para referências auxiliares de partidas e resultados; nenhuma fonte individual está homologada.** A pesquisa de 2026 foi preservada no [histórico](history/2026/DATA_SOURCES.md) e não comprova cobertura atual.
 
-## Método e níveis de evidência
+A decisão por finalidade e por direito de uso está em [SOURCE_APPROVAL.md](SOURCE_APPROVAL.md), os diagnósticos em [DATA_QUALITY.md](DATA_QUALITY.md), e a evidência reproduzível em [source-audit-2025.json](evidence/source-audit-2025.json). Aprovação técnica, permissão documental e execução de ingestão são estados distintos. A integração posterior nesta execução usa somente as 38 referências auxiliares OpenFootball CC0, com hash revisado. Nenhuma observação individual foi incorporada ao produto ou banco.
 
-Foram pesquisadas páginas dos próprios fornecedores e entidades, documentação técnica, termos, catálogo público e uma amostra oficial. Não foram usados blogs de terceiros como comprovação técnica. Não houve scraping em escala, contorno de bloqueios, autenticação com credenciais, contratação ou contato com fornecedores.
+## Evidência e decisão
 
-- **Observado:** conteúdo efetivamente lido em arquivo/página ou retornado por uma consulta. Quando apenas conteúdo indexado ficou acessível, isso é identificado.
-- **Documentado:** capacidade descrita pelo fornecedor, ainda sem validar a resposta para Flamengo/2026.
-- **Não comprovado:** cobertura, semântica ou direito sem evidência suficiente nesta pesquisa.
-- **Homologado:** exigiria comprovar acesso, direitos, recorte, cobertura e semântica. Nenhuma linha alcançou esse estado.
+Observado significa conteúdo efetivamente lido ou resposta obtida. Documentado significa capacidade descrita pelo fornecedor, sem validar Flamengo/2025. Homologação exige direitos, proveniência, correspondência oficial, cobertura por atuação e semântica. Calendário, arquivo de rodada ou resposta HTTP não bastam.
 
-Os termos foram avaliados para orientar a escolha da fonte; não se presume que acesso público ou assinatura autorizem todos os usos. Estatísticas, fotografias, escudos, banco bruto, resultados derivados, API pública e exportações precisam de avaliação própria.
-
-## Comparação das fontes
-
-| Fonte | Disponibilidade e cobertura de 2026 | Granularidade e rodada | Coleta possível | Direitos e conclusão |
+| Fonte | Evidência de 2025 e granularidade | Flamengo, rodada e IDs | Cobertura e limitações | Decisão |
 | --- | --- | --- | --- | --- |
-| CBF; súmula disponibilizada pela FERJ | Tabela oficial lida; uma súmula de 2026 inspecionada. Demais súmulas não auditadas | Número de jogo e rodada oficial; atletas e eventos na amostra | Consulta documental; automação/importação dependem de permissão | Termos CBF restritivos; espelho FERJ não concede licença adicional. Referência de conferência, sem liberação de ingestão |
-| FBref / Sports Reference | Logs individuais de 2026 observados em conteúdo indexado; universo completo não auditado | Atleta × partida, clube, competição e Matchweek | Consulta/exportação somente nos limites autorizados | Política exige permissão para produtos baseados em coleta. Dados avançados sofreram retirada. Não aprovado |
-| Football-data.org | Série A brasileira consta na cobertura; resposta de partidas 2026 sem chave retornou 403 | Partida, `matchday`, competição/temporada; eventos e escalações conforme acesso | API v4 autenticada | Uso condicionado a cadastro, plano e atribuição; exportação e redistribuição precisam ser esclarecidas. Candidata a metadados e eventos, não comprovada para a base individual |
-| API-Football / API-Sports | Série A brasileira consta na cobertura; flags e respostas de 2026 não verificadas com token | Fixtures com rodada e estatísticas individuais por fixture documentadas | API v3 com chave | Acesso à API não concede por si licença de publicação. Candidata técnica condicionada a direitos e amostras |
-| Sportmonks | Página do produto identifica temporada 2026; dados de atletas do Flamengo não consultados | Fixture, `round_id`, atleta e clube em `lineups.details` documentados | API v3 com token e plano adequado | Uso dentro de produto é previsto; feed e revenda exigem autorização. Prioridade para próxima validação, sem contratação |
-| StatsBomb Open Data / Hudl | Catálogo público inspecionado: sem a competição brasileira pretendida | JSON por competição/temporada, partida, escalação e evento | Arquivos públicos do repositório | Acordo específico de pesquisa, com restrições. Não atende o recorte no catálogo consultado |
+| OpenFootball football.json | JSON efetivamente lido: 380 partidas, 38 do Flamengo e placares registrados; licença CC0 presente | round, date, time, team1, team2 e score; sem ID nativo/CBF, fuso ou atletas | Cobertura estrutural 1..38; rodada 12 permanece em novembro; conciliação oficial integral pendente | Aprovado como referência auxiliar, com ingestão/publicação permitidas pela CC0 para esse conjunto; não aprova estatísticas individuais |
+| jhonatasjgr/brasileirao-2025 | CSV consolidado e amostras brutas lidos em revisão fixa; snapshots de Cartola | FLA/262, atleta e rodada; sem partida oficial, adversário, data, competição ou coluna temporada | 38 rótulos, técnicos e não participantes; scouts acumulados e nulos; faltam minutos/titularidades | Não homologar na forma atual; auditoria detalhada abaixo |
+| henriquepgomide/caRtola | Árvore 2025 com 38 arquivos; amostras 1 e 38 lidas | Mesmos hashes dessas amostras do candidato; não é corroboração independente | MIT existe para software; cadeia de direitos do dado Cartola não comprovada | Não homologado como dataset do produto |
+| CBF | Cinco referências anteriores preservadas e nova referência indexada da rodada 22 | Competição/ano/rodada/nº oficial e eventos do site; escalações em páginas indexadas | Aberturas diretas falharam; 38 súmulas e atuações não auditadas | Referência de conciliação; ingestão não liberada |
+| FBref / Sports Reference | Calendário c24 de 2025 e logs individuais de Joshua, Allan e Gerson no índice | Atleta × partida, Squad, Matchweek e links de relatório | Conteúdo indexado; abertura direta falhou; conjunto completo não auditado; dados avançados retirados | Candidato técnico, condicionado a permissão e cobertura |
+| Football-data.org | Cobertura BSA documentada; consulta de partidas season=2025 sem token retornou 403 | IDs de competição/temporada/partida e matchday documentados | Nenhuma resposta autenticada; estatísticas de equipe não equivalem a jogador × partida | Candidato de metadados/eventos, base individual não comprovada |
+| API-Football | Série A na cobertura e estatísticas por fixture documentadas | Atleta/time/fixture e rodadas; IDs reais de 2025 ainda não auditados | Sem token, flags de cobertura ou amostras de 38 jogos | Candidato condicionado a cobertura e autorizações |
+| Sportmonks | Oferta Brasileirão e temporadas históricas; estatísticas individuais por fixture documentadas | round_id, fixture, atleta e clube em lineups.details | Sem token; season_id de 2025 e dados do Flamengo não comprovados | Prioridade de avaliação contratual/técnica, sem contratação |
+| StatsBomb / Hudl Open Data | Catálogo público lido: 80 entradas, nenhuma Brazil | Catálogo não contém o recorte pretendido | Não atende Série A brasileira de 2025 no catálogo consultado | Inadequado para este recorte; produto comercial não avaliado |
 
-## CBF e FERJ
+## Repositórios públicos e Cartola
 
-A evidência de partidas, os documentos e o caso adiado estão em [ROUND_SCOPE.md](ROUND_SCOPE.md). A súmula contém registros CBF dos atletas, relação titular/reserva, gols, cartões e substituições. Não apresenta assistências, finalizações, passes, desarmes, interceptações, cortes, bloqueios, xG ou xA. Minutos individuais exigiriam derivação e convenção auditada; não são um campo pronto da amostra.
+Nesta revisão foram lidos os 78 CSVs disponíveis: 38 brutos, 38 processados, resumo e consolidado; também README da base, notebook, README principal e helper, sem executar código remoto. Os 38 brutos são idênticos aos do caRtola na revisão fixa conferida, conforme [comparação de hashes](evidence/cartola-upstream-comparison.json). A árvore do candidato continua sem instrumento de licença e o endpoint GitHub de licença retornou 404. A relação de campos e tipos está no relatório JSON; a proveniência de extração e os direitos originais do Cartola continuam pendentes.
 
-Os [termos da CBF](https://www.cbf.com.br/termos-de-uso), versão indicada 1.0 de 15/07/2022, incluem restrições à cópia, reprodução e alteração do conteúdo e à utilização de material protegido sem autorização. O conteúdo foi acessível via índice de pesquisa; a abertura direta falhou. Consulta Python adicional falhou na validação de certificado, sem desativar TLS. Decisão conservadora do projeto: não automatizar nem distribuir esse conteúdo sem esclarecer os direitos. Não foi identificada licença aberta para o dataset desejado.
+A [auditoria reproduzível](SOURCE_AUDIT_2025.md) registra revisão, hashes, contagens e limitações do [candidato](https://github.com/jhonatasjgr/brasileirao-2025). O README menciona MIT, mas a árvore completa não contém LICENSE e a API GitHub de licença retornou 404. Isso é divergência documental, não uma licença comprovada. Não foram reutilizados seu código, notebook ou API no produto.
 
-A [página da FERJ](https://www.fferj.com.br/partidas/3662) vincula a súmula hospedada no domínio `ferj360.com.br`. A disponibilização institucional reforça a procedência da amostra, mas não comprova autorização para redistribuição. Não houve verificação criptográfica das assinaturas mencionadas no PDF.
+[caRtola](https://github.com/henriquepgomide/caRtola) declara extração do Cartola e contém [licença MIT](https://github.com/henriquepgomide/caRtola/blob/17832580475259b8999649ced88c8694c89372e1/LICENSE). O texto licencia software/documentação; não demonstra que seus autores podem sublicenciar todos os dados ou imagens de terceiros. A [documentação do GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) distingue publicação de repositório e concessão de licença.
 
-## FBref / Sports Reference
+O [termo Cartola encontrado](https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml) veda extração automatizada e reprodução/armazenamento/distribuição não autorizados. A página ainda se refere a 2024: é evidência de restrição, sem estabelecer qual versão contratual regeu a coleta de 2025. Exigir autorização e cadeia de procedência. Nenhum endpoint Globo foi chamado nesta tarefa. GitHub público e MIT de software não resolvem essa lacuna.
 
-Foram encontrados [logs de Samuel Lino na Série A de 2026](https://fbref.com/en/players/2a295d33/matchlogs/2026/c24/summary/Samuel-Lino-Match-Logs) e o [calendário do Flamengo de 2026](https://fbref.com/en/squads/639950ae/2026/matchlogs/all_comps/schedule/Flamengo-Scores-and-Fixtures-All-Competitions). Conteúdo indexado mostra rodada, clube, minutos, gols, assistências, finalizações e cartões por partida. A abertura direta não funcionou; não houve download de tabela nem auditoria de todos os jogadores. Cabeçalho de coluna não prova preenchimento integral. IDs de partida dos links ainda precisam ser inspecionados e conciliados com a CBF.
+## CBF
 
-A [Sports Reference anunciou em 20/01/2026 a retirada dos dados avançados](https://www.sports-reference.com/blog/2026/01/fbref-stathead-data-update/), conforme conteúdo também acessível no [arquivo oficial do blog](https://www.sports-reference.com/blog/category/general/). Não assumir a antiga cobertura de xG, xA ou passes em 2026.
+As páginas e os números oficiais estão em [ROUND_SCOPE.md](ROUND_SCOPE.md). Calendário/escalação ajudam na identificação; não demonstram passes, desarmes ou minutos homologados de todos os atletas. As súmulas de 2026 da pesquisa anterior não são evidência de métricas de 2025.
 
-A [política de uso de dados](https://sportsreference.net/data_use.html), consultada por conteúdo indexado, condiciona produtos baseados em coleta à permissão e informa limitações de redistribuição. Os [termos oficiais](https://www.sports-reference.com/termsofuse.html) complementam essa política. Exportação manual disponível no site não equivale a autorização para API, CSV público ou relatório com base embutida. Fonte não aprovada sem autorização adequada.
+Os [termos CBF](https://www.cbf.com.br/termos-de-uso), acessíveis pelo índice, restringem reprodução/alteração de conteúdo sem autorização; abertura direta falhou. Não foi encontrada licença aberta para a base individual necessária. Não automatizar coleta ou distribuir arquivos com base apenas na consulta pública.
 
-## Football-data.org
+Foi localizada a [publicação oficial da tabela básica de 2025](https://www.cbf.com.br/futebol-brasileiro/noticias/competicoes-campeonato-brasileiro-serie-a/a/cbf-divulga-documentos-tecnicos-do-brasileirao-2025), de 12/02/2025, que anuncia as 38 rodadas. A abertura direta falhou; não foram obtidos ou auditados os PDFs anexos. O anúncio de uma tabela básica não comprova datas realizadas, resultados ou escalações. Nenhum ID ausente foi inferido da ordem do JSON ou da sequência dos eventos CBF.
 
-A [cobertura oficial](https://www.football-data.org/coverage) inclui a Série A brasileira. A [tabela oficial de códigos](https://docs.football-data.org/general/v4/lookup_tables.html) identifica `BSA`, competição `2013`; não confundir com `SA`, da Itália. A [documentação de partidas](https://docs.football-data.org/general/v4/match.html) descreve IDs, competição, temporada, rodada, clubes e eventos. Estatísticas sob os clubes são da equipe, não de cada jogador.
+## OpenFootball
 
-A [documentação de competições](https://docs.football-data.org/general/v4/competition.html) permite consultar partidas por temporada/rodada. O ranking de artilheiros, inclusive quando filtrável por rodada, não fornece a base completa de atuações necessária ao projeto. Não usar esse ranking como substituto de atleta × partida.
+Revisão fixa [e6744429ee395bc86f247348c6184bb08d4eb361](https://github.com/openfootball/football.json/tree/e6744429ee395bc86f247348c6184bb08d4eb361), commit declarado em 22/09/2026. Foram lidos [2025/br.1.json](https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/2025/br.1.json), README e [LICENSE.md](https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md). Coleta de auditoria em 19/10/2026, 18:46 UTC; hashes no registro de aprovação.
 
-Foi feita uma única chamada sem token a `https://api.football-data.org/v4/competitions/BSA/matches?season=2026`: **HTTP 403**, com mensagem de recurso restrito. Isso comprova apenas a recusa sem credencial, não ausência da temporada. Nenhuma resposta autenticada foi testada.
+O README declara dados, schema e scripts sob dedicação ao domínio público e descreve geração a partir de Football.TXT. LICENSE.md contém CC0 1.0 Universal. A [Creative Commons](https://creativecommons.org/publicdomain/zero/1.0/) permite cópia, adaptação e redistribuição dos direitos abrangidos, sem garantir direitos de terceiros, marcas, imagem ou endosso. A aprovação documental limita-se aos metadados desse arquivo; não cobre conteúdos CBF ou Cartola, escudos/fotos ou estatísticas inexistentes.
 
-Os [termos publicados no cadastro](https://www.football-data.org/client/register), datados de 01/06/2018, condicionam uso a cadastro/plano, chave individual por aplicação, uso adequado e atribuição visível. Não estabelecem nessa leitura autorização clara para redistribuir uma base aberta; confirmar API pública, CSV, Power BI e retenção. Não houve cadastro.
+Os 38 registros do Flamengo foram preservados no inventário de auditoria com localizador JSON, rodada declarada, data, horário original e placar. O localizador /matches/N só identifica a posição nessa revisão fixa: não é ID oficial nem identificador nativo estável. Números oficiais, IDs CBF e fuso permanecem nulos. A cobertura oficial/individual permanece não verificada. Não se produziu manifesto v2 com números ou timestamps inventados.
 
-## API-Football / API-Sports
+## FBref
 
-A [cobertura](https://www.api-football.com/coverage) lista Brazil/Serie A. Ícones da tabela não foram usados para afirmar cobertura de métricas. O [guia oficial](https://www.api-football.com/news/post/how-to-get-started-with-api-football-the-complete-beginners-guide) e a [referência v3](https://www.api-football.com/documentation-v3) descrevem `/leagues`, `/fixtures/rounds`, `/fixtures` e `/fixtures/players`. O último liga atletas e estatísticas a uma partida; `/players` agregado da temporada não substitui esse recurso. O guia documenta minutos, gols, assistências, chutes, passes, ações defensivas e cartões. Campos opcionais ou nulos exigem auditoria; não presumir passes completos a partir de uma precisão arredondada.
+Verificados no índice o [calendário específico Série A/2025](https://fbref.com/en/squads/639950ae/2025/matchlogs/c24/schedule/Flamengo-Scores-and-Fixtures-Serie-A) e logs de [Joshua](https://fbref.com/en/players/04347cef/matchlogs/2025/c24/summary/Joshua-Match-Logs), [Allan](https://fbref.com/en/players/b15e93aa/matchlogs/2025/c24/summary/Allan-Match-Logs) e [Gerson](https://fbref.com/en/players/8827bf46/matchlogs/2025/c24/). Mostram clube, rodada, participação, minutos, gols, assistências, chutes e cartões em amostras. Colunas e amostras não provam preenchimento universal.
 
-Nenhuma chave foi usada. Permanecem pendentes: IDs reais da competição/clube/temporada, flags de cobertura para 2026, respostas das 19 partidas e semântica dos campos.
+A [política de dados](https://sportsreference.net/data_use.html) exige permissão para produtos baseados em coleta e informa restrições de redistribuição. Exportação manual não libera automaticamente API/CSV/Power BI. O [anúncio de 20/01/2026](https://www.sports-reference.com/blog/2026/01/fbref-stathead-data-update/) confirma remoção de dados avançados; mudar para uma temporada histórica não garante que esses campos permaneçam disponíveis. Não houve scraping ou contorno de proteção.
 
-Os [termos, atualizados em 21/05/2025](https://www.api-football.com/terms), proíbem revenda direta sem permissão e afirmam que o serviço não concede licença para publicação; eventuais direitos de terceiros devem ser obtidos pelo usuário. Logo, um plano pago não resolve automaticamente os direitos do projeto. Sem liberação de publicação nesta fase.
+## APIs legítimas
 
-## Sportmonks
+Football-data.org: [cobertura](https://www.football-data.org/coverage), [partidas v4](https://docs.football-data.org/general/v4/match.html), [códigos BSA/2013](https://docs.football-data.org/general/v4/lookup_tables.html) e [termos do cadastro](https://www.football-data.org/client/register). Consulta única https://api.football-data.org/v4/competitions/BSA/matches?season=2025: HTTP 403 sem token. Isso comprova recusa de acesso, não inexistência da temporada. Ranking anual de artilheiros não fornece a base completa de atuações.
 
-A [página oficial do Brasileirão](https://www.sportmonks.com/football-api/brasileirao-api/) identifica a temporada 2026 como `26763` e oferece exemplo de calendário. O texto comercial ainda menciona calendário de abril a dezembro, incompatível com o início em janeiro constatado nos documentos oficiais de 2026. Portanto, essa página é evidência da oferta do produto, sem autoridade para redefinir o recorte ou confirmar completude.
+API-Football: [guia oficial](https://www.api-football.com/news/post/how-to-get-started-with-api-football-the-complete-beginners-guide), [documentação v3](https://www.api-football.com/documentation-v3), [cobertura](https://www.api-football.com/coverage) e [termos](https://www.api-football.com/terms). Fixtures/players é o grão candidato; players agregado anual não basta. Os termos vedam revenda direta sem permissão e não concedem licença de publicação: direitos adicionais devem ser esclarecidos com os titulares. Não houve autenticação.
 
-O [tutorial técnico de estatísticas](https://docs.sportmonks.com/v3/tutorials-and-guides/tutorials/statistics/fixture-statistics) distingue estatísticas de equipe em `statistics` de estatísticas individuais em `lineups.details.type`; os exemplos vinculam fixture, atleta e clube. `round_id` deve ser resolvido para a rodada e confrontado com a referência oficial. Exemplos de outras ligas não comprovam preenchimento no Flamengo/2026.
+Sportmonks: [produto Brasileirão](https://www.sportmonks.com/football-api/brasileirao-api/), [temporadas históricas](https://www.sportmonks.com/glossary/seasons/), [estatísticas por fixture](https://docs.sportmonks.com/v3/tutorials-and-guides/tutorials/statistics/fixture-statistics), [termos](https://www.sportmonks.com/terms-of-service/) e [uso dos dados](https://www.sportmonks.com/integrity-support/). A documentação distingue statistics de equipe de lineups.details individual. A política prevê cache e apresentação dentro de produto e exige aprovação escrita para feed. Não transportar o ID da temporada 2026 para 2025. Nenhuma assinatura ou cobertura individual foi validada.
 
-Os [termos](https://www.sportmonks.com/terms-of-service/) permitem construir produtos com os dados e vedam revenda sem aprovação. A [página de integridade e uso](https://www.sportmonks.com/integrity-support/) explicita armazenamento, apresentação e distribuição dentro do produto, condicionando redistribuição como feed à aprovação escrita. A API pública planejada e os downloads exigem esclarecer essa fronteira. Não há token, assinatura ou aprovação obtida nesta tarefa. Priorizar uma avaliação autenticada e contratual; não considerar a fonte homologada.
+## Permissões necessárias
 
-## StatsBomb Open Data / Hudl
+P = pendente de comprovação/autorização para este projeto. C = capacidade contratual genérica condicionada a plano e direitos, ainda não aprovada para Flamengo/2025. A matriz se refere ao uso no produto, além da inspeção pontual desta pesquisa.
 
-O [repositório oficial](https://github.com/hudl/open-data) descreve dados por partida e eventos. O [catálogo consultado](https://raw.githubusercontent.com/statsbomb/open-data/master/data/competitions.json) teve 80 entradas e nenhuma com país Brazil; não foi localizada a Série A brasileira de 2026. A verificação limitou-se ao catálogo público, sem consulta ao produto comercial.
+| Fonte | Coleta | Armazenamento local | Transformação | Publicação de indicadores | API | CSV | Power BI e distribuição |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| OpenFootball / referências auxiliares CC0 | Permitido | Permitido | Permitido | Permitido somente para os metadados existentes | Permitido para esses metadados | Permitido para esses metadados | Permitido para esses metadados |
+| Candidato GitHub / dados Cartola | P | P | P | P | P | P | P |
+| caRtola / dados de terceiros | P | P | P | P | P | P | P |
+| CBF | P | P | P | P | P | P | P |
+| FBref | P | P | P | P | P | P | P |
+| Football-data.org | C | P | P | P | P | P | P |
+| API-Football | C | P | P | P | P | P | P |
+| Sportmonks | C | C | C | C | P | P | P |
+| StatsBomb Open Data | Fora do recorte | Fora do recorte | Fora do recorte | Fora do recorte | Fora do recorte | Fora do recorte | Fora do recorte |
 
-O [acordo de uso](https://github.com/hudl/open-data/blob/master/LICENSE.pdf), lido nas cinco páginas, indica atualização em 08/09/2023. Prevê pesquisa e divulgação de análises com atribuição/logo, restringe exploração comercial e fornecimento do dado a terceiros. Não é uma licença permissiva genérica como MIT ou CC0. Mesmo que tivesse o recorte, seria necessário compatibilizar distribuição e usos do projeto. Não usar jogos de outras competições como substituição.
+StatsBomb: [catálogo](https://raw.githubusercontent.com/hudl/open-data/master/data/competitions.json) consultado novamente. A licença específica de pesquisa e suas restrições foram lidas na fase anterior; não foi reaberto o PDF nesta execução e isso não homologa qualquer uso de 2025.
 
-GitHub é hospedagem, não garantia de origem ou licença. Nenhum outro repositório, dataset Kaggle ou base acadêmica foi homologado. A pesquisa não demonstra inexistência universal de alternativas abertas.
+## Condições para avançar
 
-## Matriz inicial de indicadores
+Para a base individual, obter evidência escrita de proveniência e usos permitidos, inclusive retenção após cancelamento, atribuição, API pública, CSV e arquivo Power BI com dados importados. Confirmar imagens separadamente. Auditar as 38 partidas, jogadores transferidos, ocorrências tardias e cobertura por métrica. Resolver scouts acumulados, faltas, critérios de assistência/minutagem e revisões. Os pedidos escritos estão preparados em [SOURCE_PERMISSION_REQUEST.md](SOURCE_PERMISSION_REQUEST.md), sem envio.
 
-Legenda: **A** = observado na amostra oficial; **I** = observado em conteúdo indexado do FBref; **D** = capacidade técnica genérica documentada, sem validar 2026; **R** = possível derivação sujeita a dados/semântica; **NC** = não comprovado; **—** = ausente da amostra consultada. Nenhuma marca representa liberação para produção. StatsBomb não entra nas colunas porque não cobre o recorte no catálogo.
-
-| Indicador / unidade | CBF/FERJ | FBref | Football-data.org | API-Football | Sportmonks |
-| --- | --- | --- | --- | --- | --- |
-| Identidade do atleta / ID e nome | A | I | D | D | D |
-| Posição / categoria | NC | I | D | D | D |
-| Clube da atuação, competição e temporada / IDs | A | I | D | D | D |
-| Partida e rodada / ID e inteiro | A | I; ID a conferir | D | D | D |
-| Aparições / partidas com atuação | R | R | R | R | R |
-| Titularidades / partidas | A | I | D | D | D |
-| Minutos / minuto | R | I | R | D | D |
-| Gols / contagem | A | I | D | D | D |
-| Assistências / contagem | — | I | D | D | D |
-| G+A, G90, A90, GA90 / contagem ou por 90 min | R, depende de assistências | R | R | R | R |
-| Finalizações e no alvo / contagem individual | — | I | NC; exemplo é de equipe | D | D, tipos a auditar |
-| Passes tentados e corretos / contagem individual | — | NC | NC | D; confirmar componentes | D; confirmar tipos |
-| Precisão de passes / percentual | — | NC | NC | R | R |
-| Desarmes / contagem | — | NC; TklW não é sinônimo automático | NC | D | D |
-| Interceptações / contagem | — | I | NC | D | D |
-| Cortes e bloqueios / contagem individual | — | NC | NC | NC | D; confirmar nível individual |
-| Amarelos e vermelhos / contagem | A | I | D | D | D |
-| xG e xA / expectativa de gols/assistências | — | NC após retirada | NC | NC no nível individual do recorte | NC no nível individual do recorte |
-| Conversão / percentual | R, faltam finalizações | R | NC | R | R |
-
-Todas as métricas derivadas dependem também de cobertura compatível do numerador e denominador. Coluna inexistente, campo nulo e não participação são situações diferentes. Não interpretar NC como zero nem como prova de que o fornecedor jamais oferece o campo.
-
-## Perguntas de homologação ainda sem resposta
-
-1. O plano permite recuperar as 19 partidas, inclusive a rodada 4 remarcada, e todos os atletas que atuaram pelo Flamengo, inclusive transferidos?
-2. Quais métricas têm cobertura por atleta × partida em cada jogo? Há correções posteriores, campos nulos ou definições especiais?
-3. São permitidos Bronze local, PostgreSQL, cálculos Gold, publicação de indicadores, API JSON pública e CSV filtrado? A API do projeto é considerada feed de redistribuição?
-4. São permitidos relatório Power BI com dados importados, compartilhamento do arquivo e publicação acadêmica? Quais exigências de atribuição existem?
-5. É permitido disponibilizar dados brutos ou derivados no GitHub? Quais limites de cache, retenção após cancelamento, atualização e exclusão se aplicam?
-6. Quais permissões adicionais se aplicam a fotografias, escudos e competições? A autorização cobre o propósito acadêmico e o portfólio público planejados?
-
-Nenhuma mensagem foi enviada. Não foram assumidos preços ou orçamento; eventual contratação depende de autorização explícita.
-
-## Registro de acessibilidade e reprodução
-
-Páginas da CBF e do FBref tiveram falhas de abertura pela ferramenta web; as evidências indexadas foram identificadas acima. Os PDFs institucionais foram obtidos por HTTPS normal e conferidos localmente. A documentação interativa v3 do API-Football não forneceu texto extraível; o guia oficial fundamenta as capacidades descritas. As APIs comerciais não foram testadas com autenticação. Falha de acesso não prova ausência de dados.
-
-Os originais de inspeção ficaram em diretório temporário fora do repositório, sem criação de Bronze ou redistribuição dos arquivos. Estes hashes identificam exatamente as versões consultadas:
-
-| Recurso | SHA-256 |
-| --- | --- |
-| Tabela CBF vinculada em ROUND_SCOPE.md | `4b46b5e5b9eb80ca96d35f59c225525fd400edc89f7a2f9f66a4fcaa9e90660e` |
-| Súmula CBF/FERJ vinculada em ROUND_SCOPE.md | `5ad8a9e1f25a78b057f02811578dcf7417dfddee1c7e7618cc791d72c7db9d5b` |
-| Catálogo StatsBomb no endereço consultado | `e6cd42f5d8956d6aa30fb917ce8d4c3b3df1879a93f02f8feba820930a6971fa` |
-| Acordo StatsBomb obtido de `raw.githubusercontent.com/hudl/open-data/master/LICENSE.pdf` | `a5462e69aeb71a39268b760b110c5c2190a2e0cee3015ba976f66bd71f6c2bb4` |
-
-Uma futura coleta deverá registrar também instante UTC, autorização aplicável e revisão estável do fornecedor; os hashes desta pesquisa não substituem esse processo.
+Alternativas legítimas: autorização do titular para dataset por partida; amostra licenciada de fornecedor com escopo contratual suficiente; ou construção autorizada de uma base mais limitada com indisponibilidades explícitas, sem reduzir os requisitos aprovados. Não houve contratação, cadastro, envio de mensagem ou ingestão individual de produção. O catálogo auxiliar autorizado foi importado separadamente.

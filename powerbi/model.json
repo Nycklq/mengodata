@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_validated_in_desktop",
+  "grain": "one approved dataset version, player, match and Flamengo appearance",
+  "source": "data/analytics/powerbi.json",
+  "fact": "Fato",
+  "dimensions": [
+    "DimJogador",
+    "DimPosicao",
+    "DimEquipe",
+    "DimTemporada",
+    "DimCompeticao",
+    "DimPartida"
+  ],
+  "relationships": [
+    { "one": "DimJogador.player_id", "many": "Fato.player_id" },
+    { "one": "DimPosicao.position", "many": "DimJogador.position" },
+    { "one": "DimEquipe.team_id", "many": "Fato.team_id" },
+    { "one": "DimTemporada.season", "many": "Fato.season" },
+    { "one": "DimCompeticao.competition_id", "many": "Fato.competition_id" },
+    { "one": "DimPartida.match_id", "many": "Fato.match_id" }
+  ],
+  "filter_direction": "single, dimension to fact",
+  "disconnected_tables": ["Metadata", "MinimoMinutos", "JogadorA", "JogadorB"],
+  "totals_guard": "Metadata.coverage_verified and no missing metric components",
+  "scope": {
+    "competition_id": "competition:brasileirao-serie-a-men",
+    "season": 2025,
+    "team_id": "club:flamengo",
+    "first_round": 1,
+    "last_round": 38
+  }
+}

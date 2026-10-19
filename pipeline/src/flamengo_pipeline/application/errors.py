@@ -1,0 +1,2 @@
+class ManifestInputError(ValueError):
+    pass

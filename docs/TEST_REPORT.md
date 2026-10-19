@@ -1,60 +1,76 @@
-# Relatório de verificações da Fase 1
+# Relatório de verificações — desenvolvimento integrado
 
-Data: 19/10/2026. Esta entrega é documental. **Não foram executados testes automatizados da aplicação, lint de código ou build**, pois não há implementação, manifestos ou scripts correspondentes. As inspeções abaixo não substituem testes de software ou homologação estatística.
+Executado em 19/10/2026, Windows/PowerShell, Node.js 24.22.0, npm 11.19.1, Python 3.14.8 e PostgreSQL 18.6. Escopo obrigatório: Flamengo, Série A masculina/2025, rodadas oficiais 1–38. Testes não homologam fontes ou direitos.
 
-## Verificações executadas
+## Resultado final observado
 
-| Verificação | Procedimento real | Resultado observado |
-| --- | --- | --- |
-| Inventário | `rg --files`, listagem da raiz com ocultos e `git ls-files` | Apenas AGENTS.md e contexto antes da tarefa; nenhum arquivo rastreado |
-| Estado Git | `git status --short --untracked-files=all` e `git log -5 --oneline` | Branch `main`, sem commits; documentos iniciais não rastreados |
-| Leitura normativa | Leitura UTF-8 de AGENTS.md e de todas as 1.738 linhas do contexto em trechos | Escopo, arquitetura, fontes, fórmulas, testes e roadmap examinados |
-| Tabela oficial | Leitura textual do PDF e renderização/inspeção visual das páginas 1–5 | Identificados número de jogo e rodada nas 19 referências do Flamengo; início do returno também visível |
-| Súmula oficial via FERJ | Leitura e inspeção visual das três páginas | Confirmados identificação da partida/atletas, escalação, gols, cartões e substituições; sanção pós-jogo identificada |
-| Catálogo StatsBomb | Download HTTPS e inspeção JSON | 80 entradas; nenhuma com país Brazil; recorte pretendido não localizado |
-| Licença StatsBomb | Leitura textual e inspeção visual das cinco páginas | Acordo específico de pesquisa e restrições, sem licença permissiva genérica |
-| Documentação de APIs e termos | Consulta às páginas primárias relacionadas em DATA_SOURCES.md | Capacidades e condições registradas; cobertura individual autenticada de 2026 permanece pendente |
-| Football-data.org sem token | GET do recurso de partidas BSA/2026 registrado em DATA_SOURCES.md | HTTP 403; não prova ausência de dados |
-| Acesso direto adicional à CBF | Consulta HTTPS com Python | Erro local de validação de certificado; TLS não foi desativado |
-| Originais consultados | SHA-256 dos PDFs e catálogo | Hashes registrados em DATA_SOURCES.md; arquivos de inspeção ficaram fora do repositório |
+| Verificação                                     | Comando                                     | Resultado                                                        |
+| ----------------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------- |
+| Backend e HTTP                                  | npm run test --workspace backend            | 26 aprovados                                                     |
+| Frontend / navegação / estados                  | npm run test --workspace frontend           | 24 aprovados                                                     |
+| Arquitetura, contratos, fórmulas e artefatos JS | node --test tests/*.test.js                 | 10 aprovados                                                     |
+| Pipeline, fórmulas e arquitetura Python         | npm run test:pipeline                       | 157 aprovados                                                    |
+| PostgreSQL real isolado                         | npm run test:database                       | 25 aprovados                                                     |
+| Total de testes                                 | Suítes acima                                | **242 aprovados**, sem falhas, cancelamentos ou ignorados        |
+| ESLint                                          | npm run lint                                | Aprovado, sem avisos                                             |
+| Ruff e formatação Python                        | npm run verify:pipeline                     | Aprovados; 39 arquivos formatados                                |
+| Prettier                                        | npm run format:check                        | Aprovado                                                         |
+| Notebooks                                       | npm run notebooks:execute e notebooks:check | Seis executados; saídas honestas de auditoria/bloqueio           |
+| Build                                           | npm run build                               | Aprovado; 2655 módulos, sem aviso de chunk grande                |
+| Smoke real HTTP/Vite                            | npm run test:smoke                          | Aprovado; proxy, API, rotas SPA e bloqueio CSV                   |
+| Dependências Python                             | .venv/Scripts/python.exe -m pip check       | Nenhuma dependência quebrada                                     |
+| OpenAPI reproduzível                            | npm run api:spec                            | Gerado; formatação e testes de artefatos aprovados               |
+| Referências reais                               | npm run pipeline:references                 | 38 referências; repetição changed=false                          |
+| Preparação BI                                   | npm run powerbi:prepare                     | unavailable, distribution_allowed=false; repetição sem alteração |
+| Importação SQL sem aprovação                    | npm run db:import                           | Bloqueada, sem abrir escrita de dados individuais                |
+| Whitespace Git                                  | git diff --check                            | Código 0; somente avisos de normalização CRLF/LF                 |
+| Preservação de migrações                        | SHA-256 de 001/002                          | Iguais aos hashes anteriores                                     |
 
-As falhas de abertura de páginas da CBF e FBref, e o uso limitado de conteúdo indexado, estão explicitados no relatório de fontes. Nenhum bloqueio foi contornado. Não foram consultadas credenciais ou arquivos de segredos.
+npm run verify terminou com código 0, incluindo lint, formatação, as 242 verificações, PostgreSQL isolado, seis notebooks, build e smoke. Após a revisão de números JSON não finitos e do formato do gerador OpenAPI, foram repetidos verify:pipeline, lint, format:check e os dez testes da raiz, todos aprovados. A documentação foi atualizada ao fim e teve nova conferência de formatação/links. Não foi medida porcentagem de cobertura.
 
-## Ambiente observado
+O build produziu o bundle principal de aproximadamente 420 kB e o chunk Recharts de aproximadamente 357 kB antes de gzip. Gráficos são carregados sob demanda quando há valores conhecidos. Artefatos em frontend/dist são ignorados pelo Git. A contagem de módulos não é evidência de desempenho visual.
 
-| Recurso | Evidência local | Limite da conclusão |
-| --- | --- | --- |
-| Node.js | `node --version`: `v24.22.0` | Não valida a compatibilidade futura de todas as bibliotecas |
-| npm | `npm.cmd --version`: `11.19.1` | A chamada `npm` selecionou npm.ps1 e foi recusada pela política de execução; não houve mudança na política |
-| Python | `py -3.14 --version`: `Python 3.14.8` | `python` resolve para um alias WindowsApps; o launcher encontrou a instalação real |
-| Pandas e Pytest | `importlib.util.find_spec` no Python 3.14 selecionado retornou ausência | Não afirma ausência em outros ambientes; nada foi instalado no projeto |
-| PostgreSQL e Docker | `psql` e `docker` não localizados no PATH da sessão | Não comprova ausência de instalações fora do PATH |
-| WSL | Executável encontrado; `wsl --list --quiet` retornou ajuda, sem enumerar distribuições | Ubuntu operacional não foi comprovado |
-| PDF | Poppler não localizado no PATH; pypdfium2 e Pillow usados em diretório temporário isolado | Ferramentas de inspeção externas ao repositório, sem dependências de produção adicionadas |
-| Power BI Desktop | Não inspecionado | Disponibilidade e capacidade de gerar PBIX/PBIP não comprovadas |
+## Casos efetivamente exercitados
 
-Nenhuma stack foi instalada ou atualizada para iniciar a plataforma. A Fase 2 deverá fixar versões compatíveis e registrar como reproduzir o ambiente, considerando Windows 11/WSL Ubuntu. Power BI Desktop continua no planejamento para Windows.
+- Elegibilidade de 2025 e rodadas 1/19/20/38; rejeição de 0/39, 2024/2026, competição ou clube da atuação divergentes.
+- Adiamentos preservando rodada, identidade canônica, fonte/ID externo, duplicatas, lacunas, cronologia e manifesto v2.
+- Distinção entre calendário completo, identificação pronta, participações auditadas e ingestão autorizada.
+- G+A, taxas por 90 e razões de componentes somados; zero confirmado, null, denominador zero, quartis e outliers. Fixture neutra usada independentemente em JS/Python.
+- Entrada individual com schema compartilhado, IDs/rodadas/clubes, duplicatas, hash exato e autorização por uso. NaN, Infinity e overflow JSON 1e999 são recusados.
+- Preservação de bytes Bronze e idempotência de importação; desconhecidos permanecem null.
+- Busca, filtros de posição/minutos, ordenação permitida, paginação limitada, query semelhante a SQL injection tratada como texto, UUID e parâmetros extras inválidos.
+- Respostas de indisponibilidade/partial sem totais anuais falsos, ranking sem métricas desconhecidas, comparação com posições distintas e diferenças nulas.
+- CSV sem direito bloqueado; CSV autorizado em fixture isolada com células protegidas contra fórmulas.
+- Rate limit, Helmet/CORS, erros sanitizados e ausência de detalhes sensíveis.
+- Navegação para todas as páginas, busca/minutos alterando tabela, comparação, loading, erro/retry, SVGs distintos, menu mobile e gateway/cancelamento/escopo.
+- Migrações sem sementes, hashes/idempotência, rollback de falhas, constraints/FKs, importação estatística transacional e leitura SQL/API equivalente à porta de arquivo nos testes.
+- Preservação de banco legado com partidas antigas; diagnóstico read-only sem criação de tabelas.
+- AST/imports e ciclos JS, inclusive importação lazy; fronteiras Python; proibição de comentários/docstrings/células de código.
+- Preparação BI sem permissão específica retorna listas vazias; JSON de modelo/tema tem estrutura e escopo esperados. Isso não executa M/DAX.
+- Seis notebooks executam sem erro a auditoria real e preservam a indisponibilidade individual; nenhum sintético é carregado pela pesquisa.
 
-## Conferência documental final
+## Integração real autorizada
 
-A conferência automatizada documental foi executada com Python, com saída de processo 0: nove arquivos Markdown encontrados, sendo sete novos; nenhum arquivo novo fora de Markdown; nenhum arquivo vazio; nenhum link local quebrado nos documentos novos; nenhum bloco cercado de Markdown sem fechamento. Os hashes dos dois documentos normativos permaneceram iguais aos da inspeção inicial. O índice contém exatamente as rodadas 1 a 19 e 19 números de jogo distintos.
+A importação do OpenFootball auditado gerou 38 referências reais, com hash 0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb. A primeira execução retornou changed=true e as repetições changed=false, inclusive pelo download da revisão fixa.
 
-Não foram encontrados comentários HTML ou caracteres de substituição de codificação nos documentos novos. Como nenhum arquivo de código foi criado ou alterado, não houve introdução de comentários em código. A contagem de referências de partidas verifica a documentação, não constitui teste automatizado da regra de elegibilidade nem comprova cobertura estatística.
+A API local respondeu 200 em /api/references com 38 referências auxiliares, mantendo o jogo Sport/Flamengo na rodada 12 e data civil 15/11/2025. Fuso e IDs oficiais permanecem nulos. /api/players respondeu 200, availability=unavailable, lista vazia e paginação total=null. Nenhum atleta ou scout fictício foi apresentado.
 
-O estado final do Git mostra os sete documentos novos e os dois documentos preexistentes como não rastreados. Nenhum commit ou mudança no índice foi realizado. A revisão arquitetural é de proposta documental; aderência de implementação ainda não pode ser afirmada.
+Os processos dev:backend e dev:frontend iniciaram em 127.0.0.1:3001 e 127.0.0.1:5173. O smoke usa portas temporárias, confere saúde/metadados, doze recursos analíticos, bloqueio de exportação e oito caminhos SPA além da raiz; encerra somente seus próprios processos.
 
-## Suíte necessária nas próximas fases
+## Limites de validação
 
-| Área | Casos que precisarão de evidência executável |
-| --- | --- |
-| Escopo | Incluir rodada 1 e 19; excluir 20–38, outra competição, outro ano e atuação por outro clube; manter rodada adiada; rejeitar rodada/IDs ausentes ou ambíguos |
-| Identidade e presença | Jogador transferido, titular, reserva utilizado, reserva não utilizado e participação com minuto arredondado zero |
-| Fórmulas | G+A e métricas por 90; soma de componentes antes das taxas; denominadores zero/ausentes; nulos distintos de zero; cobertura compatível |
-| Semântica de fonte | Assistência, gol contra, segundo amarelo, vermelho direto, cartão pós-jogo, minutos e distinção entre estatística individual e coletiva |
-| Pipeline | Normalização, tipos, duplicidade, quarentena, proveniência, duas execuções idempotentes, correção de fonte e promoção consistente de versão |
-| Arquitetura | Núcleo sem dependência de framework/banco/fonte; casos de uso isolados; composição nas bordas; imports sem ciclos e código novo sem comentários |
-| PostgreSQL/API | Integridade, transação, consultas parametrizadas, filtros que não ampliam escopo, ordenação permitida, paginação, erro e exportação autorizada |
-| React | Carregamento, erro, vazio, indisponibilidade, cobertura parcial, navegação, filtros e comparador; totais independentes da página visível |
-| Power BI e paridade | Mesmo conjunto de partidas/atletas e versão em Python, Gold, SQL, API, React, CSV e DAX; nulos e taxas preservados |
+O PostgreSQL pessoal não recebeu migrações ou importação; não havia credencial configurada para integração permanente. Os 25 testes usam cluster próprio com autenticação, porta efêmera e encerramento/limpeza pelo helper. O serviço existente continuou Running e não permaneceu diretório postgres-test-* após o teste.
 
-Fixtures técnicas futuras devem ser identificadas e separadas de dados reais. Nenhuma fixture ou estatística sintética foi criada nesta fase. A auditoria de cobertura só poderá ser concluída após obter amostras autorizadas e conferir todas as partidas e métricas do recorte.
+A revisão visual foi tentada com a skill computer-use. O navegador integrado não estava disponível; o controle nativo encerrou por não identificar a URL com confiança para aplicar suas regras. Nenhuma ação de UI foi feita depois disso. Os testes DOM não verificam pintura CSS, dimensões reais, qualidade visual dos gráficos, leitor de tela ou acessibilidade completa. A revisão desktop/mobile permanece pendente.
+
+Power BI Desktop não foi executado. M/DAX/modelo/tema são material preparado; não há PBIX/PBIP produzido, compilação DAX/M comprovada, embed ou publicação. A equivalência numérica no motor Desktop depende de dados autorizados e validação posterior.
+
+CI remoto, Linux/WSL, autenticação em fornecedor, cobertura individual real e cadeia jurídica de dados de atletas não foram verificados nesta execução. Os testes de disponibilidade usam fixtures sintéticas restritas aos diretórios de teste e ao cluster temporário. Nenhuma fonte individual foi homologada pelo resultado das suítes.
+
+## Correções durante a execução
+
+Foram corrigidos sintaxe/formatação do gerador OpenAPI, organização de exports para Fast Refresh, nomes do flag de titularidade, adaptação dos parâmetros no teste do comparador e uma fixture auxiliar que repetia o mesmo par de equipes. O portão rejeitou essa fixture corretamente; ela foi ajustada para dois mandos por adversário sintético. Nenhum teste existente foi removido.
+
+O build inicial alertou sobre um pacote grande; Recharts passou para importação lazy e o build seguinte terminou sem esse aviso. O parser JSON foi endurecido contra constantes e números não finitos. O gerador OpenAPI passou a respeitar a mesma configuração Prettier do repositório. As verificações pertinentes foram repetidas após as correções.
+
+A entrega anterior tinha 186 testes aprovados; esta ampliação acrescentou 56 verificações, totalizando 242. Histórico e migrações anteriores foram preservados, sem reset, commit, push, deploy ou alterações em contas externas.

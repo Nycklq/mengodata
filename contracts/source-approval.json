@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "competition_id": "competition:brasileirao-serie-a-men",
+    "season": 2025,
+    "team_id": "club:flamengo",
+    "first_round": 1,
+    "last_round": 38
+  },
+  "sources": [
+    {
+      "source_id": "openfootball:football-json",
+      "technical_status": "approved",
+      "approved_data_kinds": ["match_reference"],
+      "revision": "e6744429ee395bc86f247348c6184bb08d4eb361",
+      "source_url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2025/br.1.json",
+      "reviewed_sha256": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+      "reviewed_at": "2026-10-19T18:53:02Z",
+      "license": "CC0-1.0",
+      "license_sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+      "permissions": {
+        "acquisition": {
+          "status": "allowed",
+          "evidence": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+        },
+        "postgres_storage": {
+          "status": "allowed",
+          "evidence": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+        },
+        "academic_analysis": {
+          "status": "allowed",
+          "evidence": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+        },
+        "react_display": {
+          "status": "allowed",
+          "evidence": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+        },
+        "rest_api": {
+          "status": "allowed",
+          "evidence": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+        },
+        "csv_export": {
+          "status": "allowed",
+          "evidence": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+        },
+        "power_bi_distribution": {
+          "status": "allowed",
+          "evidence": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+        },
+        "github_publication": {
+          "status": "allowed",
+          "evidence": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+        }
+      },
+      "limitations": [
+        "Auxiliary match references and recorded results only",
+        "Not an official CBF manifest or player statistics source",
+        "No source-native match identifiers or time zone",
+        "CC0 applies to the affirmer's rights; no endorsement, image or trademark clearance"
+      ]
+    },
+    {
+      "source_id": "github:jhonatasjgr-brasileirao-2025",
+      "technical_status": "rejected",
+      "approved_data_kinds": [],
+      "revision": "0376354699db69991630ded053bde30f7d9c5ca5",
+      "source_url": "https://raw.githubusercontent.com/jhonatasjgr/brasileirao-2025/0376354699db69991630ded053bde30f7d9c5ca5/Base%20de%20dados/cartola_api_completo.csv",
+      "reviewed_sha256": "dfd72de56dc5f3cf84187400bf36a8744a945299982ccd45926db22403c781b1",
+      "reviewed_at": "2026-10-19T18:53:02Z",
+      "license": null,
+      "permissions": {
+        "acquisition": {
+          "status": "pending",
+          "evidence": "https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml"
+        },
+        "postgres_storage": {
+          "status": "pending",
+          "evidence": "https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml"
+        },
+        "academic_analysis": {
+          "status": "pending",
+          "evidence": "https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml"
+        },
+        "react_display": {
+          "status": "pending",
+          "evidence": "https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml"
+        },
+        "rest_api": {
+          "status": "pending",
+          "evidence": "https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml"
+        },
+        "csv_export": {
+          "status": "pending",
+          "evidence": "https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml"
+        },
+        "power_bi_distribution": {
+          "status": "pending",
+          "evidence": "https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml"
+        },
+        "github_publication": {
+          "status": "pending",
+          "evidence": "https://ajuda.globo/cartola/termos-e-politicas/faq/termo-de-uso.ghtml"
+        }
+      },
+      "limitations": [
+        "Snapshot rows are not verified player-match observations",
+        "No repository license file at audited revision",
+        "Cartola third-party rights and applicable 2025 authorization not established",
+        "No production ingestion or publication"
+      ]
+    }
+  ]
+}

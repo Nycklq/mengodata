@@ -1,99 +1,68 @@
-# Arquitetura inicial proposta
+# Arquitetura implementada
 
-Data: 19/10/2026. Documento de decisão e planejamento da Fase 1, sem módulos implementados. Referências normativas: [AGENTS.md](../AGENTS.md), [contexto integral](FLAMENGO_ANALYTICS_CONTEXT.md), [recorte](ROUND_SCOPE.md) e [indicadores](METRICS.md).
+Escopo vigente: Flamengo, Série A masculina de 2025, rodadas oficiais 1–38. O planejamento integral está no contexto; este documento descreve o código atual, inclusive componentes preparados que ainda não recebem dados individuais.
 
-## Decisões preservadas
-
-O sistema terá pipeline Python/Pandas, dados Bronze/Silver/Gold, PostgreSQL, API Node.js/Express, React com JavaScript e Power BI. Inicialmente, processamento em lote e uma aplicação por produto são suficientes para o recorte de 19 partidas. Não há evidência de volume que justifique Spark, Hadoop, microsserviços, filas ou processamento distribuído.
-
-Clean Architecture será aplicada desde o primeiro caso de uso. Diretórios só serão criados com responsabilidade e implementação reais. Não haverá framework de injeção de dependências, repositório genérico, interface vazia ou classe base sem necessidade.
-
-## Fluxo dos dados e dependências do software
+## Dependências e composição
 
 ```mermaid
-flowchart LR
-    F[Fonte homologada] --> B[Bronze: original permitido]
-    B --> S[Silver: atuações e partidas validadas]
-    S --> G[Gold: indicadores e cobertura versionados]
-    G --> P[(PostgreSQL)]
-    P --> A[API Node.js / Express]
-    A --> R[React / JavaScript]
-    G --> M[Modelo dimensional]
-    M --> BI[Power BI]
+flowchart TB
+    HTTP[Express e validação HTTP] --> BA[Casos de uso backend]
+    BA --> BD[Domínio e métricas JS]
+    FILE[Arquivos e aprovação revisada] --> BD
+    PG[Repositórios PostgreSQL] --> BD
+    UI[Apresentação React e hooks] --> FA[Carregar análise por gateway]
+    FA --> FD[Contrato de escopo]
+    GW[Gateway HTTP e Zod] --> FD
+    CLI[CLI Python] --> PA[Ingestão e análise]
+    PA --> PD[Domínio estatístico e políticas]
+    IO[JSON, CSV, rede autorizada e arquivos] --> PD
+    MAIN[Composição nas bordas] --> HTTP
+    MAIN --> FILE
+    MAIN --> PG
+    MAIN --> GW
+    MAIN --> IO
 ```
 
-As setas acima representam movimentação de dados. No código, a regra é diferente: adaptadores e infraestrutura dependem das políticas internas. O domínio não conhece HTTP, React, Express, banco, arquivos ou fornecedores.
+Domínio/aplicação não importam Express, React, Zod, drivers SQL, Pandas, filesystem ou serviços externos. Portas são funções/objetos concretamente usados, sem hierarquias decorativas. Bronze/Silver/Gold organizam dados; as camadas de software permanecem separadas.
 
-| Parte | Domínio | Aplicação | Adaptadores e infraestrutura | Composição |
-| --- | --- | --- | --- | --- |
-| Pipeline | Elegibilidade, presença em campo, regras de qualidade e fórmulas | Validar manifesto, ingerir, transformar, gerar Gold e carregar versão | Conector autorizado, arquivos, Pandas, PostgreSQL e entrada CLI | Ponto de entrada configura caminhos, credenciais e implementações |
-| Backend | Escopo fixo, elegibilidade de consulta, políticas de ranking/comparação | Consultar atletas, perfil, resumo, comparação, metadados e cobertura | HTTP/Express/Zod, serialização e repositórios PostgreSQL | `main` conecta rotas, casos de uso e repositórios |
-| Frontend | Regras de seleção/comparação que a interface realmente necessitar | Carregar visões e coordenar filtros através de gateway | Gateway HTTP; React, hooks de interface, TanStack Query e Recharts na apresentação | `app` configura navegação e injeta fluxos/gateways |
-| Power BI | Definições analíticas documentadas comuns | Processo de atualização e validação | Power Query, modelo dimensional, DAX e páginas | Conexão ao conjunto Gold autorizado e identificação da versão |
+| Camada                                         | Responsabilidades                                                                      |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| packages/domain/src                            | Escopo fixo, somas completas, razões ponderadas, agregação, quartis e outliers         |
+| backend/src/domain                             | Elegibilidade, população/filtros, ordenação, envelope e aprovação de dataset           |
+| backend/src/application                        | Consultas analíticas por porta read(), comparação e importação por porta store()       |
+| backend/src/interfaces/http                    | Schemas Zod de query/UUID, CSV, rate limit, controllers e erros                        |
+| backend/src/infrastructure                     | Configuração, schemas de arquivo, hashing, mapeamento OpenFootball e repositórios SQL  |
+| backend/src/main                               | Pool opcional, injeção, servidor, migrações e comandos explícitos de importação        |
+| frontend/src/features/analytics/domain         | Rejeição de escopo incompatível e vocabulário dos indicadores                          |
+| frontend/src/features/analytics/application    | Fluxo loadAnalytics com gateway injetado                                               |
+| frontend/src/features/analytics/infrastructure | Fetch, cancelamento e validação do envelope                                            |
+| frontend/src/features/analytics/presentation   | Estados, hooks TanStack, tabelas, páginas, filtros e gráficos                          |
+| frontend/src/app                               | Providers, roteamento, layout e estilo global                                          |
+| pipeline/domain                                | Modelos, manifesto, elegibilidade, auditoria, permissões e matemática pura             |
+| pipeline/application                           | Coordenação da auditoria/ingestão, análise por atleta e exportação BI                  |
+| pipeline/infrastructure                        | Parsing/JSON Schema, adaptadores de fonte, Pandas, hashes, downloads e escrita atômica |
+| pipeline/adapters e main                       | Serialização CLI e composição; execução dos kernels Jupyter nas bordas                 |
 
-Portas de saída pertencem à aplicação que as utiliza. Em JavaScript, funções ou objetos injetados com operações explícitas bastam quando não houver necessidade de classes. O domínio e os casos de uso não importam implementações concretas. Adaptadores de entrada chamam casos de uso; adaptadores de saída implementam operações de que eles precisam.
+A feature analytics concentra o fluxo compartilhado de leitura: as páginas usam os mesmos filtros, envelope, tabela e estados. Não foram criadas quatro camadas vazias para cada rota. A feature project-status anterior foi preservada com testes; o ponto de entrada atual monta Dashboard. Os cálculos canônicos não ficam em JSX. React apenas apresenta valores e formata pt-BR.
 
-## Pipeline
+## Fluxos de dados
 
-Estrutura prevista, criada gradualmente: `pipeline/domain`, `pipeline/application`, `pipeline/adapters`, `pipeline/infrastructure`, `pipeline/main` e testes correspondentes. A adição do ponto de composição explicita a responsabilidade já exigida pelo contexto.
+OpenFootball: revisão fixa autorizada → download opcional com hash → domínio valida 38 referências → Bronze fiel → Silver normalizada → Gold auxiliar. Reexecução do mesmo artefato mantém recibo e bytes. O leitor da API confere a revisão/raw e reconstrói os campos de partida desse conteúdo, preservando os localizadores originais. Não inventa UUID, ID CBF ou fuso.
 
-| Caso de uso proposto | Entrada e regra central | Saída | Dependência externa necessária |
-| --- | --- | --- | --- |
-| Validar manifesto do recorte | Partidas e evidências; identidade, rodada oficial e unicidade | Manifesto aceito ou diagnósticos de rejeição | Nenhuma para validar registros já fornecidos |
-| Ingerir partidas autorizadas | Fonte homologada e manifesto; nunca aceitar um total anual como atuação | Originais, metadados e execução identificada | Leitor da fonte e armazenamento Bronze |
-| Normalizar e validar atuações | Registros de origem e vínculo de IDs; clube da atuação e granularidade | Silver e rejeições rastreáveis | Leitor/escritor; adaptador Pandas para tabulação |
-| Gerar indicadores do recorte | Silver validada e definições versionadas | Gold, componentes e cobertura | Leitura/escrita dos estágios |
-| Publicar versão analítica no banco | Gold aprovado e permissões aplicáveis | Versão consistente de leitura | Persistência PostgreSQL transacional |
+Individual: arquivo conforme JSON Schema → aprovação exata de conteúdo/finalidade/permissões → invariantes de identidade/partida → Gold canônica. Não há fonte aprovada atualmente. Cobertura completa requer revisão documental de participações e mapeamento oficial, além das 38 rodadas. Um cliente HTTP ou parâmetro CLI não pode aprovar esses requisitos.
 
-Fórmulas e invariantes serão funções internas puras, usando tipos nativos e sem importar Pandas, NumPy ou clientes de fonte. Pandas faz leitura, tabulação e adaptação nas bordas, invocando as regras do núcleo. Para esse volume, não é necessário duplicar fórmulas em um mecanismo vetorizado. Notebooks consomem os módulos e exploram resultados com as bibliotecas definidas, sem se tornarem o único lugar das regras.
+Sem DATABASE_URL, a porta de leitura usa Gold local homologada. Com DATABASE_URL, a porta PostgreSQL exige que a mesma versão/hashing aprovado esteja carregada; versão ausente mantém indisponibilidade. A importação SQL é explícita, transacional, parametrizada, protegida por advisory lock e idempotente pelo hash. IDs externos são namespaceados por fonte e conflitos de identidade não reclassificam partidas ou jogadores.
 
-Bronze preserva o conteúdo autorizado e sua origem; Silver registra dados normalizados e falhas; Gold deriva indicadores do universo elegível. Esses nomes são estágios dos dados, não substituem domínio/aplicação/adaptadores.
+A migração 003 acrescenta imports/fatos, índices, FKs/checks e vínculo de escopo com partida concluída. 001/002 permanecem históricas; a 002 recusa banco com partidas antigas. A aplicação não aplica migrações ao iniciar. Não há sementes.
 
-Idempotência: o mesmo original e a mesma versão de transformação não duplicam observações. Correção do fornecedor gera revisão rastreável; a promoção de uma nova versão não mistura snapshots antigos e novos em uma mesma leitura. Execução incompleta não substitui silenciosamente a versão aprovada.
+Power BI recebe somente exportação própria autorizada para esse canal. Os notebooks leem a auditoria e só analisam o artefato individual quando passa pelo mesmo portão. O kernel usa a .venv, não altera configuração global do Jupyter.
 
-## Persistência e granularidade
+## Semântica e segurança
 
-O modelo físico será definido na Fase 4, após comprovar os campos disponíveis. O núcleo mínimo proposto é:
+Nulls não viram zero. Somas exigem componentes conhecidos em todas as observações selecionadas. Taxas usam somas de numeradores/denominadores; divisão inválida retorna null. Quartis usam interpolação linear (n−1)p. Agregações parciais são rotuladas; resumo anual é bloqueado.
 
-| Entidade/conjunto | Grão e responsabilidade |
-| --- | --- |
-| Jogador | Identidade interna e vínculos verificáveis de IDs externos; nome não é chave |
-| Clube, competição e temporada | Identidades usadas na validação e nas relações |
-| Partida | Uma partida oficial, com rodada de origem, mando, realização e status |
-| Vínculo de fonte | Correspondência entre ID interno e ID externo no namespace correto |
-| Atuação | Jogador × partida × clube; registra presença, titularidade e estatísticas disponíveis |
-| Proveniência e execução | Fonte, recurso, instante de coleta, hash, revisão e execução |
-| Cobertura e rejeições | Métrica, partida/atuação, estado, motivo e evidência |
-| Gold do recorte | Jogador × competição × temporada × clube × recorte × versão analítica |
+Schemas de transporte estão nas bordas; regras de aprovação/cobertura ficam no domínio. A duplicação matemática JS/Python é limitada e protegida por fixture neutra com resultados esperados. PostgreSQL conserva componentes; API calcula no núcleo; React formata; DAX está preparado, ainda sem validação no motor Desktop.
 
-No armazenamento de origem, preservar fonte e revisão permite múltiplas observações. Na Silver canônica, selecionar explicitamente a versão/fonte aceita para cada observação, sem somar duas fontes para o mesmo evento. Não é necessário implementar um catálogo genérico de entidades antes de haver uma segunda fonte.
+ESLint e testes AST verificam imports, inclusive imports dinâmicos, e ciclos JS. Python usa AST/tokenização. Comentários/docstrings novos são recusados, inclusive código dos notebooks. HTTP tem CORS explícito, Helmet, limites, ordenação permitida e erros sem detalhes internos. SQL só interpola listas internas de colunas; valores externos são parâmetros.
 
-Uma tabela denominada apenas `player_season_stats` não identifica adequadamente o primeiro turno. Agregados persistidos precisam carregar o recorte e a versão, ou ser views sobre fatos elegíveis. Chaves estrangeiras, unicidade, limites de rodada, valores válidos e consultas parametrizadas serão definidos nas migrações. A validade do recorte permanece também no domínio; uma restrição SQL isolada não substitui essa política.
-
-Permissões de banco devem separar gravação pelo pipeline e leitura analítica. Segredos ficam na configuração de infraestrutura. Payloads, SQL, stack traces e tokens não serão expostos em erros públicos ou logs.
-
-## API e apresentação
-
-Os endpoints do contexto são propostas, não serviços existentes. A primeira entrega deve começar por metadados/cobertura e consulta de jogadores, ampliando depois para rankings, perfis, comparação e exportações.
-
-Controllers validam formato com Zod e delegam. O caso de uso mantém o universo Série A/2026/Flamengo/rodadas 1–19 mesmo sem filtros enviados pelo cliente. Parâmetros que tentem ampliar esse universo serão rejeitados; filtros permitidos só reduzem o conjunto. SQL ficará nos repositórios concretos, com parâmetros e ordenação por lista permitida.
-
-Respostas deverão transportar números sem formatação, disponibilidade, unidade, cobertura, definição da métrica, fonte e versão analítica. Caches precisam incluir recorte, versão e filtros. Valores indisponíveis usam representação explícita, nunca zero substituto.
-
-React formata em português brasileiro e apresenta carregamento, erro, vazio e cobertura parcial. Componentes não acessam PostgreSQL nem recalculam os totais recebidos a partir de uma página incompleta da tabela. Gateways escondem transporte e formato externo; o domínio frontend não importa React, TanStack Query ou Fetch. Regras analíticas principais permanecem nos dados aprovados; não duplicar cálculos sem necessidade de interação local.
-
-## Power BI e consistência
-
-Propor fato de atuação por partida e dimensões Jogador, Posição quando suportada, Partida, Clube, Competição, Temporada e Data quando útil. Rodada pertence à partida; a dimensão Data não decide elegibilidade. A posição atual do jogador não deve reclassificar silenciosamente suas atuações históricas.
-
-Power BI usará a mesma versão Gold da API, por exportação autorizada ou views analíticas controladas. Evitar relacionar fato agregado e fato detalhado de maneira que duplique valores. DAX soma componentes e usa divisão segura, respeitando ausências; a tela mostra o rótulo fixo do primeiro turno. Arquivo PBIX/PBIP com dados embutidos só será compartilhado quando permitido.
-
-Uma definição de indicadores em Markdown, componentes persistidos, versão de transformação e verificações de paridade entre Python, SQL, API, React e DAX manterão a semântica. Não haverá tentativa de importar código Python no JavaScript; a equivalência entre linguagens será verificada por resultados sobre o mesmo universo.
-
-## Primeira fatia e critérios arquiteturais
-
-A futura Fase 2 deve implementar somente a elegibilidade e a validação do manifesto com entrada local de teste, sem conector de produção. Casos de teste técnicos ficarão separados dos dados esportivos reais. A fatia seguinte será a ingestão de uma fonte homologada.
-
-Critérios de aceite: imports apontam para o núcleo; domínio/casos de uso funcionam sem rede/banco; composição ocorre na borda; não há regra analítica em controller/componente; não há comentários novos em código; nenhum diretório ou contrato vazio é criado. Testes de dependência devem acompanhar os módulos reais, sem exigir camadas artificiais.
-
-Decisões que dependem de amostra: fornecedor, esquema físico, convenção de minutos, taxonomia de posição, granularidade de passes e desarmes, armazenamento de correções e formato final dos DTOs. Não antecipar essas decisões com dados inventados.
+Os processos executam nativamente no Windows. Sem infraestrutura distribuída ou containers. Testes SQL usam cluster isolado; nenhum banco pessoal foi migrado. CI remoto, Power BI Desktop e revisão visual completa permanecem pendentes.

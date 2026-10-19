@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:flamengo-analytics:manifest:2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "scope", "sources", "matches"],
+  "properties": {
+    "schema_version": { "const": 2 },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["competition_id", "season", "team_id", "first_round", "last_round"],
+      "properties": {
+        "competition_id": { "$ref": "#/$defs/identifier" },
+        "season": { "type": "integer" },
+        "team_id": { "$ref": "#/$defs/identifier" },
+        "first_round": { "type": "integer" },
+        "last_round": { "type": "integer" }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "name", "approval_status", "approval_reference"],
+        "properties": {
+          "source_id": { "$ref": "#/$defs/identifier" },
+          "name": { "$ref": "#/$defs/nonempty" },
+          "approval_status": { "enum": ["pending", "approved", "rejected"] },
+          "approval_reference": {
+            "anyOf": [{ "$ref": "#/$defs/httpsUri" }, { "type": "null" }]
+          }
+        }
+      }
+    },
+    "matches": {
+      "type": "array",
+      "maxItems": 76,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "match_id",
+          "competition_id",
+          "season",
+          "official_round",
+          "official_match_number",
+          "home_team_id",
+          "away_team_id",
+          "status",
+          "played_at",
+          "source_id",
+          "external_match_id",
+          "evidence_url",
+          "collected_at"
+        ],
+        "properties": {
+          "match_id": { "type": "string", "format": "uuid" },
+          "competition_id": { "$ref": "#/$defs/identifier" },
+          "season": { "type": "integer" },
+          "official_round": { "type": "integer", "minimum": 1, "maximum": 38 },
+          "official_match_number": { "type": "integer", "minimum": 1, "maximum": 380 },
+          "home_team_id": { "$ref": "#/$defs/identifier" },
+          "away_team_id": { "$ref": "#/$defs/identifier" },
+          "status": {
+            "enum": ["scheduled", "postponed", "suspended", "cancelled", "finished"]
+          },
+          "played_at": {
+            "anyOf": [{ "$ref": "#/$defs/timestamp" }, { "type": "null" }]
+          },
+          "source_id": { "$ref": "#/$defs/identifier" },
+          "external_match_id": { "$ref": "#/$defs/nonempty" },
+          "evidence_url": { "$ref": "#/$defs/httpsUri" },
+          "collected_at": { "$ref": "#/$defs/timestamp" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "identifier": { "type": "string", "pattern": "^[a-z0-9][a-z0-9:_-]{0,127}$" },
+    "nonempty": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^\\S(?:.*\\S)?$"
+    },
+    "httpsUri": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://[^/\\s]+",
+      "maxLength": 2048
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "(?:Z|[+-][0-9]{2}:[0-9]{2})$"
+    }
+  }
+}

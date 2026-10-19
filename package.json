@@ -1,0 +1,54 @@
+{
+  "name": "flamengo-analytics",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "workspaces": [
+    "backend",
+    "frontend",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace backend",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "start:backend": "npm run start --workspace backend",
+    "pipeline:validate": "node scripts/python.mjs -m flamengo_pipeline.main.cli",
+    "sources:audit": "node scripts/python.mjs -m flamengo_pipeline.main.audit_sources",
+    "pipeline:references": "node scripts/python.mjs -m flamengo_pipeline.main.import_references",
+    "pipeline:individual": "node scripts/python.mjs -m flamengo_pipeline.main.import_individual",
+    "db:import": "node backend/src/main/import-statistics.js",
+    "powerbi:prepare": "node scripts/python.mjs -m flamengo_pipeline.main.export_powerbi",
+    "notebooks:execute": "node scripts/python.mjs -m flamengo_pipeline.main.run_notebooks",
+    "notebooks:check": "node scripts/python.mjs -m flamengo_pipeline.main.run_notebooks --check",
+    "api:spec": "node scripts/generate-openapi.mjs",
+    "build": "npm run build --workspace frontend",
+    "test": "npm run test --workspace backend && npm run test --workspace frontend && node --test tests/*.test.js",
+    "test:database": "node --test database/tests/*.test.js",
+    "test:pipeline": "node scripts/python.mjs -m pytest pipeline",
+    "test:smoke": "node scripts/smoke.mjs",
+    "lint:pipeline": "node scripts/python.mjs -m ruff check pipeline",
+    "format:pipeline:check": "node scripts/python.mjs -m ruff format --check pipeline",
+    "verify:pipeline": "npm run lint:pipeline && npm run format:pipeline:check && npm run test:pipeline",
+    "verify": "npm run lint && npm run format:check && npm test && npm run verify:pipeline && npm run test:database && npm run notebooks:check && npm run build && npm run test:smoke",
+    "db:check": "npm run db:check --workspace backend",
+    "db:migrate": "npm run db:migrate --workspace backend",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "eslint": "10.13.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
+    "espree": "11.2.0",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "supertest": "7.3.1"
+  }
+}

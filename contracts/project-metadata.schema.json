@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:flamengo-analytics:metadata:2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scope",
+    "label",
+    "source_status",
+    "data_status",
+    "dataset_version",
+    "coverage"
+  ],
+  "properties": {
+    "schema_version": { "const": 2 },
+    "scope": { "$ref": "urn:flamengo-analytics:manifest:2#/properties/scope" },
+    "label": { "type": "string", "minLength": 1 },
+    "source_status": { "const": "pending" },
+    "data_status": { "const": "unavailable" },
+    "dataset_version": { "type": "null" },
+    "coverage": { "type": "null" }
+  }
+}

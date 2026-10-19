@@ -1,4 +1,13 @@
 PROMPT DE TRANSFERÊNCIA DE CONTEXTO — FLAMENGO ANALYTICS
+Atualização de implementação em 19/10/2026: o prompt mestre foi executado sobre o projeto existente. Há nove páginas, API analítica, métricas testadas, importação auxiliar real de 38 referências, persistência aditiva, seis notebooks executados e material técnico Power BI. Estatísticas individuais continuam bloqueadas. Consulte STATUS.md e TEST_REPORT.md para distinguir implementação, execução e limitações. As listas de planejamento abaixo não substituem essas evidências.
+Atualização autorizada em 19/10/2026: temporada completa de 2025, rodadas oficiais 1 a 38. A decisão anterior foi cancelada. O texto integral anterior está preservado em [history/2026/FLAMENGO_ANALYTICS_CONTEXT.md](history/2026/FLAMENGO_ANALYTICS_CONTEXT.md).
+
+Atualização de ambiente em 19/10/2026: desenvolvimento diretamente no Windows 11 com VS Code, Node.js/npm, React/Vite, Python em ambiente virtual, PostgreSQL local e Power BI Desktop. A infraestrutura de containers foi removida por solicitação do usuário. WSL não é requisito. O histórico arquivado preserva decisões anteriores e não autoriza reintroduzir essa infraestrutura. Instalação e comandos vigentes no [README](../README.md).
+
+Este documento conserva o planejamento integral; listas de funcionalidades e estruturas ilustrativas não comprovam implementação. O estado executável está em [STATUS.md](STATUS.md), a arquitetura concreta em [ARCHITECTURE.md](ARCHITECTURE.md), os contratos em [CONTRACTS.md](CONTRACTS.md) e as verificações em [TEST_REPORT.md](TEST_REPORT.md). A auditoria atual está em [DATA_SOURCES.md](DATA_SOURCES.md) e a decisão em [SOURCE_APPROVAL.md](SOURCE_APPROVAL.md): OpenFootball aprovado apenas como referência auxiliar CC0; nenhuma fonte de estatísticas individuais está homologada. A parte de referências da Fase 3 foi executada com 38 registros; ingestão individual continua bloqueada.
+
+Backend, frontend e pipeline foram preservados e migrados. O manifesto identifica 38 rodadas, mas não contém estatísticas: completude e declaração de aprovação não comprovam cobertura. A prontidão de identificação e a cobertura não verificada são explícitas; ingestão permanece bloqueada. A migração SQL histórica 001 é imutável; a 002 altera restrições somente com matches vazio, sem apagar dados existentes. Não há autorização para commits, push ou publicação.
+
 LEIA TODO ESTE CONTEXTO ANTES DE RESPONDER
 REGRAS OBRIGATÓRIAS ADICIONADAS PARA IMPLEMENTAÇÃO COM CODEX:
 
@@ -6,23 +15,23 @@ REGRAS OBRIGATÓRIAS ADICIONADAS PARA IMPLEMENTAÇÃO COM CODEX:
 2. É proibido criar ou entregar código fora dessa arquitetura como solução provisória. A arquitetura deve estar correta desde a primeira implementação de cada funcionalidade.
 3. O código gerado deve ser totalmente livre de comentários. Explicações e decisões ficam nas respostas e nos arquivos Markdown de documentação, não dentro dos arquivos de código.
 4. Essas regras têm precedência sobre estruturas de diretórios meramente ilustrativas descritas nas seções históricas deste documento.
-   ATUALIZAÇÃO DEFINITIVA — ESCOPO 2026 / PRIMEIRO TURNO
+   ATUALIZAÇÃO VIGENTE — TEMPORADA COMPLETA DE 2025
    Esta seção prevalece sobre descrições históricas ou exemplos incompatíveis do planejamento original.
 
 - Objeto: estatísticas individuais dos jogadores do Clube de Regatas do Flamengo.
 - Competição: Campeonato Brasileiro Série A, futebol masculino profissional.
-- Temporada: 2026.
-- Recorte: exclusivamente primeiro turno, rodadas oficiais 1 a 19.
+- Temporada: 2025.
+- Recorte: temporada completa, rodadas oficiais 1 a 38.
 - Fonte única da verdade do recorte: relação verificável das partidas do Flamengo com identificador de partida, temporada, competição e número oficial da rodada. Partidas remarcadas mantêm sua rodada oficial.
-- Exclusões: segundo turno (rodadas 20 a 38), Copa do Brasil, Libertadores, estaduais, amistosos, temporadas diferentes e estatísticas de outro clube, mesmo quando o atleta passou por transferência.
-- Agregação: calcular estatísticas do primeiro turno a partir de registros compatíveis por partida/rodada, com soma e regras documentadas; nunca reutilizar totais da temporada completa fingindo que são do primeiro turno, nem estimar a diferença sem dados auditáveis.
+- Exclusões: rodadas fora de 1 a 38, Copa do Brasil, Libertadores, estaduais, amistosos, temporadas diferentes e estatísticas de outro clube, mesmo quando o atleta passou por transferência.
+- Agregação: calcular totais da temporada completa a partir de atuações compatíveis por partida, com soma e regras documentadas. Snapshots acumulados não são eventos independentes. Agregados anuais podem servir à conciliação após verificar clube e competição; não comprovam cobertura por partida.
 - Cobertura: verificar se todas as partidas e métricas do recorte estão disponíveis; identificar jogos ausentes/adiados e registrar o status de conclusão da coleta. Não inferir que os dados estão completos a partir do calendário.
 - Métricas faltantes: mostrar indisponibilidade ou cobertura parcial de modo explícito, sem números inventados e sem trocar dados ausentes por zero.
-- UI, relatórios, exportações e Power BI: informar claramente “Brasileirão Série A 2026 — 1º turno (rodadas 1 a 19)”.
+- UI, relatórios, exportações e Power BI: informar claramente “Brasileirão Série A 2025 — temporada completa (rodadas 1 a 38)”.
 - Arquitetura: Clean Architecture obrigatória em todo código novo, sem atalhos fora das camadas.
 - Estilo de código: sem comentários de código, TODO, FIXME ou docstrings explicativas; a documentação externa em Markdown permanece necessária.
 - Big Data: arquitetura preparada para expansão de volume quando justificado; não incluir Spark/Hadoop nem processamento distribuído apenas pelo rótulo “Big Data”.
-  Critério bloqueante: se nenhuma fonte legalmente utilizável permitir isolar os dados das rodadas 1 a 19 de 2026, documentar a lacuna e não apresentar totais de temporada como dados do primeiro turno.
+  Critério bloqueante: se nenhuma fonte legalmente utilizável comprovar as atuações pelo Flamengo nas rodadas 1 a 38 de 2025, documentar a lacuna e não apresentar cobertura completa ou indicadores verificados.
   Estou transferindo para esta conversa o contexto completo de um projeto que venho planejando com o ChatGPT.
 
 Quero que você considere todas as informações a seguir como o histórico de planejamento do meu projeto.
@@ -85,14 +94,12 @@ Não confunda essas duas modalidades.
 Tenho interesse em trabalhar com:
 
 - Windows 11.
-- WSL com Ubuntu.
-- Visual Studio Code ou ambiente equivalente.
+- Visual Studio Code.
 - Git e GitHub.
 - Node.js.
 - Python.
 - PostgreSQL.
-- Docker.
-  A documentação deve considerar preferencialmente Windows 11 com WSL Ubuntu.
+  A documentação deve considerar Windows 11 nativo, PowerShell e VS Code, com Python em .venv e PostgreSQL instalado localmente.
 
 2. COMO O PROJETO SURGIU
    A ideia original foi criar um projeto de Análise de Dados relacionado ao Flamengo.
@@ -115,7 +122,7 @@ Passamos a estudar uma proposta de análise estatística dos atletas e discutimo
 
 Foram consideradas diferentes temporadas, incluindo análises históricas.
 
-O planejamento inicial contemplava a temporada inteira, mas a decisão mais recente e definitiva é analisar somente o primeiro turno do Campeonato Brasileiro Série A de 2026, rodadas 1 a 19, nas partidas disputadas pelo Flamengo. A restrição por rodada substitui o recorte anterior de temporada completa.
+O usuário autorizou a migração para a temporada completa do Campeonato Brasileiro Série A de 2025, rodadas 1 a 38, cancelando o recorte anterior. A implementação existente deve ser preservada. As decisões anteriores estão arquivadas em docs/history/2026 e não definem o escopo vigente.
 
 Essa definição permite um escopo acadêmico controlado, com avaliação rigorosa das estatísticas individuais no intervalo escolhido.
 
@@ -138,7 +145,7 @@ Flamengo Analytics — Plataforma de Inteligência e Análise de Desempenho Espo
 
 Tema acadêmico:
 
-Análise Estatística do Desempenho Individual dos Jogadores do Flamengo no Primeiro Turno do Campeonato Brasileiro Série A de 2026.
+Análise Estatística do Desempenho Individual dos Jogadores do Flamengo no Campeonato Brasileiro Série A de 2025.
 
 Clube analisado:
 
@@ -152,10 +159,10 @@ Competição:
 
 Campeonato Brasileiro Série A.
 
-Temporada principal: 2026.
+Temporada principal: 2025.
 Recorte temporal/competitivo obrigatório:
 
-Primeiro turno, rodadas 1 a 19 do Brasileirão Série A de 2026, consideradas pela rodada oficial de cada partida do Flamengo. Não incluir partidas de outras competições, rodadas 20 a 38 ou dados de outros clubes. Partidas adiadas permanecem vinculadas à rodada original, independentemente da data em que forem realizadas.
+Temporada completa, rodadas 1 a 38 do Brasileirão Série A de 2025, consideradas pela rodada oficial de cada partida do Flamengo. Não incluir partidas de outras competições, rodadas fora de 1 a 38 ou dados de outros clubes. Partidas adiadas permanecem vinculadas à rodada original, independentemente da data em que forem realizadas.
 
 Unidade de análise:
 
@@ -172,7 +179,7 @@ Uma plataforma web profissional, um dashboard Power BI, análises estatísticas,
 O projeto deverá ser adequado para apresentação acadêmica e portfólio profissional. 4. PROBLEMA DE PESQUISA
 A pergunta central será:
 
-Quais jogadores do Flamengo apresentaram os melhores indicadores de desempenho nas rodadas 1 a 19 do Campeonato Brasileiro Série A de 2026, considerando produção ofensiva, contribuição defensiva, participação nas partidas e eficiência estatística?
+Quais jogadores do Flamengo apresentaram os melhores indicadores de desempenho nas rodadas 1 a 38 do Campeonato Brasileiro Série A de 2025, considerando produção ofensiva, contribuição defensiva, participação nas partidas e eficiência estatística?
 
 A plataforma deverá ajudar a responder essa pergunta utilizando dados reais.
 
@@ -193,7 +200,7 @@ Outras perguntas importantes:
     As respostas devem ser calculadas usando dados reais, jamais inventadas.
 13. OBJETIVOS DO PROJETO
     Objetivo geral
-    Desenvolver uma plataforma de análise de dados que permita avaliar estatisticamente o desempenho individual dos jogadores do Flamengo exclusivamente no primeiro turno (rodadas 1 a 19) do Campeonato Brasileiro Série A de 2026 por meio de indicadores, gráficos, dashboards e ferramentas de comparação.
+    Desenvolver uma plataforma de análise de dados que permita avaliar estatisticamente o desempenho individual dos jogadores do Flamengo na temporada completa (rodadas 1 a 38) do Campeonato Brasileiro Série A de 2025 por meio de indicadores, gráficos, dashboards e ferramentas de comparação.
     Objetivos específicos
 
 - Obter uma base confiável de estatísticas individuais.
@@ -265,8 +272,7 @@ Backend
   Infraestrutura e qualidade
 - Git.
 - GitHub.
-- Docker.
-- Docker Compose.
+- Execução local no Windows 11 e PostgreSQL nativo.
 - ESLint.
 - Prettier.
 - GitHub Actions.
@@ -380,15 +386,15 @@ Fontes inicialmente consideradas:
 - GitHub.
 - APIs esportivas documentadas.
 - Bases acadêmicas ou institucionais.
-  O FBref foi sugerido como possível fonte de estatísticas individuais de 2026, mas a coleta só será adequada ao objetivo se permitir isolar comprovadamente as rodadas 1 a 19.
+  O FBref permanece candidato; sua existência e suas capacidades não homologam uso. Exigir comprovação das atuações da temporada completa de 2025, direitos de uso e correspondência por partida.
 
 Também discutimos bases históricas do Campeonato Brasileiro.
 
-Entretanto, ainda é necessário validar efetivamente a disponibilidade, as permissões de uso, a cobertura do primeiro turno de 2026 e a granularidade dos dados por partida ou por rodada, sem assumir cobertura comprovada.
+Entretanto, ainda é necessário validar efetivamente a disponibilidade, as permissões de uso, a cobertura da temporada completa de 2025 e a granularidade dos dados por partida ou por rodada, sem assumir cobertura comprovada.
 
 \*\*Não considere a fonte confirmada apenas porque ela foi mencionada em uma conversa anterior.
 
-Se a fonte mostrar estatísticas somente da temporada completa, considerá-la inadequada como fonte isolada do primeiro turno, ainda que seja confiável para outros usos.\*\*
+Se a fonte mostrar somente agregados anuais, poderá apoiar conciliação quando o recorte for comprovado, mas não substituir a base de atuações por partida nem autorizar inferir rodadas ou jogadores transferidos.\*\*
 8.1. Dados desejados
 
 - Identificador do jogador.
@@ -440,17 +446,17 @@ Se a fonte mostrar estatísticas somente da temporada completa, considerá-la in
 - Não misturar competições.
 - Evitar atribuir ao Flamengo números obtidos por um atleta em outro clube.
   Se uma métrica não puder ser obtida legitimamente, documentar sua indisponibilidade.
-  8.4. Filtragem obrigatória do primeiro turno de 2026
+  8.4. Filtragem obrigatória da temporada completa de 2025
 
-1. Verificar uma lista confiável de partidas do Flamengo no Brasileirão Série A 2026, associando cada partida ao número oficial da rodada.
-2. Incluir no conjunto analítico somente partidas com competição Série A, temporada 2026, clube Flamengo e rodada entre 1 e 19.
-3. Tratar jogos adiados pela rodada oficial, não pela posição cronológica no calendário; não confundir “primeiros 19 jogos disputados” com “rodadas 1 a 19”.
+1. Verificar uma lista confiável de partidas do Flamengo no Brasileirão Série A 2025, associando cada partida ao número oficial da rodada.
+2. Incluir no conjunto analítico somente partidas com competição Série A, temporada 2025, clube Flamengo e rodada entre 1 e 38.
+3. Tratar jogos adiados pela rodada oficial, não pela posição cronológica no calendário; não substituir a rodada oficial por posição no calendário ou rodada de mercado de fantasy.
 4. Para jogadores que passaram por outros clubes, considerar exclusivamente as aparições pelo Flamengo nessas partidas.
 5. Integrar estatísticas individuais a partidas verificadas por identificadores; rejeitar registros ambíguos em vez de adivinhar correspondências pelo nome.
 6. Não subtrair totais de temporada sem possuir dados confiáveis de cada subconjunto. Não atribuir disponibilidade por partida a uma fonte que só apresenta agregados anuais.
 7. Guardar metadados de procedência, identificador da partida, rodada, data real do jogo, data de coleta e cobertura por métrica.
 8. Checar o total de partidas esperadas e observadas, com atenção especial aos jogos adiados, cancelados ou sem cobertura estatística.
-9. Implementar testes que garantam a exclusão de rodadas 20 a 38, outras competições, anos diferentes e jogadores atuando por outro clube.
+9. Implementar testes que garantam a exclusão de rodadas fora de 1 a 38, outras competições, anos diferentes e jogadores atuando por outro clube.
 10. Manter relatórios, endpoints, gráficos, notebooks, Power BI e exportações coerentes com o mesmo filtro.
 11. PIPELINE DE DADOS
     O pipeline deverá ser desenvolvido em Python.
@@ -497,8 +503,8 @@ Criar um documento com:
 - Correções realizadas.
 - Problemas identificados.
 - Cobertura estatística.
-- Cobertura das rodadas 1 a 19, com lista de partidas esperadas, coletadas, pendentes e sem dados.
-- Verificação explícita de exclusão de jogos do segundo turno e de outras competições.
+- Cobertura das rodadas 1 a 38, com lista de partidas esperadas, coletadas, pendentes e sem dados.
+- Verificação explícita de exclusão de outras temporadas, clubes e competições.
   Preservar a rastreabilidade até a fonte.
 
 10. BANCO DE DADOS
@@ -517,11 +523,11 @@ Entidades inicialmente consideradas:
 - player_season_stats.
 - data_sources.
 - import_runs.
-  Granularidade do recorte: preservar identificador de partida, temporada, competição e rodada oficial nas tabelas necessárias. O total por atleta no primeiro turno deve ser derivado de observações vinculadas às partidas elegíveis, respeitando o nível real de detalhe obtido.
+  Granularidade do recorte: preservar identificador de partida, temporada, competição e rodada oficial nas tabelas necessárias. O total por atleta na temporada deve ser derivado de observações vinculadas às partidas elegíveis, respeitando o nível real de detalhe obtido.
 
 Não criar registros fictícios para preencher tabelas.
 
-Se uma fonte oferecer apenas estatísticas agregadas da temporada inteira, não utilizá-las como números do primeiro turno. Buscar outra fonte que permita identificar o desempenho das rodadas 1 a 19; se não existir, registrar a limitação e não exibir a métrica como verificada. Não fabricar eventos individuais.
+Uma fonte de totais anuais não permite reconstituir atuações individuais. Exigir partido/rodada, clube da atuação e cobertura por métrica; se faltarem, registrar a limitação. Não fabricar eventos ou converter acumulados por diferença sem evidência das revisões, transferências e adiamentos.
 
 Implementar:
 
@@ -537,7 +543,7 @@ Implementar:
 11. INDICADORES ESTATÍSTICOS
     Este é um dos pontos mais importantes do projeto.
 
-Regra comum: todos os totais, rankings, médias, taxas, denominadores e comparações referem-se apenas às atuações pelo Flamengo nas rodadas 1 a 19 de 2026. Informar cobertura e disponibilidade de cada indicador antes de comparar atletas.
+Regra comum: todos os totais, rankings, médias, taxas, denominadores e comparações referem-se apenas às atuações pelo Flamengo nas rodadas 1 a 38 de 2025. Informar cobertura e disponibilidade de cada indicador antes de comparar atletas.
 Indicadores básicos
 
 - Número de jogadores.
@@ -820,8 +826,8 @@ Exibir:
 
 - Jogador.
 - Posição.
-- Temporada: 2026 (recorte fixo, sem extrapolar para outras temporadas).
-- Rodadas oficiais: 1 a 19 (recorte fixo do primeiro turno).
+- Temporada: 2025 (recorte fixo, sem extrapolar para outras temporadas).
+- Rodadas oficiais: 1 a 38 (temporada completa).
 - Minutagem mínima.
 - Tipo de métrica.
 - Ordenação.
@@ -889,7 +895,7 @@ GET /api/exports/players
 
 Essas são propostas de contratos. Ajustar conforme a arquitetura final.
 
-Os endpoints, filtros, exports e caches devem garantir escopo fixo Brasileirão 2026, rodadas 1 a 19, inclusive quando o cliente omitir parâmetros. Não permitir que um filtro inadvertidamente injete partidas fora do recorte. A resposta de metadados deve explicitar temporadas, rodadas e cobertura da fonte.
+Os endpoints, filtros, exports e caches devem garantir escopo fixo Brasileirão 2025, rodadas 1 a 38, inclusive quando o cliente omitir parâmetros. Não permitir que um filtro inadvertidamente injete partidas fora do recorte. A resposta de metadados deve explicitar temporadas, rodadas e cobertura da fonte.
 
 Requisitos:
 
@@ -918,7 +924,7 @@ O Power BI não substitui o dashboard web.
 
 Os dois são entregáveis complementares.
 
-O modelo Power BI deve ser filtrado exclusivamente para a Série A 2026, primeiro turno (rodadas 1 a 19), e conservar definições e cobertura compatíveis com a camada Gold. Dados de temporada inteira não devem alimentar visualizações rotuladas como primeiro turno.
+O modelo Power BI deve ser filtrado exclusivamente para a Série A 2025, temporada completa (rodadas 1 a 38), e conservar definições e cobertura compatíveis com a camada Gold. Visualizações devem distinguir totais comprovados, cobertura parcial e indisponibilidade. Nenhuma rodada do returno é excluída neste recorte.
 17.1. Modelo dimensional
 Tabelas dimensionais possíveis:
 
@@ -1165,7 +1171,6 @@ Frontend:
     │ └── data-dictionary/
     ├── scripts/
     ├── .github/workflows/
-    ├── docker-compose.yml
     ├── .env.example
     ├── .gitignore
     ├── README.md
@@ -1173,13 +1178,13 @@ Frontend:
     Esta estrutura é uma referência de separação de responsabilidades, não uma exigência de criar todos os diretórios antecipadamente. A estrutura concreta deve refletir funcionalidades reais, respeitar as dependências da Clean Architecture e evitar fragmentação excessiva.
 
 O AGENTS.md contém as regras permanentes do agente; docs/FLAMENGO_ANALYTICS_CONTEXT.md contém o escopo e o planejamento integral. Ambos devem ser consultados durante a implementação no Codex. 24. TESTES
-Testes do recorte de primeiro turno
+Testes do recorte da temporada completa
 
-- A inclusão depende da rodada oficial (1 a 19), e não da data cronológica.
-- Partidas adiadas da rodada 1 a 19 continuam elegíveis quando os dados forem válidos.
-- Rodadas 20 a 38 e partidas de competições diferentes são excluídas.
+- A inclusão depende da rodada oficial (1 a 38), e não da data cronológica.
+- Partidas adiadas da rodada 1 a 38 continuam elegíveis quando os dados forem válidos.
+- Rodadas 1, 19, 20 e 38 são incluídas; 39, temporadas 2024/2026 e competições diferentes são excluídas.
 - Estatísticas de atletas por outros clubes são excluídas.
-- Fontes somente com números da temporada inteira não são rotuladas como primeiro turno.
+- Totais anuais e snapshots não são tratados como registros independentes por partida.
 - Relatórios, API, Gold, React, CSV e Power BI preservam o mesmo universo observacional.
   Testes do pipeline
 - Normalização.
@@ -1326,8 +1331,8 @@ Adequar o formato à ABNT quando necessário.
 As conclusões devem ser construídas a partir dos resultados verdadeiros. 27. DEVOPS E GITHUB
 Configurar quando viável:
 
-- Docker Compose.
-- PostgreSQL em contêiner.
+- PostgreSQL instalado localmente, configurado por DATABASE_URL.
+- Ambiente virtual Python e gerenciamento JavaScript com npm.
 - Scripts de inicialização.
 - Variáveis de ambiente.
 - Git.
@@ -1448,7 +1453,7 @@ A versão mais completa é:
     O projeto somente poderá ser declarado concluído quando os requisitos essenciais estiverem implementados e verificados.
     Dados
 
-- Fonte validada com capacidade comprovada de distinguir rodadas 1 a 19 de 2026.
+- Fonte validada com capacidade comprovada de cobrir rodadas 1 a 38 de 2025.
 - Coleta legítima.
 - Recorte correto.
 - Pipeline reproduzível.
@@ -1519,7 +1524,7 @@ Concluído no planejamento
 - Definimos o tema.
 - Escolhemos o Flamengo.
 - Mudamos o foco para jogadores.
-- Definimos o Brasileirão Série A de 2026, somente o primeiro turno (rodadas 1 a 19), como recorte definitivo, substituindo o antigo recorte de temporada completa.
+- Migramos, por autorização explícita, para o Brasileirão Série A de 2025, temporada completa (rodadas 1 a 38), preservando módulos e decisões de arquitetura. O recorte anterior está cancelado.
 - Definimos a pergunta principal da pesquisa.
 - Listamos os indicadores desejados.
 - Discutimos possíveis fontes.
@@ -1574,7 +1579,7 @@ Campeonato Brasileiro Série A.
 
 Qual temporada inicial?
 
-2026, exclusivamente primeiro turno (rodadas 1 a 19).
+2025, temporada completa (rodadas 1 a 38).
 
 Quero dashboard?
 
@@ -1695,7 +1700,7 @@ Não utilize respostas vagas como "basta conectar à API" sem implementar ou des
 Não utilize dados falsos para demonstrar resultados de produção. 36. INSTRUÇÃO FINAL
 Você agora possui o contexto consolidado do meu projeto Flamengo Analytics e das decisões tomadas até este momento.
 
-O objetivo é desenvolver uma plataforma profissional de análise estatística individual dos jogadores do Flamengo no primeiro turno (rodadas 1 a 19) do Campeonato Brasileiro Série A de 2026.
+O objetivo é desenvolver uma plataforma profissional de análise estatística individual dos jogadores do Flamengo na temporada completa (rodadas 1 a 38) do Campeonato Brasileiro Série A de 2025.
 
 O projeto deve incluir:
 
@@ -1735,4 +1740,4 @@ Ao concluir a leitura, apresente uma confirmação breve de que compreendeu o co
 
 Depois disso, aguarde minha próxima instrução específica para implementar, revisar ou estudar qualquer etapa.
 
-PROJETO: FLAMENGO ANALYTICS — JOGADORES DO FLAMENGO — PRIMEIRO TURNO DO BRASILEIRÃO SÉRIE A 2026 (RODADAS 1 A 19).
+PROJETO: FLAMENGO ANALYTICS — JOGADORES DO FLAMENGO — TEMPORADA COMPLETA DO BRASILEIRÃO SÉRIE A 2025 (RODADAS 1 A 38).

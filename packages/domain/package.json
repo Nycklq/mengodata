@@ -1,0 +1,10 @@
+{
+  "name": "@flamengo-analytics/domain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./metrics": "./src/metrics.js",
+    "./scope": "./src/scope.js"
+  }
+}

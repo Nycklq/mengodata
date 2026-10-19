@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "competition_id": "competition:brasileirao-serie-a-men",
+    "season": 2025,
+    "team_id": "club:flamengo",
+    "first_round": 1,
+    "last_round": 38
+  },
+  "minimum_minutes": [0, 450, 900, 1500],
+  "missing_policy": "null_when_any_component_is_missing",
+  "quantile_method": "linear_interpolation_n_minus_one",
+  "outlier_rule": "outside_1.5_interquartile_range",
+  "metrics": [
+    { "id": "matches", "label": "Partidas", "unit": "partidas", "decimals": 0 },
+    { "id": "starts", "label": "Titularidades", "unit": "partidas", "decimals": 0 },
+    { "id": "minutes", "label": "Minutos", "unit": "min", "decimals": 0 },
+    { "id": "goals", "label": "Gols", "unit": "gols", "decimals": 0 },
+    { "id": "assists", "label": "Assistências", "unit": "assistências", "decimals": 0 },
+    { "id": "contributions", "label": "G+A", "unit": "participações", "decimals": 0 },
+    {
+      "id": "goals_per90",
+      "label": "Gols por 90",
+      "unit": "gols/90 min",
+      "decimals": 2
+    },
+    {
+      "id": "assists_per90",
+      "label": "Assistências por 90",
+      "unit": "assistências/90 min",
+      "decimals": 2
+    },
+    {
+      "id": "contributions_per90",
+      "label": "G+A por 90",
+      "unit": "participações/90 min",
+      "decimals": 2
+    },
+    { "id": "shots", "label": "Finalizações", "unit": "ações", "decimals": 0 },
+    {
+      "id": "shots_on_target",
+      "label": "Finalizações no alvo",
+      "unit": "ações",
+      "decimals": 0
+    },
+    { "id": "conversion_pct", "label": "Conversão", "unit": "%", "decimals": 2 },
+    { "id": "tackles", "label": "Desarmes", "unit": "ações", "decimals": 0 },
+    {
+      "id": "interceptions",
+      "label": "Interceptações",
+      "unit": "ações",
+      "decimals": 0
+    },
+    { "id": "clearances", "label": "Cortes", "unit": "ações", "decimals": 0 },
+    { "id": "blocks", "label": "Bloqueios", "unit": "ações", "decimals": 0 },
+    {
+      "id": "passes_completed",
+      "label": "Passes corretos",
+      "unit": "passes",
+      "decimals": 0
+    },
+    {
+      "id": "passes_attempted",
+      "label": "Passes tentados",
+      "unit": "passes",
+      "decimals": 0
+    },
+    {
+      "id": "pass_accuracy_pct",
+      "label": "Precisão de passes",
+      "unit": "%",
+      "decimals": 2
+    },
+    {
+      "id": "yellow_cards",
+      "label": "Cartões amarelos",
+      "unit": "cartões",
+      "decimals": 0
+    },
+    {
+      "id": "red_cards",
+      "label": "Cartões vermelhos",
+      "unit": "cartões",
+      "decimals": 0
+    },
+    { "id": "xg", "label": "xG", "unit": "gols esperados", "decimals": 2 },
+    { "id": "xa", "label": "xA", "unit": "assistências esperadas", "decimals": 2 }
+  ]
+}

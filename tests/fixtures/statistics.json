@@ -1,0 +1,47 @@
+{
+  "kind": "synthetic_test_fixture_only",
+  "rows": [
+    {
+      "match_id": "synthetic:one",
+      "minutes": 30,
+      "starter": true,
+      "goals": 1,
+      "assists": 1,
+      "shots": 2,
+      "passes_completed": 8,
+      "passes_attempted": 10
+    },
+    {
+      "match_id": "synthetic:two",
+      "minutes": 90,
+      "starter": false,
+      "goals": 2,
+      "assists": 0,
+      "shots": 10,
+      "passes_completed": 90,
+      "passes_attempted": 100
+    }
+  ],
+  "expected": {
+    "matches": 2,
+    "starts": 1,
+    "minutes": 120,
+    "goals": 3,
+    "assists": 1,
+    "contributions": 4,
+    "goals_per90": 2.25,
+    "assists_per90": 0.75,
+    "contributions_per90": 3,
+    "conversion_pct": 25,
+    "pass_accuracy_pct": 89.0909090909091,
+    "tackles": null,
+    "xg": null
+  },
+  "distribution": {
+    "values": [0, 1, 2, 3, 4, 20, null],
+    "q1": 1.25,
+    "median": 2.5,
+    "q3": 3.75,
+    "outliers": [20]
+  }
+}

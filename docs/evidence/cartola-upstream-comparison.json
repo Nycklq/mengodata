@@ -1,0 +1,199 @@
+{
+  "repository": "henriquepgomide/caRtola",
+  "revision": "17832580475259b8999649ced88c8694c89372e1",
+  "tree_truncated": false,
+  "candidate_license_endpoint_status": 404,
+  "license_sha256": "2d0c57572d43fcfe6f291ff7df6059425a21051ab09c562ca5701c4a873905e7",
+  "comparisons": [
+    {
+      "path": "data/01_raw/2025/rodada-1.csv",
+      "sha256": "4d3a53ca10d7c420c02f4459d862a8b88127b9798cfe1698308219d89f5b108b",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-10.csv",
+      "sha256": "78f93cb7cd3041e98e58ae8b443909fa780fb004e3006629397c9ab0ea079b6c",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-11.csv",
+      "sha256": "803527c7a19cefbd3faaf8fc8e66c2f724f1afc7f3c1e4601fd2868e03de582d",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-12.csv",
+      "sha256": "daa50ae5c8e7538bd796a870b55b54eb0cd7bec7376e0de671869327a2e563a2",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-13.csv",
+      "sha256": "eecb405ff09d8e811e503480c1f539f6b684173a8a84ac9f92f53d3f957ad7e7",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-14.csv",
+      "sha256": "c7a5c83e54bd7b2535e31035f5d0741b371aee1d143a13294e0280d8adedfb8a",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-15.csv",
+      "sha256": "ed25885bc9a5addcfa7529aacbcf3ab4abf98576a535511548f918ebba1124bd",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-16.csv",
+      "sha256": "026bef199c6db2be0bad570afee9b120445a9a2907a733fef174843084e8a095",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-17.csv",
+      "sha256": "ea6c99443fa2f07906e1a0b5f3ad4bf288366628bd895d3739878016c1c5fe39",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-18.csv",
+      "sha256": "1e614c8cea28100aca1d0e50a31090db742907d6aebfbe8ffa3d2bf71b78fd03",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-19.csv",
+      "sha256": "4b1875fb7326d187dcc089b5d056e63a622422e05ccce68f411df251481732ca",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-2.csv",
+      "sha256": "86f74852102ad500697f320d1126ac627c2d0749f0d2c3866b8e632731f460d0",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-20.csv",
+      "sha256": "a54e8a1e6317bec5bf6681941e673de457515301e609938c15c6cfabac825017",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-21.csv",
+      "sha256": "656c4be016475bd2639bb19b5a85105075b255dd779387df215a71a05367a436",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-22.csv",
+      "sha256": "4c2f30e664ef88441c43c8267101a4824bbec8dba44ee99761f3f48911485bfa",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-23.csv",
+      "sha256": "d74c1481b870a5edd28f5e6c2749392f19146b8462641a620cce225864690b12",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-24.csv",
+      "sha256": "4ef5e44aadb0eb09fe85ff845755ce5e5e80352e1426bc3df87ad2767cb84a1a",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-25.csv",
+      "sha256": "906d31726e636a36f202ab5a1a1bb679ee9855437775b2f3a097c01ef8e2817d",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-26.csv",
+      "sha256": "3ba122f832bc0262711bd4edb59ab58efc30f4605c73531b3fb7a4b20e3f0ad1",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-27.csv",
+      "sha256": "1550f82115129a36ea513fad5692ab8923c78fc2fe8dbf5f8b4a9acafef75320",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-28.csv",
+      "sha256": "404ea03c7198d8d3af110aacea7e4be6ee275ca0051a04cc072b67875cea31cb",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-29.csv",
+      "sha256": "3426975e9eb3997948ae2fac5922d511bbb7628e6fc8f3991e905e9ba5a1b58d",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-3.csv",
+      "sha256": "e7c15074423035b35a7a0e23abf5d11f822d08562cb2ec530706e4e7640400b0",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-30.csv",
+      "sha256": "24ed550a04e958c8b27ee8766a1bfa537b8a91e8ac553ef61f714ebb8759b901",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-31.csv",
+      "sha256": "4468c498d8818a6a22b097db2771a8fd757312bb23f24ee0d3f36c707befbaa8",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-32.csv",
+      "sha256": "5812a97198f30a5eb16c022be7f88f185decbdfee647f715419a2d25de889e25",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-33.csv",
+      "sha256": "8a4b86544e00432555bdfdd718485999ce98520b2b31ffdc9d5500664bf9f156",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-34.csv",
+      "sha256": "9935b9df4841aba68b6735ea3b7a17c305f813164991b779242300fd98d92c0e",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-35.csv",
+      "sha256": "f8192cee5cf86ef4ea3ffb0ebabd0cfced896d0f0635c5447a79b61294c655cf",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-36.csv",
+      "sha256": "bd5862f654b5946c0f9e0a3915632bbf984423ce87539e978123e7cfdec740cd",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-37.csv",
+      "sha256": "4a51c27747e0616daa525133e8a2fc036a1065b0fbd437f3ed36516f62dcf766",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-38.csv",
+      "sha256": "e6c92093a66fd57a22cc40386bafdf68500158d87d6f5c32f245e3e72a11e785",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-4.csv",
+      "sha256": "7a952cb539e44156a570c1ef4c187af5e2bec8791004adcfb5e7d47b7b94b2fd",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-5.csv",
+      "sha256": "e7e9cd07a96d1659156d86cd8ed16d177ab7c8074937752c5f63d4666d1abc6b",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-6.csv",
+      "sha256": "6086a778b7fdf88c9a66a4369ca95c0dcc2ed9ecf588dc4c8fc9cf18223ec038",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-7.csv",
+      "sha256": "5be21c5b599e14875132d3ce4ff61807c6415cbe0164a9fe71933df516f12045",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-8.csv",
+      "sha256": "db9338df7c9a6b34c3517135344c530653fcfadafe9bcbe5b13a82fa0fd0527d",
+      "identical_to_candidate": true
+    },
+    {
+      "path": "data/01_raw/2025/rodada-9.csv",
+      "sha256": "2320c81697e78c4fecc3f563791ed82b6b5a776e1cfed32570c74283b770b6c1",
+      "identical_to_candidate": true
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+Cobertura completa = SELECTEDVALUE(Metadata[coverage_verified], FALSE()) && SELECTEDVALUE(Metadata[distribution_allowed], FALSE())
+
+Gols observados = IF(COUNTROWS(Fato) > 0 && COUNT(Fato[goals]) = COUNTROWS(Fato), SUM(Fato[goals]), BLANK())
+
+Assistências observadas = IF(COUNTROWS(Fato) > 0 && COUNT(Fato[assists]) = COUNTROWS(Fato), SUM(Fato[assists]), BLANK())
+
+Minutos observados = IF(COUNTROWS(Fato) > 0 && COUNT(Fato[minutes]) = COUNTROWS(Fato), SUM(Fato[minutes]), BLANK())
+
+Gols = IF([Cobertura completa], [Gols observados], BLANK())
+
+Assistências = IF([Cobertura completa], [Assistências observadas], BLANK())
+
+Minutos = IF([Cobertura completa], [Minutos observados], BLANK())
+
+Jogos = IF([Cobertura completa] && COUNTROWS(Fato) > 0, DISTINCTCOUNT(Fato[match_id]), BLANK())
+
+Atletas = IF([Cobertura completa] && COUNTROWS(Fato) > 0, DISTINCTCOUNT(Fato[player_id]), BLANK())
+
+Titularidades = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNTBLANK(Fato[starter]) = 0, COUNTROWS(FILTER(Fato, Fato[starter] = TRUE())), BLANK())
+
+G + A = IF(NOT ISBLANK([Gols]) && NOT ISBLANK([Assistências]), [Gols] + [Assistências], BLANK())
+
+Gols por 90 = DIVIDE([Gols] * 90, [Minutos], BLANK())
+
+Assistências por 90 = DIVIDE([Assistências] * 90, [Minutos], BLANK())
+
+G + A por 90 = DIVIDE([G + A] * 90, [Minutos], BLANK())
+
+Finalizações = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[shots]) = COUNTROWS(Fato), SUM(Fato[shots]), BLANK())
+
+Passes certos = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[passes_completed]) = COUNTROWS(Fato), SUM(Fato[passes_completed]), BLANK())
+
+Passes tentados = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[passes_attempted]) = COUNTROWS(Fato), SUM(Fato[passes_attempted]), BLANK())
+
+Conversão (%) = DIVIDE([Gols] * 100, [Finalizações], BLANK())
+
+Acerto de passes (%) = DIVIDE([Passes certos] * 100, [Passes tentados], BLANK())
+
+Desarmes = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[tackles]) = COUNTROWS(Fato), SUM(Fato[tackles]), BLANK())
+
+Interceptações = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[interceptions]) = COUNTROWS(Fato), SUM(Fato[interceptions]), BLANK())
+
+Cortes = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[clearances]) = COUNTROWS(Fato), SUM(Fato[clearances]), BLANK())
+
+Bloqueios = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[blocks]) = COUNTROWS(Fato), SUM(Fato[blocks]), BLANK())
+
+Elegível por minutos = IF(NOT ISBLANK([Minutos]) && [Minutos] >= SELECTEDVALUE(MinimoMinutos[minutes], 0), 1, BLANK())
+
+Ranking de gols = IF([Elegível por minutos] = 1 && NOT ISBLANK([Gols]), RANKX(FILTER(ALLSELECTED(DimJogador), [Elegível por minutos] = 1 && NOT ISBLANK([Gols])), [Gols], , DESC, DENSE), BLANK())
+
+Gols jogador A = CALCULATE([Gols], REMOVEFILTERS(DimJogador), TREATAS(VALUES(JogadorA[player_id]), DimJogador[player_id]))
+
+Gols jogador B = CALCULATE([Gols], REMOVEFILTERS(DimJogador), TREATAS(VALUES(JogadorB[player_id]), DimJogador[player_id]))
+
+Diferença de gols = IF(HASONEVALUE(JogadorA[player_id]) && HASONEVALUE(JogadorB[player_id]) && NOT ISBLANK([Gols jogador A]) && NOT ISBLANK([Gols jogador B]), [Gols jogador A] - [Gols jogador B], BLANK())
+
+Mediana de gols = MEDIANX(FILTER(ALLSELECTED(DimJogador), [Elegível por minutos] = 1 && NOT ISBLANK([Gols])), [Gols])
+
+Q1 de gols = PERCENTILEX.INC(FILTER(ALLSELECTED(DimJogador), [Elegível por minutos] = 1 && NOT ISBLANK([Gols])), [Gols], 0.25)
+
+Q3 de gols = PERCENTILEX.INC(FILTER(ALLSELECTED(DimJogador), [Elegível por minutos] = 1 && NOT ISBLANK([Gols])), [Gols], 0.75)

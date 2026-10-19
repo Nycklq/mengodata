@@ -1,9 +1,10 @@
 AGENTS.md — Flamengo Analytics
 Identidade e recorte obrigatório
 - Projeto: Flamengo Analytics, análises individuais dos jogadores do Flamengo.
-- Campeonato: Brasileiro Série A masculino, 2026, exclusivamente primeiro turno (rodadas oficiais 1 a 19).
-- Abrangência: apenas estatísticas registradas pelo Flamengo nas partidas desse recorte. Excluir rodadas 20 a 38, outras competições, outras temporadas e aparições por outros clubes.
-- Jogos adiados pertencem à rodada oficial de origem; não substituir o recorte por intervalo de datas ou pelos 19 primeiros jogos cronologicamente disputados.
+- Campeonato: Brasileiro Série A masculino, temporada completa de 2025 (rodadas oficiais 1 a 38).
+- Abrangência: apenas estatísticas registradas pelo Flamengo nas partidas desse recorte. Excluir rodadas fora de 1 a 38, outras competições, outras temporadas e aparições por outros clubes.
+- Jogos adiados pertencem à rodada oficial de origem; não substituir o recorte por intervalo de datas ou ordem cronológica dos jogos.
+- A decisão anterior de primeiro turno de 2026 foi cancelada pelo usuário. O histórico em docs/history/2026 não é norma operacional.
 - Antes de implementar algo que envolva escopo, métricas ou fonte, consulte docs/FLAMENGO_ANALYTICS_CONTEXT.md, principalmente a atualização de escopo e as seções de coleta, modelagem, arquitetura e testes.
 - O documento é planejamento, não evidência de implementação. Inspecione o repositório antes de declarar que algo já existe.
 Clean Architecture — regra inegociável
@@ -21,7 +22,7 @@ Código sem comentários — regra inegociável
 - Não apagar indiscriminadamente comentários preexistentes em arquivos não relacionados à tarefa.
 Qualidade e fidelidade dos dados
 - Usar somente dados reais, com origem, cobertura, granularidade e direitos de uso verificados. Nunca inventar números, fontes, URLs, APIs, testes executados ou resultados.
-- Comprovar a possibilidade de isolar as rodadas 1 a 19 de 2026 antes de calcular e exibir estatísticas do turno. Não apresentar totais da temporada inteira como se fossem do primeiro turno.
+- Comprovar a cobertura das rodadas 1 a 38 de 2025 antes de calcular e exibir totais da temporada. Arquivos de rodada, calendário e scouts acumulados não comprovam cobertura por partida. Não somar snapshots acumulados como eventos independentes.
 - Preservar IDs de partidas, rodada oficial, clube, competição, temporada, fonte e data de coleta. Verificar jogadores transferidos e partidas remarcadas.
 - Métricas indisponíveis devem aparecer como indisponíveis, não receber zeros falsos. Relatar cobertura parcial e diferenças de granularidade.
 - Manter a mesma semântica de indicadores em Python, Gold, PostgreSQL, API, React e Power BI.
@@ -29,9 +30,12 @@ Qualidade e fidelidade dos dados
 - Testar regras de recorte, fórmulas, idempotência, casos de uso, integrações e endpoints. Executar testes, lint e build quando disponíveis e reportar resultados observados.
 - Não instalar ferramentas de Big Data em escala (como Spark ou Hadoop) sem justificativa técnica relacionada a volume ou processamento.
 Forma de trabalhar
+- Ambiente de desenvolvimento: Windows 11 e VS Code, com Node.js/npm, React/Vite, Python em .venv, PostgreSQL local e Power BI Desktop. Não reintroduzir Docker, Compose, Dev Containers ou outra infraestrutura de containers como dependência do projeto.
+- Configurar PostgreSQL por DATABASE_URL no .env local, sem credenciais versionadas. Diagnóstico de conexão deve ser somente leitura; migrações são explícitas e nunca executadas ao iniciar a API. Testes de banco usam cluster temporário isolado, sem acessar bancos existentes.
 - Responder em português brasileiro, tecnicamente e com clareza.
 - Seguir o roadmap descrito no contexto, verificando as dependências e o estado real do projeto antes de agir.
 - Se solicitado a implementar, entregar arquivos funcionais, testes apropriados e instruções de execução, sem encerrar apenas com um plano. Se solicitado ensino, explicar de modo gradual e permitir que o usuário implemente.
 - Em tarefas complexas, apresentar sequência resumida de fases e preservar progresso/documentação de decisões sem criar arquivos vazios.
-- Não fazer git push, publicar repositórios, implantar serviços, comprar produtos nem contratar recursos sem autorização explícita.
-- Antes de finalizar, conferir arquitetura, ausência de comentários novos, filtragem do primeiro turno e testes pertinentes. Reportar limitações e pendências de forma transparente.
+- Não fazer commits, git push, publicar repositórios, implantar serviços, comprar produtos nem contratar recursos sem autorização explícita.
+- Preservar migrações históricas e bancos existentes. Mudanças de escopo exigem migração aditiva, sem apagar ou reclassificar partidas antigas.
+- Antes de finalizar, conferir arquitetura, ausência de comentários novos, filtragem da temporada completa de 2025 e testes pertinentes. Reportar limitações e pendências de forma transparente.

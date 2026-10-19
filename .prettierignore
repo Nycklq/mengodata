@@ -1,0 +1,13 @@
+node_modules
+.venv
+.tmp
+dist
+coverage
+AGENTS.md
+docs/FLAMENGO_ANALYTICS_CONTEXT.md
+docs/DATA_SOURCES.md
+docs/METRICS.md
+docs/ROUND_SCOPE.md
+docs/history/2026
+package-lock.json
+PROMPT_MESTRE_CODEX_FLAMENGO_ANALYTICS_2025_FINAL.md
