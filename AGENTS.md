@@ -1,0 +1,37 @@
+AGENTS.md — Flamengo Analytics
+Identidade e recorte obrigatório
+- Projeto: Flamengo Analytics, análises individuais dos jogadores do Flamengo.
+- Campeonato: Brasileiro Série A masculino, 2026, exclusivamente primeiro turno (rodadas oficiais 1 a 19).
+- Abrangência: apenas estatísticas registradas pelo Flamengo nas partidas desse recorte. Excluir rodadas 20 a 38, outras competições, outras temporadas e aparições por outros clubes.
+- Jogos adiados pertencem à rodada oficial de origem; não substituir o recorte por intervalo de datas ou pelos 19 primeiros jogos cronologicamente disputados.
+- Antes de implementar algo que envolva escopo, métricas ou fonte, consulte docs/FLAMENGO_ANALYTICS_CONTEXT.md, principalmente a atualização de escopo e as seções de coleta, modelagem, arquitetura e testes.
+- O documento é planejamento, não evidência de implementação. Inspecione o repositório antes de declarar que algo já existe.
+Clean Architecture — regra inegociável
+- Nunca implementar código novo fora de Clean Architecture, nem provisoriamente. Fazer as dependências apontarem para o núcleo de negócio.
+- Backend: separar domínio, aplicação/casos de uso/portas, adaptadores HTTP e infraestrutura PostgreSQL; composição e injeção de dependências nas bordas. Domínio e casos de uso não importam Express, drivers SQL ou serviços externos.
+- Frontend: separar domínio e regras analíticas, fluxos/casos de uso, gateways HTTP e apresentação React. Componentes não concentram regras de negócio, SQL ou infraestrutura.
+- Pipeline Python: separar regras estatísticas e validação, casos de uso de ingestão/transformação e conectores de fonte/arquivo/banco. Bronze/Silver/Gold são estágios de dados, não substituem a arquitetura de software.
+- Controllers devem validar o transporte e delegar; repositórios concretos persistem; regras e cálculos permanecem em módulos internos testáveis.
+- Contratos, DTOs, portas e mapeadores só quando efetivamente necessários. Evitar camadas vazias, abstrações artificiais, dependências circulares e reescritas sem justificativa.
+- Se houver impedimento arquitetural, descrevê-lo e corrigir a estrutura afetada: não produzir atalho arquitetural incompatível.
+Código sem comentários — regra inegociável
+- Não inserir comentários em JS, JSX, CSS, Python, SQL, scripts, testes ou arquivos de configuração.
+- Não adicionar TODO, FIXME, JSDoc, docstrings explicativas ou comentários de cabeçalho em código. Usar nomes claros e testes expressivos.
+- Explicações, justificativas e decisões pertencem às respostas e à documentação Markdown (incluindo células Markdown de notebooks), não ao código.
+- Não apagar indiscriminadamente comentários preexistentes em arquivos não relacionados à tarefa.
+Qualidade e fidelidade dos dados
+- Usar somente dados reais, com origem, cobertura, granularidade e direitos de uso verificados. Nunca inventar números, fontes, URLs, APIs, testes executados ou resultados.
+- Comprovar a possibilidade de isolar as rodadas 1 a 19 de 2026 antes de calcular e exibir estatísticas do turno. Não apresentar totais da temporada inteira como se fossem do primeiro turno.
+- Preservar IDs de partidas, rodada oficial, clube, competição, temporada, fonte e data de coleta. Verificar jogadores transferidos e partidas remarcadas.
+- Métricas indisponíveis devem aparecer como indisponíveis, não receber zeros falsos. Relatar cobertura parcial e diferenças de granularidade.
+- Manter a mesma semântica de indicadores em Python, Gold, PostgreSQL, API, React e Power BI.
+- Validar entradas, usar consultas SQL parametrizadas, tratamento consistente de erros e configurações seguras.
+- Testar regras de recorte, fórmulas, idempotência, casos de uso, integrações e endpoints. Executar testes, lint e build quando disponíveis e reportar resultados observados.
+- Não instalar ferramentas de Big Data em escala (como Spark ou Hadoop) sem justificativa técnica relacionada a volume ou processamento.
+Forma de trabalhar
+- Responder em português brasileiro, tecnicamente e com clareza.
+- Seguir o roadmap descrito no contexto, verificando as dependências e o estado real do projeto antes de agir.
+- Se solicitado a implementar, entregar arquivos funcionais, testes apropriados e instruções de execução, sem encerrar apenas com um plano. Se solicitado ensino, explicar de modo gradual e permitir que o usuário implemente.
+- Em tarefas complexas, apresentar sequência resumida de fases e preservar progresso/documentação de decisões sem criar arquivos vazios.
+- Não fazer git push, publicar repositórios, implantar serviços, comprar produtos nem contratar recursos sem autorização explícita.
+- Antes de finalizar, conferir arquitetura, ausência de comentários novos, filtragem do primeiro turno e testes pertinentes. Reportar limitações e pendências de forma transparente.
