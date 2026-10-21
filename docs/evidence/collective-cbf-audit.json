@@ -1,0 +1,3434 @@
+{
+  "checked_at": "2026-10-21T19:58:00.097661+00:00",
+  "dataset_version": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+  "official_url": "https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/BSA_25_Tabela_detalhada_08_12_d88b469845.pdf",
+  "official_sha256": "116658276f3efd4e85ef04f5dbce2c87cb5f2c12d38da0582ab37faffa26f7db",
+  "official_pdf_rows_parsed": 380,
+  "fixtures_compared": 380,
+  "explicit_rounds_compared": 370,
+  "explicit_dates_compared": 379,
+  "differences": [],
+  "round_note": "Células de rodada ausentes na extração não são inferidas pela data ou ordem de jogo.",
+  "reference_matches": [
+    {
+      "cbf_match_number": 6,
+      "official_round": 1,
+      "date": "2025-03-29",
+      "home_name": "Cruzeiro",
+      "away_name": "Mirassol",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 7,
+      "official_round": 1,
+      "date": "2025-03-29",
+      "home_name": "Grêmio",
+      "away_name": "Atlético-MG",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 9,
+      "official_round": 1,
+      "date": "2025-03-29",
+      "home_name": "Fortaleza",
+      "away_name": "Fluminense",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 10,
+      "official_round": 1,
+      "date": "2025-03-29",
+      "home_name": "Juventude",
+      "away_name": "Vitória",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 4,
+      "official_round": 1,
+      "date": "2025-03-29",
+      "home_name": "São Paulo",
+      "away_name": "Sport",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 1,
+      "official_round": 1,
+      "date": "2025-03-29",
+      "home_name": "Flamengo",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 3,
+      "official_round": 1,
+      "date": "2025-03-30",
+      "home_name": "Palmeiras",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 2,
+      "official_round": 1,
+      "date": "2025-03-30",
+      "home_name": "Vasco",
+      "away_name": "Santos",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 8,
+      "official_round": 1,
+      "date": "2025-03-30",
+      "home_name": "Bahia",
+      "away_name": "Corinthians",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 5,
+      "official_round": 1,
+      "date": "2025-03-31",
+      "home_name": "Bragantino",
+      "away_name": "Ceará",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 13,
+      "official_round": 2,
+      "date": "2025-04-05",
+      "home_name": "Corinthians",
+      "away_name": "Vasco",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 19,
+      "official_round": 2,
+      "date": "2025-04-05",
+      "home_name": "Ceará",
+      "away_name": "Grêmio",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 12,
+      "official_round": 2,
+      "date": "2025-04-05",
+      "home_name": "Botafogo",
+      "away_name": "Juventude",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 11,
+      "official_round": 2,
+      "date": "2025-04-06",
+      "home_name": "Fluminense",
+      "away_name": "Bragantino",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 16,
+      "official_round": 2,
+      "date": "2025-04-06",
+      "home_name": "Atlético-MG",
+      "away_name": "São Paulo",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 15,
+      "official_round": 2,
+      "date": "2025-04-06",
+      "home_name": "Mirassol",
+      "away_name": "Fortaleza",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 17,
+      "official_round": 2,
+      "date": "2025-04-06",
+      "home_name": "Internacional",
+      "away_name": "Cruzeiro",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 18,
+      "official_round": 2,
+      "date": "2025-04-06",
+      "home_name": "Vitória",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 20,
+      "official_round": 2,
+      "date": "2025-04-06",
+      "home_name": "Sport",
+      "away_name": "Palmeiras",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 14,
+      "official_round": 2,
+      "date": "2025-04-06",
+      "home_name": "Santos",
+      "away_name": "Bahia",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 25,
+      "official_round": 3,
+      "date": "2025-04-12",
+      "home_name": "Bragantino",
+      "away_name": "Botafogo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 30,
+      "official_round": 3,
+      "date": "2025-04-12",
+      "home_name": "Juventude",
+      "away_name": "Ceará",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 23,
+      "official_round": 3,
+      "date": "2025-04-12",
+      "home_name": "Palmeiras",
+      "away_name": "Corinthians",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 22,
+      "official_round": 3,
+      "date": "2025-04-12",
+      "home_name": "Vasco",
+      "away_name": "Sport",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 28,
+      "official_round": 3,
+      "date": "2025-04-13",
+      "home_name": "Bahia",
+      "away_name": "Mirassol",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 24,
+      "official_round": 3,
+      "date": "2025-04-13",
+      "home_name": "São Paulo",
+      "away_name": "Cruzeiro",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 27,
+      "official_round": 3,
+      "date": "2025-04-13",
+      "home_name": "Grêmio",
+      "away_name": "Flamengo",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 21,
+      "official_round": 3,
+      "date": "2025-04-13",
+      "home_name": "Fluminense",
+      "away_name": "Santos",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 29,
+      "official_round": 3,
+      "date": "2025-04-13",
+      "home_name": "Fortaleza",
+      "away_name": "Internacional",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 26,
+      "official_round": 3,
+      "date": "2025-04-13",
+      "home_name": "Atlético-MG",
+      "away_name": "Vitória",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 39,
+      "official_round": 4,
+      "date": "2025-04-15",
+      "home_name": "Ceará",
+      "away_name": "Vasco",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 32,
+      "official_round": 4,
+      "date": "2025-04-16",
+      "home_name": "Botafogo",
+      "away_name": "São Paulo",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 35,
+      "official_round": 4,
+      "date": "2025-04-16",
+      "home_name": "Mirassol",
+      "away_name": "Grêmio",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 40,
+      "official_round": 4,
+      "date": "2025-04-16",
+      "home_name": "Sport",
+      "away_name": "Bragantino",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 33,
+      "official_round": 4,
+      "date": "2025-04-16",
+      "home_name": "Corinthians",
+      "away_name": "Fluminense",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 37,
+      "official_round": 4,
+      "date": "2025-04-16",
+      "home_name": "Internacional",
+      "away_name": "Palmeiras",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 31,
+      "official_round": 4,
+      "date": "2025-04-16",
+      "home_name": "Flamengo",
+      "away_name": "Juventude",
+      "home_goals": 6,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 34,
+      "official_round": 4,
+      "date": "2025-04-16",
+      "home_name": "Santos",
+      "away_name": "Atlético-MG",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 38,
+      "official_round": 4,
+      "date": "2025-04-16",
+      "home_name": "Vitória",
+      "away_name": "Fortaleza",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 36,
+      "official_round": null,
+      "date": "2025-04-17",
+      "home_name": "Cruzeiro",
+      "away_name": "Bahia",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 43,
+      "official_round": 5,
+      "date": "2025-04-19",
+      "home_name": "Corinthians",
+      "away_name": "Sport",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 42,
+      "official_round": 5,
+      "date": "2025-04-19",
+      "home_name": "Vasco",
+      "away_name": "Flamengo",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 47,
+      "official_round": 5,
+      "date": "2025-04-19",
+      "home_name": "Grêmio",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 50,
+      "official_round": 5,
+      "date": "2025-04-20",
+      "home_name": "Juventude",
+      "away_name": "Mirassol",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 44,
+      "official_round": 5,
+      "date": "2025-04-20",
+      "home_name": "São Paulo",
+      "away_name": "Santos",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 46,
+      "official_round": 5,
+      "date": "2025-04-20",
+      "home_name": "Atlético-MG",
+      "away_name": "Botafogo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 41,
+      "official_round": 5,
+      "date": "2025-04-20",
+      "home_name": "Fluminense",
+      "away_name": "Vitória",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 49,
+      "official_round": 5,
+      "date": "2025-04-20",
+      "home_name": "Fortaleza",
+      "away_name": "Palmeiras",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 45,
+      "official_round": 5,
+      "date": "2025-04-20",
+      "home_name": "Bragantino",
+      "away_name": "Cruzeiro",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 48,
+      "official_round": 5,
+      "date": "2025-04-21",
+      "home_name": "Bahia",
+      "away_name": "Ceará",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 57,
+      "official_round": 6,
+      "date": "2025-04-26",
+      "home_name": "Internacional",
+      "away_name": "Juventude",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 55,
+      "official_round": 6,
+      "date": "2025-04-26",
+      "home_name": "Mirassol",
+      "away_name": "Atlético-MG",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 59,
+      "official_round": 6,
+      "date": "2025-04-26",
+      "home_name": "Ceará",
+      "away_name": "São Paulo",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 60,
+      "official_round": 6,
+      "date": "2025-04-26",
+      "home_name": "Sport",
+      "away_name": "Fortaleza",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 52,
+      "official_round": 6,
+      "date": "2025-04-26",
+      "home_name": "Botafogo",
+      "away_name": "Fluminense",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 51,
+      "official_round": 6,
+      "date": "2025-04-27",
+      "home_name": "Flamengo",
+      "away_name": "Corinthians",
+      "home_goals": 4,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 53,
+      "official_round": 6,
+      "date": "2025-04-27",
+      "home_name": "Palmeiras",
+      "away_name": "Bahia",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 56,
+      "official_round": 6,
+      "date": "2025-04-27",
+      "home_name": "Cruzeiro",
+      "away_name": "Vasco",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 58,
+      "official_round": 6,
+      "date": "2025-04-27",
+      "home_name": "Vitória",
+      "away_name": "Grêmio",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 54,
+      "official_round": 6,
+      "date": "2025-04-27",
+      "home_name": "Santos",
+      "away_name": "Bragantino",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 64,
+      "official_round": 7,
+      "date": "2025-05-02",
+      "home_name": "São Paulo",
+      "away_name": "Fortaleza",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 61,
+      "official_round": 7,
+      "date": "2025-05-03",
+      "home_name": "Fluminense",
+      "away_name": "Sport",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 63,
+      "official_round": 7,
+      "date": "2025-05-03",
+      "home_name": "Corinthians",
+      "away_name": "Internacional",
+      "home_goals": 4,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 69,
+      "official_round": 7,
+      "date": "2025-05-03",
+      "home_name": "Ceará",
+      "away_name": "Vitória",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 68,
+      "official_round": 7,
+      "date": "2025-05-03",
+      "home_name": "Bahia",
+      "away_name": "Botafogo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 62,
+      "official_round": 7,
+      "date": "2025-05-04",
+      "home_name": "Vasco",
+      "away_name": "Palmeiras",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 67,
+      "official_round": 7,
+      "date": "2025-05-04",
+      "home_name": "Grêmio",
+      "away_name": "Santos",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 66,
+      "official_round": 7,
+      "date": "2025-05-04",
+      "home_name": "Cruzeiro",
+      "away_name": "Flamengo",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 65,
+      "official_round": 7,
+      "date": "2025-05-05",
+      "home_name": "Bragantino",
+      "away_name": "Mirassol",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 70,
+      "official_round": 7,
+      "date": "2025-05-05",
+      "home_name": "Juventude",
+      "away_name": "Atlético-MG",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 79,
+      "official_round": 8,
+      "date": "2025-05-10",
+      "home_name": "Fortaleza",
+      "away_name": "Juventude",
+      "home_goals": 5,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 75,
+      "official_round": 8,
+      "date": "2025-05-10",
+      "home_name": "Mirassol",
+      "away_name": "Corinthians",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 77,
+      "official_round": null,
+      "date": "2025-05-10",
+      "home_name": "Grêmio",
+      "away_name": "Bragantino",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 78,
+      "official_round": 8,
+      "date": "2025-05-10",
+      "home_name": "Vitória",
+      "away_name": "Vasco",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 71,
+      "official_round": 8,
+      "date": "2025-05-10",
+      "home_name": "Flamengo",
+      "away_name": "Bahia",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 80,
+      "official_round": 8,
+      "date": "2025-05-11",
+      "home_name": "Sport",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 4
+    },
+    {
+      "cbf_match_number": 73,
+      "official_round": 8,
+      "date": "2025-05-11",
+      "home_name": "Palmeiras",
+      "away_name": "São Paulo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 76,
+      "official_round": 8,
+      "date": "2025-05-11",
+      "home_name": "Atlético-MG",
+      "away_name": "Fluminense",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 72,
+      "official_round": 8,
+      "date": "2025-05-11",
+      "home_name": "Botafogo",
+      "away_name": "Internacional",
+      "home_goals": 4,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 74,
+      "official_round": 8,
+      "date": "2025-05-12",
+      "home_name": "Santos",
+      "away_name": "Ceará",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 89,
+      "official_round": 9,
+      "date": "2025-05-17",
+      "home_name": "Ceará",
+      "away_name": "Sport",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 82,
+      "official_round": 9,
+      "date": "2025-05-17",
+      "home_name": "Vasco",
+      "away_name": "Fortaleza",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 84,
+      "official_round": 9,
+      "date": "2025-05-17",
+      "home_name": "São Paulo",
+      "away_name": "Grêmio",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 83,
+      "official_round": 9,
+      "date": "2025-05-18",
+      "home_name": "Corinthians",
+      "away_name": "Santos",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 88,
+      "official_round": 9,
+      "date": "2025-05-18",
+      "home_name": "Bahia",
+      "away_name": "Vitória",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 90,
+      "official_round": 9,
+      "date": "2025-05-18",
+      "home_name": "Juventude",
+      "away_name": "Fluminense",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 81,
+      "official_round": 9,
+      "date": "2025-05-18",
+      "home_name": "Flamengo",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 85,
+      "official_round": 9,
+      "date": "2025-05-18",
+      "home_name": "Bragantino",
+      "away_name": "Palmeiras",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 86,
+      "official_round": 9,
+      "date": "2025-05-18",
+      "home_name": "Cruzeiro",
+      "away_name": "Atlético-MG",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 87,
+      "official_round": 9,
+      "date": "2025-05-18",
+      "home_name": "Internacional",
+      "away_name": "Mirassol",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 91,
+      "official_round": 10,
+      "date": "2025-05-24",
+      "home_name": "Fluminense",
+      "away_name": "Vasco",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 94,
+      "official_round": null,
+      "date": "2025-05-24",
+      "home_name": "São Paulo",
+      "away_name": "Mirassol",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 96,
+      "official_round": 10,
+      "date": "2025-05-24",
+      "home_name": "Atlético-MG",
+      "away_name": "Corinthians",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 97,
+      "official_round": 10,
+      "date": "2025-05-25",
+      "home_name": "Grêmio",
+      "away_name": "Bahia",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 93,
+      "official_round": 10,
+      "date": "2025-05-25",
+      "home_name": "Palmeiras",
+      "away_name": "Flamengo",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 100,
+      "official_round": 10,
+      "date": "2025-05-25",
+      "home_name": "Sport",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 98,
+      "official_round": 10,
+      "date": "2025-05-25",
+      "home_name": "Vitória",
+      "away_name": "Santos",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 99,
+      "official_round": 10,
+      "date": "2025-05-25",
+      "home_name": "Fortaleza",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 95,
+      "official_round": 10,
+      "date": "2025-05-26",
+      "home_name": "Bragantino",
+      "away_name": "Juventude",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 92,
+      "official_round": 10,
+      "date": "2025-06-04",
+      "home_name": "Botafogo",
+      "away_name": "Ceará",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 108,
+      "official_round": 11,
+      "date": "2025-05-31",
+      "home_name": "Bahia",
+      "away_name": "São Paulo",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 102,
+      "official_round": 11,
+      "date": "2025-05-31",
+      "home_name": "Vasco",
+      "away_name": "Bragantino",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 105,
+      "official_round": 11,
+      "date": "2025-06-01",
+      "home_name": "Mirassol",
+      "away_name": "Sport",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 104,
+      "official_round": 11,
+      "date": "2025-06-01",
+      "home_name": "Santos",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 110,
+      "official_round": 11,
+      "date": "2025-06-01",
+      "home_name": "Juventude",
+      "away_name": "Grêmio",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 101,
+      "official_round": 11,
+      "date": "2025-06-01",
+      "home_name": "Flamengo",
+      "away_name": "Fortaleza",
+      "home_goals": 5,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 103,
+      "official_round": 11,
+      "date": "2025-06-01",
+      "home_name": "Corinthians",
+      "away_name": "Vitória",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 109,
+      "official_round": 11,
+      "date": "2025-06-01",
+      "home_name": "Ceará",
+      "away_name": "Atlético-MG",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 106,
+      "official_round": 11,
+      "date": "2025-06-01",
+      "home_name": "Cruzeiro",
+      "away_name": "Palmeiras",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 107,
+      "official_round": 11,
+      "date": "2025-06-01",
+      "home_name": "Internacional",
+      "away_name": "Fluminense",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 115,
+      "official_round": 12,
+      "date": "2025-06-12",
+      "home_name": "Bragantino",
+      "away_name": "Bahia",
+      "home_goals": 0,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 118,
+      "official_round": null,
+      "date": "2025-06-12",
+      "home_name": "Vitória",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 119,
+      "official_round": 12,
+      "date": "2025-06-12",
+      "home_name": "Fortaleza",
+      "away_name": "Santos",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 117,
+      "official_round": 12,
+      "date": "2025-06-12",
+      "home_name": "Grêmio",
+      "away_name": "Corinthians",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 114,
+      "official_round": 12,
+      "date": "2025-06-12",
+      "home_name": "São Paulo",
+      "away_name": "Vasco",
+      "home_goals": 1,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 116,
+      "official_round": 12,
+      "date": "2025-06-12",
+      "home_name": "Atlético-MG",
+      "away_name": "Internacional",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 112,
+      "official_round": 12,
+      "date": "2025-09-17",
+      "home_name": "Botafogo",
+      "away_name": "Mirassol",
+      "home_goals": 3,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 113,
+      "official_round": 12,
+      "date": "2025-10-11",
+      "home_name": "Palmeiras",
+      "away_name": "Juventude",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 111,
+      "official_round": null,
+      "date": "2025-10-29",
+      "home_name": "Fluminense",
+      "away_name": "Ceará",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 120,
+      "official_round": 12,
+      "date": "2025-11-15",
+      "home_name": "Sport",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 5
+    },
+    {
+      "cbf_match_number": 121,
+      "official_round": 13,
+      "date": "2025-07-12",
+      "home_name": "Flamengo",
+      "away_name": "São Paulo",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 127,
+      "official_round": 13,
+      "date": "2025-07-12",
+      "home_name": "Internacional",
+      "away_name": "Vitória",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 122,
+      "official_round": 13,
+      "date": "2025-07-12",
+      "home_name": "Vasco",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 128,
+      "official_round": 13,
+      "date": "2025-07-12",
+      "home_name": "Bahia",
+      "away_name": "Atlético-MG",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 123,
+      "official_round": 13,
+      "date": "2025-07-13",
+      "home_name": "Corinthians",
+      "away_name": "Bragantino",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 126,
+      "official_round": 13,
+      "date": "2025-07-13",
+      "home_name": "Cruzeiro",
+      "away_name": "Grêmio",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 129,
+      "official_round": 13,
+      "date": "2025-07-13",
+      "home_name": "Fortaleza",
+      "away_name": "Ceará",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 130,
+      "official_round": 13,
+      "date": "2025-07-14",
+      "home_name": "Juventude",
+      "away_name": "Sport",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 125,
+      "official_round": 13,
+      "date": "2025-10-08",
+      "home_name": "Mirassol",
+      "away_name": "Fluminense",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 124,
+      "official_round": 13,
+      "date": "2025-11-15",
+      "home_name": "Santos",
+      "away_name": "Palmeiras",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 133,
+      "official_round": 14,
+      "date": "2025-07-16",
+      "home_name": "Palmeiras",
+      "away_name": "Mirassol",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 139,
+      "official_round": 14,
+      "date": "2025-07-16",
+      "home_name": "Ceará",
+      "away_name": "Corinthians",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 134,
+      "official_round": 14,
+      "date": "2025-07-16",
+      "home_name": "Santos",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 132,
+      "official_round": 14,
+      "date": "2025-07-16",
+      "home_name": "Botafogo",
+      "away_name": "Vitória",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 135,
+      "official_round": 14,
+      "date": "2025-07-16",
+      "home_name": "Bragantino",
+      "away_name": "São Paulo",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 131,
+      "official_round": 14,
+      "date": "2025-07-17",
+      "home_name": "Fluminense",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 137,
+      "official_round": 14,
+      "date": "2025-07-29",
+      "home_name": "Grêmio",
+      "away_name": "Fortaleza",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 140,
+      "official_round": 14,
+      "date": "2025-08-20",
+      "home_name": "Juventude",
+      "away_name": "Vasco",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 136,
+      "official_round": 14,
+      "date": "2025-10-08",
+      "home_name": "Atlético-MG",
+      "away_name": "Sport",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 138,
+      "official_round": 14,
+      "date": "2025-10-22",
+      "home_name": "Bahia",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 149,
+      "official_round": 15,
+      "date": "2025-07-19",
+      "home_name": "Fortaleza",
+      "away_name": "Bahia",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 142,
+      "official_round": 15,
+      "date": "2025-07-19",
+      "home_name": "Vasco",
+      "away_name": "Grêmio",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 145,
+      "official_round": 15,
+      "date": "2025-07-19",
+      "home_name": "Mirassol",
+      "away_name": "Santos",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 144,
+      "official_round": 15,
+      "date": "2025-07-19",
+      "home_name": "São Paulo",
+      "away_name": "Corinthians",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 147,
+      "official_round": 15,
+      "date": "2025-07-20",
+      "home_name": "Internacional",
+      "away_name": "Ceará",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 146,
+      "official_round": 15,
+      "date": "2025-07-20",
+      "home_name": "Cruzeiro",
+      "away_name": "Juventude",
+      "home_goals": 4,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 148,
+      "official_round": 15,
+      "date": "2025-07-20",
+      "home_name": "Vitória",
+      "away_name": "Bragantino",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 143,
+      "official_round": 15,
+      "date": "2025-07-20",
+      "home_name": "Palmeiras",
+      "away_name": "Atlético-MG",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 150,
+      "official_round": 15,
+      "date": "2025-07-20",
+      "home_name": "Sport",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 141,
+      "official_round": 15,
+      "date": "2025-07-20",
+      "home_name": "Flamengo",
+      "away_name": "Fluminense",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 151,
+      "official_round": 16,
+      "date": "2025-07-23",
+      "home_name": "Fluminense",
+      "away_name": "Palmeiras",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 159,
+      "official_round": 16,
+      "date": "2025-07-23",
+      "home_name": "Ceará",
+      "away_name": "Mirassol",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 153,
+      "official_round": 16,
+      "date": "2025-07-23",
+      "home_name": "Corinthians",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 154,
+      "official_round": 16,
+      "date": "2025-07-23",
+      "home_name": "Santos",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 155,
+      "official_round": 16,
+      "date": "2025-07-23",
+      "home_name": "Bragantino",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 158,
+      "official_round": 16,
+      "date": "2025-07-23",
+      "home_name": "Vitória",
+      "away_name": "Sport",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 160,
+      "official_round": 16,
+      "date": "2025-07-24",
+      "home_name": "Juventude",
+      "away_name": "São Paulo",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 152,
+      "official_round": 16,
+      "date": "2025-09-24",
+      "home_name": "Vasco",
+      "away_name": "Bahia",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 157,
+      "official_round": 16,
+      "date": "2025-09-24",
+      "home_name": "Grêmio",
+      "away_name": "Botafogo",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 156,
+      "official_round": 16,
+      "date": "2025-11-12",
+      "home_name": "Atlético-MG",
+      "away_name": "Fortaleza",
+      "home_goals": 3,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 162,
+      "official_round": 17,
+      "date": "2025-07-26",
+      "home_name": "Botafogo",
+      "away_name": "Corinthians",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 165,
+      "official_round": 17,
+      "date": "2025-07-26",
+      "home_name": "Mirassol",
+      "away_name": "Vitória",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 169,
+      "official_round": 17,
+      "date": "2025-07-26",
+      "home_name": "Fortaleza",
+      "away_name": "Bragantino",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 170,
+      "official_round": 17,
+      "date": "2025-07-26",
+      "home_name": "Sport",
+      "away_name": "Santos",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 163,
+      "official_round": 17,
+      "date": "2025-07-26",
+      "home_name": "Palmeiras",
+      "away_name": "Grêmio",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 164,
+      "official_round": 17,
+      "date": "2025-07-27",
+      "home_name": "São Paulo",
+      "away_name": "Fluminense",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 166,
+      "official_round": 17,
+      "date": "2025-07-27",
+      "home_name": "Cruzeiro",
+      "away_name": "Ceará",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 167,
+      "official_round": 17,
+      "date": "2025-07-27",
+      "home_name": "Internacional",
+      "away_name": "Vasco",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 168,
+      "official_round": 17,
+      "date": "2025-07-27",
+      "home_name": "Bahia",
+      "away_name": "Juventude",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 161,
+      "official_round": 17,
+      "date": "2025-07-27",
+      "home_name": "Flamengo",
+      "away_name": "Atlético-MG",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 180,
+      "official_round": 18,
+      "date": "2025-08-02",
+      "home_name": "Sport",
+      "away_name": "Bahia",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 175,
+      "official_round": 18,
+      "date": "2025-08-02",
+      "home_name": "Mirassol",
+      "away_name": "Vasco",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 171,
+      "official_round": 18,
+      "date": "2025-08-02",
+      "home_name": "Fluminense",
+      "away_name": "Grêmio",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 172,
+      "official_round": 18,
+      "date": "2025-08-03",
+      "home_name": "Botafogo",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 173,
+      "official_round": 18,
+      "date": "2025-08-03",
+      "home_name": "Corinthians",
+      "away_name": "Fortaleza",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 176,
+      "official_round": 18,
+      "date": "2025-08-03",
+      "home_name": "Atlético-MG",
+      "away_name": "Bragantino",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 179,
+      "official_round": 18,
+      "date": "2025-08-03",
+      "home_name": "Ceará",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 178,
+      "official_round": 18,
+      "date": "2025-08-03",
+      "home_name": "Vitória",
+      "away_name": "Palmeiras",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 177,
+      "official_round": 18,
+      "date": "2025-08-03",
+      "home_name": "Internacional",
+      "away_name": "São Paulo",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 174,
+      "official_round": 18,
+      "date": "2025-08-04",
+      "home_name": "Santos",
+      "away_name": "Juventude",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 181,
+      "official_round": 19,
+      "date": "2025-08-09",
+      "home_name": "Flamengo",
+      "away_name": "Mirassol",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 184,
+      "official_round": 19,
+      "date": "2025-08-09",
+      "home_name": "São Paulo",
+      "away_name": "Vitória",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 185,
+      "official_round": 19,
+      "date": "2025-08-09",
+      "home_name": "Bragantino",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 189,
+      "official_round": 19,
+      "date": "2025-08-09",
+      "home_name": "Fortaleza",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 5
+    },
+    {
+      "cbf_match_number": 188,
+      "official_round": 19,
+      "date": "2025-08-09",
+      "home_name": "Bahia",
+      "away_name": "Fluminense",
+      "home_goals": 3,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 182,
+      "official_round": 19,
+      "date": "2025-08-10",
+      "home_name": "Vasco",
+      "away_name": "Atlético-MG",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 183,
+      "official_round": 19,
+      "date": "2025-08-10",
+      "home_name": "Palmeiras",
+      "away_name": "Ceará",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 186,
+      "official_round": 19,
+      "date": "2025-08-10",
+      "home_name": "Cruzeiro",
+      "away_name": "Santos",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 187,
+      "official_round": 19,
+      "date": "2025-08-10",
+      "home_name": "Grêmio",
+      "away_name": "Sport",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 190,
+      "official_round": 19,
+      "date": "2025-08-11",
+      "home_name": "Juventude",
+      "away_name": "Corinthians",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 191,
+      "official_round": 20,
+      "date": "2025-08-16",
+      "home_name": "Fluminense",
+      "away_name": "Fortaleza",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 199,
+      "official_round": 20,
+      "date": "2025-08-16",
+      "home_name": "Ceará",
+      "away_name": "Bragantino",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 198,
+      "official_round": 20,
+      "date": "2025-08-16",
+      "home_name": "Vitória",
+      "away_name": "Juventude",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 200,
+      "official_round": 20,
+      "date": "2025-08-16",
+      "home_name": "Sport",
+      "away_name": "São Paulo",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 193,
+      "official_round": 20,
+      "date": "2025-08-16",
+      "home_name": "Corinthians",
+      "away_name": "Bahia",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 194,
+      "official_round": 20,
+      "date": "2025-08-17",
+      "home_name": "Santos",
+      "away_name": "Vasco",
+      "home_goals": 0,
+      "away_goals": 6
+    },
+    {
+      "cbf_match_number": 196,
+      "official_round": 20,
+      "date": "2025-08-17",
+      "home_name": "Atlético-MG",
+      "away_name": "Grêmio",
+      "home_goals": 1,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 197,
+      "official_round": 20,
+      "date": "2025-08-17",
+      "home_name": "Internacional",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 192,
+      "official_round": 20,
+      "date": "2025-08-17",
+      "home_name": "Botafogo",
+      "away_name": "Palmeiras",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 195,
+      "official_round": 20,
+      "date": "2025-08-18",
+      "home_name": "Mirassol",
+      "away_name": "Cruzeiro",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 205,
+      "official_round": 21,
+      "date": "2025-08-23",
+      "home_name": "Bragantino",
+      "away_name": "Fluminense",
+      "home_goals": 4,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 206,
+      "official_round": 21,
+      "date": "2025-08-23",
+      "home_name": "Cruzeiro",
+      "away_name": "Internacional",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 207,
+      "official_round": 21,
+      "date": "2025-08-23",
+      "home_name": "Grêmio",
+      "away_name": "Ceará",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 202,
+      "official_round": 21,
+      "date": "2025-08-24",
+      "home_name": "Vasco",
+      "away_name": "Corinthians",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 208,
+      "official_round": 21,
+      "date": "2025-08-24",
+      "home_name": "Bahia",
+      "away_name": "Santos",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 209,
+      "official_round": null,
+      "date": "2025-08-24",
+      "home_name": "Fortaleza",
+      "away_name": "Mirassol",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 210,
+      "official_round": 21,
+      "date": "2025-08-24",
+      "home_name": "Juventude",
+      "away_name": "Botafogo",
+      "home_goals": 1,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 204,
+      "official_round": 21,
+      "date": "2025-08-24",
+      "home_name": "São Paulo",
+      "away_name": "Atlético-MG",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 203,
+      "official_round": 21,
+      "date": "2025-08-25",
+      "home_name": "Palmeiras",
+      "away_name": "Sport",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 201,
+      "official_round": 21,
+      "date": "2025-08-25",
+      "home_name": "Flamengo",
+      "away_name": "Vitória",
+      "home_goals": 8,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 219,
+      "official_round": 22,
+      "date": "2025-08-30",
+      "home_name": "Ceará",
+      "away_name": "Juventude",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 212,
+      "official_round": 22,
+      "date": "2025-08-30",
+      "home_name": "Botafogo",
+      "away_name": "Bragantino",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 216,
+      "official_round": 22,
+      "date": "2025-08-30",
+      "home_name": "Cruzeiro",
+      "away_name": "São Paulo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 211,
+      "official_round": null,
+      "date": "2025-08-31",
+      "home_name": "Flamengo",
+      "away_name": "Grêmio",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 214,
+      "official_round": 22,
+      "date": "2025-08-31",
+      "home_name": "Santos",
+      "away_name": "Fluminense",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 213,
+      "official_round": 22,
+      "date": "2025-08-31",
+      "home_name": "Corinthians",
+      "away_name": "Palmeiras",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 215,
+      "official_round": 22,
+      "date": "2025-08-31",
+      "home_name": "Mirassol",
+      "away_name": "Bahia",
+      "home_goals": 5,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 218,
+      "official_round": 22,
+      "date": "2025-08-31",
+      "home_name": "Vitória",
+      "away_name": "Atlético-MG",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 217,
+      "official_round": 22,
+      "date": "2025-08-31",
+      "home_name": "Internacional",
+      "away_name": "Fortaleza",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 220,
+      "official_round": 22,
+      "date": "2025-08-31",
+      "home_name": "Sport",
+      "away_name": "Vasco",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 227,
+      "official_round": 23,
+      "date": "2025-09-13",
+      "home_name": "Grêmio",
+      "away_name": "Mirassol",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 229,
+      "official_round": 23,
+      "date": "2025-09-13",
+      "home_name": "Fortaleza",
+      "away_name": "Vitória",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 223,
+      "official_round": 23,
+      "date": "2025-09-13",
+      "home_name": "Palmeiras",
+      "away_name": "Internacional",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 221,
+      "official_round": 23,
+      "date": "2025-09-13",
+      "home_name": "Fluminense",
+      "away_name": "Corinthians",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 225,
+      "official_round": 23,
+      "date": "2025-09-14",
+      "home_name": "Bragantino",
+      "away_name": "Sport",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 226,
+      "official_round": 23,
+      "date": "2025-09-14",
+      "home_name": "Atlético-MG",
+      "away_name": "Santos",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 230,
+      "official_round": 23,
+      "date": "2025-09-14",
+      "home_name": "Juventude",
+      "away_name": "Flamengo",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 224,
+      "official_round": 23,
+      "date": "2025-09-14",
+      "home_name": "São Paulo",
+      "away_name": "Botafogo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 222,
+      "official_round": 23,
+      "date": "2025-09-14",
+      "home_name": "Vasco",
+      "away_name": "Ceará",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 228,
+      "official_round": 23,
+      "date": "2025-09-15",
+      "home_name": "Bahia",
+      "away_name": "Cruzeiro",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 238,
+      "official_round": 24,
+      "date": "2025-09-20",
+      "home_name": "Vitória",
+      "away_name": "Fluminense",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 232,
+      "official_round": 24,
+      "date": "2025-09-20",
+      "home_name": "Botafogo",
+      "away_name": "Atlético-MG",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 239,
+      "official_round": 24,
+      "date": "2025-09-20",
+      "home_name": "Ceará",
+      "away_name": "Bahia",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 233,
+      "official_round": 24,
+      "date": "2025-09-20",
+      "home_name": "Palmeiras",
+      "away_name": "Fortaleza",
+      "home_goals": 4,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 235,
+      "official_round": 24,
+      "date": "2025-09-21",
+      "home_name": "Mirassol",
+      "away_name": "Juventude",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 231,
+      "official_round": 24,
+      "date": "2025-09-21",
+      "home_name": "Flamengo",
+      "away_name": "Vasco",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 237,
+      "official_round": 24,
+      "date": "2025-09-21",
+      "home_name": "Internacional",
+      "away_name": "Grêmio",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 240,
+      "official_round": 24,
+      "date": "2025-09-21",
+      "home_name": "Sport",
+      "away_name": "Corinthians",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 234,
+      "official_round": null,
+      "date": "2025-09-21",
+      "home_name": "Santos",
+      "away_name": "São Paulo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 236,
+      "official_round": 24,
+      "date": "2025-09-21",
+      "home_name": "Cruzeiro",
+      "away_name": "Bragantino",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 249,
+      "official_round": 25,
+      "date": "2025-09-27",
+      "home_name": "Fortaleza",
+      "away_name": "Sport",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 242,
+      "official_round": 25,
+      "date": "2025-09-27",
+      "home_name": "Vasco",
+      "away_name": "Cruzeiro",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 250,
+      "official_round": 25,
+      "date": "2025-09-27",
+      "home_name": "Juventude",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 246,
+      "official_round": 25,
+      "date": "2025-09-27",
+      "home_name": "Atlético-MG",
+      "away_name": "Mirassol",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 247,
+      "official_round": 25,
+      "date": "2025-09-28",
+      "home_name": "Grêmio",
+      "away_name": "Vitória",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 241,
+      "official_round": 25,
+      "date": "2025-09-28",
+      "home_name": "Fluminense",
+      "away_name": "Botafogo",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 248,
+      "official_round": 25,
+      "date": "2025-09-28",
+      "home_name": "Bahia",
+      "away_name": "Palmeiras",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 245,
+      "official_round": 25,
+      "date": "2025-09-28",
+      "home_name": "Bragantino",
+      "away_name": "Santos",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 243,
+      "official_round": 25,
+      "date": "2025-09-28",
+      "home_name": "Corinthians",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 244,
+      "official_round": 25,
+      "date": "2025-09-29",
+      "home_name": "São Paulo",
+      "away_name": "Ceará",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 256,
+      "official_round": 26,
+      "date": "2025-09-30",
+      "home_name": "Atlético-MG",
+      "away_name": "Juventude",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 253,
+      "official_round": 26,
+      "date": "2025-10-01",
+      "home_name": "Palmeiras",
+      "away_name": "Vasco",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 255,
+      "official_round": 26,
+      "date": "2025-10-01",
+      "home_name": "Mirassol",
+      "away_name": "Bragantino",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 260,
+      "official_round": 26,
+      "date": "2025-10-01",
+      "home_name": "Sport",
+      "away_name": "Fluminense",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 257,
+      "official_round": 26,
+      "date": "2025-10-01",
+      "home_name": "Internacional",
+      "away_name": "Corinthians",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 252,
+      "official_round": 26,
+      "date": "2025-10-01",
+      "home_name": "Botafogo",
+      "away_name": "Bahia",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 254,
+      "official_round": 26,
+      "date": "2025-10-01",
+      "home_name": "Santos",
+      "away_name": "Grêmio",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 258,
+      "official_round": 26,
+      "date": "2025-10-02",
+      "home_name": "Vitória",
+      "away_name": "Ceará",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 259,
+      "official_round": 26,
+      "date": "2025-10-02",
+      "home_name": "Fortaleza",
+      "away_name": "São Paulo",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 251,
+      "official_round": 26,
+      "date": "2025-10-02",
+      "home_name": "Flamengo",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 261,
+      "official_round": 27,
+      "date": "2025-10-04",
+      "home_name": "Fluminense",
+      "away_name": "Atlético-MG",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 265,
+      "official_round": 27,
+      "date": "2025-10-04",
+      "home_name": "Bragantino",
+      "away_name": "Grêmio",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 267,
+      "official_round": 27,
+      "date": "2025-10-04",
+      "home_name": "Internacional",
+      "away_name": "Botafogo",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 263,
+      "official_round": 27,
+      "date": "2025-10-04",
+      "home_name": "Corinthians",
+      "away_name": "Mirassol",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 262,
+      "official_round": 27,
+      "date": "2025-10-05",
+      "home_name": "Vasco",
+      "away_name": "Vitória",
+      "home_goals": 4,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 264,
+      "official_round": 27,
+      "date": "2025-10-05",
+      "home_name": "São Paulo",
+      "away_name": "Palmeiras",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 268,
+      "official_round": 27,
+      "date": "2025-10-05",
+      "home_name": "Bahia",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 270,
+      "official_round": 27,
+      "date": "2025-10-05",
+      "home_name": "Juventude",
+      "away_name": "Fortaleza",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 266,
+      "official_round": 27,
+      "date": "2025-10-05",
+      "home_name": "Cruzeiro",
+      "away_name": "Sport",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 269,
+      "official_round": 27,
+      "date": "2025-10-05",
+      "home_name": "Ceará",
+      "away_name": "Santos",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 273,
+      "official_round": 28,
+      "date": "2025-10-15",
+      "home_name": "Palmeiras",
+      "away_name": "Bragantino",
+      "home_goals": 5,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 272,
+      "official_round": 28,
+      "date": "2025-10-15",
+      "home_name": "Botafogo",
+      "away_name": "Flamengo",
+      "home_goals": 0,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 275,
+      "official_round": null,
+      "date": "2025-10-15",
+      "home_name": "Mirassol",
+      "away_name": "Internacional",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 280,
+      "official_round": 28,
+      "date": "2025-10-15",
+      "home_name": "Sport",
+      "away_name": "Ceará",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 274,
+      "official_round": 28,
+      "date": "2025-10-15",
+      "home_name": "Santos",
+      "away_name": "Corinthians",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 276,
+      "official_round": 28,
+      "date": "2025-10-15",
+      "home_name": "Atlético-MG",
+      "away_name": "Cruzeiro",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 279,
+      "official_round": 28,
+      "date": "2025-10-15",
+      "home_name": "Fortaleza",
+      "away_name": "Vasco",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 277,
+      "official_round": 28,
+      "date": "2025-10-16",
+      "home_name": "Grêmio",
+      "away_name": "São Paulo",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 271,
+      "official_round": 28,
+      "date": "2025-10-16",
+      "home_name": "Fluminense",
+      "away_name": "Juventude",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 278,
+      "official_round": 28,
+      "date": "2025-10-16",
+      "home_name": "Vitória",
+      "away_name": "Bahia",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 283,
+      "official_round": 29,
+      "date": "2025-10-18",
+      "home_name": "Corinthians",
+      "away_name": "Atlético-MG",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 286,
+      "official_round": 29,
+      "date": "2025-10-18",
+      "home_name": "Cruzeiro",
+      "away_name": "Fortaleza",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 281,
+      "official_round": 29,
+      "date": "2025-10-19",
+      "home_name": "Flamengo",
+      "away_name": "Palmeiras",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 285,
+      "official_round": 29,
+      "date": "2025-10-19",
+      "home_name": "Mirassol",
+      "away_name": "São Paulo",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 287,
+      "official_round": 29,
+      "date": "2025-10-19",
+      "home_name": "Internacional",
+      "away_name": "Sport",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 289,
+      "official_round": 29,
+      "date": "2025-10-19",
+      "home_name": "Ceará",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 288,
+      "official_round": 29,
+      "date": "2025-10-19",
+      "home_name": "Bahia",
+      "away_name": "Grêmio",
+      "home_goals": 4,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 290,
+      "official_round": 29,
+      "date": "2025-10-20",
+      "home_name": "Juventude",
+      "away_name": "Bragantino",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 282,
+      "official_round": 29,
+      "date": "2025-10-20",
+      "home_name": "Vasco",
+      "away_name": "Fluminense",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 284,
+      "official_round": 29,
+      "date": "2025-10-20",
+      "home_name": "Santos",
+      "away_name": "Vitória",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 296,
+      "official_round": 30,
+      "date": "2025-10-25",
+      "home_name": "Atlético-MG",
+      "away_name": "Ceará",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 298,
+      "official_round": 30,
+      "date": "2025-10-25",
+      "home_name": "Vitória",
+      "away_name": "Corinthians",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 291,
+      "official_round": 30,
+      "date": "2025-10-25",
+      "home_name": "Fluminense",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 300,
+      "official_round": 30,
+      "date": "2025-10-25",
+      "home_name": "Sport",
+      "away_name": "Mirassol",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 299,
+      "official_round": 30,
+      "date": "2025-10-25",
+      "home_name": "Fortaleza",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 294,
+      "official_round": 30,
+      "date": "2025-10-25",
+      "home_name": "São Paulo",
+      "away_name": "Bahia",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 292,
+      "official_round": 30,
+      "date": "2025-10-26",
+      "home_name": "Botafogo",
+      "away_name": "Santos",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 297,
+      "official_round": 30,
+      "date": "2025-10-26",
+      "home_name": "Grêmio",
+      "away_name": "Juventude",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 295,
+      "official_round": 30,
+      "date": "2025-10-26",
+      "home_name": "Bragantino",
+      "away_name": "Vasco",
+      "home_goals": 0,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 293,
+      "official_round": 30,
+      "date": "2025-10-26",
+      "home_name": "Palmeiras",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 304,
+      "official_round": 31,
+      "date": "2025-11-01",
+      "home_name": "Santos",
+      "away_name": "Fortaleza",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 306,
+      "official_round": 31,
+      "date": "2025-11-01",
+      "home_name": "Cruzeiro",
+      "away_name": "Vitória",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 305,
+      "official_round": 31,
+      "date": "2025-11-01",
+      "home_name": "Mirassol",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 301,
+      "official_round": 31,
+      "date": "2025-11-01",
+      "home_name": "Flamengo",
+      "away_name": "Sport",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 303,
+      "official_round": 31,
+      "date": "2025-11-02",
+      "home_name": "Corinthians",
+      "away_name": "Grêmio",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 308,
+      "official_round": 31,
+      "date": "2025-11-02",
+      "home_name": "Bahia",
+      "away_name": "Bragantino",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 309,
+      "official_round": 31,
+      "date": "2025-11-02",
+      "home_name": "Ceará",
+      "away_name": "Fluminense",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 307,
+      "official_round": 31,
+      "date": "2025-11-02",
+      "home_name": "Internacional",
+      "away_name": "Atlético-MG",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 310,
+      "official_round": 31,
+      "date": "2025-11-02",
+      "home_name": "Juventude",
+      "away_name": "Palmeiras",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 302,
+      "official_round": 31,
+      "date": "2025-11-02",
+      "home_name": "Vasco",
+      "away_name": "São Paulo",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 315,
+      "official_round": 32,
+      "date": "2025-11-05",
+      "home_name": "Bragantino",
+      "away_name": "Corinthians",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 318,
+      "official_round": 32,
+      "date": "2025-11-05",
+      "home_name": "Vitória",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 320,
+      "official_round": 32,
+      "date": "2025-11-05",
+      "home_name": "Sport",
+      "away_name": "Juventude",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 312,
+      "official_round": 32,
+      "date": "2025-11-05",
+      "home_name": "Botafogo",
+      "away_name": "Vasco",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 316,
+      "official_round": null,
+      "date": "2025-11-05",
+      "home_name": "Atlético-MG",
+      "away_name": "Bahia",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 317,
+      "official_round": 32,
+      "date": "2025-11-05",
+      "home_name": "Grêmio",
+      "away_name": "Cruzeiro",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 314,
+      "official_round": 32,
+      "date": "2025-11-05",
+      "home_name": "São Paulo",
+      "away_name": "Flamengo",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 311,
+      "official_round": 32,
+      "date": "2025-11-06",
+      "home_name": "Fluminense",
+      "away_name": "Mirassol",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 319,
+      "official_round": 32,
+      "date": "2025-11-06",
+      "home_name": "Ceará",
+      "away_name": "Fortaleza",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 313,
+      "official_round": 32,
+      "date": "2025-11-06",
+      "home_name": "Palmeiras",
+      "away_name": "Santos",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 330,
+      "official_round": 33,
+      "date": "2025-11-08",
+      "home_name": "Sport",
+      "away_name": "Atlético-MG",
+      "home_goals": 2,
+      "away_goals": 4
+    },
+    {
+      "cbf_match_number": 322,
+      "official_round": 33,
+      "date": "2025-11-08",
+      "home_name": "Vasco",
+      "away_name": "Juventude",
+      "home_goals": 1,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 327,
+      "official_round": 33,
+      "date": "2025-11-08",
+      "home_name": "Internacional",
+      "away_name": "Bahia",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 324,
+      "official_round": 33,
+      "date": "2025-11-08",
+      "home_name": "São Paulo",
+      "away_name": "Bragantino",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 323,
+      "official_round": 33,
+      "date": "2025-11-09",
+      "home_name": "Corinthians",
+      "away_name": "Ceará",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 326,
+      "official_round": 33,
+      "date": "2025-11-09",
+      "home_name": "Cruzeiro",
+      "away_name": "Fluminense",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 328,
+      "official_round": 33,
+      "date": "2025-11-09",
+      "home_name": "Vitória",
+      "away_name": "Botafogo",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 321,
+      "official_round": 33,
+      "date": "2025-11-09",
+      "home_name": "Flamengo",
+      "away_name": "Santos",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 325,
+      "official_round": 33,
+      "date": "2025-11-09",
+      "home_name": "Mirassol",
+      "away_name": "Palmeiras",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 329,
+      "official_round": 33,
+      "date": "2025-11-09",
+      "home_name": "Fortaleza",
+      "away_name": "Grêmio",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 332,
+      "official_round": 34,
+      "date": "2025-11-18",
+      "home_name": "Botafogo",
+      "away_name": "Sport",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 331,
+      "official_round": 34,
+      "date": "2025-11-19",
+      "home_name": "Fluminense",
+      "away_name": "Flamengo",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 334,
+      "official_round": 34,
+      "date": "2025-11-19",
+      "home_name": "Santos",
+      "away_name": "Mirassol",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 337,
+      "official_round": 34,
+      "date": "2025-11-19",
+      "home_name": "Grêmio",
+      "away_name": "Vasco",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 340,
+      "official_round": 34,
+      "date": "2025-11-20",
+      "home_name": "Juventude",
+      "away_name": "Cruzeiro",
+      "home_goals": 3,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 338,
+      "official_round": 34,
+      "date": "2025-11-20",
+      "home_name": "Bahia",
+      "away_name": "Fortaleza",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 333,
+      "official_round": 34,
+      "date": "2025-11-20",
+      "home_name": "Corinthians",
+      "away_name": "São Paulo",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 339,
+      "official_round": 34,
+      "date": "2025-11-20",
+      "home_name": "Ceará",
+      "away_name": "Internacional",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 335,
+      "official_round": 34,
+      "date": "2025-12-03",
+      "home_name": "Bragantino",
+      "away_name": "Vitória",
+      "home_goals": 4,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 336,
+      "official_round": 34,
+      "date": null,
+      "home_name": "Atlético-MG",
+      "away_name": "Palmeiras",
+      "home_goals": 0,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 342,
+      "official_round": 35,
+      "date": "2025-11-22",
+      "home_name": "Botafogo",
+      "away_name": "Grêmio",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 341,
+      "official_round": 35,
+      "date": "2025-11-22",
+      "home_name": "Flamengo",
+      "away_name": "Bragantino",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 343,
+      "official_round": 35,
+      "date": "2025-11-22",
+      "home_name": "Palmeiras",
+      "away_name": "Fluminense",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 344,
+      "official_round": 35,
+      "date": "2025-11-23",
+      "home_name": "São Paulo",
+      "away_name": "Juventude",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 348,
+      "official_round": 35,
+      "date": "2025-11-23",
+      "home_name": "Bahia",
+      "away_name": "Vasco",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 350,
+      "official_round": 35,
+      "date": "2025-11-23",
+      "home_name": "Sport",
+      "away_name": "Vitória",
+      "home_goals": 1,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 346,
+      "official_round": 35,
+      "date": "2025-11-23",
+      "home_name": "Cruzeiro",
+      "away_name": "Corinthians",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 345,
+      "official_round": 35,
+      "date": "2025-11-24",
+      "home_name": "Mirassol",
+      "away_name": "Ceará",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 347,
+      "official_round": 35,
+      "date": "2025-11-24",
+      "home_name": "Internacional",
+      "away_name": "Santos",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 349,
+      "official_round": 35,
+      "date": "2025-11-30",
+      "home_name": "Fortaleza",
+      "away_name": "Atlético-MG",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 356,
+      "official_round": 36,
+      "date": "2025-11-25",
+      "home_name": "Atlético-MG",
+      "away_name": "Flamengo",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 357,
+      "official_round": 36,
+      "date": "2025-11-25",
+      "home_name": "Grêmio",
+      "away_name": "Palmeiras",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 355,
+      "official_round": 36,
+      "date": "2025-11-26",
+      "home_name": "Bragantino",
+      "away_name": "Fortaleza",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 351,
+      "official_round": 36,
+      "date": "2025-11-27",
+      "home_name": "Fluminense",
+      "away_name": "São Paulo",
+      "home_goals": 6,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 360,
+      "official_round": 36,
+      "date": "2025-11-28",
+      "home_name": "Juventude",
+      "away_name": "Bahia",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 352,
+      "official_round": 36,
+      "date": "2025-11-28",
+      "home_name": "Vasco",
+      "away_name": "Internacional",
+      "home_goals": 5,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 354,
+      "official_round": 36,
+      "date": "2025-11-28",
+      "home_name": "Santos",
+      "away_name": "Sport",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 358,
+      "official_round": 36,
+      "date": "2025-11-29",
+      "home_name": "Vitória",
+      "away_name": "Mirassol",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 359,
+      "official_round": 36,
+      "date": "2025-11-29",
+      "home_name": "Ceará",
+      "away_name": "Cruzeiro",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 353,
+      "official_round": 36,
+      "date": "2025-11-30",
+      "home_name": "Corinthians",
+      "away_name": "Botafogo",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 365,
+      "official_round": 37,
+      "date": "2025-11-16",
+      "home_name": "Bragantino",
+      "away_name": "Atlético-MG",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 363,
+      "official_round": 37,
+      "date": "2025-11-19",
+      "home_name": "Palmeiras",
+      "away_name": "Vitória",
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 362,
+      "official_round": 37,
+      "date": "2025-12-02",
+      "home_name": "Vasco",
+      "away_name": "Mirassol",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 367,
+      "official_round": 37,
+      "date": "2025-12-02",
+      "home_name": "Grêmio",
+      "away_name": "Fluminense",
+      "home_goals": 1,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 369,
+      "official_round": 37,
+      "date": "2025-12-03",
+      "home_name": "Fortaleza",
+      "away_name": "Corinthians",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 370,
+      "official_round": 37,
+      "date": "2025-12-03",
+      "home_name": "Juventude",
+      "away_name": "Santos",
+      "home_goals": 0,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 364,
+      "official_round": 37,
+      "date": "2025-12-03",
+      "home_name": "São Paulo",
+      "away_name": "Internacional",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 368,
+      "official_round": 37,
+      "date": "2025-12-03",
+      "home_name": "Bahia",
+      "away_name": "Sport",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 361,
+      "official_round": 37,
+      "date": "2025-12-03",
+      "home_name": "Flamengo",
+      "away_name": "Ceará",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 366,
+      "official_round": 37,
+      "date": "2025-12-04",
+      "home_name": "Cruzeiro",
+      "away_name": "Botafogo",
+      "home_goals": 2,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 375,
+      "official_round": 38,
+      "date": "2025-12-06",
+      "home_name": "Mirassol",
+      "away_name": "Flamengo",
+      "home_goals": 3,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 371,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Fluminense",
+      "away_name": "Bahia",
+      "home_goals": 2,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 372,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Botafogo",
+      "away_name": "Fortaleza",
+      "home_goals": 4,
+      "away_goals": 2
+    },
+    {
+      "cbf_match_number": 373,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Corinthians",
+      "away_name": "Juventude",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 374,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Santos",
+      "away_name": "Cruzeiro",
+      "home_goals": 3,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 376,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Atlético-MG",
+      "away_name": "Vasco",
+      "home_goals": 5,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 377,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Internacional",
+      "away_name": "Bragantino",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "cbf_match_number": 378,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Vitória",
+      "away_name": "São Paulo",
+      "home_goals": 1,
+      "away_goals": 0
+    },
+    {
+      "cbf_match_number": 379,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Ceará",
+      "away_name": "Palmeiras",
+      "home_goals": 1,
+      "away_goals": 3
+    },
+    {
+      "cbf_match_number": 380,
+      "official_round": 38,
+      "date": "2025-12-07",
+      "home_name": "Sport",
+      "away_name": "Grêmio",
+      "home_goals": 0,
+      "away_goals": 4
+    }
+  ]
+}

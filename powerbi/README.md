@@ -1,27 +1,30 @@
-# Power BI: montagem reproduzível
+# Power BI — material coletivo montável
 
-Os artefatos são preparação técnica. Nenhum PBIX/PBIP foi produzido, aberto ou validado no Power BI Desktop nesta execução. Não há embed ou publicação externa. As consultas retornam tabelas vazias no estado atual; isso é indisponibilidade, não desempenho zero.
+Não há PBIX/PBIP gerado ou validado. O inventário local não mostrou Power BI Desktop. M/DAX/modelo são materiais sujeitos à compilação e conferência no Desktop; nenhuma publicação foi feita.
 
-1. Na raiz, execute `npm run powerbi:prepare`. O arquivo `data/analytics/powerbi.json` só recebe linhas quando o artefato individual exato foi homologado e a distribuição no Power BI possui evidência de permissão. No estado atual ele contém metadados de bloqueio e listas vazias.
-2. No Desktop, crie um relatório vazio. No Power Query, crie o parâmetro de texto `CaminhoGold` com o caminho absoluto desse JSON local. Crie a consulta `Individual` com [Individual.m](queries/Individual.m) e desabilite seu carregamento como tabela.
-3. Crie consultas de referência `Fato = Individual[Fato]`, `DimJogador = Individual[DimJogador]`, `DimPartida = Individual[DimPartida]` e `Metadata = Individual[Metadata]` pelo Editor Avançado, usando `let Resultado = Individual[Fato] in Resultado` e o campo correspondente para as demais.
-4. Crie `Dimensions` com [Dimensions.m](queries/Dimensions.m), sem carregamento. Referencie os cinco campos do registro como tabelas, seguindo o mesmo padrão. As dimensões de escopo e posições são metadados próprios, não estatísticas esportivas fabricadas.
-5. Configure as seis relações de [model.json](model.json), cardinalidade 1:N, filtro unidirecional. Desative data/hora automática. Não relacione Metadata ou MinimoMinutos. Crie `JogadorA` e `JogadorB` como referências independentes de DimJogador, sem relacionamentos, para os seletores do comparador.
-6. Adicione cada expressão de [measures.dax](measures.dax) separadamente em Nova medida. Use formato inteiro nos volumes e duas casas nas taxas. Os indicadores percentuais já multiplicam por 100; use formato numérico, não o formato percentual que multiplica novamente.
-7. Importe [theme.json](theme.json). Fundo branco, cartões simples, vermelho apenas como destaque. Não use fotos, escudos oficiais ou dados externos não autorizados.
+## Preparar e montar
 
-| Página                  | Visuais e filtros                                                                            |
-| ----------------------- | -------------------------------------------------------------------------------------------- |
-| Visão Geral             | Cartões Atletas, Gols, Assistências e G+A; ranking de gols; aviso de cobertura               |
-| Desempenho Ofensivo     | Barras de gols/assistências; dispersão minutos × G+A; filtro por posição e mínimo de minutos |
-| Desempenho Defensivo    | Barras de desarmes/interceptações/cortes/bloqueios, sem substituir ausências por zero        |
-| Comparação de Jogadores | Seletores desconectados A e B; gols A/B e diferença; aviso para posições distintas           |
-| Eficiência Estatística  | Taxas por 90, conversão, precisão de passes, mediana e quartis; população explícita          |
+1. Execute pipeline:collective e powerbi:prepare. data/powerbi recebe TeamMatches (760), Clubs (20), Matches (380), Standings (760), Rounds (38), Seasons (1) e Provenance (1).
+2. No Desktop, crie Consulta Nula chamada Fonte. Cole queries/Collective.m no Editor Avançado e ajuste Pasta.
+3. Crie consultas de referência: = Fonte[TeamMatches], = Fonte[Clubs], = Fonte[Matches], = Fonte[Rounds], = Fonte[Seasons], = Fonte[Standings], = Fonte[Provenance], = Fonte[ClubeComparado]. Desative carregamento da Fonte.
+4. Confira tipos/contagens. Locale en-US lê decimais e datas ISO; UTF-8 conserva acentos. Ajuste separadores DAX se o idioma do Desktop exigir.
+5. Crie as seis relações 1:N de model.json, direção única dimensão → fato. Matches relaciona-se por match_id; não adicione relações ambíguas de mandante/visitante com Clubs. Provenance e ClubeComparado são desconectadas.
+6. Importe theme.json em Exibir → Temas e adicione cada expressão de measures.dax como medida separada. Porcentagens já estão em escala 0–100: formato numérico com sufixo %, sem multiplicar novamente.
+7. Use slicers de Rounds[official_round], TeamMatches[venue] e Clubs[name]. Na página focal filtre Flamengo. Para comparar use ClubeComparado[name] e medidas dedicadas.
+8. Monte as páginas e confira os números abaixo antes de salvar PBIX legítimo.
 
-Filtre visuais de ranking por `Elegível por minutos = 1`. Para mínimo personalizado, crie parâmetro numérico desconectado e substitua apenas a seleção do limiar. A ordenação densa atribui a mesma posição aos empates; a API ordena empates por UUID para paginação estável, sem declarar vantagem estatística.
+| Página               | Visuais                                                    |
+| -------------------- | ---------------------------------------------------------- |
+| Temporada            | KPIs de pontos/gols/saldo/aproveitamento e linha acumulada |
+| Comparação           | barras dos 20 clubes e Flamengo/adversário                 |
+| Ataque e defesa      | gols/médias/saldo/clean sheets                             |
+| Casa e fora          | pontos, jogos e aproveitamento por venue                   |
+| Evolução e qualidade | rodada, cobertura, fonte e hash                            |
 
-As medidas anuais ficam em branco sem cobertura completa e quando qualquer parcela necessária é desconhecida. As medidas explicitamente chamadas “observados” permitem inspecionar cobertura parcial sem alegar total da temporada. Denominadores zero geram BLANK. Quantis INC usam interpolação (n−1), conforme Python/JS. Outliers usam Q1−1,5×AIQ e Q3+1,5×AIQ; aplicar a regra só a valores conhecidos.
+## Conferência
 
-Validação ainda necessária no Desktop: compilar M/DAX, conferir relações, comparar métricas por atleta com a API e revisar as cinco páginas em 16:9. O JSON, a presença dos campos e o bloqueio de distribuição são testados localmente; isso não equivale à execução do motor Power BI.
+Flamengo/rodadas 1–38/ambos mandos: 38 jogos, 79 pontos, 23/10/5, gols 78/27, saldo 51, 18 clean sheets e 69,2982456%. Mandante: 19 jogos, 47 pontos, gols 46/8; visitante: 19, 32, gols 32/19. Palmeiras: 76 pontos. Matches: 380; gols totais: 959.
 
-Referências técnicas: [temas](https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes), [DIVIDE](https://learn.microsoft.com/en-us/dax/divide-function-dax), [Power Query Table.FromRecords](https://learn.microsoft.com/en-us/powerquery-m/table-fromrecords).
+TeamMatches tem dois registros por partida. Gols do campeonato devem usar Matches ou um lado, evitando dupla contagem. Standings contém snapshots: nunca somar rodadas acumuladas. Posição calculada usa última rodada selecionada e universo completo sem mando; não é ranking oficial ou casa/fora. Para acumulados filtrados por mando use medidas sobre TeamMatches.
+
+Comparação mantém filtros de rodada/mando; as medidas ainda precisam de validação no motor DAX. Sequências existem na Gold, mas sua recompilação dinâmica no Desktop não foi validada. Vazio é BLANK, sem zero falso. Sem publicação/embed/envio autorizado. Material individual anterior em docs/history/individual-2025/powerbi.

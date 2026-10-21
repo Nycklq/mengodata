@@ -25,12 +25,15 @@ jobs:
       - run: python -m venv .venv
       - run: .venv/bin/python -m pip install -r pipeline/requirements.lock.txt
       - run: .venv/bin/python -m pip install --no-deps -e pipeline
+      - run: npm run pipeline:collective -- --input data/raw/collective/season=2025/competition=brasileirao-serie-a-men/0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb.json
+      - run: npm run collective:analyze
       - run: npm run lint
       - run: npm run lint:pipeline
       - run: npm run format:check
       - run: npm run format:pipeline:check
       - run: npm test
       - run: npm run test:pipeline
+      - run: npm run test:database
       - run: npm run notebooks:check
       - run: npm run build
       - run: npm run test:smoke

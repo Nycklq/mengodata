@@ -9,5 +9,10 @@ docs/DATA_SOURCES.md
 docs/METRICS.md
 docs/ROUND_SCOPE.md
 docs/history/2026
+docs/history/individual-2025
+data/raw/collective
+reports/collective/*.json
+docs/evidence/collective-cbf-audit.json
+PROMPT_DEFINITIVO_FLAMENGO_ANALYTICS_BIG_DATA_2025.md
 package-lock.json
 PROMPT_MESTRE_CODEX_FLAMENGO_ANALYTICS_2025_FINAL.md

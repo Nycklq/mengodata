@@ -20,16 +20,16 @@ test('OpenAPI describes all implemented route families and nullable availability
   assert.equal(spec.openapi, '3.1.0');
   for (const path of [
     '/api/dashboard/summary',
-    '/api/players/{id}/stats',
+    '/api/matches',
     '/api/compare',
-    '/api/exports/players',
-    '/api/references',
+    '/api/exports/matches',
+    '/api/standings',
   ])
     assert.ok(spec.paths[path].get.responses[200]);
-  assert.ok(spec.paths['/api/exports/players'].get.responses[409]);
+  assert.ok(spec.paths['/api/exports/matches'].get.responses[409]);
   assert.deepEqual(
     spec.components.schemas.AnalyticsEnvelope.properties.availability.enum,
-    ['unavailable', 'partial', 'available'],
+    ['unavailable', 'available'],
   );
 });
 test('Power BI assets declare their unverified native state and canonical scope', async () => {

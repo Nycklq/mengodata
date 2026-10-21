@@ -1,28 +1,40 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "prepared_not_validated_in_desktop",
-  "grain": "one approved dataset version, player, match and Flamengo appearance",
-  "source": "data/analytics/powerbi.json",
-  "fact": "Fato",
-  "dimensions": [
-    "DimJogador",
-    "DimPosicao",
-    "DimEquipe",
-    "DimTemporada",
-    "DimCompeticao",
-    "DimPartida"
-  ],
+  "grain": "one club per validated match; 760 facts for 380 matches",
+  "source": "data/powerbi",
+  "fact": "TeamMatches",
+  "dimensions": ["Clubs", "Matches", "Rounds", "Seasons"],
   "relationships": [
-    { "one": "DimJogador.player_id", "many": "Fato.player_id" },
-    { "one": "DimPosicao.position", "many": "DimJogador.position" },
-    { "one": "DimEquipe.team_id", "many": "Fato.team_id" },
-    { "one": "DimTemporada.season", "many": "Fato.season" },
-    { "one": "DimCompeticao.competition_id", "many": "Fato.competition_id" },
-    { "one": "DimPartida.match_id", "many": "Fato.match_id" }
+    {
+      "one": "Clubs.club_id",
+      "many": "TeamMatches.club_id"
+    },
+    {
+      "one": "Matches.match_id",
+      "many": "TeamMatches.match_id"
+    },
+    {
+      "one": "Rounds.official_round",
+      "many": "TeamMatches.official_round"
+    },
+    {
+      "one": "Seasons.season",
+      "many": "TeamMatches.season"
+    },
+    {
+      "one": "Clubs.club_id",
+      "many": "Standings.club_id"
+    },
+    {
+      "one": "Rounds.official_round",
+      "many": "Standings.official_round"
+    }
   ],
   "filter_direction": "single, dimension to fact",
-  "disconnected_tables": ["Metadata", "MinimoMinutos", "JogadorA", "JogadorB"],
-  "totals_guard": "Metadata.coverage_verified and no missing metric components",
+  "disconnected_tables": ["Provenance", "ClubeComparado"],
+  "totals_guard": "Provenance.coverage_verified; empty window is BLANK",
+  "ranking": "calculated; latest selected round only; never sum snapshots",
   "scope": {
     "competition_id": "competition:brasileirao-serie-a-men",
     "season": 2025,

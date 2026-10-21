@@ -1,0 +1,38 @@
+[
+  { "club_id": "club:flamengo", "name": "Flamengo", "source_name": "CR Flamengo" },
+  { "club_id": "club:palmeiras", "name": "Palmeiras", "source_name": "SE Palmeiras" },
+  { "club_id": "club:cruzeiro", "name": "Cruzeiro", "source_name": "Cruzeiro EC" },
+  { "club_id": "club:mirassol", "name": "Mirassol", "source_name": "Mirassol FC" },
+  {
+    "club_id": "club:fluminense",
+    "name": "Fluminense",
+    "source_name": "Fluminense FC"
+  },
+  { "club_id": "club:botafogo", "name": "Botafogo", "source_name": "Botafogo FR" },
+  { "club_id": "club:bahia", "name": "Bahia", "source_name": "EC Bahia" },
+  { "club_id": "club:sao-paulo", "name": "São Paulo", "source_name": "São Paulo FC" },
+  { "club_id": "club:gremio", "name": "Grêmio", "source_name": "Grêmio FBPA" },
+  {
+    "club_id": "club:bragantino",
+    "name": "Bragantino",
+    "source_name": "RB Bragantino"
+  },
+  { "club_id": "club:atletico-mg", "name": "Atlético-MG", "source_name": "CA Mineiro" },
+  { "club_id": "club:santos", "name": "Santos", "source_name": "Santos FC" },
+  {
+    "club_id": "club:corinthians",
+    "name": "Corinthians",
+    "source_name": "SC Corinthians Paulista"
+  },
+  { "club_id": "club:vasco", "name": "Vasco", "source_name": "CR Vasco da Gama" },
+  { "club_id": "club:vitoria", "name": "Vitória", "source_name": "EC Vitória" },
+  {
+    "club_id": "club:internacional",
+    "name": "Internacional",
+    "source_name": "SC Internacional"
+  },
+  { "club_id": "club:ceara", "name": "Ceará", "source_name": "Ceará SC" },
+  { "club_id": "club:fortaleza", "name": "Fortaleza", "source_name": "Fortaleza EC" },
+  { "club_id": "club:juventude", "name": "Juventude", "source_name": "EC Juventude" },
+  { "club_id": "club:sport", "name": "Sport", "source_name": "SC Recife" }
+]

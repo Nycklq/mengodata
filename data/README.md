@@ -1,11 +1,5 @@
-# Estágios de dados
+# Dados coletivos
 
-raw/ é Bronze; processed/ é Silver; analytics/ é Gold. São estágios de dados, não camadas de código. Os arquivos gerados são ignorados pelo Git.
+raw/collective/season=2025/competition=brasileirao-serie-a-men contém Bronze original e metadata da revisão fixa, permitindo reprodução offline. pipeline:collective gera Silver e Gold Parquet/CSV e analytics/collective.json.
 
-A importação real executada nesta entrega criou raw/openfootball/<sha256>.json com os bytes autorizados, processed/references/<sha256>.json normalizado e analytics/references.json com recibo de ingestão. Há 38 referências auxiliares, sem prova de estatísticas individuais, IDs CBF ou fuso.
-
-Reproduza com npm run pipeline:references. O download usa somente a revisão/hash de contracts/source-approval.json. Uma cópia local pode ser passada com --input. A reexecução idêntica não altera conteúdo nem timestamp.
-
-analytics/individual.json só pode ser criado pelo importador após aprovação exata de fonte, artefato e direitos em contracts/dataset-approvals.json. Esse registro está vazio; não há base individual de produção. Não copie fixtures sintéticas dos testes para esta pasta.
-
-analytics/powerbi.json é produzido por npm run powerbi:prepare. Atualmente registra indisponibilidade e listas vazias. Linhas individuais só são exportadas com permissão documental específica para distribuição Power BI.
+380 partidas → 760 fatos clube × partida e 760 acumulados. Não somar snapshots. JSON integra API; Parquet armazena analítica; CSV integra BI. powerbi:prepare gera data/powerbi. Arquivos references.json/powerbi.json anteriores são legados e não são lidos pelo servidor ativo. Sem credenciais aqui. Proveniência e licença em docs/DATA_SOURCES.md.

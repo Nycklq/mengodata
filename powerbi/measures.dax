@@ -1,61 +1,45 @@
-Cobertura completa = SELECTEDVALUE(Metadata[coverage_verified], FALSE()) && SELECTEDVALUE(Metadata[distribution_allowed], FALSE())
+﻿Cobertura verificada = SELECTEDVALUE(Provenance[coverage_verified], FALSE())
 
-Gols observados = IF(COUNTROWS(Fato) > 0 && COUNT(Fato[goals]) = COUNTROWS(Fato), SUM(Fato[goals]), BLANK())
+Jogos = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, COUNTROWS(TeamMatches), BLANK())
 
-Assistências observadas = IF(COUNTROWS(Fato) > 0 && COUNT(Fato[assists]) = COUNTROWS(Fato), SUM(Fato[assists]), BLANK())
+Vitórias = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, SUM(TeamMatches[wins]), BLANK())
 
-Minutos observados = IF(COUNTROWS(Fato) > 0 && COUNT(Fato[minutes]) = COUNTROWS(Fato), SUM(Fato[minutes]), BLANK())
+Empates = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, SUM(TeamMatches[draws]), BLANK())
 
-Gols = IF([Cobertura completa], [Gols observados], BLANK())
+Derrotas = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, SUM(TeamMatches[losses]), BLANK())
 
-Assistências = IF([Cobertura completa], [Assistências observadas], BLANK())
+Pontos = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, SUM(TeamMatches[points]), BLANK())
 
-Minutos = IF([Cobertura completa], [Minutos observados], BLANK())
+Gols pró = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, SUM(TeamMatches[goals_for]), BLANK())
 
-Jogos = IF([Cobertura completa] && COUNTROWS(Fato) > 0, DISTINCTCOUNT(Fato[match_id]), BLANK())
+Gols contra = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, SUM(TeamMatches[goals_against]), BLANK())
 
-Atletas = IF([Cobertura completa] && COUNTROWS(Fato) > 0, DISTINCTCOUNT(Fato[player_id]), BLANK())
+Saldo = IF(NOT ISBLANK([Jogos]), [Gols pró] - [Gols contra], BLANK())
 
-Titularidades = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNTBLANK(Fato[starter]) = 0, COUNTROWS(FILTER(Fato, Fato[starter] = TRUE())), BLANK())
+Aproveitamento (%) = DIVIDE([Pontos] * 100, [Jogos] * 3, BLANK())
 
-G + A = IF(NOT ISBLANK([Gols]) && NOT ISBLANK([Assistências]), [Gols] + [Assistências], BLANK())
+Gols pró por jogo = DIVIDE([Gols pró], [Jogos], BLANK())
 
-Gols por 90 = DIVIDE([Gols] * 90, [Minutos], BLANK())
+Gols contra por jogo = DIVIDE([Gols contra], [Jogos], BLANK())
 
-Assistências por 90 = DIVIDE([Assistências] * 90, [Minutos], BLANK())
+Sem sofrer gol = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, SUM(TeamMatches[clean_sheets]), BLANK())
 
-G + A por 90 = DIVIDE([G + A] * 90, [Minutos], BLANK())
+Pontos acumulados = CALCULATE([Pontos], FILTER(ALLSELECTED(Rounds[official_round]), Rounds[official_round] <= MAX(Rounds[official_round])))
 
-Finalizações = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[shots]) = COUNTROWS(Fato), SUM(Fato[shots]), BLANK())
+Gols pró acumulados = CALCULATE([Gols pró], FILTER(ALLSELECTED(Rounds[official_round]), Rounds[official_round] <= MAX(Rounds[official_round])))
 
-Passes certos = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[passes_completed]) = COUNTROWS(Fato), SUM(Fato[passes_completed]), BLANK())
+Gols contra acumulados = CALCULATE([Gols contra], FILTER(ALLSELECTED(Rounds[official_round]), Rounds[official_round] <= MAX(Rounds[official_round])))
 
-Passes tentados = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[passes_attempted]) = COUNTROWS(Fato), SUM(Fato[passes_attempted]), BLANK())
+Mediana de gols = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, MEDIAN(TeamMatches[goals_for]), BLANK())
 
-Conversão (%) = DIVIDE([Gols] * 100, [Finalizações], BLANK())
+Q1 de gols = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, PERCENTILE.INC(TeamMatches[goals_for], 0.25), BLANK())
 
-Acerto de passes (%) = DIVIDE([Passes certos] * 100, [Passes tentados], BLANK())
+Q3 de gols = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 0, PERCENTILE.INC(TeamMatches[goals_for], 0.75), BLANK())
 
-Desarmes = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[tackles]) = COUNTROWS(Fato), SUM(Fato[tackles]), BLANK())
+Desvio populacional de gols = IF([Cobertura verificada] && COUNTROWS(TeamMatches) > 1, STDEV.P(TeamMatches[goals_for]), IF([Jogos] = 1, 0, BLANK()))
 
-Interceptações = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[interceptions]) = COUNTROWS(Fato), SUM(Fato[interceptions]), BLANK())
+Pontos Flamengo = CALCULATE([Pontos], REMOVEFILTERS(Clubs), Clubs[club_id] = "club:flamengo")
 
-Cortes = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[clearances]) = COUNTROWS(Fato), SUM(Fato[clearances]), BLANK())
+Pontos clube comparado = IF(HASONEVALUE(ClubeComparado[club_id]), CALCULATE([Pontos], REMOVEFILTERS(Clubs), TREATAS(VALUES(ClubeComparado[club_id]), Clubs[club_id])), BLANK())
 
-Bloqueios = IF([Cobertura completa] && COUNTROWS(Fato) > 0 && COUNT(Fato[blocks]) = COUNTROWS(Fato), SUM(Fato[blocks]), BLANK())
-
-Elegível por minutos = IF(NOT ISBLANK([Minutos]) && [Minutos] >= SELECTEDVALUE(MinimoMinutos[minutes], 0), 1, BLANK())
-
-Ranking de gols = IF([Elegível por minutos] = 1 && NOT ISBLANK([Gols]), RANKX(FILTER(ALLSELECTED(DimJogador), [Elegível por minutos] = 1 && NOT ISBLANK([Gols])), [Gols], , DESC, DENSE), BLANK())
-
-Gols jogador A = CALCULATE([Gols], REMOVEFILTERS(DimJogador), TREATAS(VALUES(JogadorA[player_id]), DimJogador[player_id]))
-
-Gols jogador B = CALCULATE([Gols], REMOVEFILTERS(DimJogador), TREATAS(VALUES(JogadorB[player_id]), DimJogador[player_id]))
-
-Diferença de gols = IF(HASONEVALUE(JogadorA[player_id]) && HASONEVALUE(JogadorB[player_id]) && NOT ISBLANK([Gols jogador A]) && NOT ISBLANK([Gols jogador B]), [Gols jogador A] - [Gols jogador B], BLANK())
-
-Mediana de gols = MEDIANX(FILTER(ALLSELECTED(DimJogador), [Elegível por minutos] = 1 && NOT ISBLANK([Gols])), [Gols])
-
-Q1 de gols = PERCENTILEX.INC(FILTER(ALLSELECTED(DimJogador), [Elegível por minutos] = 1 && NOT ISBLANK([Gols])), [Gols], 0.25)
-
-Q3 de gols = PERCENTILEX.INC(FILTER(ALLSELECTED(DimJogador), [Elegível por minutos] = 1 && NOT ISBLANK([Gols])), [Gols], 0.75)
+Posição calculada = IF(HASONEVALUE(Clubs[club_id]), CALCULATE(MAX(Standings[position]), FILTER(ALL(Rounds), Rounds[official_round] = MAX(Rounds[official_round]))), BLANK())

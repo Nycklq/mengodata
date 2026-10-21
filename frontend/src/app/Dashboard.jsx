@@ -12,29 +12,31 @@ import {
   PanelLeftClose,
   ShieldCheck,
   Target,
-  Users,
+  CalendarDays,
+  Trophy,
   X,
 } from 'lucide-react';
 import {
   AnalysisPage,
   ComparisonPage,
   OverviewPage,
-  PlayersPage,
-  ProfilePage,
+  MatchesPage,
+  StandingsPage,
   StatisticsPage,
-} from '../features/analytics/presentation/AnalyticsPages.jsx';
+} from '../features/analytics/presentation/CollectivePages.jsx';
 import {
   MethodologyPage,
   NotFoundPage,
   PowerBiPage,
-} from '../features/analytics/presentation/DocumentationPages.jsx';
+} from '../features/analytics/presentation/CollectiveDocumentation.jsx';
 import { AnalyticsContext } from '../features/analytics/presentation/analytics-hooks.js';
 import { SportsIcon } from '../features/analytics/presentation/SportsIcon.jsx';
 import { useCompactNavigation } from './use-compact-navigation.js';
 
 const navigation = [
   ['/', 'Visão geral', LayoutDashboard],
-  ['/jogadores', 'Jogadores', Users],
+  ['/partidas', 'Partidas', CalendarDays],
+  ['/classificacao', 'Classificação', Trophy],
   ['/comparar', 'Comparar', GitCompareArrows],
   ['/ofensivo', 'Análise ofensiva', Target],
   ['/defensivo', 'Análise defensiva', ShieldCheck],
@@ -134,8 +136,8 @@ export function Dashboard({ loadAnalytics }) {
         <main id="main" tabIndex={-1}>
           <Routes>
             <Route path="/" element={<OverviewPage />} />
-            <Route path="/jogadores" element={<PlayersPage />} />
-            <Route path="/jogadores/:id" element={<ProfilePage />} />
+            <Route path="/partidas" element={<MatchesPage />} />
+            <Route path="/classificacao" element={<StandingsPage />} />
             <Route path="/comparar" element={<ComparisonPage />} />
             <Route
               path="/ofensivo"

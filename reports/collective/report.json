@@ -1,0 +1,157 @@
+{
+  "dataset_version": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+  "source": {
+    "source_id": "openfootball:football-json",
+    "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2025/br.1.json",
+    "revision": "e6744429ee395bc86f247348c6184bb08d4eb361",
+    "license": "CC0-1.0",
+    "sha256": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+    "collected_at": "2026-10-21T19:49:47.560647+00:00",
+    "license_url": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+  },
+  "coverage": {
+    "status": "verified",
+    "matches": 380,
+    "clubs": 20,
+    "rounds": 38,
+    "matches_per_round": 10,
+    "matches_per_club": 38,
+    "flamengo_matches": 38,
+    "duplicates": 0,
+    "missing_scores": 0,
+    "removed_rows": 0,
+    "official_mapping": "round_labels_from_openfootball_not_cbf_match_ids"
+  },
+  "figures": [
+    {
+      "file": "01_distribuicao.png",
+      "title": "Como os gols se distribuem no campeonato",
+      "interpretation": "Média de 2.524 e mediana de 2 gols por partida. A distribuição não mede qualidade das chances."
+    },
+    {
+      "file": "02_evolucao.png",
+      "title": "A construção da campanha do Flamengo",
+      "interpretation": "Acumulado por rodada oficial. Jogos adiados entram na rodada de origem; a curva não representa informação disponível em cada data."
+    },
+    {
+      "file": "03_casa_fora.png",
+      "title": "Mandante e visitante: duas campanhas",
+      "interpretation": "O Flamengo somou 47 pontos em casa e 32 fora. A comparação é descritiva; mando não é a única diferença entre as partidas."
+    },
+    {
+      "file": "04_clubes.png",
+      "title": "Flamengo e os outros 19 clubes",
+      "interpretation": "Flamengo terminou com 79 pontos e Palmeiras com 76. A classificação calculada usa resultados e não certifica critérios disciplinares."
+    },
+    {
+      "file": "05_ataque_defesa.png",
+      "title": "Produção ofensiva e proteção defensiva",
+      "interpretation": "Na base, o Flamengo tem o maior total de gols pró (78) e o menor total de gols contra (27). Placares não descrevem ações táticas ou chances criadas."
+    },
+    {
+      "file": "06_estatistica.png",
+      "title": "Dispersão e correlações exploratórias",
+      "interpretation": "Correlações entre variáveis derivadas do placar têm dependência matemática. Não demonstram causalidade nem generalização para outras temporadas."
+    }
+  ],
+  "flamengo": {
+    "club_id": "club:flamengo",
+    "name": "Flamengo",
+    "played": 38,
+    "wins": 23,
+    "draws": 10,
+    "losses": 5,
+    "goals_for": 78,
+    "goals_against": 27,
+    "goal_difference": 51,
+    "points": 79,
+    "clean_sheets": 18,
+    "efficiency": 69.2982456140351,
+    "goals_for_average": 2.0526315789473686,
+    "goals_against_average": 0.7105263157894737,
+    "winning_streak": 3,
+    "unbeaten_streak": 12,
+    "position": 1,
+    "tied": false
+  },
+  "home_away": [
+    {
+      "venue": "home",
+      "club_id": "club:flamengo",
+      "name": "Flamengo",
+      "played": 19,
+      "wins": 14,
+      "draws": 5,
+      "losses": 0,
+      "goals_for": 46,
+      "goals_against": 8,
+      "goal_difference": 38,
+      "points": 47,
+      "clean_sheets": 13,
+      "efficiency": 82.45614035087719,
+      "goals_for_average": 2.4210526315789473,
+      "goals_against_average": 0.42105263157894735,
+      "winning_streak": 6,
+      "unbeaten_streak": 19,
+      "position": 1,
+      "tied": false
+    },
+    {
+      "venue": "away",
+      "club_id": "club:flamengo",
+      "name": "Flamengo",
+      "played": 19,
+      "wins": 9,
+      "draws": 5,
+      "losses": 5,
+      "goals_for": 32,
+      "goals_against": 19,
+      "goal_difference": 13,
+      "points": 32,
+      "clean_sheets": 5,
+      "efficiency": 56.14035087719298,
+      "goals_for_average": 1.6842105263157894,
+      "goals_against_average": 1.0,
+      "winning_streak": 3,
+      "unbeaten_streak": 5,
+      "position": 1,
+      "tied": false
+    }
+  ],
+  "flamengo_goals": {
+    "n": 38,
+    "mean": 2.0526315789473686,
+    "median": 2.0,
+    "q1": 1.0,
+    "q3": 3.0,
+    "std_population": 1.746385265582848,
+    "variance_population": 3.049861495844875,
+    "min": 0.0,
+    "max": 8.0
+  },
+  "statistics": {
+    "match_goals": {
+      "n": 380,
+      "mean": 2.5236842105263158,
+      "median": 2.0,
+      "q1": 1.0,
+      "q3": 3.0,
+      "std_population": 1.5447592574362206,
+      "variance_population": 2.3862811634349033,
+      "min": 0.0,
+      "max": 8.0
+    },
+    "club_points": {
+      "n": 20,
+      "mean": 52.05,
+      "median": 48.0,
+      "q1": 44.75,
+      "q3": 63.25,
+      "std_population": 14.34041491728883,
+      "variance_population": 205.64750000000004,
+      "min": 17.0,
+      "max": 79.0
+    },
+    "correlation_goals_points": 0.8927043236575675
+  }
+}

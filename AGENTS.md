@@ -1,8 +1,8 @@
 AGENTS.md — Flamengo Analytics
 Identidade e recorte obrigatório
-- Projeto: Flamengo Analytics, análises individuais dos jogadores do Flamengo.
+- Projeto: Flamengo Analytics, análise coletiva do Flamengo comparada aos outros 19 clubes.
 - Campeonato: Brasileiro Série A masculino, temporada completa de 2025 (rodadas oficiais 1 a 38).
-- Abrangência: apenas estatísticas registradas pelo Flamengo nas partidas desse recorte. Excluir rodadas fora de 1 a 38, outras competições, outras temporadas e aparições por outros clubes.
+- Abrangência: resultados e placares dos 20 clubes nesse recorte. Excluir rodadas fora de 1 a 38, outras competições e temporadas. Estatísticas individuais não são requisito nem fluxo principal; módulos legados permanecem isolados e inativos.
 - Jogos adiados pertencem à rodada oficial de origem; não substituir o recorte por intervalo de datas ou ordem cronológica dos jogos.
 - A decisão anterior de primeiro turno de 2026 foi cancelada pelo usuário. O histórico em docs/history/2026 não é norma operacional.
 - Antes de implementar algo que envolva escopo, métricas ou fonte, consulte docs/FLAMENGO_ANALYTICS_CONTEXT.md, principalmente a atualização de escopo e as seções de coleta, modelagem, arquitetura e testes.
@@ -23,7 +23,7 @@ Código sem comentários — regra inegociável
 Qualidade e fidelidade dos dados
 - Usar somente dados reais, com origem, cobertura, granularidade e direitos de uso verificados. Nunca inventar números, fontes, URLs, APIs, testes executados ou resultados.
 - Comprovar a cobertura das rodadas 1 a 38 de 2025 antes de calcular e exibir totais da temporada. Arquivos de rodada, calendário e scouts acumulados não comprovam cobertura por partida. Não somar snapshots acumulados como eventos independentes.
-- Preservar IDs de partidas, rodada oficial, clube, competição, temporada, fonte e data de coleta. Verificar jogadores transferidos e partidas remarcadas.
+- Preservar IDs de partidas, rodada oficial, clubes, competição, temporada, fonte e data de coleta. Verificar partidas remarcadas; IDs internos não se apresentam como IDs oficiais.
 - Métricas indisponíveis devem aparecer como indisponíveis, não receber zeros falsos. Relatar cobertura parcial e diferenças de granularidade.
 - Manter a mesma semântica de indicadores em Python, Gold, PostgreSQL, API, React e Power BI.
 - Validar entradas, usar consultas SQL parametrizadas, tratamento consistente de erros e configurações seguras.

@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
-import { Dashboard } from '../src/app/Dashboard.jsx';
+import { Dashboard } from '../src/app/LegacyDashboard.jsx';
 import { loadAnalytics } from '../src/features/analytics/application/load-analytics.js';
 import { createHttpAnalyticsGateway } from '../src/features/analytics/infrastructure/http-analytics-gateway.js';
 import { SportsIcon } from '../src/features/analytics/presentation/SportsIcon.jsx';

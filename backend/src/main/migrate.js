@@ -9,9 +9,9 @@ let pool;
 try {
   pool = createPostgresPool(process.env.DATABASE_URL);
   const directory = fileURLToPath(
-    new URL('../../../database/migrations', import.meta.url),
+    new URL('../../../database/collective-migrations', import.meta.url),
   );
-  const applied = await migrate(pool, directory);
+  const applied = await migrate(pool, directory, 'collective_migrations');
   process.stdout.write(JSON.stringify({ applied }) + '\n');
 } catch {
   process.stderr.write('Falha na migração. Verifique a configuração e o histórico.\n');

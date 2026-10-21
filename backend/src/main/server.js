@@ -1,8 +1,8 @@
 import pino from 'pino';
 import { fileURLToPath } from 'node:url';
-import { createAnalyticsService } from '../application/get-analytics.js';
-import { createAnalyticsFiles } from '../infrastructure/persistence/analytics-files.js';
-import { createPostgresAnalytics } from '../infrastructure/persistence/postgres-analytics.js';
+import { createCollectiveService } from '../application/get-collective.js';
+import { createCollectiveFiles } from '../infrastructure/persistence/collective-files.js';
+import { createPostgresCollective } from '../infrastructure/persistence/postgres-collective.js';
 import { createPostgresPool } from '../infrastructure/persistence/postgres-pool.js';
 
 import { getProjectMetadata } from '../application/get-project-metadata.js';
@@ -10,9 +10,9 @@ import { readEnvironment } from '../infrastructure/config/environment.js';
 import { createApp } from '../interfaces/http/create-app.js';
 
 const environment = readEnvironment();
-const files = createAnalyticsFiles({
-  root: fileURLToPath(new URL('../../../', import.meta.url)),
-});
+const files = createCollectiveFiles(
+  fileURLToPath(new URL('../../../', import.meta.url)),
+);
 const pool = process.env.DATABASE_URL
   ? createPostgresPool(process.env.DATABASE_URL)
   : null;
@@ -24,11 +24,23 @@ const logger = pino({
     'req.headers["x-api-key"]',
   ],
 });
+const collective = createCollectiveService(
+  pool ? createPostgresCollective(pool, files) : files,
+);
 const app = createApp({
-  getMetadata: getProjectMetadata,
-  getAnalytics: createAnalyticsService(
-    pool ? createPostgresAnalytics(pool, files) : files,
-  ),
+  getMetadata: async () => {
+    const document = await collective('data-quality');
+    return {
+      ...getProjectMetadata(),
+      source_status: document.source ? 'approved' : 'pending',
+      data_status: document.availability,
+      dataset_version: document.dataset_version,
+      coverage: document.coverage,
+      source: document.source,
+      analysis_unit: 'club_match',
+    };
+  },
+  getCollective: collective,
   logger,
   corsOrigin: environment.CORS_ORIGIN,
 });

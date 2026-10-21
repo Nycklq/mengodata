@@ -1,34 +1,34 @@
-# Estado real — desenvolvimento integrado de 2025
+# Estado real — migração coletiva
 
-Atualizado em 19/10/2026. Flamengo, Brasileirão Série A masculino, temporada completa de 2025, rodadas oficiais 1 a 38. O projeto existente foi ampliado, sem reinicialização, commits ou publicação.
+Atualizado em 21/10/2026. Escopo ativo único: desempenho coletivo do Flamengo comparado aos outros 19 clubes, Série A masculina/2025/rodadas oficiais 1–38. Projeto existente aproveitado; sem commits, push, publicação ou contratação.
 
-| Módulo             | Implementado                                                                                                                  | Verificação / limite                                                            |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Núcleo JS/Python   | Agregação, G+A, taxas por 90, razões ponderadas, nulos, quartis e outliers                                                    | Fixtures matemáticas compartilhadas; sem cálculo individual de produção         |
-| Pipeline           | Auditoria, manifesto v2, importação auxiliar Bronze/Silver/Gold, entrada individual condicionada a revisão de hash/permissões | 38 referências reais importadas; reexecução changed=false; individual bloqueado |
-| Backend            | Resumo, jogadores/perfil, rankings, ataque/defesa, posições, distribuição, comparação, CSV condicionado, rate limit           | Testes HTTP e casos de uso; nenhum atleta real liberado                         |
-| PostgreSQL         | Migração aditiva 003, fatos, proveniência, constraints, transações, repositórios de escrita e leitura                         | 25 testes passaram em cluster isolado; banco pessoal não migrado                |
-| Frontend           | Nove páginas, roteamento, filtros, busca, ordenação, paginação, comparador, estados e SVGs originais/Lucide                   | 24 testes passaram; revisão visual bloqueada pela ferramenta                    |
-| Notebooks          | Seis arquivos executados com auditoria real e bloqueios explícitos                                                            | Análises esportivas e gráficos individuais dependem de fonte                    |
-| Power BI           | Modelo, M, DAX, tema, exportador com direito específico e instruções                                                          | Preparação vazia executada; motor Desktop/PBIX/PBIP não validado                |
-| API / documentação | OpenAPI gerado, execução, dicionário, metodologia acadêmica e matriz de aceite                                                | Verificação consolidada aprovada; detalhes em TEST_REPORT.md                    |
+## Executado e pronto localmente
 
-Resultado consolidado: **242 testes aprovados** (backend 26, frontend 24, raiz JS 10, Python 157, PostgreSQL 25), lint/formatação, seis notebooks, build e smoke aprovados. Relatório e limites em [TEST_REPORT.md](TEST_REPORT.md).
+- OpenFootball CC0, revisão fixa, SHA-256 de dados e licença conferidos. 380 jogos/38 rodadas/20 clubes/38 jogos Flamengo; 19 mandos e 19 visitas por clube.
+- Conciliação de 380 confrontos/placares com tabela CBF, sem divergências. 370 rodadas e 379 datas explícitas comparadas; células omitidas não são inferidas.
+- Pipeline Pandas/NumPy Bronze/Silver/Gold, Parquet/CSV, partição temporada/competição e Gold JSON. Reexecução changed=false mantendo bytes/coleta.
+- 760 fatos clube × partida, 20 totais e 760 acumulados; pontos, resultados, gols, saldo, aproveitamento, médias, clean sheets, sequências e descritiva.
+- Migração PostgreSQL aditiva em esquema/ledger próprios; 380 partidas reais importadas em cluster isolado, idempotência/rollback e equivalência Python/SQL/API comprovados.
+- API coletiva com filtros, paginação, comparação e CSV rastreável. Servidor ativo não expõe rotas de jogadores; diagnóstico/migrações são explícitos.
+- Nove páginas React integradas, gráficos Recharts, SVGs existentes preservados e estados de carregamento/erro/vazio/ausência. Identidade minimalista preto/vermelho/branco mantida.
+- Seis notebooks executados e seis figuras Matplotlib/Seaborn reais em reports/collective, com relatório/CSV e evidência de equivalência.
+- Materiais BI: CSVs reais, modelo dimensional, M, DAX, tema, instruções e valores de conferência.
+- Documentação operacional, fontes, métricas, qualidade, contratos, relatório acadêmico e roteiro de oito minutos. Histórico anterior em history/individual-2025 e history/2026, sem autoridade operacional.
 
-## Dados e bloqueios
+## Verificações observadas
 
-OpenFootball está autorizado somente como referência auxiliar CC0, na revisão e hash de [source-approval.json](../contracts/source-approval.json). A importação real preservou os bytes em data/raw, normalizou em data/processed e gerou data/analytics/references.json. A API e a visão geral consomem esses resultados sem atribuí-los a atletas. Não há IDs CBF ou fuso inventados, nem manifesto oficial completo homologado.
+verify terminou com código 0: 40 backend + 35 frontend + 10 raiz + 174 Python + 30 PostgreSQL = 289 testes, notebooks:check, lint/formatação, build e smoke. Depois foi acrescentado teste de adiamento atravessando ano civil: verify:pipeline passou com 175 testes, e os testes coletivos de API/CSV, lint/formatação e smoke foram repetidos com sucesso. Total final das suítes: **290 testes aprovados**, sem ignorados. Detalhes em TEST_REPORT.md.
 
-A fonte individual permanece sem aprovação. O candidato Cartola contém snapshots acumulados, lacunas e direitos não comprovados; não foi incorporado ao produto. [dataset-approvals.json](../contracts/dataset-approvals.json) não possui datasets aprovados. Sem revisão de conteúdo, granularidade, cobertura, participações e permissões, a entrada individual falha antes de gravar. Exportação CSV e distribuição Power BI têm permissões próprias.
+## Limitações e próximo passo concreto
 
-## Ambiente preservado
+Não havia .env/DATABASE_URL configurada. Banco pessoal não foi acessado ou alterado. Para persistência permanente, o titular deve conferir um banco dedicado, definir DATABASE_URL e executar db:check, db:migrate e db:import. A aplicação funciona agora com a Gold local validada.
 
-Backend e Vite iniciaram localmente em 127.0.0.1:3001 e 127.0.0.1:5173. A API inicia sem banco para referências e indisponibilidade. Com DATABASE_URL, a leitura individual depende da importação aprovada no PostgreSQL. Nenhuma migração automática ocorre no startup.
+O inventário não mostrou Power BI Desktop; não existe PBIX/PBIP validado. Montar/compilar/conferir no Desktop seguindo powerbi/README.md. O controle de UI encerrou a tentativa de revisão do Chrome porque não confirmou a URL com confiança; nenhuma nova ação de UI foi feita depois disso. Revisão visual desktop/mobile e acessibilidade completa continuam pendentes. Testes DOM/build/HTTP não a certificam.
 
-As migrações 001/002 e o histórico de 2026 foram preservados. A migração 003 apenas adiciona estrutura. Integrações usam cluster temporário com porta própria; não foram criadas credenciais ou bancos pessoais. Não há containers, Spark ou Hadoop.
+CI remoto não executado. Classificação calculada não reproduz todos os desempates/sanções; não há dados de ações ou atletas. 380 jogos são volume pequeno e demonstram conceitos Big Data, não processamento massivo.
 
-A revisão visual foi tentada com computer-use. O navegador integrado não estava disponível e o controle nativo encerrou por não identificar a URL com confiança para aplicar suas regras. Não foram realizados novos comandos de UI após o bloqueio. DOM, navegação, SVGs e estados têm testes, mas isso não certifica layout desktop/mobile ou acessibilidade completa.
+## Reprodução e continuidade
 
-## Continuidade
+Na raiz: pipeline:collective → collective:analyze → collective:parity → powerbi:prepare → notebooks:execute → verify. Reprodução offline usa Bronze fixada; comandos completos no README. Abrir dev:backend e dev:frontend em terminais separados, http://127.0.0.1:5173/. Não reiniciar projeto ou voltar ao requisito individual.
 
-Verificações e documentação desta ampliação foram concluídas dentro dos limites registrados. O próximo passo externo essencial será obter um artefato individual autorizado e auditar participações/identidades por partida nas 38 rodadas. Só então atualizar os registros revisados, executar o importador, conciliar métricas e validar o relatório no Power BI Desktop. Minutas não enviadas: [SOURCE_PERMISSION_REQUEST.md](SOURCE_PERMISSION_REQUEST.md).
+[Arquivos da entrega](DELIVERY_FILES.md), [roteiro](PRESENTATION.md), [resultados](../reports/collective/README.md).

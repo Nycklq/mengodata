@@ -25,6 +25,8 @@ def test_python_dependencies_point_inwards():
         "math",
         "typing",
         "uuid",
+        "numpy",
+        "pandas",
     }
     for layer in ("domain", "application", "adapters"):
         for path in (SOURCE_ROOT / layer).glob("*.py"):

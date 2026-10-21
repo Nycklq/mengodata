@@ -1,5 +1,21 @@
 @import 'tailwindcss';
 
+.collective-chart {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 14px 0;
+}
+.collective-filters {
+  flex-wrap: wrap;
+}
+.flamengo-row {
+  background: #fff4f6;
+  font-weight: 650;
+}
+.checksum {
+  overflow-wrap: anywhere;
+}
+
 .custom-minutes {
   width: 84px;
 }

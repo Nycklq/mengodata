@@ -16,9 +16,11 @@
     "schema_version": { "const": 2 },
     "scope": { "$ref": "urn:flamengo-analytics:manifest:2#/properties/scope" },
     "label": { "type": "string", "minLength": 1 },
-    "source_status": { "const": "pending" },
-    "data_status": { "const": "unavailable" },
-    "dataset_version": { "type": "null" },
-    "coverage": { "type": "null" }
+    "source_status": { "enum": ["pending", "approved"] },
+    "data_status": { "enum": ["unavailable", "available"] },
+    "dataset_version": { "type": ["null", "string"] },
+    "coverage": { "type": ["null", "object"] },
+    "source": { "type": ["null", "object"] },
+    "analysis_unit": { "const": "club_match" }
   }
 }

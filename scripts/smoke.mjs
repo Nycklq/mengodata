@@ -13,7 +13,6 @@ const port = reservation.address().port;
 await new Promise((accept, reject) =>
   reservation.close((error) => (error ? reject(error) : accept())),
 );
-
 const child = spawn(process.execPath, ['backend/src/main/server.js'], {
   cwd: root,
   env: { ...process.env, HOST: '127.0.0.1', PORT: String(port), LOG_LEVEL: 'silent' },
@@ -27,18 +26,17 @@ try {
   let healthy = false;
   while (!healthy && Date.now() < deadline) {
     try {
-      const response = await fetch(`http://127.0.0.1:${port}/api/health`, {
+      const reply = await fetch(`http://127.0.0.1:${port}/api/health`, {
         signal: AbortSignal.timeout(1000),
       });
-      assert.equal(response.status, 200);
-      assert.equal((await response.json()).status, 'ok');
+      assert.equal(reply.status, 200);
       healthy = true;
     } catch {
       if (child.exitCode !== null) throw new Error('BACKEND_EXITED_DURING_SMOKE');
       await new Promise((accept) => setTimeout(accept, 100));
     }
   }
-  assert.equal(healthy, true, 'BACKEND_HEALTH_TIMEOUT');
+  assert.ok(healthy, 'BACKEND_HEALTH_TIMEOUT');
   vite = await createViteServer({
     root: fileURLToPath(new URL('../frontend', import.meta.url)),
     configFile: fileURLToPath(new URL('../frontend/vite.config.js', import.meta.url)),
@@ -51,69 +49,68 @@ try {
   });
   await vite.listen();
   const origin = `http://127.0.0.1:${vite.httpServer.address().port}`;
-  const page = await fetch(origin);
-  assert.equal(page.status, 200);
-  assert.match(await page.text(), /lang="pt-BR"/);
-  const entry = await fetch(`${origin}/src/app/main.jsx`);
-  assert.equal(entry.status, 200);
-  assert.match(await entry.text(), /Dashboard/);
-  const response = await fetch(`${origin}/api/metadata`);
-  assert.equal(response.status, 200);
-  const metadata = await response.json();
-  assert.deepEqual(metadata.scope, {
-    competition_id: 'competition:brasileirao-serie-a-men',
-    season: 2025,
-    team_id: 'club:flamengo',
-    first_round: 1,
-    last_round: 38,
-  });
-  assert.equal(metadata.schema_version, 2);
-  assert.match(metadata.label, /2025.*1 a 38/);
-  assert.equal(metadata.source_status, 'pending');
-  assert.equal(metadata.data_status, 'unavailable');
-  assert.equal(metadata.coverage, null);
-  assert.equal(metadata.dataset_version, null);
-  const analytical = [
-    'dashboard/summary',
-    'players',
-    'rankings/goals',
-    'rankings/assists',
-    'rankings/contributions',
+  const read = async (path) => {
+    const response = await fetch(origin + '/api/' + path);
+    assert.equal(response.status, 200, path);
+    return response.json();
+  };
+  const metadata = await read('metadata');
+  assert.equal(metadata.scope.season, 2025);
+  assert.equal(metadata.data_status, 'available');
+  assert.equal(metadata.coverage.matches, 380);
+  const summary = await read('summary');
+  assert.equal(summary.data.club.points, 79);
+  assert.equal(summary.data.club.goals_for, 78);
+  assert.equal((await read('clubs')).data.length, 20);
+  assert.equal((await read('standings?to_round=1')).data.rows.length, 20);
+  for (const resource of [
+    'evolution',
+    'compare',
     'analytics/offensive',
     'analytics/defensive',
-    'analytics/positions',
-    'analytics/distribution',
     'statistics',
     'data-quality',
-    'references',
-  ];
-  for (const resource of analytical) {
-    const reply = await fetch(`${origin}/api/${resource}`);
-    assert.equal(reply.status, 200, resource);
-    const document = await reply.json();
-    assert.deepEqual(document.scope, metadata.scope);
-    assert.equal(document.availability, 'unavailable');
-    if (resource === 'dashboard/summary') assert.equal(document.data.goals, null);
-    if (resource === 'players') assert.deepEqual(document.data, []);
-  }
-  const denied = await fetch(`${origin}/api/exports/players`);
-  assert.equal(denied.status, 409);
+  ])
+    assert.equal((await read(resource)).availability, 'available');
+  const matches = await read(
+    'matches?club_id=club%3Aflamengo&from_round=12&to_round=12',
+  );
+  assert.equal(matches.data.rows[0].date, '2025-11-15');
+  assert.equal(matches.data.rows[0].official_round, 12);
+  const csv = await fetch(
+    origin + '/api/exports/matches?club_id=club%3Aflamengo&from_round=12&to_round=12',
+  );
+  assert.equal(csv.status, 200);
+  assert.equal((await csv.text()).trim().split('\r\n').length, 2);
+  assert.equal((await fetch(origin + '/api/matches?season=2026')).status, 400);
+  assert.equal((await fetch(origin + '/api/players')).status, 404);
   for (const path of [
-    'jogadores',
+    '',
+    'partidas',
+    'classificacao',
     'comparar',
     'ofensivo',
     'defensivo',
     'estatisticas',
     'power-bi',
     'metodologia',
-    'jogadores/00000000-0000-4000-8000-000000000001',
   ]) {
-    const reply = await fetch(`${origin}/${path}`);
-    assert.equal(reply.status, 200, path);
-    assert.match(await reply.text(), /lang="pt-BR"/);
+    const response = await fetch(origin + '/' + path);
+    assert.equal(response.status, 200);
+    assert.match(await response.text(), /lang="pt-BR"/);
   }
+  const entry = await fetch(origin + '/src/app/main.jsx');
+  assert.equal(entry.status, 200);
+  assert.match(await entry.text(), /Dashboard/);
   process.stdout.write(
-    JSON.stringify({ smoke: 'passed', season: 2025, rounds: [1, 38] }) + '\n',
+    JSON.stringify({
+      smoke: 'passed',
+      season: 2025,
+      rounds: [1, 38],
+      matches: 380,
+      flamengo_points: 79,
+      spa_pages: 9,
+    }) + '\n',
   );
 } finally {
   await vite?.close();

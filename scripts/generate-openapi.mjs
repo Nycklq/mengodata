@@ -1,158 +1,82 @@
 import { writeFile } from 'node:fs/promises';
 import { format } from 'prettier';
 import configuration from '../prettier.config.js';
-import { countMetrics, derivedMetrics } from '@flamengo-analytics/domain/metrics';
 import { ANALYTICS_SCOPE } from '@flamengo-analytics/domain/scope';
 
-const parameter = (name, schema, required = false) => ({
-  name,
-  in: 'query',
-  required,
-  schema,
-});
-const metrics = ['matches', 'starts', ...countMetrics, ...derivedMetrics];
+const parameter = (name, schema) => ({ name, in: 'query', required: false, schema });
 const common = [
-  parameter('q', { type: 'string', maxLength: 100 }),
-  parameter('position', {
-    type: 'string',
-    enum: ['goalkeeper', 'defender', 'midfielder', 'forward', 'unknown'],
-  }),
-  parameter('min_minutes', { type: 'integer', minimum: 0, maximum: 10000, default: 0 }),
+  parameter('from_round', { type: 'integer', minimum: 1, maximum: 38, default: 1 }),
+  parameter('to_round', { type: 'integer', minimum: 1, maximum: 38, default: 38 }),
+  parameter('venue', { type: 'string', enum: ['home', 'away'] }),
+  parameter('club_id', { type: 'string', pattern: '^club:[a-z-]+$' }),
 ];
-const metric = parameter('metric', { type: 'string', enum: metrics });
-const ranking = [
+const opponent = parameter('opponent_id', {
+  type: 'string',
+  pattern: '^club:[a-z-]+$',
+});
+const match = [
   ...common,
-  metric,
-  parameter('top', { type: 'integer', minimum: 1, maximum: 50, default: 10 }),
+  opponent,
+  parameter('result', { type: 'string', enum: ['W', 'D', 'L'] }),
+  parameter('page', { type: 'integer', minimum: 1, maximum: 10000, default: 1 }),
+  parameter('page_size', { type: 'integer', minimum: 1, maximum: 100, default: 20 }),
 ];
-const paths = {};
 const routes = [
   ['health', []],
   ['metadata', []],
+  ['clubs', []],
   ['data-quality', []],
-  ['references', []],
-  ['dashboard/summary', common],
   ['summary', common],
-  [
-    'players',
-    [
-      ...common,
-      parameter('page', { type: 'integer', minimum: 1, maximum: 10000, default: 1 }),
-      parameter('page_size', {
-        type: 'integer',
-        minimum: 1,
-        maximum: 100,
-        default: 20,
-      }),
-      parameter('sort', {
-        type: 'string',
-        enum: ['display_name', 'position', ...metrics],
-        default: 'display_name',
-      }),
-      parameter('direction', { type: 'string', enum: ['asc', 'desc'], default: 'asc' }),
-    ],
-  ],
-  ['players/{id}', []],
-  ['players/{id}/stats', []],
-  ['rankings', ranking],
-  ['rankings/goals', ranking],
-  ['rankings/assists', ranking],
-  ['rankings/contributions', ranking],
-  ['analytics/offensive', ranking],
-  ['analytics/defensive', ranking],
-  ['analytics/positions', common],
-  ['analytics/distribution', [...common, metric]],
+  ['dashboard/summary', common],
+  ['matches', match],
+  ['standings', common],
+  ['evolution', common],
+  ['compare', [...common, opponent]],
+  ['analytics/offensive', common],
+  ['analytics/defensive', common],
   ['statistics', common],
-  [
-    'compare',
-    [
-      ...common,
-      parameter(
-        'ids',
-        { type: 'string', description: 'Dois UUIDs distintos separados por vírgula' },
-        true,
-      ),
-    ],
-  ],
-  ['exports/players', common],
+  ['exports/matches', match],
 ];
+const paths = {};
 for (const [path, parameters] of routes) {
-  const individual = path.startsWith('players/{id}');
-  const analytical = !['health', 'metadata'].includes(path);
-  const exporting = path === 'exports/players';
+  const csv = path.startsWith('exports/');
   paths['/api/' + path] = {
     get: {
-      operationId: path.replaceAll('/', '_').replaceAll(/[{}]/g, ''),
+      operationId: path.replaceAll('/', '_'),
       summary: path,
-      description: analytical
-        ? 'Escopo fixo Flamengo/2025/rodadas oficiais 1–38. HTTP 200 pode representar indisponibilidade ou cobertura parcial. Parâmetros desconhecidos são rejeitados.'
-        : 'Saúde do processo ou contrato inicial de prontidão individual.',
-      parameters: individual
-        ? [
-            {
-              name: 'id',
-              in: 'path',
-              required: true,
-              schema: { type: 'string', format: 'uuid' },
-            },
-            ...parameters,
-          ]
-        : parameters,
+      description:
+        'Série A masculina 2025, rodadas oficiais 1–38. Janela inclusiva, clubes canônicos e parâmetros desconhecidos recusados. Classificação calculada. Adversário/resultado em partidas exigem club_id; comparação exige clubes distintos. CSV ignora paginação e mantém filtros.',
+      parameters,
       responses: {
         200: {
-          description: exporting
-            ? 'CSV autorizado; nulos vazios, UTF-8 e células protegidas contra fórmulas.'
-            : 'Resposta válida, inclusive estado indisponível.',
-          content: exporting
+          description: csv
+            ? 'CSV UTF-8 com BOM e recorte filtrado.'
+            : 'Envelope válido; data=null se publicação indisponível.',
+          content: csv
             ? { 'text/csv': { schema: { type: 'string' } } }
             : {
                 'application/json': {
-                  schema: analytical
-                    ? { $ref: '#/components/schemas/AnalyticsEnvelope' }
-                    : { type: 'object' },
+                  schema: ['health', 'metadata'].includes(path)
+                    ? { type: 'object' }
+                    : { $ref: '#/components/schemas/AnalyticsEnvelope' },
                 },
               },
         },
-        400: { $ref: '#/components/responses/InvalidQuery' },
-        ...(individual
-          ? { 404: { description: 'Jogador não encontrado em dataset disponível.' } }
-          : {}),
-        ...(exporting
-          ? {
-              409: {
-                description:
-                  'EXPORT_NOT_AUTHORIZED: sem fonte ou direitos específicos de exportação.',
-              },
-            }
-          : {}),
-        429: { $ref: '#/components/responses/RateLimited' },
-        500: { $ref: '#/components/responses/InternalError' },
+        400: { description: 'INVALID_QUERY ou UNKNOWN_CLUB' },
+        ...(csv ? { 409: { description: 'DATA_UNAVAILABLE' } } : {}),
+        429: { description: 'RATE_LIMITED; Retry-After em segundos' },
+        500: { description: 'INTERNAL_ERROR sem detalhes sensíveis' },
       },
     },
   };
 }
-const error = {
-  type: 'object',
-  required: ['error'],
-  properties: {
-    error: {
-      type: 'object',
-      required: ['code'],
-      properties: { code: { type: 'string' } },
-    },
-  },
-};
-const response = (description) => ({
-  description,
-  content: { 'application/json': { schema: error } },
-});
 const document = {
   openapi: '3.1.0',
   info: {
-    title: 'Flamengo Analytics 2025',
-    version: '0.2.0',
+    title: 'Flamengo Analytics — desempenho coletivo 2025',
+    version: '0.3.0',
     description:
-      'API local de análise individual. Fonte individual ainda não homologada. Referências auxiliares CC0 não comprovam cobertura estatística.',
+      '20 clubes, 380 resultados reais OpenFootball CC0. Sem estatísticas individuais. Pontos 3/1/0; taxas calculadas por componentes do mesmo recorte.',
   },
   servers: [{ url: 'http://127.0.0.1:3001' }],
   paths,
@@ -166,44 +90,26 @@ const document = {
           'availability',
           'reason',
           'coverage',
-          'dataset_version',
           'source',
+          'dataset_version',
+          'data',
         ],
         properties: {
           schema_version: { const: 1 },
           scope: { const: ANALYTICS_SCOPE },
-          availability: { enum: ['unavailable', 'partial', 'available'] },
+          availability: { enum: ['unavailable', 'available'] },
           reason: { type: ['string', 'null'] },
           coverage: { type: ['object', 'null'] },
-          dataset_version: { type: ['string', 'null'] },
           source: { type: ['object', 'null'] },
+          dataset_version: { type: ['string', 'null'] },
+          ranking_note: { type: 'string' },
           data: {
-            description:
-              'Objeto, lista ou null conforme o recurso. Valores desconhecidos permanecem null; listas vazias não representam zeros esportivos.',
             type: ['object', 'array', 'null'],
+            description:
+              'Clubes: lista; partidas: rows/total/page/page_size; resumo: club/home_away/clubs/league; classificação: rows/round/label; evolução/comparação: lista; estatísticas: goals_for/points/distribution/results/season_statistics.',
           },
         },
       },
-      Error: error,
-    },
-    responses: {
-      InvalidQuery: response(
-        'INVALID_QUERY: parâmetro, UUID, limite ou ordenação inválida.',
-      ),
-      RateLimited: {
-        ...response(
-          'RATE_LIMITED: máximo de 300 requisições por IP em 60 segundos, processo local.',
-        ),
-        headers: {
-          'Retry-After': {
-            schema: { type: 'integer' },
-            description: 'Segundos até nova tentativa',
-          },
-        },
-      },
-      InternalError: response(
-        'INTERNAL_ERROR: falha interna sem exposição de detalhes.',
-      ),
     },
   },
 };

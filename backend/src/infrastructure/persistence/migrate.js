@@ -2,19 +2,20 @@ import { createHash } from 'node:crypto';
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-export async function migrate(pool, directory) {
+export async function migrate(pool, directory, ledger = 'schema_migrations') {
+  if (!/^[a-z_]+$/.test(ledger)) throw new Error('INVALID_MIGRATION_LEDGER');
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
     await client.query('SELECT pg_advisory_xact_lock($1)', [20260119]);
     await client.query(`
-      CREATE TABLE IF NOT EXISTS schema_migrations (
+      CREATE TABLE IF NOT EXISTS ${ledger} (
         name text PRIMARY KEY,
         checksum text NOT NULL,
         applied_at timestamptz NOT NULL DEFAULT now()
       )
     `);
-    const applied = await client.query('SELECT name, checksum FROM schema_migrations');
+    const applied = await client.query(`SELECT name, checksum FROM ${ledger}`);
     const history = new Map(applied.rows.map((row) => [row.name, row.checksum]));
     const names = (await readdir(directory))
       .filter((name) => /^\d{3}_[a-z0-9_-]+\.sql$/.test(name))
@@ -32,10 +33,10 @@ export async function migrate(pool, directory) {
         continue;
       }
       await client.query(sql);
-      await client.query(
-        'INSERT INTO schema_migrations (name, checksum) VALUES ($1, $2)',
-        [name, checksum],
-      );
+      await client.query(`INSERT INTO ${ledger} (name, checksum) VALUES ($1, $2)`, [
+        name,
+        checksum,
+      ]);
       executed.push(name);
     }
     await client.query('COMMIT');

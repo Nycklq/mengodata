@@ -1,5 +1,7 @@
 # PROMPT MESTRE — FINALIZAÇÃO DO FLAMENGO ANALYTICS
 
+> HISTÓRICO SUBSTITUÍDO em 21/10/2026: o escopo ativo é coletivo, conforme PROMPT_DEFINITIVO_FLAMENGO_ANALYTICS_BIG_DATA_2025.md e docs/FLAMENGO_ANALYTICS_CONTEXT.md. As instruções individuais abaixo são preservadas somente como histórico.
+
 > Copie integralmente este texto para uma nova tarefa do Codex no VS Code, com a pasta raiz **Flamengo-Analytics** aberta. Execute no repositório existente; **não reinicie o projeto**.
 
 ## PAPEL, MISSÃO E MODO DE EXECUÇÃO

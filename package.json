@@ -19,8 +19,8 @@
     "sources:audit": "node scripts/python.mjs -m flamengo_pipeline.main.audit_sources",
     "pipeline:references": "node scripts/python.mjs -m flamengo_pipeline.main.import_references",
     "pipeline:individual": "node scripts/python.mjs -m flamengo_pipeline.main.import_individual",
-    "db:import": "node backend/src/main/import-statistics.js",
-    "powerbi:prepare": "node scripts/python.mjs -m flamengo_pipeline.main.export_powerbi",
+    "db:import": "node backend/src/main/import-collective.js",
+    "powerbi:prepare": "node scripts/python.mjs -m flamengo_pipeline.main.export_collective_powerbi",
     "notebooks:execute": "node scripts/python.mjs -m flamengo_pipeline.main.run_notebooks",
     "notebooks:check": "node scripts/python.mjs -m flamengo_pipeline.main.run_notebooks --check",
     "api:spec": "node scripts/generate-openapi.mjs",
@@ -37,7 +37,13 @@
     "db:migrate": "npm run db:migrate --workspace backend",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "pipeline:collective": "node scripts/python.mjs -m flamengo_pipeline.main.import_collective",
+    "collective:audit": "node scripts/python.mjs -m flamengo_pipeline.main.audit_collective",
+    "collective:analyze": "node scripts/python.mjs -m flamengo_pipeline.main.analyze_collective",
+    "collective:parity": "node scripts/validate-collective.mjs",
+    "db:import:legacy": "node backend/src/main/import-statistics.js",
+    "powerbi:prepare:legacy": "node scripts/python.mjs -m flamengo_pipeline.main.export_powerbi"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

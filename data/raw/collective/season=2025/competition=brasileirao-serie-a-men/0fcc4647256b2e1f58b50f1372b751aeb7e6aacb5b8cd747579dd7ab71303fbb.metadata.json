@@ -1,0 +1,9 @@
+{
+  "source_id": "openfootball:football-json",
+  "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2025/br.1.json",
+  "revision": "e6744429ee395bc86f247348c6184bb08d4eb361",
+  "license": "CC0-1.0",
+  "sha256": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+  "collected_at": "2026-10-21T19:49:47.560647+00:00",
+  "license_url": "https://github.com/openfootball/football.json/blob/e6744429ee395bc86f247348c6184bb08d4eb361/LICENSE.md"
+}

@@ -64,7 +64,7 @@ def main():
         json.dumps(
             {
                 "notebooks_executed": completed,
-                "individual_statistics": "conditional_on_approval",
+                "analysis_unit": "club_match",
             }
         )
     )

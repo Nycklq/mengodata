@@ -4,12 +4,14 @@ import helmet from 'helmet';
 import pinoHttp from 'pino-http';
 import { z } from 'zod';
 import { registerAnalyticsRoutes } from './analytics-routes.js';
+import { registerCollectiveRoutes } from './collective-routes.js';
 
 const emptyQuery = z.object({}).strict();
 
 export function createApp({
   getMetadata,
   getAnalytics,
+  getCollective,
   logger,
   corsOrigin,
   rateLimit = 300,
@@ -50,7 +52,8 @@ export function createApp({
     response.json(await getMetadata());
   });
 
-  if (getAnalytics) registerAnalyticsRoutes(app, getAnalytics);
+  if (getCollective) registerCollectiveRoutes(app, getCollective);
+  else if (getAnalytics) registerAnalyticsRoutes(app, getAnalytics);
 
   app.use((request, response) => {
     response.status(404).json({ error: { code: 'NOT_FOUND' } });
