@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import {
   Area,
   AreaChart,
@@ -31,10 +31,11 @@ export default function CollectivePlot({
   bars = false,
   horizontal = false,
   labels = {},
-  height = 320,
+  height = 300,
   interactive = true,
 }) {
   const id = useId().replaceAll(':', '');
+  const [hiddenMetrics, setHiddenMetrics] = useState([]);
   const Chart = bars ? BarChart : AreaChart;
   const reversed = metrics.length === 1 && metrics[0] === 'position';
   const label = (key) => labels[key] ?? collectiveLabels[key] ?? key;
@@ -46,7 +47,7 @@ export default function CollectivePlot({
     >
       <ResponsiveContainer
         width="100%"
-        height={horizontal ? Math.max(340, rows.length * 34 + 55) : height}
+        height={horizontal ? Math.max(220, rows.length * 28 + 78) : height}
       >
         <Chart
           data={rows}
@@ -89,6 +90,7 @@ export default function CollectivePlot({
             minTickGap={20}
             tickMargin={12}
             allowDecimals={false}
+            includeHidden
             domain={horizontal ? numericDomain : undefined}
           />
           <YAxis
@@ -105,6 +107,7 @@ export default function CollectivePlot({
             reversed={reversed}
             domain={horizontal ? undefined : reversed ? [1, 20] : numericDomain}
             allowDecimals={false}
+            includeHidden
             tickMargin={8}
             interval={horizontal ? 0 : 'preserveStartEnd'}
           />
@@ -135,9 +138,26 @@ export default function CollectivePlot({
           <Legend
             iconType="circle"
             iconSize={7}
-            formatter={(value) => (
-              <span style={{ color: 'var(--muted)' }}>{value}</span>
-            )}
+            formatter={(value, entry) =>
+              interactive ? (
+                <button
+                  type="button"
+                  className="chart-legend-button"
+                  aria-pressed={!hiddenMetrics.includes(entry.dataKey)}
+                  onClick={() =>
+                    setHiddenMetrics((previous) =>
+                      previous.includes(entry.dataKey)
+                        ? previous.filter((key) => key !== entry.dataKey)
+                        : [...previous, entry.dataKey],
+                    )
+                  }
+                >
+                  {value}
+                </button>
+              ) : (
+                <span style={{ color: 'var(--muted)' }}>{value}</span>
+              )
+            }
             wrapperStyle={{
               fontSize: 10,
               paddingTop: 16,
@@ -161,6 +181,7 @@ export default function CollectivePlot({
                 radius={horizontal ? [0, 4, 4, 0] : [5, 5, 0, 0]}
                 maxBarSize={horizontal ? 19 : 48}
                 isAnimationActive={false}
+                hide={hiddenMetrics.includes(metric)}
               >
                 {horizontal &&
                   rows.map((row, rowIndex) => (
@@ -195,10 +216,15 @@ export default function CollectivePlot({
                 stroke={colors[index % 3]}
                 fill={`url(#${id}-${metric})`}
                 strokeWidth={2.5}
-                dot={false}
+                dot={
+                  rows.length === 1
+                    ? { r: 4, stroke: 'var(--surface)', strokeWidth: 2 }
+                    : false
+                }
                 activeDot={{ r: 4, stroke: 'var(--surface)', strokeWidth: 2 }}
                 connectNulls={false}
                 isAnimationActive={false}
+                hide={hiddenMetrics.includes(metric)}
               />
             ),
           )}

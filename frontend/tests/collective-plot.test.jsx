@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { render, within, waitFor } from '@testing-library/react';
+import { fireEvent, render, within, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import CollectivePlot from '../src/features/analytics/presentation/CollectivePlot.jsx';
 import { createCollectiveService } from '../../backend/src/application/get-collective.js';
@@ -118,5 +118,37 @@ describe('geometria real do Recharts', () => {
     dimensions(375);
     const { container } = render(<CollectivePlot rows={[]} category="name" bars />);
     expect(bars(container)).toHaveLength(0);
+  });
+  it('permite ocultar e reexibir uma série pela legenda', async () => {
+    dimensions(768);
+    const summary = await service('summary');
+    const { container } = render(
+      <CollectivePlot
+        rows={summary.data.home_away.map((row) => ({ ...row, name: row.venue }))}
+        category="name"
+        bars
+      />,
+    );
+    await waitFor(() => expect(bars(container)).toHaveLength(2));
+    const button = within(container).getByRole('button', { name: 'Pontos' });
+    fireEvent.click(button);
+    await waitFor(() => expect(bars(container)).toHaveLength(0));
+    expect(button).toHaveAttribute('aria-pressed', 'false');
+    fireEvent.click(button);
+    await waitFor(() => expect(bars(container)).toHaveLength(2));
+  });
+  it('representa uma única rodada com marcadores reais, inclusive saldo negativo', async () => {
+    dimensions(375);
+    const evolution = await service('evolution', { from_round: 7, to_round: 7 });
+    const { container } = render(
+      <CollectivePlot
+        rows={evolution.data}
+        metrics={['goals_for', 'goal_difference']}
+      />,
+    );
+    await waitFor(() =>
+      expect(container.querySelectorAll('.recharts-area-dot')).toHaveLength(2),
+    );
+    expect(evolution.data[0].goal_difference).toBe(-1);
   });
 });

@@ -780,16 +780,110 @@ main:focus {
   letter-spacing: 1px;
   z-index: 1;
 }
-.feature-chart,
-.venue-mini {
-  margin-inline: -15px;
+.feature-illustration {
+  display: block;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: visible;
 }
-.feature-chart .collective-chart,
-.venue-mini .collective-chart {
-  padding: 0;
+.illustration-shadow {
+  fill: var(--line);
+  opacity: 0.25;
 }
-.feature-art .recharts-default-legend {
-  display: none;
+.illustration-frame {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.illustration-label {
+  fill: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+.illustration-value {
+  fill: var(--ink);
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+.illustration-caption {
+  fill: var(--muted);
+  font-size: 8px;
+  letter-spacing: 0.4px;
+}
+.illustration-grid {
+  fill: none;
+  stroke: var(--chart-grid);
+  stroke-dasharray: 3 5;
+}
+.illustration-axis {
+  fill: none;
+  stroke: var(--line);
+}
+.illustration-series {
+  fill: none;
+  stroke: #c3271d;
+  stroke-width: 2.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.illustration-point-halo {
+  fill: var(--surface);
+}
+.illustration-point {
+  fill: #c3271d;
+}
+.illustration-stadium {
+  fill: var(--surface);
+  stroke: var(--line);
+}
+.illustration-seats {
+  fill: none;
+  stroke: var(--line);
+  stroke-dasharray: 2 4;
+  stroke-width: 3;
+}
+.illustration-pitch-lines {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1;
+  opacity: 0.65;
+}
+.illustration-connector {
+  fill: none;
+  stroke: var(--red);
+  opacity: 0.55;
+}
+.illustration-tile {
+  fill: var(--surface);
+  stroke: var(--line);
+}
+.illustration-score {
+  fill: var(--ink);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.7px;
+}
+.illustration-track {
+  fill: var(--surface-soft);
+}
+.chart-legend-button {
+  color: var(--muted);
+  border: 0;
+  background: none;
+  font-size: inherit;
+  padding: 3px 4px;
+  min-height: 30px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.chart-legend-button:hover {
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+.chart-legend-button[aria-pressed='false'] {
+  text-decoration: line-through;
+  opacity: 0.7;
 }
 .versus-preview {
   display: flex;
@@ -1577,10 +1671,6 @@ tr.flamengo-row td {
   min-width: 0;
   padding: 20px 13px 4px;
 }
-.recharts-wrapper,
-.recharts-surface {
-  max-width: 100%;
-}
 .recharts-default-legend {
   color: var(--muted);
 }
@@ -2147,6 +2237,28 @@ tr.flamengo-row td {
   }
   .desktop-indicator {
     display: none;
+  }
+}
+@media (min-width: 721px) and (max-width: 900px) {
+  .comparison-art .versus-preview {
+    gap: 8px;
+  }
+  .comparison-art .crest-surface,
+  .comparison-art .neutral-club {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+  .comparison-art .crest-surface {
+    padding: 10px;
+  }
+  .comparison-art .crest-surface img {
+    width: 50px;
+    height: 50px;
+  }
+  .comparison-art .neutral-club svg {
+    width: 40px;
+    height: 40px;
   }
 }
 @media (max-width: 720px) {
