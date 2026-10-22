@@ -1,5 +1,26 @@
 # Arquivos da entrega local
 
+## Redesign MengoData — implementação atual
+
+Inventário por funcionalidade; a lista exata de cada etapa está em `git show --stat <commit>` e o conjunto pode ser conferido com `git diff --name-only 1a5f0f0 HEAD` após os commits finais.
+
+| Grupo                | Arquivos/diretórios principais                                                                                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Entradas verificadas | `PROMPT_MESTRE_MENGODATA_LANDING_REDESIGN_FINAL.md`, três imagens em `referencias/`                                                                                                  |
+| Composição/rotas     | `frontend/src/app/Application.jsx`, `Dashboard.jsx`, `main.jsx`, `use-page-navigation.js`, `frontend/index.html`                                                                     |
+| Design/fontes        | `frontend/src/app/design-system.css`, `frontend/package.json`, `package-lock.json`, `frontend/public/brand/`, `frontend/public/theme-init.js`                                        |
+| Aparência            | `frontend/src/features/appearance/domain/`, `application/`, `infrastructure/`, `presentation/`                                                                                       |
+| Identidade/landing   | `frontend/src/features/identity/presentation/Brand.jsx`, `features/landing/domain/season-preview.js`, `features/landing/presentation/`                                               |
+| Dashboard/gráficos   | `CollectivePages.jsx`, `CollectiveDocumentation.jsx`, `CollectivePlot.jsx`, `ComparisonPage.jsx`, `AnalyticsUi.jsx` em `features/analytics/presentation/`                            |
+| Transporte           | `frontend/src/features/analytics/infrastructure/http-analytics-gateway.js`                                                                                                           |
+| Testes novos         | `frontend/tests/appearance.test.jsx`, `landing.test.jsx`, `collective-plot.test.jsx`, `gateway-errors.test.js`; `scripts/smoke.mjs`                                                  |
+| Banco real           | `docs/evidence/mengodata-redesign-verification.json`, `docs/POSTGRESQL_MENGO_DATA.md`; nenhuma migração nova                                                                         |
+| Acadêmico            | seis notebooks, seis figuras em `reports/collective/`, `pipeline/.../collective_research.py`, `pipeline/.../run_notebooks.py`                                                        |
+| API/BI               | `scripts/generate-openapi.mjs`, `docs/api/openapi.json`, `powerbi/theme.json`, `theme-dark.json`, README BI, `tests/artifacts.test.js`                                               |
+| Documentação         | README, AGENTS, contexto, STATUS, ARCHITECTURE, TEST_REPORT, DESIGN_REVIEW, ASSETS, DECISIONS, PRESENTATION, REQUIREMENTS_MATRIX, relatório acadêmico, guias de notebooks/resultados |
+
+O logo antigo e CSS legados permanecem preservados. Os dois PNGs de nomes trocados na raiz são entradas do usuário, não assets de produção; ficaram fora dos commits. `.env`, `.local` e `.tmp` continuam ignorados. Os inventários seguintes descrevem etapas anteriores.
+
 ## Configuração MengoData
 
 - `.env` local ajustado para o banco existente em 5432 e configuração anterior preservada em backup ignorado; `.env.example` atualizado sem credenciais reais.

@@ -1,5 +1,15 @@
 # Arquitetura coletiva implementada
 
+## Landing, identidade e aparência MengoData
+
+`app/main.jsx` compõe QueryClient, gateway analítico, gateway de aparência, provider e roteador. `Application.jsx` separa a landing pública em `/` das nove páginas em `/dashboard`; aliases legados preservam query/hash. `use-page-navigation.js` trata foco e âncoras que dependem da chegada dos dados. Não há autenticação.
+
+`features/landing/domain/season-preview.js` verifica escopo completo e cobertura antes de liberar a vitrine; comparações exigem a mesma versão da base. `LandingPage.jsx` coordena consultas pelo caso de uso/gateway existente e apresenta os resultados, sem fetch direto, SQL ou cálculo estatístico. `StadiumArt.jsx` e `DataFlow.jsx` são apresentação SVG própria. Marca e navegação compartilham `Brand.jsx` e `ThemeToggle.jsx`.
+
+`features/appearance/domain/theme.js` resolve preferência e sistema; `application/appearance.js` coordena leitura/escrita por porta; `infrastructure/browser-appearance.js` adapta localStorage, matchMedia e documento. Provider e controle pertencem à apresentação. O bootstrap síncrono em `public/theme-init.js` atua na borda de inicialização, antes do CSS/React; o domínio não conhece navegador.
+
+`design-system.css` substitui os imports dos estilos antigos na composição ativa; os arquivos legados permanecem preservados. Tokens semânticos atendem landing, dashboard e gráficos em ambos os temas. Poppins vem de pacote fixado e arquivos locais. Recharts continua sendo a única biblioteca de gráficos web; seu domínio numérico inclui zero e mantém negativos. Testes do renderer real verificam geometria SVG em dimensões controladas, sem simular aprovação visual do navegador.
+
 ## Integração MengoData
 
 Destino ativo: `127.0.0.1:5432/mengo_data`, role `flamengo_app`. O schema existente foi aproveitado sem alterar domínio, casos de uso ou migrações. O `.env` da raiz é resolvido por caminho absoluto; variável herdada prevalece. O repositório PostgreSQL continua recebendo o pool por injeção e lendo o snapshot aprovado, sem fallback silencioso.

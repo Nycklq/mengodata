@@ -1,12 +1,12 @@
-# Flamengo Analytics
+# MengoData
 
 Análise Estatística e Comparativa do Desempenho do Flamengo no Campeonato Brasileiro Série A masculino de 2025. Temporada completa, rodadas oficiais 1–38; comparação com os outros 19 clubes.
 
 ## Entrega local
 
-Pipeline Python/Pandas/NumPy, Bronze/Silver/Gold em Parquet/CSV, seis notebooks executados, seis figuras Matplotlib/Seaborn, PostgreSQL, API Express e nove páginas React/Vite/Tailwind/Recharts. A implementação anterior foi aproveitada; os módulos individuais permanecem inativos e com seus testes preservados.
+Landing pública e nove páginas analíticas React/Vite/Recharts, API Express, PostgreSQL, pipeline Python/Pandas/NumPy, Bronze/Silver/Gold em Parquet/CSV, seis notebooks executados e seis figuras Matplotlib/Seaborn. A implementação anterior foi aproveitada; os módulos individuais permanecem inativos e com seus testes preservados.
 
-Refinamento de 22/10/2026: logo enviada na marca e favicon, nova hierarquia visual, menu adaptativo, gráficos com leitura dos 20 clubes e comparação de quaisquer dois clubes com diferenças, evolução e filtros na URL. [Design e revisão manual](docs/DESIGN_REVIEW.md).
+Redesign de 22/10/2026: identidade oficial MengoData, Poppins local em toda a interface, paleta #C3271D/#000000/#FFFFFF e temas claro/escuro completos. Landing inspirada na composição Finexa, estádio em SVG próprio e prévias reais da API. Acesso público direto ao dashboard, sem autenticação. Comparação de quaisquer dois clubes, diferenças, evolução e filtros na URL. [Design e revisão manual](docs/DESIGN_REVIEW.md), [assets e licenças](docs/ASSETS.md).
 
 **380 partidas, 20 clubes, 38 rodadas e 38 partidas do Flamengo importados.** Todos os 380 placares foram confrontados com a tabela detalhada CBF sem divergências. Dez rodadas e uma data não estão explícitas na extração PDF e não foram inferidas. [Auditoria](docs/evidence/collective-cbf-audit.json).
 
@@ -18,7 +18,7 @@ Node.js 24, Python 3.14 e PostgreSQL local. Preserve uma .venv existente compat�
 
 ```powershell
 npm.cmd ci
-py -3.14 -m venv .venv
+if (-not (Test-Path .venv)) { py -3.14 -m venv .venv }
 .\.venv\Scripts\python.exe -m pip install -r pipeline/requirements.lock.txt
 .\.venv\Scripts\python.exe -m pip install --no-deps -e pipeline
 ```
@@ -57,7 +57,9 @@ npm.cmd run dev:backend
 npm.cmd run dev:frontend
 ```
 
-Abra http://127.0.0.1:5173/. API: http://127.0.0.1:3001/api/health. Rotas: /, /partidas, /classificacao, /comparar, /ofensivo, /defensivo, /estatisticas, /power-bi e /metodologia. Filtros, paginação, comparação e CSV mantêm o recorte; estados de carregamento, erro, vazio e ausência são explícitos.
+Abra a landing em http://127.0.0.1:5173/ e use **Explorar dashboard**. Painel: http://127.0.0.1:5173/dashboard. API: http://127.0.0.1:3001/api/health. Dentro de `/dashboard`: `/partidas`, `/classificacao`, `/comparar`, `/ofensivo`, `/defensivo`, `/estatisticas`, `/power-bi` e `/metodologia`. Os oito endereços antigos redirecionam preservando query e âncora. Filtros, paginação, comparação e CSV mantêm o recorte; estados de carregamento, erro, vazio e ausência são explícitos.
+
+O botão de tema está na landing e no painel. O primeiro acesso acompanha o sistema; a escolha explícita é salva em `mengodata-theme`, persiste entre rotas e é aplicada antes da montagem. Fontes são servidas localmente, sem CDN.
 
 Sem DATABASE_URL, a API usa a Gold local verificada contra Bronze. Com a variável, exige a mesma versão no PostgreSQL; versão ausente retorna indisponível, sem fallback silencioso.
 
@@ -82,7 +84,7 @@ O cluster anterior em `.local/postgres` permanece preservado como alternativa; n
 
 ## Comparação
 
-Em `/comparar`, selecione os clubes A e B, rodadas e mando. A troca inverte os lados; Restaurar comparação volta a Flamengo/Palmeiras e temporada completa. O endereço conserva a seleção. Evolução alterna pontos, gols pró/contra, saldo e aproveitamento; casa/fora detalha o mesmo recorte.
+Em `/dashboard/comparar`, selecione os clubes A e B, rodadas e mando. A troca inverte os lados; Restaurar comparação volta a Flamengo/Palmeiras e temporada completa. O endereço conserva a seleção. Evolução alterna pontos, gols pró/contra, saldo e aproveitamento; casa/fora detalha o mesmo recorte.
 
 Quatorze indicadores, incluindo jogos, mostram diferença A − B e variação sobre |B|. Base zero/ausência fica indisponível. Menos derrotas/gols sofridos favorecem o clube; jogos e empates não têm vencedor. Δ de aproveitamento usa pontos percentuais. [Semântica](docs/METRICS.md).
 
@@ -94,8 +96,8 @@ Execute o pipeline antes dos testes em um checkout novo:
 npm.cmd run verify
 ```
 
-ESLint/Prettier, testes JS/React/Python/PostgreSQL isolado, Ruff, notebooks, build e smoke HTTP/Vite. [Resultados observados](docs/TEST_REPORT.md). Não houve navegador disponível ao controle de UI nesta sessão; revisão visual desktop/mobile permanece manual. DOM/build não a substituem.
+ESLint/Prettier, testes JS/React/Python/PostgreSQL isolado, Ruff, notebooks, build e smoke HTTP/Vite. [Resultados observados](docs/TEST_REPORT.md). A automação do Chrome foi interrompida por não confirmar a URL; revisão visual desktop/mobile permanece manual. Os testes de geometria do Recharts usam dimensões controladas no DOM e não certificam pintura CSS no navegador.
 
 [Power BI](powerbi/README.md): CSVs reais, modelo, M, DAX, tema e guia. Não há PBIX/PBIP validado. [Roteiro acadêmico de oito minutos](docs/PRESENTATION.md).
 
-[Estado](docs/STATUS.md), [arquitetura](docs/ARCHITECTURE.md), [métricas](docs/METRICS.md), [fontes](docs/DATA_SOURCES.md), [qualidade](docs/DATA_QUALITY.md), [API](docs/api/README.md). Sem commits, push, publicação ou contratação.
+[Estado](docs/STATUS.md), [arquitetura](docs/ARCHITECTURE.md), [métricas](docs/METRICS.md), [fontes](docs/DATA_SOURCES.md), [qualidade](docs/DATA_QUALITY.md), [API](docs/api/README.md), [inventário](docs/DELIVERY_FILES.md). Commits locais por funcionalidade autorizados pelo usuário; sem push, publicação ou contratação.

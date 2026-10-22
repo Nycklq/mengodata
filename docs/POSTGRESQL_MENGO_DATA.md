@@ -1,5 +1,28 @@
 # PostgreSQL MengoData — integração concluída em 22/10/2026
 
+## Revalidação durante o redesign
+
+Nova consulta Node.js/pg em 22/10/2026, transação `BEGIN READ ONLY`, confirmou `SELECT 1`, banco `mengo_data`, role `flamengo_app` e porta 5432. As oito contagens permaneceram 1/1/20/1/380 e 760/20/760. Snapshot JSONB idêntico à Gold local. `npm.cmd run db:import` retornou `changed=false`.
+
+Mandante: 19 jogos, 47 pontos, gols 46/8. Visitante: 19 jogos, 32 pontos, gols 32/19. Summary da API retornou exatamente esses valores; rodadas 10–20 retornaram 15/13 pontos. Compare Flamengo/Palmeiras retornou 79/76. A sessão `flamengo-analytics:10840` foi observada em `pg_stat_activity`, consultando `collective.imports` no `mengo_data`. [Evidência atual](evidence/mengodata-redesign-verification.json). Nenhum schema, grant, senha ou outro banco foi alterado nesta revalidação.
+
+Consulta reproduzível em sessão conectada ao `mengo_data`, sem impressão de credenciais:
+
+```sql
+BEGIN READ ONLY;
+SELECT 1, current_database(), current_user, inet_server_port();
+SELECT venue, count(*) AS jogos, sum(points) AS pontos,
+       sum(goals_for) AS gols_pro, sum(goals_against) AS gols_contra
+FROM collective.team_matches
+WHERE club_id = 'club:flamengo'
+  AND season = 2025
+  AND official_round BETWEEN 1 AND 38
+GROUP BY venue;
+ROLLBACK;
+```
+
+A base atual tem uma importação. Ao incorporar novas versões no futuro, restringir também por `import_sha256` para não misturar snapshots.
+
 ## Destino solicitado
 
 Banco `mengo_data`, host `127.0.0.1`, porta `5432`. A nova solicitação substitui o destino operacional anterior `flamengo_analytics` na porta 59547. O cluster anterior deve ser preservado, sem operações de migração ou importação nele durante este diagnóstico.

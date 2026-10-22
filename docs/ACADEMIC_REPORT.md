@@ -1,6 +1,6 @@
 # Relatório acadêmico
 
-**Flamengo Analytics — Análise Estatística e Comparativa do Desempenho do Flamengo no Campeonato Brasileiro Série A de 2025.** Disciplina: Big Data e Análise de Dados.
+**MengoData — Análise Estatística e Comparativa do Desempenho do Flamengo no Campeonato Brasileiro Série A de 2025.** Disciplina: Big Data e Análise de Dados.
 
 ## Pergunta e método
 

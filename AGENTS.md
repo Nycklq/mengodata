@@ -1,6 +1,6 @@
-AGENTS.md — Flamengo Analytics
+AGENTS.md — MengoData
 Identidade e recorte obrigatório
-- Projeto: Flamengo Analytics, análise coletiva do Flamengo comparada aos outros 19 clubes.
+- Projeto: MengoData, análise coletiva do Flamengo comparada aos outros 19 clubes. Nome público atualizado por autorização explícita; pacotes e diretórios internos preservam os identificadores existentes.
 - Campeonato: Brasileiro Série A masculino, temporada completa de 2025 (rodadas oficiais 1 a 38).
 - Abrangência: resultados e placares dos 20 clubes nesse recorte. Excluir rodadas fora de 1 a 38, outras competições e temporadas. Estatísticas individuais não são requisito nem fluxo principal; módulos legados permanecem isolados e inativos.
 - Jogos adiados pertencem à rodada oficial de origem; não substituir o recorte por intervalo de datas ou ordem cronológica dos jogos.

@@ -1,5 +1,15 @@
 # Decisões vigentes — 22/10/2026
 
+## Atualização MengoData e redesign
+
+Identidade pública passa a MengoData por solicitação explícita. Nomes de pacotes, diretórios, serviços internos e migrações permanecem para compatibilidade. A instrução mais recente autoriza commits locais por funcionalidade, sem push/publicação. O trabalho anterior sem commit foi registrado antes do redesign; o histórico Git preserva as etapas.
+
+O Prompt Mestre e as referências corretas foram recuperados do ZIP original após identificar arquivos de nomes/extensões trocados. Os originais foram preservados. Logo fornecida usada byte a byte; fotos/marca Finexa não entram no bundle. Estádio próprio em SVG evita dependência de fotografia sem licença. Poppins é auto-hospedada com OFL preservada.
+
+Landing pública `/` e painel `/dashboard`; aliases antigos preservam filtros e âncora. Sem login/cadastro/planos. Design system comum com temas persistentes. O bug visitante veio do domínio automático com mínimo 32; corrigido incluindo zero, comprovado por geometria Recharts e SQL/API reais. Nenhuma alteração de métricas ou banco foi necessária.
+
+Em nova verificação READ ONLY, `mengo_data` manteve 380 jogos e snapshot igual à Gold; reimportação `changed=false`. A sessão backend 10840 foi localizada nesse banco. A automação Chrome foi interrompida por não confirmar a URL; não houve contorno ou aprovação visual. Power BI nativo continua pendente. As seções seguintes registram decisões anteriores, substituídas onde conflitarem com esta atualização.
+
 Atualização posterior de PostgreSQL: a solicitação explícita do usuário define `mengo_data` em 127.0.0.1:5432 como destino ativo, substituindo a alternativa em `.local/postgres`. `.env` trocado com backup. O usuário habilitou LOGIN e aplicou grants mínimos no pgAdmin; o agente confirmou o schema existente, importou 380 partidas, reimportou sem mudanças e comprovou SQL/API no banco correto. Sem migração, recriação ou alteração de outro banco. Diagnóstico completo em POSTGRESQL_MENGO_DATA.md. O cluster anterior permanece preservado; referências abaixo à sua configuração descrevem a etapa anterior.
 
 Refinamento sobre a base existente: logo original enviada, CSS adicional e componentes coletivos compartilhados, sem redesenho do modelo de dados. Comparação concentra sentido das métricas, diferenças e lacunas no domínio; jogos/empates não recebem vencedor, base zero fica indisponível e saldo relativo divide pelo módulo da base. Posição do resumo usa os 20 clubes do mesmo recorte.

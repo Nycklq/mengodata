@@ -1,44 +1,35 @@
-# Estado real — finalização do produto
+# Estado real — MengoData
 
-Atualizado em 22/10/2026. Escopo ativo único: desempenho coletivo do Flamengo comparado aos outros 19 clubes, Série A masculina/2025/rodadas oficiais 1–38. Projeto existente aproveitado; sem commits, push, publicação ou contratação.
+Atualizado em 22/10/2026. Projeto existente mantido. Escopo: análise coletiva do Flamengo e dos outros 19 clubes da Série A masculina de 2025, rodadas oficiais 1–38. Commits locais por funcionalidade autorizados pelo usuário; nenhum push, publicação ou operação destrutiva.
 
-## Configuração MengoData concluída
+## Produto implementado
 
-A conexão ativa é `127.0.0.1:5432/mengo_data`, role `flamengo_app`. `.env` ajustado com backup; LOGIN e grants mínimos aplicados pelo usuário no pgAdmin. SELECT 1 e contagens reais aprovados: 380 partidas, 20 clubes, 760 fatos, 20 totais e 760 acumulados. Importação `changed=true`, repetição `changed=false`. API ativa em 3001 e sessão real identificada nesse banco em `pg_stat_activity`. O cluster alternativo permanece preservado e não é usado pela API. [Diagnóstico e evidências](POSTGRESQL_MENGO_DATA.md).
+- Landing pública `/`: navegação em cápsula, hero com estádio em SVG próprio, vitrine do dashboard com dados reais, apresentação editorial, cobertura validada, três recursos navegáveis, seções alternadas, comparação funcional, fluxo de engenharia, metodologia e CTA final. Acesso sem login ou cadastro.
+- Identidade MengoData, logo fornecida byte a byte, Poppins local 400/500/600/700 e itálico 500, `font-display: swap`, paleta #C3271D/#000000/#FFFFFF e neutros. Aviso legal da fonte preservado. Escudo em superfície branca nos dois temas.
+- Temas claro/escuro aplicados a toda a interface: gráficos, tabelas, tooltips, menus, campos, carregamento e erros. Preferência inicial do sistema, armazenamento local, aplicação antes da montagem e sincronização entre abas.
+- Dashboard em `/dashboard`, com nove páginas coletivas preservadas. Oito URLs antigas redirecionam mantendo query/hash. Menus acessíveis, foco, Escape, rolagem até âncoras carregadas assincronamente e redução de movimento.
+- Mandante/visitante corrigido: escala numérica inclui zero, ambas as barras vêm da API, valores e tabela coerentes. SQL/API confirmaram 47 e 32 pontos, 19 partidas por mando. Teste real do Recharts verifica duas alturas positivas, proporção e base comum em dimensões 375/768/1024/1440 e temas claro/escuro.
+- Comparação entre quaisquer dois clubes distintos: seletores, troca, restauração, filtros de rodada/mando e URL compartilhável; 14 indicadores, diferenças, variação válida, sentido das métricas e evolução. Erros de filtro recebem orientação específica. Prévias públicas recusam cobertura parcial ou versões de dados divergentes.
 
-## Executado e pronto localmente
+## Dados, banco e análises
 
-- OpenFootball CC0, revisão fixa, SHA-256 de dados e licença conferidos. 380 jogos/38 rodadas/20 clubes/38 jogos Flamengo; 19 mandos e 19 visitas por clube.
-- Conciliação de 380 confrontos/placares com tabela CBF, sem divergências. 370 rodadas e 379 datas explícitas comparadas; células omitidas não são inferidas.
-- Pipeline Pandas/NumPy Bronze/Silver/Gold, Parquet/CSV, partição temporada/competição e Gold JSON. Reexecução changed=false mantendo bytes/coleta.
-- 760 fatos clube × partida, 20 totais e 760 acumulados; pontos, resultados, gols, saldo, aproveitamento, médias, clean sheets, sequências e descritiva.
-- Migração PostgreSQL aditiva em esquema/ledger próprios; 380 partidas reais importadas em cluster isolado, idempotência/rollback e equivalência Python/SQL/API comprovados.
-- API coletiva com filtros, paginação, comparação e CSV rastreável. Servidor ativo não expõe rotas de jogadores; diagnóstico/migrações são explícitos.
-- Nove páginas React refinadas: logo enviada aplicada sem edição à marca, abertura e favicon; sidebar escura, conteúdo claro, cards, tipografia, tabelas e estados de carregamento consistentes. Estilos anteriores e módulos inativos preservados.
-- Comparação entre quaisquer dois clubes: dois seletores, troca, restauração, persistência na URL, mesma janela/mando, 14 indicadores, diferenças absolutas/relativas, destaques e evolução com cinco indicadores. Base zero e ausências não recebem zeros falsos. Detalhamento casa/fora mantém os filtros.
-- Gráficos de ataque/defesa com barras horizontais e altura para os 20 nomes; evolução com áreas leves, tooltip e legendas padronizados; posição com 1º no topo. Tabelas com região de rolagem acessível e partidas com 10/20/50/100 itens por página.
-- Menu compacto até 960 px com Escape, ciclo de foco e retorno ao botão; foco no conteúdo ao navegar e redução de movimento respeitada. Seletores mantêm rodada inicial ≤ final. Filtros separados por recurso evitam parâmetros incompatíveis.
-- Corrigida a posição no resumo dos clubes: calculada entre os 20 clubes do mesmo recorte, em vez de um universo de um único clube.
-- PostgreSQL ativo no banco `mengo_data` do serviço local em 5432; schema existente preservado, sem nova migração. Diagnóstico READ ONLY, importação e equivalência SQL/Gold dos 20 totais e 760 acumulados aprovados. Cluster anterior em `.local/postgres` preservado como alternativa.
-- Comandos `db:local:setup/start/stop/status/configure` preservados para o cluster alternativo. Não fazem parte da inicialização do MengoData. Não há migração automática no startup, troca silenciosa de banco ou dependência nova de containers.
-- Seis notebooks executados e seis figuras Matplotlib/Seaborn reais em reports/collective, com relatório/CSV e evidência de equivalência.
-- Materiais BI: CSVs reais, modelo dimensional, M, DAX, tema, instruções e valores de conferência.
-- Documentação operacional, fontes, métricas, qualidade, contratos, relatório acadêmico e roteiro de oito minutos. Histórico anterior em history/individual-2025 e history/2026, sem autoridade operacional.
+Destino real `127.0.0.1:5432/mengo_data`, role `flamengo_app`. O `.env` da raiz é carregado por caminho absoluto; variável herdada prevalece. Credenciais e backups permanecem fora do Git. LOGIN e grants mínimos foram aplicados pelo usuário; as falhas anteriores 28000 e 42501 foram resolvidas.
 
-## Verificações observadas
+Nova transação READ ONLY em 22/10/2026 confirmou `SELECT 1`, banco/role/porta, cinco tabelas com 1/1/20/1/380 registros e três views com 760/20/760. Snapshot JSONB igual à Gold local. Reimportação `changed=false`, sem nova migração. A sessão do processo backend 10840 foi observada consultando `collective.imports` em `mengo_data`. [Evidência atual sem credenciais](evidence/mengodata-redesign-verification.json).
 
-Suítes e verificações reexecutadas em 22/10/2026, incluindo comparação, integração, persistência após reinício e foco do menu. Pipeline offline `changed=false`, seis figuras e seis notebooks reexecutados, materiais BI regenerados e equivalência de 20 totais/760 acumulados confirmada. Contagens finais e comandos observados em [TEST_REPORT.md](TEST_REPORT.md).
+Pipeline offline executado com a Bronze fixada: `changed=false`, 380 jogos, 760 fatos, 20 clubes e 38 rodadas. Seis figuras e seis notebooks reexecutados; 20 totais e 760 acumulados equivalentes em Python/JS. Tabelas BI regeneradas. Temas claro/escuro BI preparados com Poppins e MengoData. Cálculos, dados, migrações históricas, pacotes internos e cluster alternativo preservados.
 
-## Limitações e próximo passo concreto
+## Validação e pendências reais
 
-O MengoData usa o serviço PostgreSQL instalado, em 5432. Reinicie a API após alterar DATABASE_URL. Não execute `db:local:configure` para esse destino: o comando troca a configuração para o cluster alternativo. Em outro checkout, siga o README. Gold local continua disponível quando não há DATABASE_URL; não é fallback de uma conexão configurada que falhou.
+Resultados atuais em [TEST_REPORT.md](TEST_REPORT.md). Build e smoke passaram; smoke exercita API real, dez entradas SPA e oito aliases. Lint, testes de arquitetura e ausência de comentários são verificações independentes da revisão visual.
 
-Não existe PBIX/PBIP validado. Montar/compilar/conferir no Power BI Desktop seguindo powerbi/README.md. Nesta sessão, o inventário de UI retornou vazio e a abertura de IAB falhou com `Browser is not available: iab`. Revisão visual desktop/mobile e acessibilidade completa continuam pendentes; DOM/build/HTTP não as certificam. Checklist em [DESIGN_REVIEW.md](DESIGN_REVIEW.md).
+1. Revisão visual em navegador: IAB indisponível; Chrome foi encontrado pelo controle nativo, mas a captura foi interrompida por não confirmar a URL atual. Nenhuma captura React aprovada. Não contornar o bloqueio. Executar o checklist de 375/768/1024/1440 px em [DESIGN_REVIEW.md](DESIGN_REVIEW.md).
+2. Power BI: não há PBIX/PBIP validado. Desktop não estava disponível no inventário observado e a automação foi encerrada. Montar, compilar M/DAX e conferir os números seguindo [powerbi/README.md](../powerbi/README.md).
+3. Direitos da marca: uso da logo foi solicitado pelo usuário; não há autorização de publicação documentada. CC0 dos resultados não se aplica ao escudo. [Assets](ASSETS.md).
+4. CI remoto não executado. Sem auditoria integral WCAG ou medição de desempenho em navegador. Classificação calculada não certifica desempates disciplinares; não há dados de posse, xG ou atletas.
 
-CI remoto não executado. Classificação calculada não reproduz todos os desempates/sanções; não há dados de ações ou atletas. 380 jogos são volume pequeno e demonstram conceitos Big Data, não processamento massivo.
+## Executar e continuar
 
-## Reprodução e continuidade
+Com o PostgreSQL local ativo e `.env` atual: `npm.cmd run db:check`; `npm.cmd run db:import` somente como operação explícita. Em terminais separados, `npm.cmd run dev:backend` e `npm.cmd run dev:frontend`. Landing http://127.0.0.1:5173/; dashboard http://127.0.0.1:5173/dashboard. Não usar `db:local:configure` para esse destino: ele seleciona o cluster alternativo.
 
-Na raiz: pipeline:collective → collective:analyze → collective:parity → powerbi:prepare → notebooks:execute → verify. Reprodução offline usa Bronze fixada; comandos completos no README. Abrir dev:backend e dev:frontend em terminais separados, http://127.0.0.1:5173/. Não reiniciar projeto ou voltar ao requisito individual.
-
-[Arquivos da entrega](DELIVERY_FILES.md), [roteiro](PRESENTATION.md), [resultados](../reports/collective/README.md).
+Reprodução completa e offline no [README](../README.md). Próximo trabalho: revisão visual e Power BI Desktop, preservando a configuração atual, o escopo e os commits. [Inventário](DELIVERY_FILES.md), [arquitetura](ARCHITECTURE.md), [roteiro](PRESENTATION.md).

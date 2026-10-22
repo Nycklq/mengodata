@@ -1,5 +1,43 @@
 # Relatório de verificações — MengoData em 22/10/2026
 
+## Redesign MengoData — resultado atual
+
+Executado no Windows/PowerShell, Node.js 24, Python 3.14.8/.venv e PostgreSQL 18. As etapas foram executadas individualmente; não se atribui esta rodada ao comando agregado `verify`. Registros anteriores são preservados nas seções seguintes.
+
+| Verificação                     | Comando/execução                                                              | Resultado observado                                                                                         |
+| ------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Backend/HTTP                    | `npm.cmd test`                                                                | 46 aprovados                                                                                                |
+| Frontend/DOM e Recharts real    | `npm.cmd test`; nova execução da suíte frontend após ajuste final de legendas | 83 aprovados                                                                                                |
+| Arquitetura/contratos/artefatos | `npm.cmd test`                                                                | 10 aprovados, incluindo camadas, ciclos e ausência de comentários                                           |
+| Python                          | `npm.cmd run verify:pipeline`                                                 | 175 aprovados; Ruff e formatação aprovados                                                                  |
+| PostgreSQL isolado              | `npm.cmd run test:database`                                                   | 35 aprovados, zero ignorados; clusters temporários encerrados                                               |
+| Total das cinco suítes          | Soma dos resultados acima                                                     | **349 aprovados**, zero falhas no resultado final                                                           |
+| Pipeline real offline           | `pipeline:collective -- --input <Bronze fixada>`                              | `changed=false`, 380 jogos, 760 fatos, 20 clubes, 38 rodadas                                                |
+| Análises e equivalência         | `collective:analyze`, `collective:parity`                                     | Seis figuras; 20 totais e 760 acumulados equivalentes Python/JS                                             |
+| Notebooks                       | `npm.cmd run notebooks:execute`                                               | Seis executados sem erro de célula, títulos MengoData                                                       |
+| Power BI                        | `npm.cmd run powerbi:prepare`                                                 | CSVs 760/20/760/380/38/1/1; temas claro/escuro preparados; Desktop não validado                             |
+| Dependências Python             | `.venv/Scripts/python.exe -m pip check`                                       | Nenhuma dependência quebrada                                                                                |
+| OpenAPI                         | `npm.cmd run api:spec`                                                        | Título MengoData; contrato validado nos testes de artefatos                                                 |
+| Build                           | `npm.cmd run build`                                                           | Aprovado, 2678 módulos; Poppins local em WOFF2/WOFF; sem aviso de chunk grande                              |
+| Smoke HTTP/Vite                 | `npm.cmd run test:smoke`                                                      | Aprovado: dez entradas SPA, oito aliases, API real, 380 jogos/79 pontos e 47/32 por mando                   |
+| SQL operacional                 | Node.js/pg, `BEGIN READ ONLY`                                                 | SELECT 1, banco/role/porta corretos; contagens 1/1/20/1/380 e 760/20/760                                    |
+| Snapshot PostgreSQL             | Comparação profunda JSONB/Gold                                                | Igualdade confirmada; nenhuma mudança nos dados                                                             |
+| Importação operacional          | `npm.cmd run db:import`                                                       | `changed=false`, 380 partidas, mesmo hash                                                                   |
+| SQL/API                         | Summary/compare/filtro e pg_stat_activity                                     | 47/32 e 19/19; rodadas 10–20: 15/13 pontos; Flamengo/Palmeiras: 79/76; backend 10840 consultando mengo_data |
+| Logo                            | SHA-256 da referência e do asset público                                      | Cópia byte a byte idêntica; hash em ASSETS.md                                                               |
+
+ESLint sem avisos e Prettier aprovados na verificação final. `git diff --check` sem erros; avisos de normalização LF/CRLF apenas. `.env`, `.local` e `.tmp` confirmados como ignorados pelo Git.
+
+As seis figuras regeneradas foram inspecionadas como PNGs locais. Símbolos das legendas de linhas/barras foram corrigidos para corresponder às séries; rótulos de mando e correlação foram traduzidos, a paleta acadêmica foi alinhada e nomes próximos receberam espaçamento. Nenhum cálculo ou valor foi alterado. Essa inspeção estática não certifica o React no navegador.
+
+Casos novos exercitados: landing e CTA, rotas canônicas e redirecionamento com query/hash, cobertura parcial/escopo inválido recusados, versão de comparação divergente bloqueada, prévia indisponível com retry, menu e Escape, tema do sistema/armazenamento bloqueado/persistência/abas/navegação, mensagens sanitizadas de filtros. Os testes preexistentes de comparação, troca/reset, sentido dos indicadores e filtros continuam aprovados.
+
+O teste de regressão usa **Recharts real**, sem substituir seu componente por mock. ResizeObserver e dimensões são controlados no jsdom: 375/768/1024/1440 e dois temas. Verifica duas barras positivas, proporção 47/32, base comum, rótulos e valores filtrados reais; cobre zero/negativos/vazio. O domínio antigo tornaria a barra de 32 invisível e falharia nesse teste. Isso não é revisão da pintura CSS no navegador.
+
+Limite de UI: IAB indisponível. O controle nativo encontrou o Chrome e interrompeu a captura por não confirmar a URL atual. Não houve contorno, screenshot React aprovada ou auditoria integral de acessibilidade. [Checklist manual](DESIGN_REVIEW.md). Power BI segue sem PBIX/PBIP validado e sem compilação de M/DAX. Kernels emitiram o aviso já conhecido de TCP sem criptografia, mantidos em loopback e encerrados pelo runner. CI remoto não executado.
+
+[Evidência PostgreSQL/HTTP atual sem credenciais](evidence/mengodata-redesign-verification.json). Testes de banco usam clusters isolados; somente o diagnóstico READ ONLY e a reimportação operacional autorizada acessaram `mengo_data`. Não houve migração, redefinição de senha ou alteração de outro banco. Commits locais por funcionalidade autorizados; nenhum push/publicação.
+
 ## Configuração PostgreSQL final
 
 | Verificação                                 | Resultado observado                                                                                          |

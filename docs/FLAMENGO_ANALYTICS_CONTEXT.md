@@ -1,4 +1,4 @@
-# Contexto operacional — Flamengo Analytics
+# Contexto operacional — MengoData
 
 Atualização autorizada em 21/10/2026. O Prompt Definitivo de Big Data substitui o requisito individual e o recorte de 2026. O contexto integral anterior está preservado em history/individual-2025 e history/2026; não é norma operacional.
 
@@ -33,11 +33,11 @@ Windows 11, VS Code, Node/npm, React/Vite, .venv, PostgreSQL local e materiais P
 3. Tratamento: Pandas/Parquet e idempotência.
 4. Indicadores: Python/JS/SQL comparados.
 5. Análises: seis notebooks e seis figuras reais.
-6. Produtos: API e nove páginas React integradas.
+6. Produtos: landing pública MengoData em / e nove páginas analíticas em /dashboard, com Poppins, logo fornecida e temas claro/escuro persistentes. Endereços antigos redirecionam preservando filtros.
 7. Power BI: artefatos montáveis; validação Desktop pendente.
 8. Qualidade: evidências em TEST_REPORT.md.
 9. Documentação: relatório e roteiro acadêmico.
-10. Em 22/10/2026: conexão ativa finalizada no banco mengo_data em 127.0.0.1:5432, com 380 jogos importados e consultas SQL/API reais; cluster alternativo anterior preservado. Redesign e comparação de dois clubes implementados. Revisão visual desktop/mobile e Power BI nativo permanecem pendentes. Evidências em POSTGRESQL_MENGO_DATA.md, STATUS.md e TEST_REPORT.md.
+10. Em 22/10/2026: conexão ativa finalizada no banco mengo_data em 127.0.0.1:5432, com 380 jogos importados e consultas SQL/API reais; cluster alternativo anterior preservado. Redesign, comparação de dois clubes e correção da escala de mandante/visitante implementados. SQL e API confirmam 47/32 pontos e 19 jogos por mando. Revisão visual desktop/mobile e Power BI nativo permanecem pendentes. Evidências em POSTGRESQL_MENGO_DATA.md, STATUS.md e TEST_REPORT.md.
 
 380 partidas são volume pequeno. O trabalho demonstra ETL, camadas, partição, Parquet, qualidade, rastreabilidade e idempotência; não processamento massivo ou ganho de escala medido. Futuras temporadas exigem nova validação e autorização.
 
