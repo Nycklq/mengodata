@@ -1,4 +1,12 @@
-# Decisões vigentes — 21/10/2026
+# Decisões vigentes — 22/10/2026
+
+Atualização posterior de PostgreSQL: a solicitação explícita do usuário define `mengo_data` em 127.0.0.1:5432 como destino ativo, substituindo a alternativa em `.local/postgres`. `.env` trocado com backup. O usuário habilitou LOGIN e aplicou grants mínimos no pgAdmin; o agente confirmou o schema existente, importou 380 partidas, reimportou sem mudanças e comprovou SQL/API no banco correto. Sem migração, recriação ou alteração de outro banco. Diagnóstico completo em POSTGRESQL_MENGO_DATA.md. O cluster anterior permanece preservado; referências abaixo à sua configuração descrevem a etapa anterior.
+
+Refinamento sobre a base existente: logo original enviada, CSS adicional e componentes coletivos compartilhados, sem redesenho do modelo de dados. Comparação concentra sentido das métricas, diferenças e lacunas no domínio; jogos/empates não recebem vencedor, base zero fica indisponível e saldo relativo divide pelo módulo da base. Posição do resumo usa os 20 clubes do mesmo recorte.
+
+A persistência permanente foi atendida criando cluster novo exclusivo do projeto, sem acessar bancos existentes. Estado em `.local/postgres`, senha aleatória no `.env` ignorado, SCRAM e loopback. Setup, start/stop/status, migração e importação explícitos. Testes de ciclo de vida usam outro cluster temporário. Nenhum serviço do Windows instalado.
+
+Em 22/10/2026, inventário de UI vazio e navegador integrado indisponível. Revisão visual permanece manual com checklist. Power BI segue sem compilação/PBIX validado. As observações abaixo sobre banco pendente descrevem o estado anterior, superado pelo cluster próprio.
 
 Análise coletiva Flamengo versus 19 clubes/2025/rodadas 1–38 substitui o foco individual. Shell React, estilos, SVGs, gateways, Express, pool, migrador e infraestrutura Python foram aproveitados.
 

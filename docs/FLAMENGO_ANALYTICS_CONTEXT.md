@@ -37,7 +37,7 @@ Windows 11, VS Code, Node/npm, React/Vite, .venv, PostgreSQL local e materiais P
 7. Power BI: artefatos montáveis; validação Desktop pendente.
 8. Qualidade: evidências em TEST_REPORT.md.
 9. Documentação: relatório e roteiro acadêmico.
-10. Pendências locais: configurar banco dedicado, revisar desktop/mobile e montar/validar Power BI nativo.
+10. Em 22/10/2026: conexão ativa finalizada no banco mengo_data em 127.0.0.1:5432, com 380 jogos importados e consultas SQL/API reais; cluster alternativo anterior preservado. Redesign e comparação de dois clubes implementados. Revisão visual desktop/mobile e Power BI nativo permanecem pendentes. Evidências em POSTGRESQL_MENGO_DATA.md, STATUS.md e TEST_REPORT.md.
 
 380 partidas são volume pequeno. O trabalho demonstra ETL, camadas, partição, Parquet, qualidade, rastreabilidade e idempotência; não processamento massivo ou ganho de escala medido. Futuras temporadas exigem nova validação e autorização.
 

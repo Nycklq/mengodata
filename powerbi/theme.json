@@ -1,6 +1,6 @@
 {
   "name": "Flamengo Analytics",
-  "dataColors": ["#C8102E", "#111111", "#7B8492", "#B5BBC4", "#E6E8ED"],
+  "dataColors": ["#C8102E", "#34485D", "#7B8491", "#B5BBC4", "#E6E8ED"],
   "background": "#FFFFFF",
   "foreground": "#111111",
   "tableAccent": "#C8102E",

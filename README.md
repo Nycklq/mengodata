@@ -6,6 +6,8 @@ Análise Estatística e Comparativa do Desempenho do Flamengo no Campeonato Bras
 
 Pipeline Python/Pandas/NumPy, Bronze/Silver/Gold em Parquet/CSV, seis notebooks executados, seis figuras Matplotlib/Seaborn, PostgreSQL, API Express e nove páginas React/Vite/Tailwind/Recharts. A implementação anterior foi aproveitada; os módulos individuais permanecem inativos e com seus testes preservados.
 
+Refinamento de 22/10/2026: logo enviada na marca e favicon, nova hierarquia visual, menu adaptativo, gráficos com leitura dos 20 clubes e comparação de quaisquer dois clubes com diferenças, evolução e filtros na URL. [Design e revisão manual](docs/DESIGN_REVIEW.md).
+
 **380 partidas, 20 clubes, 38 rodadas e 38 partidas do Flamengo importados.** Todos os 380 placares foram confrontados com a tabela detalhada CBF sem divergências. Dez rodadas e uma data não estão explícitas na extração PDF e não foram inferidas. [Auditoria](docs/evidence/collective-cbf-audit.json).
 
 Flamengo: 79 pontos, 23 vitórias, 10 empates, 5 derrotas, 78 gols pró, 27 contra, saldo +51, 18 partidas sem sofrer gol e aproveitamento de 69,30%. Em casa: 47 pontos; fora: 32. A tabela é identificada como **classificação calculada**.
@@ -45,6 +47,8 @@ Repita a conciliação oficial com npm.cmd run collective:audit. [Gráficos](rep
 
 Em dois terminais na raiz:
 
+O destino ativo é `127.0.0.1:5432/mengo_data`, atendido pelo PostgreSQL local instalado. Reinicie a API após alterar o `.env`. Os comandos `db:local:*` controlam outro cluster e não são necessários para o MengoData.
+
 ```powershell
 npm.cmd run dev:backend
 ```
@@ -59,17 +63,28 @@ Sem DATABASE_URL, a API usa a Gold local verificada contra Bronze. Com a variáv
 
 ## PostgreSQL
 
-Não havia .env/DATABASE_URL configurada nesta entrega. Os testes importaram dados reais em clusters temporários isolados, encerrados ao final. Nenhum banco pessoal foi acessado ou alterado.
+O banco ativo é **mengo_data em 127.0.0.1:5432**, role `flamengo_app`. SQL real confirmou 380 partidas/20 clubes/38 rodadas, 760 fatos, 20 totais e 760 acumulados. Importação concluída e reimportação `changed=false`. A sessão do backend foi identificada em `pg_stat_activity` consultando esse banco. [Diagnóstico e evidências](docs/POSTGRESQL_MENGO_DATA.md).
 
-Configure DATABASE_URL no .env local de um banco dedicado previamente conferido. Credenciais não são versionadas. Diagnóstico somente leitura e migrações explícitas:
+O `.env` local não é versionado. O exemplo contém uma senha fictícia que deve ser substituída localmente. O backend resolve o arquivo na raiz mesmo quando iniciado no workspace backend; DATABASE_URL herdada do terminal prevalece sobre o arquivo. A configuração anterior foi preservada em backup ignorado pelo Git.
+
+Para o banco existente, diagnóstico somente leitura e importação explícita:
 
 ```powershell
 npm.cmd run db:check
-npm.cmd run db:migrate
 npm.cmd run db:import
 ```
 
-A migração 004 cria o esquema collective com ledger próprio; não executa ou altera 001–003 nem reclassifica tabelas antigas. A API nunca migra ao iniciar. [Guia](database/README.md).
+A falha tinha duas causas de autorização: role sem LOGIN (28000), depois ausência de permissões no schema/tabelas (42501). O usuário habilitou LOGIN e executou `database/operations/grant-mengo-data.sql` no pgAdmin. O script aborta fora de `mengo_data` e concede apenas USAGE, SELECT e INSERT necessários. Não houve migração, recriação de tabelas ou alteração de outros bancos nesta configuração.
+
+As oito relações existentes são cinco tabelas e três views. A API nunca migra ao iniciar. Migrações históricas permanecem intactas e só devem ser aplicadas explicitamente em ambiente apropriado. [Guia](database/README.md).
+
+O cluster anterior em `.local/postgres` permanece preservado como alternativa; não é o destino ativo. `db:local:configure` troca o destino para essa alternativa, portanto não o execute para iniciar o MengoData. Testes de banco usam clusters temporários isolados.
+
+## Comparação
+
+Em `/comparar`, selecione os clubes A e B, rodadas e mando. A troca inverte os lados; Restaurar comparação volta a Flamengo/Palmeiras e temporada completa. O endereço conserva a seleção. Evolução alterna pontos, gols pró/contra, saldo e aproveitamento; casa/fora detalha o mesmo recorte.
+
+Quatorze indicadores, incluindo jogos, mostram diferença A − B e variação sobre |B|. Base zero/ausência fica indisponível. Menos derrotas/gols sofridos favorecem o clube; jogos e empates não têm vencedor. Δ de aproveitamento usa pontos percentuais. [Semântica](docs/METRICS.md).
 
 ## Verificar e apresentar
 
@@ -79,7 +94,7 @@ Execute o pipeline antes dos testes em um checkout novo:
 npm.cmd run verify
 ```
 
-ESLint/Prettier, testes JS/React/Python/PostgreSQL isolado, Ruff, notebooks, build e smoke HTTP/Vite. [Resultados observados](docs/TEST_REPORT.md). A revisão visual desktop/mobile foi bloqueada pelo controle de UI; DOM não a substitui.
+ESLint/Prettier, testes JS/React/Python/PostgreSQL isolado, Ruff, notebooks, build e smoke HTTP/Vite. [Resultados observados](docs/TEST_REPORT.md). Não houve navegador disponível ao controle de UI nesta sessão; revisão visual desktop/mobile permanece manual. DOM/build não a substituem.
 
 [Power BI](powerbi/README.md): CSVs reais, modelo, M, DAX, tema e guia. Não há PBIX/PBIP validado. [Roteiro acadêmico de oito minutos](docs/PRESENTATION.md).
 

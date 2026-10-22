@@ -1,6 +1,10 @@
 # Power BI — material coletivo montável
 
-Não há PBIX/PBIP gerado ou validado. O inventário local não mostrou Power BI Desktop. M/DAX/modelo são materiais sujeitos à compilação e conferência no Desktop; nenhuma publicação foi feita.
+Revisado em 22/10/2026: CSVs regenerados com os mesmos dados reais e tema alinhado ao frontend (#C8102E, segunda série #34485D). Use Inserir → Imagem e selecione `frontend/public/flamengo-logo.png`, preservando proporção e fundo. A página web Power BI oferece KPIs reais de conferência, sem embed.
+
+A interface web agora compara quaisquer dois clubes, com diferenças e evolução. As medidas BI existentes mantêm a comparação Flamengo/clube desconectado descrita abaixo; não se declara equivalência de funcionalidades ainda não montadas/compiladas no Desktop. Bases zero devem permanecer BLANK em variações, e diferenças de aproveitamento são pontos percentuais.
+
+Não há PBIX/PBIP gerado ou validado. O Power BI Desktop não foi validado nesta sessão. M/DAX/modelo são materiais sujeitos à compilação e conferência no Desktop; nenhuma publicação foi feita.
 
 ## Preparar e montar
 

@@ -1,5 +1,30 @@
 # Arquivos da entrega local
 
+## Configuração MengoData
+
+- `.env` local ajustado para o banco existente em 5432 e configuração anterior preservada em backup ignorado; `.env.example` atualizado sem credenciais reais.
+- `backend/src/infrastructure/persistence/database-error.js` e `postgres-pool.js`: diagnóstico sanitizado e identificação da sessão.
+- `backend/src/main/check-database.js` e `import-collective.js`: erros de autorização, autenticação e schema distinguíveis no CLI.
+- `backend/tests/database-error.test.js`, `environment.test.js` e `database/tests/collective.test.js`: sigilo dos erros, carregamento de configuração e grants em clusters isolados.
+- `database/operations/grant-mengo-data.sql`: permissões mínimas com proteção contra banco errado.
+- `docs/POSTGRESQL_MENGO_DATA.md` e `docs/evidence/mengo-data-verification.json`: consultas reais, contagens, equivalência e rastreamento da API.
+- README, guia de banco, STATUS, TEST_REPORT, ARCHITECTURE, DECISIONS, contexto operacional e roteiro atualizados para o destino ativo.
+
+## Refinamento de 22/10/2026
+
+- Marca: `frontend/public/flamengo-logo.png` e `frontend/index.html`.
+- Shell e design: `frontend/src/app/Dashboard.jsx`, `main.jsx`, `use-compact-navigation.js` e `refinements.css`; `styles.css` preservado.
+- Domínio/filtros: `frontend/src/features/analytics/domain/comparison.js` e `collective.js`.
+- Apresentação: `ComparisonPage.jsx`, `CollectiveUi.jsx`, `CollectivePages.jsx`, `CollectivePlot.jsx`, `CollectiveDocumentation.jsx`, `analytics-hooks.js` e `format-value.js`.
+- Backend: `backend/src/application/get-collective.js`, `backend/src/infrastructure/persistence/local-postgres.js` e `backend/src/main/local-database.js`.
+- Testes: `frontend/tests/comparison.test.js`, `collective.test.jsx`, `setup.js`, `backend/tests/collective.test.js`, `database/tests/local-postgres.test.js` e exclusão de estado local em `tests/architecture.test.js`.
+- Operação: `package.json`, `.gitignore`, `.prettierignore`, `eslint.config.js`; credenciais e cluster ficam exclusivamente no `.env`/`.local` ignorados, fora dos arquivos de entrega.
+- Documentação: README, STATUS, TEST_REPORT, ARCHITECTURE, PRESENTATION, DESIGN_REVIEW, DECISIONS, METRICS, guias PostgreSQL/Power BI e este inventário. Tema BI e saídas de notebooks/análises foram atualizados.
+
+Os caminhos de apresentação acima pertencem a `frontend/src/features/analytics/presentation/`. Inventário anterior preservado abaixo.
+
+## Base coletiva anterior
+
 Inventário da árvore de trabalho, sem commit. O Prompt Definitivo já era entrada não versionada do usuário e foi excluído desta atribuição de criação. Arquivos individuais movidos para history são preservação, não remoção da evidência histórica.
 
 Os principais pontos de entrada são pipeline/src/flamengo_pipeline/main/import_collective.py, backend/src/main/server.js, frontend/src/app/Dashboard.jsx, database/collective-migrations/004_collective.sql, notebooks e powerbi. Caminhos completos abaixo.

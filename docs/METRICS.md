@@ -1,5 +1,13 @@
 # Semântica coletiva
 
+## Comparação na interface
+
+Atualização de 22/10/2026: diferença absoluta = A − B; variação relativa = (A − B) ÷ |B| × 100. Base zero, indicador ausente ou clube sem jogos produz indisponível, sem vencedor. O sinal dos saldos é preservado nos números; barras representam magnitudes. Diferença de aproveitamento usa pontos percentuais, distinta da variação percentual relativa.
+
+Pontos, vitórias, gols pró, saldo, aproveitamento, média de gols pró, clean sheets e maiores sequências favorecem valores maiores. Derrotas, gols contra e média de gols contra favorecem menores. Jogos e empates são descritivos. Igualdade não destaca vencedor. Janelas e mando são iguais, mas o número de jogos em recortes parciais pode diferir e permanece explícito. Não há inferência de significância ou causalidade.
+
+## Indicadores de base
+
 Série A masculina/2025/rodadas 1–38, 20 clubes. Grão: clube × partida (760); gols totais por jogo usam 380 partidas.
 
 | Campo | Fórmula / unidade |
