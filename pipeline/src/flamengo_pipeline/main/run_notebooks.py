@@ -26,7 +26,7 @@ def main():
                     "-f",
                     "{connection_file}",
                 ],
-                "display_name": "Flamengo Analytics local",
+                "display_name": "MengoData local",
                 "language": "python",
                 "env": {"PYTHONUTF8": "1"},
             }

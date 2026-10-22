@@ -43,5 +43,5 @@ test('Power BI assets declare their unverified native state and canonical scope'
   assert.equal(model.scope.season, 2025);
   assert.equal(model.scope.last_round, 38);
   assert.equal(model.relationships.length, 6);
-  assert.equal(theme.dataColors[0], '#C8102E');
+  assert.equal(theme.dataColors[0], '#C3271D');
 });

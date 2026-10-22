@@ -73,7 +73,7 @@ for (const [path, parameters] of routes) {
 const document = {
   openapi: '3.1.0',
   info: {
-    title: 'Flamengo Analytics — desempenho coletivo 2025',
+    title: 'MengoData — desempenho coletivo 2025',
     version: '0.3.0',
     description:
       '20 clubes, 380 resultados reais OpenFootball CC0. Sem estatísticas individuais. Pontos 3/1/0; taxas calculadas por componentes do mesmo recorte.',

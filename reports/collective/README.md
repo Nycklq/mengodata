@@ -1,4 +1,4 @@
-# Figuras e resultados reais
+# MengoData — figuras e resultados reais
 
 OpenFootball CC0, 380 jogos da Série A masculina/2025/rodadas 1–38. Regenerar: collective:analyze ou notebooks:execute.
 

@@ -1,6 +1,6 @@
-# Power BI — material coletivo montável
+# MengoData no Power BI — material coletivo montável
 
-Revisado em 22/10/2026: CSVs regenerados com os mesmos dados reais e tema alinhado ao frontend (#C8102E, segunda série #34485D). Use Inserir → Imagem e selecione `frontend/public/flamengo-logo.png`, preservando proporção e fundo. A página web Power BI oferece KPIs reais de conferência, sem embed.
+Revisado em 22/10/2026: CSVs regenerados com os mesmos dados reais. `theme.json` e `theme-dark.json` usam Poppins e a identidade MengoData: #C3271D, #000000, #FFFFFF e neutros. Se Poppins não estiver instalada no Windows, instale a fonte de sua distribuição oficial antes da revisão no Desktop; a cópia web em WOFF não instala a fonte no sistema. Use Inserir → Imagem e selecione `frontend/public/brand/flamengo.png`, em superfície branca para preservar o contraste do escudo. A página web `/dashboard/power-bi` oferece KPIs reais de conferência, sem embed.
 
 A interface web agora compara quaisquer dois clubes, com diferenças e evolução. As medidas BI existentes mantêm a comparação Flamengo/clube desconectado descrita abaixo; não se declara equivalência de funcionalidades ainda não montadas/compiladas no Desktop. Bases zero devem permanecer BLANK em variações, e diferenças de aproveitamento são pontos percentuais.
 
@@ -13,7 +13,7 @@ Não há PBIX/PBIP gerado ou validado. O Power BI Desktop não foi validado nest
 3. Crie consultas de referência: = Fonte[TeamMatches], = Fonte[Clubs], = Fonte[Matches], = Fonte[Rounds], = Fonte[Seasons], = Fonte[Standings], = Fonte[Provenance], = Fonte[ClubeComparado]. Desative carregamento da Fonte.
 4. Confira tipos/contagens. Locale en-US lê decimais e datas ISO; UTF-8 conserva acentos. Ajuste separadores DAX se o idioma do Desktop exigir.
 5. Crie as seis relações 1:N de model.json, direção única dimensão → fato. Matches relaciona-se por match_id; não adicione relações ambíguas de mandante/visitante com Clubs. Provenance e ClubeComparado são desconectadas.
-6. Importe theme.json em Exibir → Temas e adicione cada expressão de measures.dax como medida separada. Porcentagens já estão em escala 0–100: formato numérico com sufixo %, sem multiplicar novamente.
+6. Importe theme.json (claro) ou theme-dark.json (escuro) em Exibir → Temas e adicione cada expressão de measures.dax como medida separada. Ajuste o fundo dos visuais para corresponder ao tema. Os temas são materiais JSON preparados; sua aceitação e o contraste final precisam ser conferidos no Desktop. Porcentagens já estão em escala 0–100: formato numérico com sufixo %, sem multiplicar novamente.
 7. Use slicers de Rounds[official_round], TeamMatches[venue] e Clubs[name]. Na página focal filtre Flamengo. Para comparar use ClubeComparado[name] e medidas dedicadas.
 8. Monte as páginas e confira os números abaixo antes de salvar PBIX legítimo.
 

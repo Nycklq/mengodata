@@ -1,4 +1,4 @@
-# Notebooks coletivos
+# Notebooks coletivos — MengoData
 
 Na raiz execute pipeline:collective e notebooks:execute. Runner usa kernel da .venv em loopback e encerra processos. notebooks:check reexecuta em .tmp sem sobrescrever saídas.
 

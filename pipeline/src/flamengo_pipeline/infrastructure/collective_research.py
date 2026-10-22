@@ -8,6 +8,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+from matplotlib.colors import LinearSegmentedColormap
 
 from flamengo_pipeline.domain.collective import aggregate_clubs, descriptive
 
@@ -31,7 +32,7 @@ def generate_research(document, destination):
     destination = Path(destination)
     destination.mkdir(parents=True, exist_ok=True)
     facts, totals, flamengo, series, home_away = research_tables(document)
-    sns.set_theme(style="whitegrid", palette=["#C8102E", "#17191D", "#9499A4"])
+    sns.set_theme(style="whitegrid", palette=["#C3271D", "#000000", "#898989"])
     figures = []
 
     def save(figure, name, title, interpretation):
@@ -39,7 +40,7 @@ def generate_research(document, destination):
         figure.text(
             0.08,
             0.015,
-            "Fonte: OpenFootball · CC0 · Série A masculina 2025 · "
+            "MengoData | Fonte: OpenFootball · CC0 · Série A masculina 2025 · "
             "rodadas oficiais 1–38",
             fontsize=8,
         )
@@ -53,7 +54,7 @@ def generate_research(document, destination):
     figure, axis = plt.subplots(figsize=(11, 5))
     matches = pd.DataFrame(document["matches"])
     goals = matches.home_goals + matches.away_goals
-    sns.histplot(x=goals, discrete=True, ax=axis, color="#C8102E")
+    sns.histplot(x=goals, discrete=True, ax=axis, color="#C3271D")
     axis.set(xlabel="Gols totais por partida", ylabel="Partidas (n=380)")
     save(
         figure,
@@ -65,7 +66,7 @@ def generate_research(document, destination):
 
     figure, axes = plt.subplots(1, 2, figsize=(12, 5))
     sns.lineplot(
-        data=series, x="official_round", y="points", ax=axes[0], color="#C8102E"
+        data=series, x="official_round", y="points", ax=axes[0], color="#C3271D"
     )
     long = series.melt(
         id_vars="official_round",
@@ -73,10 +74,20 @@ def generate_research(document, destination):
         var_name="Indicador",
         value_name="Gols",
     )
-    sns.lineplot(data=long, x="official_round", y="Gols", hue="Indicador", ax=axes[1])
+    sns.lineplot(
+        data=long,
+        x="official_round",
+        y="Gols",
+        hue="Indicador",
+        hue_order=["goals_for", "goals_against"],
+        palette=["#C3271D", "#000000"],
+        errorbar=None,
+        ax=axes[1],
+    )
     axes[0].set(xlabel="Rodada oficial", ylabel="Pontos acumulados")
     axes[1].set(xlabel="Rodada oficial", ylabel="Gols acumulados")
-    axes[1].legend(title="", labels=["Gols pró", "Gols contra"])
+    handles, _ = axes[1].get_legend_handles_labels()
+    axes[1].legend(handles=handles, title="", labels=["Gols pró", "Gols contra"])
     save(
         figure,
         "02_evolucao",
@@ -87,17 +98,27 @@ def generate_research(document, destination):
 
     figure, axes = plt.subplots(1, 2, figsize=(11, 5))
     home_away["Mando"] = home_away.venue.map({"home": "Mandante", "away": "Visitante"})
-    sns.barplot(data=home_away, x="Mando", y="efficiency", ax=axes[0], color="#C8102E")
+    sns.barplot(data=home_away, x="Mando", y="efficiency", ax=axes[0], color="#C3271D")
     goals_venue = home_away.melt(
         id_vars="Mando",
         value_vars=["goals_for", "goals_against"],
         var_name="Indicador",
         value_name="Gols",
     )
-    sns.barplot(data=goals_venue, x="Mando", y="Gols", hue="Indicador", ax=axes[1])
+    sns.barplot(
+        data=goals_venue,
+        x="Mando",
+        y="Gols",
+        hue="Indicador",
+        hue_order=["goals_for", "goals_against"],
+        palette=["#C3271D", "#000000"],
+        errorbar=None,
+        ax=axes[1],
+    )
     axes[0].set(xlabel="", ylabel="Aproveitamento (%)", ylim=(0, 100))
     axes[1].set(xlabel="", ylabel="Gols (19 jogos por mando)")
-    axes[1].legend(title="", labels=["Gols pró", "Gols contra"])
+    handles, _ = axes[1].get_legend_handles_labels()
+    axes[1].legend(handles=handles, title="", labels=["Gols pró", "Gols contra"])
     save(
         figure,
         "03_casa_fora",
@@ -109,7 +130,7 @@ def generate_research(document, destination):
     figure, axis = plt.subplots(figsize=(12, 6))
     ordered = totals.sort_values("points", ascending=False)
     colors = [
-        "#C8102E" if value == "club:flamengo" else "#9BA0A8"
+        "#C3271D" if value == "club:flamengo" else "#9BA0A8"
         for value in ordered.club_id
     ]
     axis.bar(ordered.name, ordered.points, color=colors)
@@ -126,11 +147,12 @@ def generate_research(document, destination):
 
     figure, axis = plt.subplots(figsize=(10, 6))
     sns.scatterplot(
-        data=totals, x="goals_against", y="goals_for", ax=axis, color="#9499A4", s=60
+        data=totals, x="goals_against", y="goals_for", ax=axis, color="#898989", s=60
     )
     for row in totals.itertuples():
         offsets = {
-            "club:sao-paulo": (7, 17),
+            "club:sao-paulo": (-20, 22),
+            "club:santos": (6, -12),
             "club:atletico-mg": (-40, 4),
             "club:corinthians": (6, -14),
             "club:bragantino": (6, 14),
@@ -143,7 +165,10 @@ def generate_research(document, destination):
             xytext=offsets.get(row.club_id, (4, 4)),
             textcoords="offset points",
             fontsize=8,
-            color="#C8102E" if row.club_id == "club:flamengo" else "#434750",
+            color="#C3271D" if row.club_id == "club:flamengo" else "#434750",
+            arrowprops={"arrowstyle": "-", "color": "#898989", "linewidth": 0.7}
+            if row.club_id == "club:sao-paulo"
+            else None,
         )
     axis.set(xlabel="Gols sofridos (38 jogos)", ylabel="Gols marcados (38 jogos)")
     save(
@@ -156,17 +181,36 @@ def generate_research(document, destination):
     )
 
     figure, axes = plt.subplots(1, 2, figsize=(12, 5))
-    sns.boxplot(data=facts, x="venue", y="goals_for", ax=axes[0], color="#C8102E")
+    sns.boxplot(
+        data=facts,
+        x="venue",
+        y="goals_for",
+        order=["home", "away"],
+        ax=axes[0],
+        color="#C3271D",
+    )
     correlation = totals[
         ["points", "wins", "goals_for", "goals_against", "goal_difference"]
     ].corr()
+    labels = {
+        "points": "Pontos",
+        "wins": "Vitórias",
+        "goals_for": "Gols pró",
+        "goals_against": "Gols contra",
+        "goal_difference": "Saldo",
+    }
+    heatmap = correlation.rename(index=labels, columns=labels)
+    palette = LinearSegmentedColormap.from_list(
+        "mengodata", ["#555555", "#FFFFFF", "#C3271D"]
+    )
     sns.heatmap(
-        correlation, annot=True, fmt=".2f", cmap="RdBu_r", vmin=-1, vmax=1, ax=axes[1]
+        heatmap, annot=True, fmt=".2f", cmap=palette, vmin=-1, vmax=1, ax=axes[1]
     )
     axes[0].set(
-        xlabel="Mando (home = mandante; away = visitante)",
+        xlabel="Mando",
         ylabel="Gols por clube × partida (n=760)",
     )
+    axes[0].set_xticks([0, 1], ["Mandante", "Visitante"])
     axes[1].tick_params(axis="x", rotation=45)
     save(
         figure,

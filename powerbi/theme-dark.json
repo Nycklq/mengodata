@@ -1,0 +1,12 @@
+{
+  "name": "MengoData — Escuro",
+  "dataColors": ["#C3271D", "#CCCCCC", "#888888", "#B5B5B5", "#666666"],
+  "background": "#000000",
+  "foreground": "#FFFFFF",
+  "tableAccent": "#C3271D",
+  "textClasses": {
+    "title": { "fontFace": "Poppins", "fontSize": 14, "color": "#FFFFFF" },
+    "label": { "fontFace": "Poppins", "fontSize": 10, "color": "#ADADAD" },
+    "callout": { "fontFace": "Poppins", "fontSize": 28, "color": "#FFFFFF" }
+  }
+}
