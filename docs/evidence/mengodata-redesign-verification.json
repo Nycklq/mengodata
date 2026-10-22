@@ -1,0 +1,184 @@
+{
+  "checked_at": "2026-10-22T14:08:05.224Z",
+  "configuration": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "mengo_data",
+    "role": "flamengo_app",
+    "env_loader": "root absolute .env; inherited environment takes precedence"
+  },
+  "probe": {
+    "connected": 1,
+    "database": "mengo_data",
+    "role": "flamengo_app",
+    "port": 5432,
+    "read_only": "on"
+  },
+  "counts": {
+    "competitions": 1,
+    "seasons": 1,
+    "clubs": 20,
+    "imports": 1,
+    "matches": 380,
+    "team_matches": 760,
+    "club_totals": 20,
+    "round_totals": 760
+  },
+  "scope": [
+    {
+      "season": 2025,
+      "first_round": 1,
+      "last_round": 38,
+      "rounds": 38,
+      "matches": 380
+    }
+  ],
+  "sql_gold_equal": true,
+  "home_away_sql": [
+    {
+      "venue": "home",
+      "played": 19,
+      "points": 47,
+      "goals_for": 46,
+      "goals_against": 8
+    },
+    {
+      "venue": "away",
+      "played": 19,
+      "points": 32,
+      "goals_for": 32,
+      "goals_against": 19
+    }
+  ],
+  "api": {
+    "origin": "http://127.0.0.1:3001",
+    "node_pid": 10840,
+    "health": {
+      "status": "ok",
+      "service": "flamengo-analytics-api"
+    },
+    "coverage": {
+      "clubs": 20,
+      "rounds": 38,
+      "status": "verified",
+      "matches": 380,
+      "duplicates": 0,
+      "removed_rows": 0,
+      "missing_scores": 0,
+      "flamengo_matches": 38,
+      "matches_per_club": 38,
+      "official_mapping": "round_labels_from_openfootball_not_cbf_match_ids",
+      "matches_per_round": 10
+    },
+    "flamengo_points": 79,
+    "home_away": [
+      {
+        "venue": "home",
+        "club_id": "club:flamengo",
+        "name": "Flamengo",
+        "played": 19,
+        "wins": 14,
+        "draws": 5,
+        "losses": 0,
+        "goals_for": 46,
+        "goals_against": 8,
+        "goal_difference": 38,
+        "points": 47,
+        "clean_sheets": 13,
+        "efficiency": 82.45614035087719,
+        "goals_for_average": 2.4210526315789473,
+        "goals_against_average": 0.42105263157894735,
+        "winning_streak": 6,
+        "unbeaten_streak": 19,
+        "position": 1,
+        "tied": false
+      },
+      {
+        "venue": "away",
+        "club_id": "club:flamengo",
+        "name": "Flamengo",
+        "played": 19,
+        "wins": 9,
+        "draws": 5,
+        "losses": 5,
+        "goals_for": 32,
+        "goals_against": 19,
+        "goal_difference": 13,
+        "points": 32,
+        "clean_sheets": 5,
+        "efficiency": 56.14035087719298,
+        "goals_for_average": 1.6842105263157894,
+        "goals_against_average": 1,
+        "winning_streak": 3,
+        "unbeaten_streak": 5,
+        "position": 1,
+        "tied": false
+      }
+    ],
+    "comparison_points": [
+      {
+        "club": "Flamengo",
+        "points": 79
+      },
+      {
+        "club": "Palmeiras",
+        "points": 76
+      }
+    ],
+    "filtered_home_away": [
+      {
+        "venue": "home",
+        "club_id": "club:flamengo",
+        "name": "Flamengo",
+        "played": 5,
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "goals_for": 11,
+        "goals_against": 1,
+        "goal_difference": 10,
+        "points": 15,
+        "clean_sheets": 4,
+        "efficiency": 100,
+        "goals_for_average": 2.2,
+        "goals_against_average": 0.2,
+        "winning_streak": 5,
+        "unbeaten_streak": 5,
+        "position": 1,
+        "tied": false
+      },
+      {
+        "venue": "away",
+        "club_id": "club:flamengo",
+        "name": "Flamengo",
+        "played": 6,
+        "wins": 4,
+        "draws": 1,
+        "losses": 1,
+        "goals_for": 13,
+        "goals_against": 5,
+        "goal_difference": 8,
+        "points": 13,
+        "clean_sheets": 1,
+        "efficiency": 72.22222222222223,
+        "goals_for_average": 2.1666666666666665,
+        "goals_against_average": 0.8333333333333334,
+        "winning_streak": 2,
+        "unbeaten_streak": 4,
+        "position": 1,
+        "tied": false
+      }
+    ],
+    "dataset_version": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+    "postgres_sessions": [
+      {
+        "database": "mengo_data",
+        "role": "flamengo_app",
+        "application_name": "flamengo-analytics:10840",
+        "state": "idle",
+        "query": "SELECT gold FROM collective.imports WHERE content_sha256 = $1 AND coverage_verified"
+      }
+    ]
+  },
+  "import_repeated_changed": false
+}

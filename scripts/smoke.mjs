@@ -61,6 +61,13 @@ try {
   const summary = await read('summary');
   assert.equal(summary.data.club.points, 79);
   assert.equal(summary.data.club.goals_for, 78);
+  assert.deepEqual(
+    summary.data.home_away.map((row) => [row.venue, row.played, row.points]),
+    [
+      ['home', 19, 47],
+      ['away', 19, 32],
+    ],
+  );
   assert.equal((await read('clubs')).data.length, 20);
   assert.equal((await read('standings?to_round=1')).data.rows.length, 20);
   for (const resource of [
@@ -84,7 +91,7 @@ try {
   assert.equal((await csv.text()).trim().split('\r\n').length, 2);
   assert.equal((await fetch(origin + '/api/matches?season=2026')).status, 400);
   assert.equal((await fetch(origin + '/api/players')).status, 404);
-  for (const path of [
+  const pages = [
     '',
     'partidas',
     'classificacao',
@@ -94,14 +101,25 @@ try {
     'estatisticas',
     'power-bi',
     'metodologia',
-  ]) {
+  ];
+  const paths = [
+    '',
+    ...pages.map((path) => 'dashboard' + (path ? '/' + path : '')),
+    ...pages.filter(Boolean),
+  ];
+  for (const path of paths) {
     const response = await fetch(origin + '/' + path);
     assert.equal(response.status, 200);
-    assert.match(await response.text(), /lang="pt-BR"/);
+    const html = await response.text();
+    assert.match(html, /lang="pt-BR"/);
+    assert.match(html, /MengoData/);
+    assert.ok(html.indexOf('/theme-init.js') < html.indexOf('/src/app/main.jsx'));
   }
   const entry = await fetch(origin + '/src/app/main.jsx');
   assert.equal(entry.status, 200);
-  assert.match(await entry.text(), /Dashboard/);
+  assert.match(await entry.text(), /Application/);
+  for (const asset of ['brand/flamengo.png', 'theme-init.js', 'brand/Poppins-OFL.txt'])
+    assert.equal((await fetch(origin + '/' + asset)).status, 200);
   process.stdout.write(
     JSON.stringify({
       smoke: 'passed',
@@ -109,7 +127,10 @@ try {
       rounds: [1, 38],
       matches: 380,
       flamengo_points: 79,
-      spa_pages: 9,
+      spa_pages: 10,
+      legacy_paths: 8,
+      home_points: 47,
+      away_points: 32,
     }) + '\n',
   );
 } finally {
