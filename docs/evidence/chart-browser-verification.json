@@ -1,0 +1,103 @@
+{
+  "checked_at": "2026-10-22T14:58:33.266Z",
+  "browser": "155.0.8059.86",
+  "root_cause_probe": {
+    "observed_at": "2026-10-22T14:38:07.474Z",
+    "before": [
+      {
+        "wrapperWidth": 0,
+        "inlineWidth": "1104px",
+        "maxWidth": "100%",
+        "parentStyle": "width: 0px; overflow-x: visible;",
+        "parentWidth": 0,
+        "shapes": 20,
+        "paths_with_positive_bounds": 20
+      },
+      {
+        "wrapperWidth": 0,
+        "inlineWidth": "1104px",
+        "maxWidth": "100%",
+        "parentStyle": "width: 0px; overflow-x: visible;",
+        "parentWidth": 0,
+        "shapes": 2,
+        "paths_with_positive_bounds": 2
+      }
+    ],
+    "after_removing_max_width": [
+      {
+        "wrapperWidth": 1104,
+        "inlineWidth": "1104px",
+        "maxWidth": "none",
+        "parentStyle": "width: 0px; overflow-x: visible;",
+        "parentWidth": 0,
+        "shapes": 20,
+        "paths_with_positive_bounds": 20
+      },
+      {
+        "wrapperWidth": 1104,
+        "inlineWidth": "1104px",
+        "maxWidth": "none",
+        "parentStyle": "width: 0px; overflow-x: visible;",
+        "parentWidth": 0,
+        "shapes": 2,
+        "paths_with_positive_bounds": 2
+      }
+    ]
+  },
+  "matrix": {
+    "startTime": "2026-10-22T14:53:45.376Z",
+    "duration": 110973.847,
+    "expected": 32,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0,
+    "projects": [
+      "375-light",
+      "375-dark",
+      "768-light",
+      "768-dark",
+      "1024-light",
+      "1024-dark",
+      "1440-light",
+      "1440-dark"
+    ],
+    "source": "isolated HTTP API with verified real Gold; no existing database"
+  },
+  "live": {
+    "startTime": "2026-10-22T14:53:54.978Z",
+    "duration": 33603.889,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0,
+    "origin": "http://localhost:5173",
+    "project": "1440-light",
+    "source": "running Vite proxy and PostgreSQL-backed API; GET only"
+  },
+  "console_errors": 0,
+  "console_warnings": 0,
+  "screenshots": [
+    "375-light-cards.png",
+    "375-light-home-away.png",
+    "375-light-evolution.png",
+    "375-dark-cards.png",
+    "375-dark-home-away.png",
+    "375-dark-evolution.png",
+    "768-light-cards.png",
+    "768-light-home-away.png",
+    "768-dark-cards.png",
+    "768-dark-home-away.png",
+    "1024-light-cards.png",
+    "1024-light-home-away.png",
+    "1024-dark-cards.png",
+    "1024-dark-home-away.png",
+    "1440-light-cards.png",
+    "1440-light-home-away.png",
+    "1440-light-evolution.png",
+    "1440-light-offensive.png",
+    "1440-dark-cards.png",
+    "1440-dark-home-away.png",
+    "1440-dark-evolution.png",
+    "1440-dark-offensive.png"
+  ]
+}

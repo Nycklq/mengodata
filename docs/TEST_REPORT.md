@@ -1,5 +1,33 @@
 # Relatório de verificações — MengoData em 22/10/2026
 
+## Correção de gráficos e ilustrações — verificação posterior
+
+O diagnóstico em Chrome reproduziu viewport Recharts com largura zero por uma regra CSS de max-width. O teste novo falhou antes da correção e passou depois. A escala zero implementada anteriormente foi preservada, mas os testes jsdom anteriores não certificavam o CSS real. [Causa e capturas](CHART_RENDERING_FIX.md).
+
+| Verificação                    | Resultado observado nesta correção                                                                         |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| Backend                        | 46 testes aprovados                                                                                        |
+| Frontend/jsdom                 | 88 aprovados, incluindo cinco casos novos de legenda, rodada única e SVGs                                  |
+| Python                         | 175 aprovados; Ruff e formatação passaram                                                                  |
+| Arquitetura/contratos          | 10 aprovados; camadas, ciclos e código sem comentários                                                     |
+| PostgreSQL temporário          | 35 aprovados em execução sequencial completa                                                               |
+| Total das cinco suítes         | 354 aprovados                                                                                              |
+| Chrome com CSS real            | 32 aprovados: quatro testes em oito combinações de largura/tema                                            |
+| Chrome no localhost/PostgreSQL | Quatro adicionais aprovados, somente GETs                                                                  |
+| Total de execuções aprovadas   | 390, incluindo a matriz e a repetição operacional                                                          |
+| ESLint e Prettier              | Aprovados, sem avisos de código                                                                            |
+| Build e smoke HTTP             | Aprovados, 2679 módulos; dez entradas SPA e oito aliases                                                   |
+| Banco ativo                    | READ ONLY: 380 jogos, 20 clubes, 38 rodadas, 760 fatos/760 acumulados; 20 clubes SQL/API equivalentes      |
+| Evidência visual               | 22 PNGs atuais e uma captura anterior preservados; amostras inspecionadas nos quatro tamanhos e dois temas |
+
+Comandos: `npm.cmd test`, `npm.cmd run verify:pipeline`, `node --test --test-concurrency=1 database/tests/*.test.js`, `npm.cmd run test:browser`, além de lint, format:check, build e test:smoke. Os comandos foram executados individualmente; não se atribui esta rodada ao agregado `verify`.
+
+A primeira execução PostgreSQL ocorreu em paralelo com suítes/Chrome e atingiu o timeout de 60 s na inicialização de um cluster temporário. A repetição completa, com arquivos em sequência, passou os 35 casos em cerca de 215 s. Não foram removidos testes nem alterados timeouts. Na primeira matriz visual, o tamanho do card 02 em 768 px ficou abaixo do critério; a proporção foi corrigida e a matriz completa repetida terminou 32/32, sem flaky, sem ignorados e sem erros/avisos no console da página.
+
+O harness padrão reutiliza serviços reais e Gold validada em API isolada, sem PostgreSQL existente. A execução no localhost e a consulta READ ONLY separada comprovam a integração operacional. Não foram alterados backend de produção, dados, fórmulas, esquema ou permissões. Avisos do runner sobre NO_COLOR/FORCE_COLOR não são mensagens do console da página. CI remoto não executado.
+
+[Matriz e medições](evidence/chart-browser-verification.json), [SQL/API](evidence/chart-database-verification.json). Registros anteriores permanecem abaixo como histórico. A pendência antiga de inspeção dos gráficos/cards foi superada; auditoria integral WCAG, outros navegadores e Power BI Desktop continuam fora dessa validação.
+
 ## Redesign MengoData — resultado atual
 
 Executado no Windows/PowerShell, Node.js 24, Python 3.14.8/.venv e PostgreSQL 18. As etapas foram executadas individualmente; não se atribui esta rodada ao comando agregado `verify`. Registros anteriores são preservados nas seções seguintes.

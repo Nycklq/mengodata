@@ -96,7 +96,7 @@ Execute o pipeline antes dos testes em um checkout novo:
 npm.cmd run verify
 ```
 
-ESLint/Prettier, testes JS/React/Python/PostgreSQL isolado, Ruff, notebooks, build e smoke HTTP/Vite. [Resultados observados](docs/TEST_REPORT.md). A automação do Chrome foi interrompida por não confirmar a URL; revisão visual desktop/mobile permanece manual. Os testes de geometria do Recharts usam dimensões controladas no DOM e não certificam pintura CSS no navegador.
+ESLint/Prettier, testes JS/React/Python/PostgreSQL isolado, Ruff, notebooks, build, smoke HTTP/Vite e Playwright. [Resultados observados](docs/TEST_REPORT.md). `npm.cmd run test:browser` usa Chrome instalado, perfil headless próprio e API isolada com a Gold real, sem acessar bancos existentes. Verifica os gráficos ativos e cards em 375/768/1024/1440 px, claro/escuro, com CSS e screenshots reais. A conferência operacional no localhost com PostgreSQL também passou. [Causa do colapso CSS, capturas e reprodução](docs/CHART_RENDERING_FIX.md). Auditoria integral de acessibilidade e outros navegadores permanecem fora dessa validação.
 
 [Power BI](powerbi/README.md): CSVs reais, modelo, M, DAX, tema e guia. Não há PBIX/PBIP validado. [Roteiro acadêmico de oito minutos](docs/PRESENTATION.md).
 

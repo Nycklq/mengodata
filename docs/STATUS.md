@@ -4,6 +4,8 @@ Atualizado em 22/10/2026. Projeto existente mantido. Escopo: análise coletiva d
 
 ## Produto implementado
 
+Correção posterior de gráficos e cards: foi reproduzida e removida a regra CSS que colapsava os viewports Recharts a zero. Os 32 testes Chrome de 375/768/1024/1440 claro/escuro passaram, além de quatro testes no localhost com API/PostgreSQL reais. SVGs próprios dos cards 01/03 usam dados reais; o card 02 foi preservado e redimensionado no tablet. Há PNGs e relatório em [CHART_RENDERING_FIX.md](CHART_RENDERING_FIX.md). Esse resultado substitui a pendência anterior de revisão dos gráficos e dessas ilustrações; não certifica toda a aplicação em todos os navegadores.
+
 - Landing pública `/`: navegação em cápsula, hero com estádio em SVG próprio, vitrine do dashboard com dados reais, apresentação editorial, cobertura validada, três recursos navegáveis, seções alternadas, comparação funcional, fluxo de engenharia, metodologia e CTA final. Acesso sem login ou cadastro.
 - Identidade MengoData, logo fornecida byte a byte, Poppins local 400/500/600/700 e itálico 500, `font-display: swap`, paleta #C3271D/#000000/#FFFFFF e neutros. Aviso legal da fonte preservado. Escudo em superfície branca nos dois temas.
 - Temas claro/escuro aplicados a toda a interface: gráficos, tabelas, tooltips, menus, campos, carregamento e erros. Preferência inicial do sistema, armazenamento local, aplicação antes da montagem e sincronização entre abas.
@@ -23,7 +25,7 @@ Pipeline offline executado com a Bronze fixada: `changed=false`, 380 jogos, 760 
 
 Resultados atuais em [TEST_REPORT.md](TEST_REPORT.md). Build e smoke passaram; smoke exercita API real, dez entradas SPA e oito aliases. Lint, testes de arquitetura e ausência de comentários são verificações independentes da revisão visual.
 
-1. Revisão visual em navegador: IAB indisponível; Chrome foi encontrado pelo controle nativo, mas a captura foi interrompida por não confirmar a URL atual. Nenhuma captura React aprovada. Não contornar o bloqueio. Executar o checklist de 375/768/1024/1440 px em [DESIGN_REVIEW.md](DESIGN_REVIEW.md).
+1. Revisão visual geral: os gráficos ativos e os três cards foram conferidos em Chrome headless próprio, com PNGs e testes reais nos quatro tamanhos e dois temas. A etapa anterior de controle nativo continuou encerrada; não foi reutilizada. Auditoria integral de acessibilidade, outros navegadores e demais aspectos da landing permanecem além dessa validação específica.
 2. Power BI: não há PBIX/PBIP validado. Desktop não estava disponível no inventário observado e a automação foi encerrada. Montar, compilar M/DAX e conferir os números seguindo [powerbi/README.md](../powerbi/README.md).
 3. Direitos da marca: uso da logo foi solicitado pelo usuário; não há autorização de publicação documentada. CC0 dos resultados não se aplica ao escudo. [Assets](ASSETS.md).
 4. CI remoto não executado. Sem auditoria integral WCAG ou medição de desempenho em navegador. Classificação calculada não certifica desempates disciplinares; não há dados de posse, xG ou atletas.

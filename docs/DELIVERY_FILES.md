@@ -1,5 +1,11 @@
 # Arquivos da entrega local
 
+## Correção de gráficos e ilustrações
+
+Código: `frontend/src/app/design-system.css`, `features/analytics/presentation/CollectivePlot.jsx`, `features/landing/presentation/FeatureIllustrations.jsx` e `LandingPage.jsx`. Testes: `frontend/tests/collective-plot.test.jsx`, `feature-illustrations.test.jsx` e os três arquivos em `frontend/browser/`. Integração de verificação: `package.json`, `package-lock.json`, `.github/workflows/quality.yml`.
+
+Documentação: README, STATUS, TEST_REPORT, ARCHITECTURE, DESIGN_REVIEW, REQUIREMENTS_MATRIX e [CHART_RENDERING_FIX.md](CHART_RENDERING_FIX.md). Evidências: `docs/evidence/chart-browser-verification.json`, `chart-database-verification.json` e 23 PNGs em `docs/evidence/visualizations/` (22 atuais e um anterior). Backend de produção, pipeline, fonte, dados e migrações não foram alterados.
+
 ## Redesign MengoData — implementação atual
 
 Inventário por funcionalidade; a lista exata de cada etapa está em `git show --stat <commit>` e o conjunto pode ser conferido com `git diff --name-only 1a5f0f0 HEAD` após os commits finais.

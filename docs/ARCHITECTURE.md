@@ -1,5 +1,13 @@
 # Arquitetura coletiva implementada
 
+## Correção das visualizações
+
+`CollectivePlot.jsx` mantém responsabilidade de apresentação: coordenadas, eixos, dimensões e seleção de séries. Não recalcula indicadores. O CSS deixou de limitar o wrapper percentual interno do Recharts; a biblioteca conserva seu mecanismo de ResizeObserver. Ponto único usa marcador, e a legenda altera somente visibilidade, mantendo o domínio.
+
+`FeatureIllustrations.jsx` mapeia séries/valores recebidos para coordenadas SVG; não consulta rede, SQL ou arquivos nem agrega estatísticas. `LandingPage.jsx` continua usando o caso de uso/gateway existente. Ausência de dados é explícita.
+
+`frontend/browser/serve.mjs` é composição exclusiva de testes, fora do código de produção: reaproveita domínio, serviços e repositório de arquivos validado, sobe HTTP local e Vite. Não lê `.env` nem cria pool SQL. O modo operacional usa o servidor existente e apenas GETs. Playwright verifica layout/CSS/viewport reais que o jsdom não calcula. A configuração e os relatórios vivem nas bordas, sem dependência do núcleo sobre testes ou navegador.
+
 ## Landing, identidade e aparência MengoData
 
 `app/main.jsx` compõe QueryClient, gateway analítico, gateway de aparência, provider e roteador. `Application.jsx` separa a landing pública em `/` das nove páginas em `/dashboard`; aliases legados preservam query/hash. `use-page-navigation.js` trata foco e âncoras que dependem da chegada dos dados. Não há autenticação.

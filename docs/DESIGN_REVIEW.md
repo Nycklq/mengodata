@@ -1,6 +1,6 @@
 # Design e revisão de experiência — MengoData
 
-Atualizado em 22/10/2026. Implementação local; revisão visual em navegador continua pendente.
+Atualizado em 22/10/2026. A correção posterior conferiu os gráficos e os três cards em Chrome headless, com 32 testes da matriz e quatro no localhost. [Diagnóstico, PNGs e resultados atuais](CHART_RENDERING_FIX.md). Os registros de bloqueio abaixo descrevem a etapa anterior; o checklist integral da aplicação continua distinto dessa validação específica.
 
 ## Referências e decisões
 
