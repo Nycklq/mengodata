@@ -7,6 +7,7 @@ import { loadAnalytics } from '../features/analytics/application/load-analytics.
 import { createHttpAnalyticsGateway } from '../features/analytics/infrastructure/http-analytics-gateway.js';
 import { Dashboard } from './Dashboard.jsx';
 import './styles.css';
+import './refinements.css';
 
 const gateway = createHttpAnalyticsGateway();
 const queryClient = new QueryClient();

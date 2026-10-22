@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import {
   ArrowUpRight,
@@ -18,12 +18,12 @@ import {
 } from 'lucide-react';
 import {
   AnalysisPage,
-  ComparisonPage,
   OverviewPage,
   MatchesPage,
   StandingsPage,
   StatisticsPage,
 } from '../features/analytics/presentation/CollectivePages.jsx';
+import { ComparisonPage } from '../features/analytics/presentation/ComparisonPage.jsx';
 import {
   MethodologyPage,
   NotFoundPage,
@@ -48,6 +48,49 @@ export function Dashboard({ loadAnalytics }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const compact = useCompactNavigation();
   const location = useLocation();
+  const menuButton = useRef(null);
+  const closeButton = useRef(null);
+  const previousPath = useRef(location.pathname);
+  useEffect(() => {
+    if (previousPath.current !== location.pathname) {
+      document.getElementById('main')?.focus();
+      window.scrollTo?.({ top: 0, behavior: 'instant' });
+      previousPath.current = location.pathname;
+    }
+  }, [location.pathname]);
+  useEffect(() => {
+    if (!mobileOpen || !compact) return;
+    closeButton.current?.focus();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (event) => {
+      if (event.key === 'Escape') {
+        setMobileOpen(false);
+        menuButton.current?.focus();
+      }
+      if (event.key === 'Tab') {
+        const items = [
+          ...document.querySelectorAll(
+            '#primary-navigation button, #primary-navigation a',
+          ),
+        ];
+        const first = items[0],
+          last = items.at(-1);
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [mobileOpen, compact]);
   const page = navigation.find(([path]) =>
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path),
   );
@@ -56,7 +99,7 @@ export function Dashboard({ loadAnalytics }) {
       <a className="skip-link" href="#main">
         Pular para o conteúdo
       </a>
-      {mobileOpen && (
+      {mobileOpen && compact && (
         <button
           className="menu-scrim"
           aria-label="Fechar menu"
@@ -65,21 +108,27 @@ export function Dashboard({ loadAnalytics }) {
       )}
       <aside
         id="primary-navigation"
+        role={compact && mobileOpen ? 'dialog' : undefined}
+        aria-modal={compact && mobileOpen ? true : undefined}
         inert={compact && !mobileOpen}
         className={`sidebar ${mobileOpen ? 'open' : ''}`}
         aria-label="Menu principal"
       >
         <div className="brand">
           <span className="brand-mark">
-            <SportsIcon kind="shield" size={31} />
+            <img src="/flamengo-logo.png" alt="Escudo do Flamengo" />
           </span>
           <span>
             FLAMENGO<small>ANALYTICS</small>
           </span>
           <button
             className="icon-button mobile-close"
+            ref={closeButton}
             aria-label="Fechar navegação"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => {
+              setMobileOpen(false);
+              menuButton.current?.focus();
+            }}
           >
             <X size={20} />
           </button>
@@ -115,6 +164,7 @@ export function Dashboard({ loadAnalytics }) {
           <div>
             <button
               className="icon-button mobile-menu"
+              ref={menuButton}
               aria-label="Abrir navegação"
               aria-expanded={mobileOpen}
               aria-controls="primary-navigation"

@@ -18,17 +18,11 @@ export const collectiveLabels = {
   unbeaten_streak: 'Maior invencibilidade',
 };
 
-export function collectiveFilters(parameters, defaults = {}) {
-  const allowed = [
-    'from_round',
-    'to_round',
-    'venue',
-    'club_id',
-    'opponent_id',
-    'result',
-    'page',
-    'page_size',
-  ];
+export function collectiveFilters(parameters, defaults = {}, resource = 'matches') {
+  const allowed = ['from_round', 'to_round', 'venue'];
+  if (resource === 'statistics' || resource === 'matches') allowed.push('club_id');
+  if (resource === 'matches')
+    allowed.push('opponent_id', 'result', 'page', 'page_size');
   return {
     ...defaults,
     ...Object.fromEntries([...parameters].filter(([key]) => allowed.includes(key))),

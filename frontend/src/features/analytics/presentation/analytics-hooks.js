@@ -15,13 +15,16 @@ export function useAnalytics(resource, filters = {}, enabled = true) {
 }
 export function useFilters() {
   const [parameters, setParameters] = useSearchParams();
-  const update = (key, selected) =>
+  const updateMany = (changes) =>
     setParameters((previous) => {
       const next = new URLSearchParams(previous);
-      if (selected) next.set(key, selected);
-      else next.delete(key);
-      if (key !== 'page') next.delete('page');
+      for (const [key, selected] of Object.entries(changes)) {
+        if (selected) next.set(key, selected);
+        else next.delete(key);
+      }
+      if (!Object.hasOwn(changes, 'page')) next.delete('page');
       return next;
     });
-  return { parameters, update };
+  const update = (key, selected) => updateMany({ [key]: selected });
+  return { parameters, update, updateMany };
 }

@@ -1,5 +1,6 @@
 import { PageTitle, Panel, QueryState } from './AnalyticsUi.jsx';
 import { useAnalytics } from './analytics-hooks.js';
+import { Cards, Ready } from './CollectiveUi.jsx';
 export { NotFoundPage } from './DocumentationPages.jsx';
 
 export function MethodologyPage() {
@@ -14,7 +15,9 @@ export function MethodologyPage() {
       <QueryState query={quality}>
         {(document) => (
           <>
-            <div className="notice success">
+            <div
+              className={`notice ${document.coverage?.status === 'verified' ? 'success' : ''}`}
+            >
               <div>
                 <strong>
                   Cobertura{' '}
@@ -24,8 +27,8 @@ export function MethodologyPage() {
                 </strong>
                 <p>
                   {document.coverage?.matches ?? '—'} partidas;{' '}
-                  {document.coverage?.clubs ?? '—'} clubes. Nenhum número de atleta
-                  integra a análise.
+                  {document.coverage?.clubs ?? '—'} clubes. Validação por partida e
+                  rodada oficial antes de liberar totais da temporada.
                 </p>
               </div>
             </div>
@@ -80,11 +83,28 @@ export function MethodologyPage() {
           produção. Pandas e PostgreSQL atendem ao volume sem cluster distribuído.
         </p>
       </Panel>
+      <Panel title="Como interpretar a comparação">
+        <p className="prose">
+          Os dois clubes usam a mesma janela de rodadas e o mesmo mando. O número de
+          jogos explicita o denominador e pode variar em recortes parciais. Pontos,
+          vitórias, gols pró, saldo, aproveitamento e jogos sem sofrer gol favorecem
+          valores maiores; derrotas e gols contra favorecem valores menores. Empates são
+          descritivos. Destaques indicam o melhor valor observado, sem inferência causal
+          ou teste de significância.
+        </p>
+        <p className="prose">
+          Diferença absoluta = A − B. Variação relativa = (A − B) ÷ |B| × 100. Base zero
+          ou indicador ausente permanece indisponível. A diferença de aproveitamento é
+          expressa em pontos percentuais; barras de comparação representam magnitudes,
+          com o sinal preservado nos valores.
+        </p>
+      </Panel>
     </>
   );
 }
 
 export function PowerBiPage() {
+  const summary = useAnalytics('summary');
   return (
     <>
       <PageTitle
@@ -101,6 +121,14 @@ export function PowerBiPage() {
           </p>
         </div>
       </div>
+      <Ready query={summary}>
+        {(document) => (
+          <Cards
+            row={document.data.club}
+            metrics={['played', 'points', 'goals_for', 'goals_against']}
+          />
+        )}
+      </Ready>
       <div className="two-columns">
         <Panel title="Arquivos no diretório powerbi/">
           <ol className="report-pages">
