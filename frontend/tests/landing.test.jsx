@@ -6,7 +6,10 @@ import { describe, expect, it, vi } from 'vitest';
 import { Application } from '../src/app/Application.jsx';
 import { AppearanceProvider } from '../src/features/appearance/presentation/AppearanceProvider.jsx';
 import { createBrowserAppearance } from '../src/features/appearance/infrastructure/browser-appearance.js';
-import { seasonPreview } from '../src/features/landing/domain/season-preview.js';
+import {
+  seasonComparison,
+  seasonPreview,
+} from '../src/features/landing/domain/season-preview.js';
 import { createCollectiveService } from '../../backend/src/application/get-collective.js';
 
 vi.mock('../src/features/analytics/presentation/CollectivePlot.jsx', () => ({
@@ -177,6 +180,14 @@ describe('landing pública e navegação MengoData', () => {
         .club,
     ).toBeNull();
     expect(seasonPreview(undefined).coverage).toBeNull();
+    const comparison = await service('compare');
+    expect(seasonComparison(summary, comparison)).toHaveLength(2);
+    expect(
+      seasonComparison(summary, { ...comparison, dataset_version: 'other' }),
+    ).toEqual([]);
+    expect(
+      seasonComparison({ ...summary, availability: 'unavailable' }, comparison),
+    ).toEqual([]);
   });
   it('oferece recuperação em endereço inexistente', () => {
     mount('/nao-existe');

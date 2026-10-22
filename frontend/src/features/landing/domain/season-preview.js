@@ -18,3 +18,12 @@ export function seasonPreview(document) {
     source: available ? document.source : null,
   };
 }
+
+export function seasonComparison(summary, comparison) {
+  return seasonPreview(summary).available &&
+    seasonPreview(comparison).available &&
+    summary.dataset_version === comparison.dataset_version &&
+    Array.isArray(comparison.data)
+    ? comparison.data
+    : [];
+}

@@ -19,7 +19,7 @@ import { Chart } from '../../analytics/presentation/CollectiveUi.jsx';
 import { formatCollectiveValue as format } from '../../analytics/presentation/format-value.js';
 import { compareMetrics } from '../../analytics/domain/comparison.js';
 import { SportsIcon } from '../../analytics/presentation/SportsIcon.jsx';
-import { seasonPreview } from '../domain/season-preview.js';
+import { seasonComparison, seasonPreview } from '../domain/season-preview.js';
 import { StadiumArt } from './StadiumArt.jsx';
 import { DataFlow } from './DataFlow.jsx';
 
@@ -159,7 +159,7 @@ function PreviewAvailability({ query }) {
         Carregando a temporada verificada…
       </p>
     );
-  if (query.isError || query.data?.availability !== 'available')
+  if (query.isError || !seasonPreview(query.data).available)
     return (
       <p className="landing-data-status" role="alert">
         Dados indisponíveis no momento.{' '}
@@ -187,14 +187,15 @@ export function LandingPage() {
   const [venueMetric, setVenueMetric] = useState('points');
   const season = seasonPreview(summary.data);
   const series =
-    season.available && evolution.data?.availability === 'available'
+    season.available &&
+    seasonPreview(evolution.data).available &&
+    summary.data.dataset_version === evolution.data.dataset_version
       ? evolution.data.data
       : [];
   const venues = season.venues
     .filter((row) => row.club_id)
     .map((row) => ({ ...row, name: row.venue === 'home' ? 'Mandante' : 'Visitante' }));
-  const pair =
-    comparison.data?.availability === 'available' ? comparison.data.data : [];
+  const pair = seasonComparison(summary.data, comparison.data);
   const comparisonRows = compareMetrics(pair[0], pair[1]).filter((row) =>
     ['points', 'goals_for', 'goals_against', 'efficiency'].includes(row.metric),
   );
@@ -485,6 +486,7 @@ export function LandingPage() {
               Comparar Flamengo com
               <select
                 value={opponent}
+                disabled={!season.available}
                 onChange={(event) => setOpponent(event.target.value)}
               >
                 {season.clubs
@@ -501,6 +503,23 @@ export function LandingPage() {
               <span>×</span>
               <strong>{pair[1]?.name ?? 'Indisponível'}</strong>
             </div>
+            {season.available && comparison.isPending && (
+              <p role="status" className="comparison-request-message">
+                Carregando comparação…
+              </p>
+            )}
+            {season.available && !comparison.isPending && !pair.length && (
+              <div role="alert" className="comparison-request-message">
+                <p>Comparação indisponível no momento.</p>
+                <button
+                  className="text-link"
+                  type="button"
+                  onClick={() => comparison.refetch()}
+                >
+                  Tentar novamente
+                </button>
+              </div>
+            )}
             {comparisonRows.map((row) => (
               <div className="landing-comparison-row" key={row.metric}>
                 <span>

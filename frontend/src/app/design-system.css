@@ -1862,6 +1862,47 @@ tr.flamengo-row td {
     transform: rotate(360deg);
   }
 }
+.loading-skeleton {
+  width: 100%;
+  max-width: 760px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+.loading-skeleton span,
+.loading-skeleton > div {
+  min-height: 58px;
+  background: linear-gradient(
+    100deg,
+    var(--surface-soft) 25%,
+    var(--line) 50%,
+    var(--surface-soft) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: 7px;
+  animation: skeleton-pulse 1.8s ease infinite;
+}
+.loading-skeleton > div {
+  grid-column: 1 / -1;
+  min-height: 80px;
+}
+.comparison-request-message {
+  font-size: 10px;
+  color: var(--muted);
+  padding: 15px 0;
+}
+.comparison-request-message button {
+  padding: 6px 0;
+  background: none;
+  border: 0;
+  font-size: 10px;
+}
+@keyframes skeleton-pulse {
+  to {
+    background-position: -200% 0;
+  }
+}
 @media (min-width: 1600px) {
   .landing-hero {
     min-height: 1010px;

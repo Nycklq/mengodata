@@ -19,6 +19,13 @@ export function QueryState({ query, children }) {
       <div className="state loading" role="status">
         <RefreshCw size={24} />
         <p>Carregando dados verificados…</p>
+        <div className="loading-skeleton" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <div />
+        </div>
       </div>
     );
   if (query.isError)
@@ -26,7 +33,11 @@ export function QueryState({ query, children }) {
       <div className="state" role="alert">
         <SportsIcon kind="whistle" />
         <h3>Não foi possível carregar os dados</h3>
-        <p>Verifique se a API local está em execução.</p>
+        <p>
+          {query.error?.code === 'INVALID_ANALYTICS_FILTERS'
+            ? 'Revise o endereço e os filtros: selecione clubes distintos e rodadas de 1 a 38.'
+            : 'Verifique se a API local está em execução.'}
+        </p>
         <button className="button" onClick={() => query.refetch()}>
           <RefreshCw size={16} />
           Tentar novamente

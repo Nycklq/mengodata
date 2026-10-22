@@ -31,7 +31,14 @@ export function createHttpAnalyticsGateway(fetchRequest = globalThis.fetch) {
         `/api/${resource}${parameters.size ? '?' + parameters : ''}`,
         { signal },
       );
-      if (!response.ok) throw new Error('ANALYTICS_REQUEST_FAILED');
+      if (!response.ok) {
+        const error = new Error('ANALYTICS_REQUEST_FAILED');
+        error.code =
+          response.status === 400
+            ? 'INVALID_ANALYTICS_FILTERS'
+            : 'ANALYTICS_UNAVAILABLE';
+        throw error;
+      }
       return envelope.parse(await response.json());
     },
   };
