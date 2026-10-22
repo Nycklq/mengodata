@@ -11,6 +11,7 @@ const ignored = new Set([
   'node_modules',
   '.venv',
   '.tmp',
+  '.local',
   'dist',
   '__pycache__',
   '.pytest_cache',

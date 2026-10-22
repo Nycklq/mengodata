@@ -28,6 +28,7 @@ export default [
       '**/dist/**',
       '**/*.egg-info/**',
       '.tmp/**',
+      '.local/**',
       '**/coverage/**',
     ],
   },

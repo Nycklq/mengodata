@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test, { before, after } from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { readFile } from 'node:fs/promises';
 import { temporaryPostgres } from './temporary-postgres.js';
 import { createPostgresPool } from '../../backend/src/infrastructure/persistence/postgres-pool.js';
 import { migrate } from '../../backend/src/infrastructure/persistence/migrate.js';
@@ -104,4 +105,97 @@ test('invalid import rolls back both metadata and facts', async () => {
   const count = (await pool.query('SELECT count(*)::int AS n FROM collective.imports'))
     .rows[0].n;
   assert.equal(count, 1);
+});
+
+test('MengoData grants abort in another database without changing its privileges or data', async () => {
+  await pool.query('CREATE ROLE flamengo_app NOLOGIN');
+  const sql = await readFile(
+    new URL('../operations/grant-mengo-data.sql', import.meta.url),
+    'utf8',
+  );
+  const client = await pool.connect();
+  try {
+    await assert.rejects(client.query(sql), {
+      message: 'MENGO_DATA_DATABASE_REQUIRED',
+    });
+    await client.query('ROLLBACK');
+    assert.equal(
+      (
+        await client.query('SELECT has_schema_privilege($1, $2, $3) AS allowed', [
+          'flamengo_app',
+          'collective',
+          'USAGE',
+        ])
+      ).rows[0].allowed,
+      false,
+    );
+    assert.equal(
+      (await client.query('SELECT count(*)::int AS n FROM collective.matches')).rows[0]
+        .n,
+      380,
+    );
+  } finally {
+    client.release();
+  }
+});
+
+test('MengoData grants permit real import and analytical reads without UPDATE DELETE CREATE or role changes', async () => {
+  await pool.query('CREATE DATABASE mengo_data');
+  const target = new URL(cluster.connectionString);
+  target.pathname = '/mengo_data';
+  const administration = createPostgresPool(target.href);
+  target.searchParams.set('options', '-c role=flamengo_app');
+  const application = createPostgresPool(target.href);
+  try {
+    await migrate(administration, migrations, 'collective_migrations');
+    const sql = await readFile(
+      new URL('../operations/grant-mengo-data.sql', import.meta.url),
+      'utf8',
+    );
+    await administration.query(sql);
+    await administration.query(sql);
+    const files = createCollectiveFiles(
+      fileURLToPath(new URL('../../', import.meta.url)),
+    );
+    const repository = createPostgresCollective(application, files);
+    assert.equal((await repository.store(document)).changed, true);
+    assert.equal((await repository.store(document)).changed, false);
+    assert.equal(
+      (await application.query('SELECT current_user AS role')).rows[0].role,
+      'flamengo_app',
+    );
+    for (const [view, count] of [
+      ['team_matches', 760],
+      ['club_totals', 20],
+      ['round_totals', 760],
+    ]) {
+      const allowed = new Set(['team_matches', 'club_totals', 'round_totals']);
+      assert.ok(allowed.has(view));
+      assert.equal(
+        (await application.query(`SELECT count(*)::int AS n FROM collective.${view}`))
+          .rows[0].n,
+        count,
+      );
+    }
+    const privileges = await application.query(
+      "SELECT has_table_privilege('collective.matches', 'UPDATE') AS can_update, has_table_privilege('collective.matches', 'DELETE') AS can_delete, has_schema_privilege('collective', 'CREATE') AS can_create",
+    );
+    assert.deepEqual(privileges.rows[0], {
+      can_update: false,
+      can_delete: false,
+      can_create: false,
+    });
+    assert.equal(
+      (
+        await administration.query(
+          'SELECT rolcanlogin FROM pg_roles WHERE rolname=$1',
+          ['flamengo_app'],
+        )
+      ).rows[0].rolcanlogin,
+      false,
+    );
+  } finally {
+    await application.end();
+    await administration.end();
+  }
 });

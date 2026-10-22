@@ -24,7 +24,7 @@ export function createCollectiveService(repository) {
     if (resource === 'data-quality') data = snapshot.coverage;
     if (resource === 'summary') {
       data = {
-        club: aggregateClubs(selectFacts(allFacts, { club_id: clubId }))[0] ?? null,
+        club: totals.find((row) => row.club_id === clubId) ?? null,
         league: {
           matches: new Set(allFacts.map((row) => row.match_id)).size,
           goals: allFacts.reduce((sum, row) => sum + row.goals_for, 0),

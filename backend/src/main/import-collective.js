@@ -3,6 +3,7 @@ import { readEnvironment } from '../infrastructure/config/environment.js';
 import { createCollectiveFiles } from '../infrastructure/persistence/collective-files.js';
 import { createPostgresCollective } from '../infrastructure/persistence/postgres-collective.js';
 import { createPostgresPool } from '../infrastructure/persistence/postgres-pool.js';
+import { describeDatabaseError } from '../infrastructure/persistence/database-error.js';
 
 readEnvironment();
 let pool;
@@ -22,6 +23,9 @@ try {
         error.message === 'DATABASE_URL_REQUIRED'
           ? error.message
           : 'COLLECTIVE_DATABASE_IMPORT_FAILED',
+      ...(error.message === 'DATABASE_URL_REQUIRED'
+        ? {}
+        : { database_error: describeDatabaseError(error) }),
     }) + '\n',
   );
   process.exitCode = 1;

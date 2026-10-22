@@ -1,0 +1,90 @@
+{
+  "checked_at": "2026-10-22T13:14:01.246Z",
+  "probe": {
+    "connected": 1,
+    "database": "mengo_data",
+    "role": "flamengo_app",
+    "port": 5432,
+    "read_only": "on"
+  },
+  "counts": {
+    "competitions": 1,
+    "seasons": 1,
+    "clubs": 20,
+    "imports": 1,
+    "matches": 380,
+    "team_matches": 760,
+    "club_totals": 20,
+    "round_totals": 760
+  },
+  "scope": [
+    {
+      "competition_id": "competition:brasileirao-serie-a-men",
+      "season": 2025,
+      "matches": 380,
+      "unique_matches": 380,
+      "first_round": 1,
+      "last_round": 38,
+      "rounds": 38
+    }
+  ],
+  "rounds_verified": 38,
+  "matches_per_round": 10,
+  "club_schedules_verified": 20,
+  "played_per_club": 38,
+  "home_per_club": 19,
+  "away_per_club": 19,
+  "sql_gold_parity": {
+    "club_totals": 20,
+    "accumulated_rows": 760
+  },
+  "snapshot": {
+    "content_sha256": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+    "coverage_verified": true,
+    "facts": 760,
+    "accumulated": 760,
+    "club_totals": 20
+  },
+  "flamengo": {
+    "import_sha256": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+    "club_id": "club:flamengo",
+    "played": 38,
+    "wins": 23,
+    "draws": 10,
+    "losses": 5,
+    "goals_for": 78,
+    "goals_against": 27,
+    "goal_difference": 51,
+    "points": 79,
+    "clean_sheets": 18,
+    "efficiency": "69.2982456140350877",
+    "goals_for_average": "2.0526315789473684",
+    "goals_against_average": "0.71052631578947368421"
+  },
+  "postponed": {
+    "official_round": 12,
+    "played_date": "2025-11-15"
+  },
+  "import_repeated_changed": false,
+  "api": {
+    "checked_at": "2026-10-22T13:15:03.523Z",
+    "origin": "http://127.0.0.1:3001",
+    "node_pid": 25588,
+    "metadata_status": "available",
+    "matches": 380,
+    "standings": 20,
+    "evolution": 38,
+    "flamengo_points": 79,
+    "dataset_version": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+    "postgres_sessions": [
+      {
+        "postgres_pid": 2516,
+        "database": "mengo_data",
+        "role": "flamengo_app",
+        "application_name": "flamengo-analytics:25588",
+        "state": "idle",
+        "query": "SELECT gold FROM collective.imports WHERE content_sha256 = $1 AND coverage_verified"
+      }
+    ]
+  }
+}

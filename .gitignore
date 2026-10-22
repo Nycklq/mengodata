@@ -8,6 +8,7 @@ __pycache__/
 coverage/
 dist/
 .tmp/
+.local/
 .env
 .env.*
 !.env.example

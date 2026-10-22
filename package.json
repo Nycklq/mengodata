@@ -43,7 +43,12 @@
     "collective:analyze": "node scripts/python.mjs -m flamengo_pipeline.main.analyze_collective",
     "collective:parity": "node scripts/validate-collective.mjs",
     "db:import:legacy": "node backend/src/main/import-statistics.js",
-    "powerbi:prepare:legacy": "node scripts/python.mjs -m flamengo_pipeline.main.export_powerbi"
+    "powerbi:prepare:legacy": "node scripts/python.mjs -m flamengo_pipeline.main.export_powerbi",
+    "db:local:setup": "node backend/src/main/local-database.js setup",
+    "db:local:start": "node backend/src/main/local-database.js start",
+    "db:local:stop": "node backend/src/main/local-database.js stop",
+    "db:local:status": "node backend/src/main/local-database.js status",
+    "db:local:configure": "node backend/src/main/local-database.js configure"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

@@ -104,6 +104,38 @@ test('comparison uses identical round and venue windows and match pagination', a
   assert.equal(page.body.data.total, 380);
 });
 
+test('arbitrary clubs compare with totals and evolution from the same away window', async () => {
+  const window = { from_round: 20, to_round: 38, venue: 'away' };
+  const reply = await request(app)
+    .get('/api/compare')
+    .query({ ...window, club_id: 'club:bahia', opponent_id: 'club:sport' })
+    .expect(200);
+  for (const row of reply.body.data) {
+    const summary = await request(app)
+      .get('/api/summary')
+      .query({ ...window, club_id: row.club_id })
+      .expect(200);
+    const evolution = await request(app)
+      .get('/api/evolution')
+      .query({ ...window, club_id: row.club_id })
+      .expect(200);
+    assert.deepEqual(summary.body.data.club, row);
+    for (const metric of [
+      'played',
+      'points',
+      'goals_for',
+      'goals_against',
+      'efficiency',
+    ])
+      assert.equal(evolution.body.data.at(-1)[metric], row[metric]);
+    assert.ok(
+      summary.body.data.home_away.every(
+        (item) => item.venue === 'away' || !item.club_id,
+      ),
+    );
+  }
+});
+
 for (const [path, query] of [
   ['matches', { to_round: 39 }],
   ['matches', { from_round: 38, to_round: 1 }],
