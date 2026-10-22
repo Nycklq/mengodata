@@ -121,6 +121,7 @@ export function ComparisonPage() {
             <span className="club-selector-field">
               <span>{index ? 'Clube para comparar' : 'Clube de referência'}</span>
               <select
+                aria-label={index ? 'Clube para comparar' : 'Clube de referência'}
                 value={filters[key]}
                 onChange={(event) => choose(key, event.target.value)}
               >

@@ -24,14 +24,14 @@ export function OverviewPage() {
           <p>Flamengo e os outros 19 clubes. Resultados reais, rodada a rodada.</p>
         </div>
         <div className="hero-emblem">
-          <img src="/flamengo-logo.png" alt="Escudo do Flamengo" />
+          <img src="/brand/flamengo.png" alt="Escudo do Flamengo" />
           <span>RAÇA, AMOR E DADOS.</span>
         </div>
       </div>
       <Controls parameters={parameters} update={update} updateMany={updateMany} />
       <div className="section-intro">
         <span className="eyebrow">A CAMPANHA RUBRO-NEGRA</span>
-        <Link className="text-link" to="/comparar">
+        <Link className="text-link" to="/dashboard/comparar">
           Comparar clubes ↗
         </Link>
       </div>
@@ -63,7 +63,11 @@ export function OverviewPage() {
                   )}
                 </Ready>
               </Panel>
-              <Panel title="Dentro e fora de casa" subtitle="Mesma janela de rodadas">
+              <Panel
+                id="casa-fora"
+                title="Dentro e fora de casa"
+                subtitle="Mesma janela de rodadas"
+              >
                 <Chart
                   rows={document.data.home_away
                     .filter((row) => row.club_id)
@@ -74,7 +78,7 @@ export function OverviewPage() {
                   category="name"
                   metrics={['points']}
                   bars
-                  height={180}
+                  height={240}
                 />
                 <ClubTable
                   rows={document.data.home_away
@@ -102,7 +106,7 @@ export function OverviewPage() {
             <Panel
               title="Flamengo no campeonato"
               action={
-                <Link className="text-link" to="/classificacao">
+                <Link className="text-link" to="/dashboard/classificacao">
                   Ver classificação
                 </Link>
               }

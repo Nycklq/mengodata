@@ -94,9 +94,9 @@ export function Empty({
     </div>
   );
 }
-export function Panel({ title, subtitle, children, action }) {
+export function Panel({ title, subtitle, children, action, id }) {
   return (
-    <section className="panel">
+    <section className="panel" id={id}>
       <div className="panel-heading">
         <div>
           <h2>{title}</h2>

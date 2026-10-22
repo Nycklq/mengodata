@@ -1,7 +1,24 @@
 import { PageTitle, Panel, QueryState } from './AnalyticsUi.jsx';
 import { useAnalytics } from './analytics-hooks.js';
 import { Cards, Ready } from './CollectiveUi.jsx';
-export { NotFoundPage } from './DocumentationPages.jsx';
+import { Link } from 'react-router-dom';
+import { SportsIcon } from './SportsIcon.jsx';
+
+export function NotFoundPage() {
+  return (
+    <div className="state">
+      <SportsIcon kind="whistle" />
+      <h1>Página não encontrada</h1>
+      <p>Escolha uma nova perspectiva para continuar.</p>
+      <Link className="button" to="/dashboard">
+        Abrir dashboard
+      </Link>
+      <Link className="text-link" to="/">
+        Voltar à página inicial
+      </Link>
+    </div>
+  );
+}
 
 export function MethodologyPage() {
   const quality = useAnalytics('data-quality');

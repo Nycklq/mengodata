@@ -32,6 +32,8 @@ import {
 import { AnalyticsContext } from '../features/analytics/presentation/analytics-hooks.js';
 import { SportsIcon } from '../features/analytics/presentation/SportsIcon.jsx';
 import { useCompactNavigation } from './use-compact-navigation.js';
+import { Brand } from '../features/identity/presentation/Brand.jsx';
+import { ThemeToggle } from '../features/appearance/presentation/ThemeToggle.jsx';
 
 const navigation = [
   ['/', 'Visão geral', LayoutDashboard],
@@ -44,7 +46,7 @@ const navigation = [
   ['/power-bi', 'Power BI', BarChart3],
   ['/metodologia', 'Metodologia', BookOpen],
 ];
-export function Dashboard({ loadAnalytics }) {
+export function Dashboard({ loadAnalytics, basePath = '' }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const compact = useCompactNavigation();
   const location = useLocation();
@@ -91,8 +93,9 @@ export function Dashboard({ loadAnalytics }) {
       document.removeEventListener('keydown', onKey);
     };
   }, [mobileOpen, compact]);
+  const relativePath = location.pathname.slice(basePath.length) || '/';
   const page = navigation.find(([path]) =>
-    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path),
+    path === '/' ? relativePath === '/' : relativePath.startsWith(path),
   );
   return (
     <AnalyticsContext.Provider value={loadAnalytics}>
@@ -115,12 +118,6 @@ export function Dashboard({ loadAnalytics }) {
         aria-label="Menu principal"
       >
         <div className="brand">
-          <span className="brand-mark">
-            <img src="/flamengo-logo.png" alt="Escudo do Flamengo" />
-          </span>
-          <span>
-            FLAMENGO<small>ANALYTICS</small>
-          </span>
           <button
             className="icon-button mobile-close"
             ref={closeButton}
@@ -132,6 +129,7 @@ export function Dashboard({ loadAnalytics }) {
           >
             <X size={20} />
           </button>
+          <Brand compact />
         </div>
         <div className="season-tag">
           <span className="red-dot" />
@@ -142,7 +140,7 @@ export function Dashboard({ loadAnalytics }) {
           {navigation.map(([path, label, Icon]) => (
             <NavLink
               key={path}
-              to={path}
+              to={`${basePath}${path === '/' ? '' : path}` || '/'}
               end={path === '/'}
               onClick={() => setMobileOpen(false)}
             >
@@ -174,41 +172,44 @@ export function Dashboard({ loadAnalytics }) {
             </button>
             <PanelLeftClose className="desktop-indicator" size={18} />
             <span className="breadcrumb">
-              Flamengo Analytics <ChevronRight size={13} />
+              MengoData <ChevronRight size={13} />
               <strong>{page?.[1] ?? 'Perfil'}</strong>
             </span>
           </div>
-          <span className="header-scope">
-            <span className="red-dot" />
-            Temporada completa <span className="year">2025</span>
-          </span>
+          <div className="topbar-actions">
+            <span className="header-scope">
+              <span className="red-dot" />
+              Temporada completa <span className="year">2025</span>
+            </span>
+            <ThemeToggle />
+          </div>
         </header>
         <main id="main" tabIndex={-1}>
           <Routes>
-            <Route path="/" element={<OverviewPage />} />
-            <Route path="/partidas" element={<MatchesPage />} />
-            <Route path="/classificacao" element={<StandingsPage />} />
-            <Route path="/comparar" element={<ComparisonPage />} />
+            <Route index element={<OverviewPage />} />
+            <Route path="partidas" element={<MatchesPage />} />
+            <Route path="classificacao" element={<StandingsPage />} />
+            <Route path="comparar" element={<ComparisonPage />} />
             <Route
-              path="/ofensivo"
+              path="ofensivo"
               element={<AnalysisPage key="offensive" kind="offensive" />}
             />
             <Route
-              path="/defensivo"
+              path="defensivo"
               element={<AnalysisPage key="defensive" kind="defensive" />}
             />
-            <Route path="/estatisticas" element={<StatisticsPage />} />
-            <Route path="/power-bi" element={<PowerBiPage />} />
-            <Route path="/metodologia" element={<MethodologyPage />} />
+            <Route path="estatisticas" element={<StatisticsPage />} />
+            <Route path="power-bi" element={<PowerBiPage />} />
+            <Route path="metodologia" element={<MethodologyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <footer>
           <span>
-            Flamengo Analytics <span className="footer-divider">/</span> Projeto
-            acadêmico independente
+            MengoData <span className="footer-divider">/</span> Projeto acadêmico
+            independente
           </span>
-          <NavLink to="/metodologia">
+          <NavLink to={`${basePath}/metodologia`}>
             Fontes e metodologia <ArrowUpRight size={13} />
           </NavLink>
         </footer>
