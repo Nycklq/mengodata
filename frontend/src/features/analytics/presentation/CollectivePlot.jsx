@@ -125,6 +125,7 @@ export default function CollectivePlot({
                 fontSize: 12,
                 padding: '12px 16px',
               }}
+              itemStyle={{ color: 'var(--ink)' }}
               formatter={(value, name) => [number(value), name]}
               labelFormatter={(value) =>
                 category === 'official_round' ? `Rodada ${value}` : value
@@ -134,6 +135,9 @@ export default function CollectivePlot({
           <Legend
             iconType="circle"
             iconSize={7}
+            formatter={(value) => (
+              <span style={{ color: 'var(--muted)' }}>{value}</span>
+            )}
             wrapperStyle={{
               fontSize: 10,
               paddingTop: 16,
