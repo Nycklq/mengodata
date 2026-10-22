@@ -14,12 +14,19 @@ export function createApp({
   getCollective,
   logger,
   corsOrigin,
+  trustProxyHops = 0,
   rateLimit = 300,
 }) {
   const app = express();
   app.disable('x-powered-by');
+  app.set('trust proxy', trustProxyHops);
   app.use(helmet());
-  app.use(cors({ origin: corsOrigin }));
+  app.use(
+    cors({
+      origin: (origin, callback) => callback(null, origin === corsOrigin),
+      methods: ['GET', 'HEAD', 'OPTIONS'],
+    }),
+  );
   app.use(pinoHttp({ logger }));
   const clients = new Map();
   app.use('/api', (request, response, next) => {

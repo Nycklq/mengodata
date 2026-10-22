@@ -15,7 +15,10 @@ import '@fontsource/poppins/latin-700.css';
 import '@fontsource/poppins/latin-500-italic.css';
 import './design-system.css';
 
-const gateway = createHttpAnalyticsGateway();
+const gateway = createHttpAnalyticsGateway(
+  undefined,
+  import.meta.env.PROD ? import.meta.env.VITE_API_URL : '',
+);
 const queryClient = new QueryClient();
 const appearance = createBrowserAppearance();
 const load = (resource, filters, signal) =>

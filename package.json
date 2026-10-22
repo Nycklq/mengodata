@@ -12,6 +12,11 @@
     "packages/*"
   ],
   "scripts": {
+    "data:check": "node backend/src/main/check-collective-data.js",
+    "db:neon:check": "node backend/src/main/neon-database.js check",
+    "db:neon:migrate": "node backend/src/main/neon-database.js migrate",
+    "db:neon:import": "node backend/src/main/neon-database.js import",
+    "db:neon:verify": "node backend/src/main/neon-database.js verify",
     "dev:backend": "npm run dev --workspace backend",
     "dev:frontend": "npm run dev --workspace frontend",
     "start:backend": "npm run start --workspace backend",
@@ -33,7 +38,7 @@
     "lint:pipeline": "node scripts/python.mjs -m ruff check pipeline",
     "format:pipeline:check": "node scripts/python.mjs -m ruff format --check pipeline",
     "verify:pipeline": "npm run lint:pipeline && npm run format:pipeline:check && npm run test:pipeline",
-    "verify": "npm run lint && npm run format:check && npm test && npm run verify:pipeline && npm run test:database && npm run notebooks:check && npm run build && npm run test:smoke && npm run test:browser",
+    "verify": "npm run data:check && npm run lint && npm run format:check && npm test && npm run verify:pipeline && npm run test:database && npm run notebooks:check && npm run build && npm run test:smoke && npm run test:browser",
     "db:check": "npm run db:check --workspace backend",
     "db:migrate": "npm run db:migrate --workspace backend",
     "lint": "eslint . --max-warnings 0",

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { normalizeApiOrigin } from './api-origin.js';
 
 const envelope = z
   .object({
@@ -19,7 +20,11 @@ const envelope = z
     source: z.object({}).passthrough().nullable(),
   })
   .passthrough();
-export function createHttpAnalyticsGateway(fetchRequest = globalThis.fetch) {
+export function createHttpAnalyticsGateway(
+  fetchRequest = globalThis.fetch,
+  apiOrigin = '',
+) {
+  const origin = normalizeApiOrigin(apiOrigin);
   return {
     async get(resource, filters = {}, signal) {
       const parameters = new URLSearchParams(
@@ -28,7 +33,7 @@ export function createHttpAnalyticsGateway(fetchRequest = globalThis.fetch) {
         ),
       );
       const response = await fetchRequest(
-        `/api/${resource}${parameters.size ? '?' + parameters : ''}`,
+        `${origin}/api/${resource}${parameters.size ? '?' + parameters : ''}`,
         { signal },
       );
       if (!response.ok) {

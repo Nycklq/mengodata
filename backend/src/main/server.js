@@ -13,8 +13,8 @@ const environment = readEnvironment();
 const files = createCollectiveFiles(
   fileURLToPath(new URL('../../../', import.meta.url)),
 );
-const pool = process.env.DATABASE_URL
-  ? createPostgresPool(process.env.DATABASE_URL)
+const pool = environment.DATABASE_URL
+  ? createPostgresPool(environment.DATABASE_URL)
   : null;
 const logger = pino({
   level: environment.LOG_LEVEL,
@@ -43,6 +43,7 @@ const app = createApp({
   getCollective: collective,
   logger,
   corsOrigin: environment.CORS_ORIGIN,
+  trustProxyHops: environment.TRUST_PROXY_HOPS,
 });
 const server = app.listen(environment.PORT, environment.HOST, () => {
   logger.info({ port: environment.PORT }, 'API iniciada');

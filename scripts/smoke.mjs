@@ -15,7 +15,14 @@ await new Promise((accept, reject) =>
 );
 const child = spawn(process.execPath, ['backend/src/main/server.js'], {
   cwd: root,
-  env: { ...process.env, HOST: '127.0.0.1', PORT: String(port), LOG_LEVEL: 'silent' },
+  env: {
+    ...process.env,
+    NODE_ENV: 'test',
+    DATABASE_URL: '',
+    HOST: '127.0.0.1',
+    PORT: String(port),
+    LOG_LEVEL: 'silent',
+  },
   stdio: 'ignore',
   windowsHide: true,
 });

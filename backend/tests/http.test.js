@@ -82,3 +82,69 @@ test('configured browser origin is explicit', async () => {
     'http://localhost:5173',
   );
 });
+
+test('CORS does not authorize another origin or a forged hostname suffix', async () => {
+  for (const origin of [
+    'https://unrelated.example.invalid',
+    'http://localhost:5173.evil.invalid',
+  ]) {
+    const response = await request(app)
+      .get('/api/health')
+      .set('Origin', origin)
+      .expect(200);
+    assert.equal(response.headers['access-control-allow-origin'], undefined);
+  }
+});
+
+test('CORS preflight authorizes only the configured origin and read methods', async () => {
+  const response = await request(app)
+    .options('/api/metadata')
+    .set('Origin', 'http://localhost:5173')
+    .set('Access-Control-Request-Method', 'GET')
+    .expect(204);
+  assert.equal(
+    response.headers['access-control-allow-origin'],
+    'http://localhost:5173',
+  );
+  assert.ok(response.headers['access-control-allow-methods'].includes('GET'));
+  assert.ok(!response.headers['access-control-allow-methods'].includes('POST'));
+});
+
+test('trusted proxy depth separates clients while ignoring a forged XFF prefix', async () => {
+  const proxied = createApp({
+    getMetadata: getProjectMetadata,
+    logger,
+    corsOrigin: 'https://frontend.example.invalid',
+    trustProxyHops: 1,
+    rateLimit: 1,
+  });
+  await request(proxied)
+    .get('/api/health')
+    .set('X-Forwarded-For', '203.0.113.1')
+    .expect(200);
+  await request(proxied)
+    .get('/api/health')
+    .set('X-Forwarded-For', '198.51.100.7, 203.0.113.1')
+    .expect(429);
+  await request(proxied)
+    .get('/api/health')
+    .set('X-Forwarded-For', '203.0.113.2')
+    .expect(200);
+});
+
+test('local default does not trust client-supplied proxy headers', async () => {
+  const local = createApp({
+    getMetadata: getProjectMetadata,
+    logger,
+    corsOrigin: 'http://localhost:5173',
+    rateLimit: 1,
+  });
+  await request(local)
+    .get('/api/health')
+    .set('X-Forwarded-For', '203.0.113.1')
+    .expect(200);
+  await request(local)
+    .get('/api/health')
+    .set('X-Forwarded-For', '203.0.113.2')
+    .expect(429);
+});

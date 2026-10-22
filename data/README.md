@@ -2,4 +2,6 @@
 
 raw/collective/season=2025/competition=brasileirao-serie-a-men contém Bronze original e metadata da revisão fixa, permitindo reprodução offline. pipeline:collective gera Silver e Gold Parquet/CSV e analytics/collective.json.
 
+Para produção, somente `analytics/collective.json` foi liberado no `.gitignore` para inclusão no repositório, sem alterar seus bytes ou proveniência. Essa publicação acompanha a Bronze e os contratos para permitir o backend Node sem Python no Render. `npm.cmd run data:check` verifica o snapshot antes do start. CSV/Parquet continuam ignorados e reproduzíveis pelo pipeline local. [Configuração de produção](../deployment/README.md).
+
 380 partidas → 760 fatos clube × partida e 760 acumulados. Não somar snapshots. JSON integra API; Parquet armazena analítica; CSV integra BI. powerbi:prepare gera data/powerbi. Arquivos references.json/powerbi.json anteriores são legados e não são lidos pelo servidor ativo. Sem credenciais aqui. Proveniência e licença em `contracts/collective-source.json`, `raw/collective/LICENSE.md` e nos metadados Bronze.

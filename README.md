@@ -8,7 +8,7 @@ Limpeza segura de 22/10/2026: três arquivos sem uso removidos, página Power BI
 
 Durante a conferência final, o usuário removeu os documentos Markdown diretamente em `docs/` e confirmou que deveriam continuar removidos. Não foram recriados. Este README concentra agora instruções, arquitetura, resultados e pendências; `docs/api/`, `docs/evidence/` e `docs/history/` permanecem disponíveis. As exclusões de documentação são registradas separadamente das três remoções de código/assets da limpeza.
 
-Não houve deploy. Ainda faltam configuração SPA/proxy de API na Vercel, ajuste do bind para Render, preparação da Gold no ambiente de hospedagem e validação de TLS/migração/importação no Neon. A configuração local não foi alterada.
+Não houve deploy. As configurações de produção foram preparadas posteriormente, mantendo o ambiente local: [campos e comandos para GitHub, Neon, Render e Vercel](deployment/README.md). Faltam provisionamento autorizado, URLs/segredos reais e validação remota. Nenhuma migração foi executada no banco local ou no Neon nesta preparação.
 
 ## Entrega local
 
@@ -70,7 +70,7 @@ Abra a landing em http://127.0.0.1:5173/ e use **Explorar dashboard**. Painel: h
 
 O botão de tema está na landing e no painel. O primeiro acesso acompanha o sistema; a escolha explícita é salva em `mengodata-theme`, persiste entre rotas e é aplicada antes da montagem. Fontes são servidas localmente, sem CDN.
 
-Sem DATABASE_URL, a API usa a Gold local verificada contra Bronze. Com a variável, exige a mesma versão no PostgreSQL; versão ausente retorna indisponível, sem fallback silencioso.
+Em desenvolvimento, sem DATABASE_URL a API usa a Gold local verificada contra Bronze. Em produção, DATABASE_URL e uma origem CORS HTTPS são obrigatórias, e o servidor não lê o .env local. Com a variável, exige a mesma versão no PostgreSQL; versão ausente retorna indisponível, sem fallback silencioso.
 
 ## PostgreSQL
 
@@ -99,7 +99,7 @@ Quatorze indicadores, incluindo jogos, mostram diferença A − B e variação s
 
 ## Verificar e apresentar
 
-Execute o pipeline antes dos testes em um checkout novo:
+Para a verificação acadêmica completa em um checkout novo, execute o pipeline para reconstruir também os Parquet/CSV. A publicação Gold JSON operacional acompanha o repositório. Depois:
 
 ```powershell
 npm.cmd run verify
@@ -107,7 +107,7 @@ npm.cmd run verify
 
 ESLint/Prettier, testes JS/React/Python/PostgreSQL isolado, Ruff, notebooks, build, smoke HTTP/Vite e Playwright. [Resultados observados](#resultados-desta-auditoria). `npm.cmd run test:browser` usa Chrome instalado, perfil headless próprio e API isolada com a Gold real, sem acessar bancos existentes. Verifica os gráficos ativos e cards em 375/768/1024/1440 px, claro/escuro, com CSS e screenshots reais. A conferência operacional no localhost com PostgreSQL também passou. [Evidências dos gráficos](docs/evidence/chart-browser-verification.json). Auditoria integral de acessibilidade e outros navegadores permanecem fora dessa validação.
 
-[Power BI complementar](powerbi/README.md): CSVs reais, modelo, M, DAX, tema e guia preservados fora da interface pública. Preparação opcional: `npm.cmd run powerbi:prepare`. Não é requisito da entrega web; não há PBIX/PBIP validado.
+A pasta Power BI foi removida no commit encontrado antes da preparação de produção e não foi recriada. Ela não é requisito da entrega web. O teste do material continua disponível, sendo ignorado somente quando a pasta inteira está ausente; históricos preservados continuam em `docs/history/`.
 
 [API](docs/api/README.md), [guia de banco](database/README.md), [integridade](docs/evidence/repository-cleanup-integrity.json) e [diagnóstico somente leitura](docs/evidence/repository-cleanup-runtime.json). Nenhum commit, push, deploy, publicação ou contratação nesta intervenção.
 
@@ -178,31 +178,35 @@ Uma execução inicial do navegador foi interrompida antes do resultado completo
 
 Os notebooks emitiram o aviso conhecido de TCP sem criptografia, com kernel restrito a loopback e encerrado ao final. O runner Playwright emitiu aviso `NO_COLOR/FORCE_COLOR`, sem erro no console da aplicação. Não foram executados CI remoto, Power BI Desktop, serviços externos, leitores de tela, zoom nativo ou auditoria integral WCAG. `git diff --check` passou com aviso preexistente de normalização CRLF/LF no contexto antes de sua exclusão pelo usuário.
 
-## Preparação para hospedagem futura
+## Preparação para produção
 
-A estrutura foi auditada; a publicação automática ainda depende das configurações abaixo. Não houve conexão a contas de hospedagem, criação de projetos, migração externa ou deploy.
+Configurações entregues, sem publicar, contratar serviços ou alterar o banco local. [Guia completo com campos e comandos](deployment/README.md).
 
-| Plataforma | Estado e pendência                                                                                                                                                                                                                                                                                                                 |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GitHub     | Workspaces, locks, Bronze fixa e workflow `quality.yml` existentes. Revisar alterações anteriores e entradas/evidências selecionadas, conferir tamanho da entrega e executar CI remoto quando autorizado.                                                                                                                          |
-| Vercel     | Build na raiz: `npm ci` e `npm run build`; saída `frontend/dist`. Falta fallback SPA e encaminhamento de `/api/*` à futura API antes do fallback HTML. O gateway usa `/api` relativo; o proxy local Vite não acompanha o build. Não há `vercel.json` operacional.                                                                  |
-| Render     | Start na raiz: `npm run start:backend`; `PORT` já é configurável. `HOST` aceita apenas loopback e ainda rejeita `0.0.0.0`, exigido pelo serviço web. Corrigir essa borda em etapa própria, mantendo o padrão local. Raiz deve incluir `packages/domain`, contratos e dados. Rever CORS e rate limit/proxy conforme topologia real. |
-| Neon       | Adaptador `pg` aceita `DATABASE_URL` sem host local fixo. Falta provisionar destino autorizado, validar TLS/certificado com URI/driver fixado, aplicar migração coletiva e importar explicitamente em banco novo apropriado; conferir cobertura e paridade. Não presumir aplicável o grant específico de `mengo_data`.             |
+| Plataforma   | Configuração preparada                                                                                                                                                                    |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GitHub Free  | Monorepo completo e workflow Node 24; incluir a Gold JSON aprovada no futuro commit. Nenhum commit/push realizado aqui.                                                                   |
+| Neon Free    | Quatro comandos `db:neon:*` exigem URI Direct em `NEON_DATABASE_URL`, sem ler `.env` nem recorrer ao banco local. TLS verificado, migração coletiva e importação explícitas/idempotentes. |
+| Render Free  | `render.yaml`: Node 24, raiz do monorepo, dependências backend/domain, validação da Gold, start explícito, `HOST=0.0.0.0`, `PORT` da plataforma, CORS exato e Neon Pooled.                |
+| Vercel Hobby | `vercel.json`: raiz `.`, `npm ci`, `npm run build`, `frontend/dist`, fallback SPA. API pública por `VITE_API_URL`; proxy local preservado no desenvolvimento.                             |
 
-Mesmo com PostgreSQL, a API consulta a Gold local para validar o snapshot. `data/analytics/collective.json` não está versionado: precisa ser gerado/distribuído com Bronze e contratos. Um checkout limpo com apenas dependências Node não entrega a API analítica pronta. Definir geração com Python 3.14/dependências fixadas ou artefato auditado e validar a implantação limpa na etapa futura.
+O backend ainda verifica a Gold local mesmo com PostgreSQL. Por isso `data/analytics/collective.json`, já existente e sem mudança de bytes, foi liberado no `.gitignore` para inclusão futura no Git. Bronze e contratos permanecem juntos; CSV/Parquet continuam regeneráveis e ignorados. `npm.cmd run data:check` valida Node 24, hash, proveniência, recorte e fatos antes do start. O Render não precisa executar Python, migrar ou importar durante o build/start.
 
-| Variável       | Uso                                                                       |
-| -------------- | ------------------------------------------------------------------------- |
-| `HOST`         | Bind local da API, atualmente `127.0.0.1` ou `localhost`.                 |
-| `PORT`         | Porta entre 1 e 65535; padrão local 3001.                                 |
-| `CORS_ORIGIN`  | Uma URL de origem permitida.                                              |
-| `LOG_LEVEL`    | Nível Pino.                                                               |
-| `DATABASE_URL` | Segredo somente no backend/CLIs; variável herdada prevalece sobre `.env`. |
-| `PG_BIN`       | Opcional para executáveis PostgreSQL locais.                              |
+| Variável            | Uso e padrão local                                                                                  |
+| ------------------- | --------------------------------------------------------------------------------------------------- |
+| `NODE_ENV`          | `development` por padrão; `production` exige banco e CORS HTTPS e ignora o `.env` local.            |
+| `HOST`              | `127.0.0.1` por padrão; produção aceita `0.0.0.0`.                                                  |
+| `PORT`              | Porta de 1 a 65535; local 3001, Render fornece sua própria porta.                                   |
+| `CORS_ORIGIN`       | Origem exata; local `http://127.0.0.1:5173`, produção o domínio HTTPS real da Vercel.               |
+| `TRUST_PROXY_HOPS`  | Local 0; configuração inicial Render 1, ajustável conforme cadeia real de proxies.                  |
+| `LOG_LEVEL`         | Nível Pino, padrão `info`.                                                                          |
+| `DATABASE_URL`      | Backend: URI privada Neon Pooled na produção; conexão local existente não alterada.                 |
+| `NEON_DATABASE_URL` | Somente comandos explícitos Neon, com URI Direct e destino validado.                                |
+| `VITE_API_URL`      | Origem pública HTTPS do Render, sem `/api`; consumida no build de produção. Dev mantém proxy local. |
+| `PG_BIN`            | Opcional para executáveis de testes/PostgreSQL local.                                               |
 
-Não existe `VITE_API_URL` implementada. Nunca colocar `DATABASE_URL` em variável `VITE_*`. Não executar `db:local:configure` para preparar hospedagem. API não faz migrações no startup; `db:migrate` e `db:import` continuam operações explícitas para um destino autorizado. A configuração local que funciona foi mantida.
+Modelos sem segredos: `.env.example`, `frontend/.env.example` e `deployment/backend.env.example`. Não cadastrar credenciais em `VITE_*`. A API não migra no startup. O smoke usa Gold em arquivo sem banco pessoal, e o servidor em modo produção é testado com PostgreSQL temporário real. Os serviços gratuitos têm cotas e podem dormir; fontes e limites estão no guia. A validação remota permanece para a etapa de publicação autorizada.
 
-Requisitos públicos conferidos em 22/10/2026: [Render Web Services](https://render.com/docs/web-services), [Render Monorepo](https://render.com/docs/monorepo-support), [Vite na Vercel](https://vercel.com/docs/frameworks/frontend/vite), [rewrites Vercel](https://vercel.com/docs/routing/rewrites), [Node no Neon](https://neon.com/docs/guides/node) e [TLS node-postgres](https://node-postgres.com/features/ssl). A aplicação desses requisitos ao repositório é conclusão desta auditoria, sem implantação externa.
+Nesta preparação: **508 testes aprovados e um teste opcional Power BI ignorado por ausência preexistente da pasta**. ESLint, Prettier, Ruff, build, smoke e instalação isolada de dependências de produção passaram. Cinco verificações adicionais de build conferiram a configuração Vercel e a separação de segredos. `.env`, dados, regras e apresentação visual foram preservados. [Resultados e limites](deployment/README.md#resultados-locais-desta-preparação), [evidência de integridade](docs/evidence/production-preparation.json).
 
 Logo: produção em `frontend/public/brand/flamengo.png`, original em `referencias/flamengo_logo.png`, SHA-256 `73b7260449100cd4e28838e27188b56fb1f92134419265ee17d4fd8fe51fbee7`. O uso foi solicitado pelo usuário, mas não há licença aberta/autorização de publicação documentada para a marca. CC0 dos placares não se aplica ao escudo. A foto da torcida também não tem licença comprovada e permanece somente em desenvolvimento; o build conserva o vetor próprio. Poppins é local e sua licença está preservada em `frontend/public/brand/Poppins-OFL.txt`.
 

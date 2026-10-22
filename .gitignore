@@ -20,5 +20,6 @@ dist/
 data/**/*.json
 data/**/*.csv
 data/**/*.parquet
+!data/analytics/collective.json
 !data/raw/collective/season=2025/competition=brasileirao-serie-a-men/*.json
 *.log

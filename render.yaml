@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: mengodata-api
+    runtime: node
+    plan: free
+    region: oregon
+    autoDeployTrigger: 'off'
+    buildCommand: npm ci --omit=dev --workspace backend --workspace packages/domain && npm run data:check
+    startCommand: npm run start:backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: '24'
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: LOG_LEVEL
+        value: info
+      - key: TRUST_PROXY_HOPS
+        value: '1'
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false

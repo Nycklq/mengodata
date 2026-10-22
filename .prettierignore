@@ -12,6 +12,7 @@ docs/ROUND_SCOPE.md
 docs/history/2026
 docs/history/individual-2025
 data/raw/collective
+data/analytics/collective.json
 reports/collective/*.json
 docs/evidence/collective-cbf-audit.json
 PROMPT_DEFINITIVO_FLAMENGO_ANALYTICS_BIG_DATA_2025.md

@@ -64,7 +64,12 @@ export async function temporaryPostgres() {
     if (!child.startsWith('postgres-test-') || child.includes('..')) {
       throw new Error('UNSAFE_TEMPORARY_PATH');
     }
-    await rm(directory, { recursive: true, force: true });
+    await rm(directory, {
+      recursive: true,
+      force: true,
+      maxRetries: 10,
+      retryDelay: 100,
+    });
   }
   try {
     await run('initdb', [
