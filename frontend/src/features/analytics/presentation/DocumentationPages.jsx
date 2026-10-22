@@ -1,77 +1,9 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Info } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { DataNotice, PageTitle, Panel, QueryState } from './AnalyticsUi.jsx';
 import { useAnalytics } from './analytics-hooks.js';
 import { SportsIcon } from './SportsIcon.jsx';
 
-export function PowerBiPage() {
-  return (
-    <>
-      <PageTitle
-        kicker="UMA SEGUNDA FORMA DE EXPLORAR"
-        title="Power BI"
-        description="Modelo dimensional, medidas e tema para reproduzir a mesma semântica analítica."
-      />
-      <div className="notice">
-        <Info size={19} />
-        <div>
-          <strong>Relatório nativo ainda não publicado</strong>
-          <p>
-            O Power BI Desktop não está disponível neste ambiente. Os arquivos de
-            preparação são entregues no repositório; não há PBIX ou relatório
-            incorporado validado.
-          </p>
-        </div>
-      </div>
-      <div className="two-columns">
-        <Panel title="Material disponível" subtitle="Diretório powerbi/ na raiz">
-          <div className="asset-list">
-            {[
-              ['model.json', 'Tabelas, relações e regras de granularidade'],
-              ['measures.dax', 'Medidas com proteção para cobertura e ausências'],
-              ['queries/Individual.m', 'Leitura condicionada à liberação de uso'],
-              ['theme.json', 'Paleta Flamengo Analytics'],
-              ['README.md', 'Montagem das cinco páginas e validação'],
-            ].map(([file, description]) => (
-              <div key={file}>
-                <Check size={17} />
-                <div>
-                  <strong>{file}</strong>
-                  <p>{description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Panel>
-        <Panel title="Cinco perspectivas" subtitle="Roteiro de construção no Desktop">
-          <ol className="report-pages">
-            {[
-              'Visão geral',
-              'Ataque e criação',
-              'Defesa e disciplina',
-              'Comparação individual',
-              'Distribuições e qualidade',
-            ].map((label) => (
-              <li key={label}>{label}</li>
-            ))}
-          </ol>
-          <p className="prose">
-            A distribuição de dados exige autorização própria. As consultas começam
-            vazias quando a aprovação não existe. O modelo não converte
-            indisponibilidade em desempenho zero.
-          </p>
-        </Panel>
-      </div>
-      <div className="method-note">
-        <SportsIcon kind="chart" size={36} />
-        <p>
-          API, Python e Power BI devem usar as mesmas fórmulas. A validação visual e a
-          comparação de resultados no Desktop permanecem pendentes.
-        </p>
-      </div>
-    </>
-  );
-}
 export function MethodologyPage() {
   const quality = useAnalytics('data-quality');
   return (

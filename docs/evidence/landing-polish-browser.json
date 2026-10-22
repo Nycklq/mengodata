@@ -1,0 +1,1237 @@
+{
+  "date": "2026-10-22",
+  "engine": "Installed Chrome, Playwright 1.64.1, temporary headless profile",
+  "data": "Existing validated Gold through real HTTP services, no mocked responses",
+  "stats": {
+    "startTime": "2026-10-22T18:18:42.470Z",
+    "duration": 235505.282,
+    "expected": 96,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "landingTests": 40,
+  "regressionTests": 56,
+  "matrix": [
+    {
+      "width": 375,
+      "theme": "light"
+    },
+    {
+      "width": 375,
+      "theme": "dark"
+    },
+    {
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "width": 1024,
+      "theme": "light"
+    },
+    {
+      "width": 1024,
+      "theme": "dark"
+    },
+    {
+      "width": 1440,
+      "theme": "light"
+    },
+    {
+      "width": 1440,
+      "theme": "dark"
+    }
+  ],
+  "tests": [
+    {
+      "title": "restaura a composição esportiva, compacta o projeto e preserva a comparação",
+      "file": "landing-polish.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém âncoras, foco e seletor de comparação pelo teclado",
+      "file": "landing-polish.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "restaura a composição esportiva, compacta o projeto e preserva a comparação",
+      "file": "landing-polish.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém âncoras, foco e seletor de comparação pelo teclado",
+      "file": "landing-polish.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "restaura a composição esportiva, compacta o projeto e preserva a comparação",
+      "file": "landing-polish.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém âncoras, foco e seletor de comparação pelo teclado",
+      "file": "landing-polish.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "restaura a composição esportiva, compacta o projeto e preserva a comparação",
+      "file": "landing-polish.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém âncoras, foco e seletor de comparação pelo teclado",
+      "file": "landing-polish.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "restaura a composição esportiva, compacta o projeto e preserva a comparação",
+      "file": "landing-polish.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém âncoras, foco e seletor de comparação pelo teclado",
+      "file": "landing-polish.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "restaura a composição esportiva, compacta o projeto e preserva a comparação",
+      "file": "landing-polish.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém âncoras, foco e seletor de comparação pelo teclado",
+      "file": "landing-polish.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "restaura a composição esportiva, compacta o projeto e preserva a comparação",
+      "file": "landing-polish.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém âncoras, foco e seletor de comparação pelo teclado",
+      "file": "landing-polish.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "restaura a composição esportiva, compacta o projeto e preserva a comparação",
+      "file": "landing-polish.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém âncoras, foco e seletor de comparação pelo teclado",
+      "file": "landing-polish.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "revela ao rolar sem repetir e responde à redução de movimento",
+      "file": "landing-polish.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém conteúdo e comparação utilizáveis sem observador",
+      "file": "landing-polish.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recupera conteúdo quando a configuração do observador falha",
+      "file": "landing-polish.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "revela ao rolar sem repetir e responde à redução de movimento",
+      "file": "landing-polish.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém conteúdo e comparação utilizáveis sem observador",
+      "file": "landing-polish.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recupera conteúdo quando a configuração do observador falha",
+      "file": "landing-polish.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "revela ao rolar sem repetir e responde à redução de movimento",
+      "file": "landing-polish.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém conteúdo e comparação utilizáveis sem observador",
+      "file": "landing-polish.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recupera conteúdo quando a configuração do observador falha",
+      "file": "landing-polish.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "revela ao rolar sem repetir e responde à redução de movimento",
+      "file": "landing-polish.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém conteúdo e comparação utilizáveis sem observador",
+      "file": "landing-polish.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recupera conteúdo quando a configuração do observador falha",
+      "file": "landing-polish.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "revela ao rolar sem repetir e responde à redução de movimento",
+      "file": "landing-polish.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém conteúdo e comparação utilizáveis sem observador",
+      "file": "landing-polish.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recupera conteúdo quando a configuração do observador falha",
+      "file": "landing-polish.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "revela ao rolar sem repetir e responde à redução de movimento",
+      "file": "landing-polish.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém conteúdo e comparação utilizáveis sem observador",
+      "file": "landing-polish.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recupera conteúdo quando a configuração do observador falha",
+      "file": "landing-polish.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "revela ao rolar sem repetir e responde à redução de movimento",
+      "file": "landing-polish.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém conteúdo e comparação utilizáveis sem observador",
+      "file": "landing-polish.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recupera conteúdo quando a configuração do observador falha",
+      "file": "landing-polish.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "revela ao rolar sem repetir e responde à redução de movimento",
+      "file": "landing-polish.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém conteúdo e comparação utilizáveis sem observador",
+      "file": "landing-polish.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recupera conteúdo quando a configuração do observador falha",
+      "file": "landing-polish.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "file": "visualizations.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "file": "visualizations.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a legenda alterna as séries sem perder a escala",
+      "file": "visualizations.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "file": "visualizations.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "file": "visualizations.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "file": "visualizations.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "file": "visualizations.spec.js",
+      "project": "375-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "file": "visualizations.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "file": "visualizations.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a legenda alterna as séries sem perder a escala",
+      "file": "visualizations.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "file": "visualizations.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "file": "visualizations.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "file": "visualizations.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "file": "visualizations.spec.js",
+      "project": "375-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "file": "visualizations.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "file": "visualizations.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a legenda alterna as séries sem perder a escala",
+      "file": "visualizations.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "file": "visualizations.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "file": "visualizations.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "file": "visualizations.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "file": "visualizations.spec.js",
+      "project": "768-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "file": "visualizations.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "file": "visualizations.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a legenda alterna as séries sem perder a escala",
+      "file": "visualizations.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "file": "visualizations.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "file": "visualizations.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "file": "visualizations.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "file": "visualizations.spec.js",
+      "project": "768-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "file": "visualizations.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "file": "visualizations.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a legenda alterna as séries sem perder a escala",
+      "file": "visualizations.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "file": "visualizations.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "file": "visualizations.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "file": "visualizations.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "file": "visualizations.spec.js",
+      "project": "1024-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "file": "visualizations.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "file": "visualizations.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a legenda alterna as séries sem perder a escala",
+      "file": "visualizations.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "file": "visualizations.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "file": "visualizations.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "file": "visualizations.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "file": "visualizations.spec.js",
+      "project": "1024-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "file": "visualizations.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "file": "visualizations.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a legenda alterna as séries sem perder a escala",
+      "file": "visualizations.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "file": "visualizations.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "file": "visualizations.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "file": "visualizations.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "file": "visualizations.spec.js",
+      "project": "1440-light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "file": "visualizations.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "file": "visualizations.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a legenda alterna as séries sem perder a escala",
+      "file": "visualizations.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "file": "visualizations.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "file": "visualizations.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "file": "visualizations.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "file": "visualizations.spec.js",
+      "project": "1440-dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "images": [
+    "landing-polish/1440-dark-hero.png",
+    "landing-polish/1440-dark-project.png",
+    "landing-polish/1440-dark-comparison.png",
+    "landing-polish/1440-light-hero.png",
+    "landing-polish/1440-light-project.png",
+    "landing-polish/1440-light-comparison.png",
+    "landing-polish/375-dark-hero.png",
+    "landing-polish/375-dark-project.png",
+    "landing-polish/375-dark-comparison.png",
+    "landing-polish/375-light-hero.png",
+    "landing-polish/375-light-project.png",
+    "landing-polish/375-light-comparison.png",
+    "landing-polish/768-dark-hero.png",
+    "landing-polish/768-dark-project.png",
+    "landing-polish/768-dark-comparison.png",
+    "landing-polish/768-light-hero.png",
+    "landing-polish/768-light-project.png",
+    "landing-polish/768-light-comparison.png",
+    "landing-polish/before-375-light-landing.png",
+    "landing-polish/before-1440-light-landing.png"
+  ],
+  "photography": {
+    "source": "01-hero-estadio-versao-anterior.png",
+    "localAsset": "frontend/src/features/landing/presentation/assets/torcida-estadio.jpg",
+    "contentType": "image/jpeg",
+    "width": 720,
+    "height": 480,
+    "bytes": 110247,
+    "sha256": "b279ae54b7e8a1d81320f08fccefd92464deb204469f68466e5e098ec91b4e71",
+    "originalBytesPreserved": true,
+    "rightsForPublication": "unconfirmed",
+    "use": "local development only, production uses original vector artwork"
+  }
+}

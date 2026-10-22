@@ -72,7 +72,7 @@ describe('integrated dashboard with synthetic fixtures confined to tests', () =>
     ['/ofensivo', 'Análise ofensiva'],
     ['/defensivo', 'Análise defensiva'],
     ['/estatisticas', 'Estatística descritiva'],
-    ['/power-bi', 'Power BI'],
+    ['/power-bi', 'Fora de campo'],
     ['/metodologia', 'Metodologia e fontes'],
     ['/jogadores/00000000-0000-4000-8000-000000000001', 'Perfil do jogador'],
   ])('renders route %s', async (path, title) => {
@@ -80,6 +80,7 @@ describe('integrated dashboard with synthetic fixtures confined to tests', () =>
     expect(
       await screen.findByRole('heading', { name: title, level: 1 }),
     ).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: 'Power BI' })).not.toBeInTheDocument();
   });
   it('search, position and custom minutes alter the displayed table', async () => {
     renderDashboard('/jogadores', syntheticSnapshot());

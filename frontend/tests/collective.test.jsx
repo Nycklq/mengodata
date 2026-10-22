@@ -40,9 +40,7 @@ function mount(path = '/', load) {
 describe('dashboard coletivo com resultados reais', () => {
   it('exibe totais reais e navegação sem jogadores', async () => {
     mount();
-    expect(
-      await screen.findByText('380 partidas verificadas · 38 rodadas · 20 clubes'),
-    ).toBeInTheDocument();
+    expect((await screen.findAllByText('79')).length).toBeGreaterThan(0);
     expect(screen.getAllByText('79').length).toBeGreaterThan(0);
     expect(screen.queryByRole('link', { name: 'Jogadores' })).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('link', { name: 'Partidas' }));
@@ -58,7 +56,6 @@ describe('dashboard coletivo com resultados reais', () => {
     ['/defensivo', 'Análise defensiva'],
     ['/estatisticas', 'Estatística descritiva'],
     ['/metodologia', 'Metodologia e fontes'],
-    ['/power-bi', 'Power BI'],
   ])('abre página %s', async (path, title) => {
     mount(path);
     expect(

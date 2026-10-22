@@ -5,7 +5,12 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .coverage
+.coverage.*
 coverage/
+playwright-report/
+test-results/
+.ipynb_checkpoints/
+*.py[cod]
 dist/
 .tmp/
 .local/

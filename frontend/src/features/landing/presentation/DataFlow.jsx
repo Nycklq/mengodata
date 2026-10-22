@@ -7,7 +7,7 @@ export function DataFlow() {
     ['Python + Pandas', 'Bronze · Silver · Gold'],
     ['Parquet', 'Dados validados'],
     ['PostgreSQL + API', 'Uma base consistente'],
-    ['React + Power BI', 'Análise em perspectiva'],
+    ['MengoData', 'Análise em perspectiva'],
   ];
   return (
     <div
@@ -19,7 +19,7 @@ export function DataFlow() {
       <svg
         viewBox="0 0 1160 160"
         role="img"
-        aria-label="OpenFootball, Python e Pandas, Parquet, PostgreSQL e API, React e Power BI"
+        aria-label="OpenFootball, Python e Pandas, Parquet, PostgreSQL e API, MengoData"
       >
         <defs>
           <marker

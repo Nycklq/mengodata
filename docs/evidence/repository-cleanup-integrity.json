@@ -1,0 +1,528 @@
+{
+  "checked_at": "2026-10-22T19:01:07.730986+00:00",
+  "baseline": "Working tree at start of this cleanup, including pre-existing uncommitted work",
+  "removed_files_count": 28,
+  "cleanup_removed_files_count": 3,
+  "user_authorized_document_deletions_count": 25,
+  "removed_files": [
+    {
+      "path": "docs/ACADEMIC_REPORT.md",
+      "previous_sha256": "f13b5fd49fde2d5bce09f441c6c7b891b5c5bec5a2a4e7d55131a559c2ff5df2",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "previous_sha256": "ae31996e3f60ec8c580551616feb9a406728487cf5ae31c30e5ac11a53d51056",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/ASSETS.md",
+      "previous_sha256": "fcca0a59525d6608fd3ed5bb1efce2e194ac215abb31db027e70d22239d7ad18",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/CHART_RENDERING_FIX.md",
+      "previous_sha256": "f1892e43fe4f5f4eee882ba5a0641946c2bd5d808d3661fc18f2671ec4bd1d6d",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/CONTRACTS.md",
+      "previous_sha256": "a02cc35f680e5cbb7ae7ceaa1c3af4463498e378c65f0d70e68de715876e38e2",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/DATA_DICTIONARY.md",
+      "previous_sha256": "43aad3fbf56c42d83cf15ed27d859c7de99e218c2db6cff8cbe513f92a905d4c",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/DATA_QUALITY.md",
+      "previous_sha256": "a8bad6e97ff8c6b498021a46297e60feb1719158c7b7cd63ddede73dcf5e8ce0",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/DATA_SOURCES.md",
+      "previous_sha256": "f7a50b9ceaa8d64d6c6fd73549109a4ffd46334ef78b48c984c2c28d94193de0",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "previous_sha256": "7cfb56f6129dc94b8843a91b9029d20ff238bbb7381479cf6830725c5f4deed9",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/DELIVERY_FILES.md",
+      "previous_sha256": "96350ead2b885e097116a9597870a5b4b4d6997c6f1a635397bb8ff88f325603",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/DESIGN_REVIEW.md",
+      "previous_sha256": "c1352a9bad69337f6e19e294c30c837252ad7e61bf8a285e70968708122b50ad",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/EDITORIAL_REDESIGN.md",
+      "previous_sha256": "4655760513dc98c2887f862822ea597125e4a72f79fcef937a08673691b0a7cf",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/FLAMENGO_ANALYTICS_CONTEXT.md",
+      "previous_sha256": "6b5f54389feab760ac91a2810120f15d023d40b1bff600d4328468ccf05285f4",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/LANDING_POLISH.md",
+      "previous_sha256": "fa704dff2e2674ea4197d3cd1a2f5d37def9ede86b1e44f186954834ca6fa0f2",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/METRICS.md",
+      "previous_sha256": "57adda25e8781465e1e1f9652ff38d9438da4eba8fb0fa27a0d1ca5d7a71427b",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/PHASE_2_FILES.md",
+      "previous_sha256": "4fe068c5124998229a645f3a1f5cbaeb629a7009830edf0937917911c0f4b23d",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/POSTGRESQL_MENGO_DATA.md",
+      "previous_sha256": "268bcbeb58c1ea21e2877863f5310e65866179c335771f2bf641665d057cc8c2",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/PRESENTATION.md",
+      "previous_sha256": "bb8c5b14993a599912dca23c907e5fb9618f7276b77038bb08bda0f2c172ea3b",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/REQUIREMENTS_MATRIX.md",
+      "previous_sha256": "38d17d25c0039c95ba252798b1c0a4ca5a11f0e0a883ca80676a19f20644002a",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/ROUND_SCOPE.md",
+      "previous_sha256": "8100eb1e2b7ed066da57d15940a3fcd11b1ad06e18015e15a5c52227672884d8",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/SOURCE_APPROVAL.md",
+      "previous_sha256": "7ebde231342b8b5826a5e545080b69575f2337d0f222052f28a4953135d41f1b",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/SOURCE_AUDIT_2025.md",
+      "previous_sha256": "d8e75f6e66356e6252a043b910880348a47048342fba70e4152e971c0f03587a",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/SOURCE_PERMISSION_REQUEST.md",
+      "previous_sha256": "c55e00f47ff16c192d87043e1fa303d9d23cd6e9f17768f12bf92280936f58cc",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "previous_sha256": "3b6d1b1bdff090aa7e7d1f2cd5db1087d50f31646e0838b2fc006b225161fa19",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "docs/TEST_REPORT.md",
+      "previous_sha256": "c4a0ccb4b997ff4501461aa75baae6ac5af627c9f51baab0ef7d46d29cc9b2c8",
+      "origin": "User concurrent deletion explicitly confirmed intentional"
+    },
+    {
+      "path": "frontend/public/flamengo-logo.png",
+      "previous_sha256": "c83d05662710e12d172c7d3fba77670f1e4ff801300055733db04cf89a07f369",
+      "origin": "Unused asset or stylesheet verified by cleanup"
+    },
+    {
+      "path": "frontend/src/app/refinements.css",
+      "previous_sha256": "1f4a73c1fdcf3f322e1ec3f4fb8ea52f3c2e003bb8085f68bf7379faedd227b3",
+      "origin": "Unused asset or stylesheet verified by cleanup"
+    },
+    {
+      "path": "frontend/src/app/styles.css",
+      "previous_sha256": "03c21657a7b3168dccd1dc9e39eefe2511d4c1ee077dcde91e920f62d77851e3",
+      "origin": "Unused asset or stylesheet verified by cleanup"
+    }
+  ],
+  "new_cleanup_report_in_docs_also_removed_by_user": true,
+  "current_report_location": "README.md",
+  "user_steering": "User confirmed that Markdown documents removed directly under docs/ must remain removed; no restoration was performed",
+  "preexisting_deleted_prompts_excluded_from_count": [
+    "PROMPT_DEFINITIVO_FLAMENGO_ANALYTICS_BIG_DATA_2025.md",
+    "PROMPT_MESTRE_CODEX_FLAMENGO_ANALYTICS_2025_FINAL.md",
+    "PROMPT_MESTRE_MENGODATA_LANDING_REDESIGN_FINAL.md"
+  ],
+  "modified_files_relative_to_start": [
+    ".gitignore",
+    "AGENTS.md",
+    "README.md",
+    "data/README.md",
+    "database/README.md",
+    "frontend/package.json",
+    "frontend/src/app/LegacyDashboard.jsx",
+    "frontend/src/features/analytics/presentation/DocumentationPages.jsx",
+    "frontend/tests/dashboard.test.jsx",
+    "frontend/vite.config.js",
+    "package-lock.json",
+    "powerbi/README.md"
+  ],
+  "preserved_files_count": 363,
+  "protected_data_research_migration_files_count": 51,
+  "protected_data_research_migration_sha256": {
+    "data/analytics/collective/season=2025/competition=brasileirao-serie-a-men/clubs.csv": "764dc55936918c57d32851463a35dcfb94455883434a9d2fa91b349b5cbd6dd5",
+    "data/analytics/collective/season=2025/competition=brasileirao-serie-a-men/clubs.parquet": "271232201883fbadbada94567a784857f96e665699da65ddae8bb4079c8858e5",
+    "data/analytics/collective/season=2025/competition=brasileirao-serie-a-men/club_totals.csv": "69e6ea4c915655e2328924708ea60d9ae6694fe28e53bf095596e3eb9f52d9b2",
+    "data/analytics/collective/season=2025/competition=brasileirao-serie-a-men/club_totals.parquet": "3a1bbaae9c7ff11674575ec0bb78fcdf2f05e3ef0c13f4665f629cf4a9d53692",
+    "data/analytics/collective/season=2025/competition=brasileirao-serie-a-men/standings.csv": "54ddf40760897bc3355eaaddab35ff8eba925b4011a278b199b6fce0db122082",
+    "data/analytics/collective/season=2025/competition=brasileirao-serie-a-men/standings.parquet": "b6fb4c2cc65333f05eacc3b77e0ceeba12a13c5103bd5e72c3892ac80be65942",
+    "data/analytics/collective/season=2025/competition=brasileirao-serie-a-men/team_matches.csv": "94a11fb4e1d1c901ec71433c81d8bd341570013d38ccde047d5afa9264830235",
+    "data/analytics/collective/season=2025/competition=brasileirao-serie-a-men/team_matches.parquet": "c1c7d81fd66305d615e2c4b6170f107b04aa6caf6e25118e7eb7ee0e49e1dc08",
+    "data/analytics/collective.json": "3b68a8765be750f334e3d8974e5230720526eac4ab36580beea0d5f8c25248b4",
+    "data/analytics/powerbi.json": "412961695cc38a78d0cfcf3d962519afdbda0c85204b5d112ff243b7907b238d",
+    "data/analytics/references.json": "16c6b871103f5e1a0ae05a34972d09db8dd0a924414c025d7f06107d67974360",
+    "data/powerbi/Clubs.csv": "764dc55936918c57d32851463a35dcfb94455883434a9d2fa91b349b5cbd6dd5",
+    "data/powerbi/Matches.csv": "d7de88971bc4db94f2033b516683f3e51bcc1fe9560cdf7ab3766a6b15d6a120",
+    "data/powerbi/Provenance.csv": "ca487b948825ec841956294756565625ab43eceea8b203957192dbe9443e3e7f",
+    "data/powerbi/Rounds.csv": "d67b39e0f4205755c9f90af0d1e6e5aa140a90053631e3e4d524c289d3862225",
+    "data/powerbi/Seasons.csv": "d8c6e724dd4353b411196b7869ddbbb0aad4a5b6fbb34724b50c62372855c66f",
+    "data/powerbi/Standings.csv": "54ddf40760897bc3355eaaddab35ff8eba925b4011a278b199b6fce0db122082",
+    "data/powerbi/TeamMatches.csv": "94a11fb4e1d1c901ec71433c81d8bd341570013d38ccde047d5afa9264830235",
+    "data/processed/collective/season=2025/competition=brasileirao-serie-a-men/matches.csv": "d7de88971bc4db94f2033b516683f3e51bcc1fe9560cdf7ab3766a6b15d6a120",
+    "data/processed/collective/season=2025/competition=brasileirao-serie-a-men/matches.parquet": "ca681d08b1716bef22c5d8efcf63a9a2bc2b3771be865e6fa27d579e8940e388",
+    "data/processed/references/0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb.json": "3f7c8b69da9d62ab28ab46ae7cc6ce6f1f9e6a1ff9b3c6b7980ae3dcd1019e4f",
+    "data/raw/collective/LICENSE.md": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+    "data/raw/collective/season=2025/competition=brasileirao-serie-a-men/0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb.json": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+    "data/raw/collective/season=2025/competition=brasileirao-serie-a-men/0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb.metadata.json": "947a071757e31ed4b4f0c03e5b76a2b45f91addaf9cb552785cd329264143fd7",
+    "data/raw/openfootball/0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb.json": "0fcc4647256b2e1f58b50f1372b751aeb7e6aacb5b8cd747579dd7ab71303fbb",
+    "reports/collective/01_distribuicao.png": "a116e4c2c811a67e72f7a92b02e95c22613e8ee7c965498a0db8cf0f3cd27047",
+    "reports/collective/02_evolucao.png": "b611a4652862704692fa3f0ecf3f6ce7c0bdcfa9b5eb22a2d177813401f0bd1b",
+    "reports/collective/03_casa_fora.png": "16af71dd3800c72032ba687a014b2d839ebb016bb82e28a2734b2c01398f85ef",
+    "reports/collective/04_clubes.png": "9ac139902f652536b7905baf8f08b82309433cabbcf148da6beb4974a175e4ba",
+    "reports/collective/05_ataque_defesa.png": "b6bc692cfabc015e7aa8a93fbbdfb301c2c9df50f8f3f84dcbef8bedd330b4c2",
+    "reports/collective/06_estatistica.png": "b60ab44b854b718893f62e06b0619a738145886607cd41e274395ca781d13057",
+    "reports/collective/api-parity.json": "4f1382819f371d5dafd8c66ee4a7a17e71563444abd0e8e242d800dbd1367d40",
+    "reports/collective/club_totals.csv": "69e6ea4c915655e2328924708ea60d9ae6694fe28e53bf095596e3eb9f52d9b2",
+    "reports/collective/README.md": "f9a5f7348aa1d4eed088214554d94bee49e1b47a10396928c19f3797ba46cded",
+    "reports/collective/report.json": "8a04e117b5ad2bef35ea467e59cb36b74f20cf5fa413d3f41d8ddc823744c61b",
+    "notebooks/01_entendimento.ipynb": "0b5e3ad661244bd393031111d80381a11c4b9aabaf77b2cad4a6ce7649a00b85",
+    "notebooks/02_qualidade.ipynb": "e068dbe55912ad342276c2fd40f8cd5ce30c7f65fb75580752454850285d419a",
+    "notebooks/03_ataque.ipynb": "fed8bccd481e96d903781b95952e4c1d5c8a34edcc3283674a15d53f337b0511",
+    "notebooks/04_defesa.ipynb": "3f80281a6d92dd52a9722efb7ef4643afe94f86752288c530bc7bb62e8c35b69",
+    "notebooks/05_comparacao.ipynb": "80b8847cf609c9f09d52f80400bd5008b54058755cc2a0607f8126e269a048c7",
+    "notebooks/06_estatistica.ipynb": "495abed6dafad3e899e3a92c5d2fd097e29d6a467f83b443a7cefda960e3d1df",
+    "notebooks/README.md": "1ca5bc0a76108501560c123b667b630f86b528972856ec459ebf1a8923bee9cb",
+    "powerbi/measures.dax": "90409017de54fdd7d60ee882dde3017575fc0b34950e77e9cbf57a51c0c10200",
+    "powerbi/model.json": "5ede4773279b1329671b0533267516667bd1dbdde6069959641a5e2fe128e294",
+    "powerbi/queries/Collective.m": "091fee1d44d6e82bb9810b35bfd986a945870257639f3efecc25fc05fcaf58d0",
+    "powerbi/theme-dark.json": "86b1bbe9aaa3b00a8d1ed904c85b1b79d8b139dde9a85a019b5793220620e38e",
+    "powerbi/theme.json": "1aa8db133004ad171f19230078bb54b75ebe16baf1de1c33c5598474c3c01049",
+    "database/migrations/001_identity.sql": "5e4017fd44cce59d38fc63aad0d1f1d7e14655f38c095b68c0c3ee397cfedbc3",
+    "database/migrations/002_scope_2025.sql": "d0c442ff59400e3706f3f44cc895ee09bba0b0b93f0a05ca353b43a739d56535",
+    "database/migrations/003_player_statistics.sql": "730c6e4f13074ee6097ccb1256302ba1dc3e0775f3a08ffc4ee725ea4f1c744b",
+    "database/collective-migrations/004_collective.sql": "e5d818205ef49bd268ec6214d0a86c3b6e0b0d811004a39df15265840e2c406c"
+  },
+  "protected_source_and_contracts_count": 146,
+  "protected_source_and_contracts_sha256": {
+    "frontend/src/features/landing/presentation/ProjectAtmosphere.jsx": "3f43a5d3c310bba47db4626749b23ca32aab3f9382483df2954b291537d92c78",
+    "frontend/src/features/landing/presentation/assets/torcida-estadio.jpg": "b279ae54b7e8a1d81320f08fccefd92464deb204469f68466e5e098ec91b4e71",
+    "frontend/src/features/landing/presentation/landing-polish.css": "7167aa555a5fffb9402932b47cc61d5a5b9590c20fbc8e12cfcb7362549f2632",
+    "frontend/src/features/landing/presentation/use-scroll-reveal.js": "dcc86a6fcce4b2774e214548ad84e0b0a2800d2e9975101c76dbe368d2561fe8",
+    "backend/src/application/get-analytics.js": "12f24ebc24f369d25104def8a89759e0d401b5c0060fc8a202390ef61509a06d",
+    "backend/src/application/get-collective.js": "c4af7a19b590e4ea9d49e038ed9a128d7c4747fca96282f82adc5e611d3f4b5f",
+    "backend/src/application/get-project-metadata.js": "5a18a0cc04656a7034557058292dc98ebd578b5f3a28aa57323e5d6d985cc0fc",
+    "backend/src/application/import-statistics.js": "83a5cec13d8da9abc92e8592334a69c5d6b57f5f47c2ca940f9a40739230ada3",
+    "backend/src/domain/analytics.js": "cf08db49337b5ed442c5328cca50012d5a138e73b5e6ae920e256e131087a8c9",
+    "backend/src/domain/collective.js": "47b3255592a06c1a14774b551908f723f7e9a80c279e6223e9705f9cbc58f938",
+    "backend/src/domain/dataset-approval.js": "94a23b3a5db9750e2ad192edd85e95d0d68d5a82fc36cb97ed5619c4edc02d58",
+    "backend/src/domain/project-metadata.js": "4a1de5ba82bbf284bf045c35c7a283bf0239ba1e1ad66c77ed801330667a924f",
+    "backend/src/infrastructure/config/environment.js": "dd2891512f9fceb08ad1f13d893f87ef7fc571086438703bdf9674689c2eb196",
+    "backend/src/infrastructure/persistence/analytics-files.js": "9d28d0b1845bc190d0fc21b1a8076d63b86e3332593d03d0c4dcbab0bf5b5a35",
+    "backend/src/infrastructure/persistence/check-connection.js": "305ed57b7f851fac821112cfd8c0676e7e67e2cd7238c34effd5eb378a2efca4",
+    "backend/src/infrastructure/persistence/collective-files.js": "2977eacc8f90ef25af63407f4a972f2657945cecee663b3da80471c9e62db89c",
+    "backend/src/infrastructure/persistence/database-error.js": "a442ec4d15ce042964d374f95da56c3ed7424ee8b3e417cac0f7970b7b04fd95",
+    "backend/src/infrastructure/persistence/local-postgres.js": "d429c0f234d594fb3e401423fc486a0c65f0333d47013bc971fd2401722f0e0d",
+    "backend/src/infrastructure/persistence/migrate.js": "d5c587fd2568dc56d7ef7b5be593c7be31e80dc03c6fa981a1cf3b22ecd6b00e",
+    "backend/src/infrastructure/persistence/postgres-analytics.js": "b5ab33a2f010848b27b7dcb83e1dffa2ea1f03b04daa4bccb939ca80980aa964",
+    "backend/src/infrastructure/persistence/postgres-collective.js": "00a5a273d5544fb26fe4740a8806e0eb64259bedb62627b919bef06b0e2f9c69",
+    "backend/src/infrastructure/persistence/postgres-pool.js": "f3febc2729ab337d753e046ed6111b948ab0ff0158b2929bd7da872f3ffe77cb",
+    "backend/src/infrastructure/persistence/postgres-statistics.js": "e36c808880e5d926e9f325b8b0fe4556d394faa248cbbe6c4f268cd6e50dc855",
+    "backend/src/interfaces/http/analytics-routes.js": "2c0308529d0aba1e645fc207a8c016d1077447b216e15ce7c4742f2bc3c2df81",
+    "backend/src/interfaces/http/collective-routes.js": "a8164eb9fb9c38f684142e6634b763d650c07036eaa27ca0d2a8d3c1f1ea592a",
+    "backend/src/interfaces/http/create-app.js": "469b62646146aad5c523051a5c1dfa45992a2af19e05845747f816b289c81f14",
+    "backend/src/main/check-database.js": "a6db4c55f27221fd9772336fec553b50da4d6d6596401722d6c705312e32e252",
+    "backend/src/main/import-collective.js": "0c53aca6827a82d5fd7b7b8e641937fde9fd01ea3883b3dc46ecf873ece14206",
+    "backend/src/main/import-statistics.js": "890e75743466addd69696a3b87c08e1a979d91fbddc56d60501bca571cf87040",
+    "backend/src/main/local-database.js": "a2ce12d1fe3d39f3d4c54b86c094f008f48aa37166781d5e8ff335db1a70fa91",
+    "backend/src/main/migrate.js": "1db59e1ac2bb4dd825633fc246eb522251fca59f989e74f2e0aa24c1910107b4",
+    "backend/src/main/server.js": "b3252ae7f8d635d7b3f7ca6ed53cc41ba7432f3e01103563c8d6e2e960cffb46",
+    "contracts/clubs.json": "84203c42daeb9bc9641e6c49c34befdcd36aa0721c1bb23c2f0ffb83563c3c30",
+    "contracts/collective-source.json": "22902ff65997e855db2088dfbb501e506a4a6ad4328d6fb47f3a608b066c2fd2",
+    "contracts/dataset-approvals.json": "bf01dc01bb8586d8c3e52b38d1669713cced941757a9d0b74edb9b762ee9f265",
+    "contracts/individual.schema.json": "81cf3a89f022003185906f942c6025c31403f96ae59197c70d1d5631afcf1e7e",
+    "contracts/manifest.schema.json": "d269787d1b0411e2f7837824cacd6e7fb65cd43908f49847b93f773c1c866dfc",
+    "contracts/metrics.json": "30fe933fa378cb247555eda930af2b62cc8264d6795ffbcdb0adaaf2be90e9f8",
+    "contracts/project-metadata.schema.json": "3165bb724350e39d125052ea1c0d4312a0c7ae6c304f12f71600efdfbd97f55b",
+    "contracts/scope.json": "0ba498d999346e88b4258fb9f729926b8ac47a22f9c6aa21d12c26a56e4b8d5c",
+    "contracts/source-approval.json": "47b06f6df66e16d993c240bf79fe854eb1f9c5e37ce8dfe9736a9c53f7cf9e62",
+    "database/collective-migrations/004_collective.sql": "e5d818205ef49bd268ec6214d0a86c3b6e0b0d811004a39df15265840e2c406c",
+    "database/migrations/001_identity.sql": "5e4017fd44cce59d38fc63aad0d1f1d7e14655f38c095b68c0c3ee397cfedbc3",
+    "database/migrations/002_scope_2025.sql": "d0c442ff59400e3706f3f44cc895ee09bba0b0b93f0a05ca353b43a739d56535",
+    "database/migrations/003_player_statistics.sql": "730c6e4f13074ee6097ccb1256302ba1dc3e0775f3a08ffc4ee725ea4f1c744b",
+    "database/operations/grant-mengo-data.sql": "62f50e7af5a495e45f54747d5f4cc60e6208a07ce0bb9e20d29c265d298fb154",
+    "database/tests/collective.test.js": "988bbde9b67cfcaf8a241426e609dcf231193a7ed2a13c55863492e518e8842c",
+    "database/tests/local-postgres.test.js": "4c0eac612bed4157faba37fddef9e39276982401cd1ebebdf405ea8c251a5569",
+    "database/tests/migrations.test.js": "0a50858d67e16422ea0f0e42519163cfb896a20846b6add94de7599046045abb",
+    "database/tests/temporary-postgres.js": "30dc6d7701cdb645cc7955573eb9d97d0b8f5fffae9e0cb4a2366a6ba247088a",
+    "frontend/public/brand/Poppins-OFL.txt": "5c4a92c8f8ce0ab211f4c72889d82383c9644546115d9ba39a4f2d5b8f37014b",
+    "frontend/public/brand/flamengo.png": "73b7260449100cd4e28838e27188b56fb1f92134419265ee17d4fd8fe51fbee7",
+    "frontend/public/theme-init.js": "5b4834e37d5dcb401ee6ad9e6b865fe733d42986bd8566a9d7a2b88023c507fd",
+    "frontend/src/app/Application.jsx": "08094b0378f0b4c2f7154e7331f23f8c05bac84c044787c1a2293650e2e426a7",
+    "frontend/src/app/Dashboard.jsx": "69cc01cd0a1855c3b2309ac831e5f095f7b1a41898f800f8520c5a89a54ce4f8",
+    "frontend/src/app/design-system.css": "bed1596089229c9bb468190d1b78038cbb576d220a7e9a08aaaa82e5a6c15f3b",
+    "frontend/src/app/main.jsx": "099c0c95de037a2bea4e2f4308ff3b4539aedb53010fb3ad044988e80ead90c8",
+    "frontend/src/app/use-compact-navigation.js": "fdade426f8f2bfd49206279a8486fb5e93f5087fea61fd541c94af8a17d986aa",
+    "frontend/src/app/use-page-navigation.js": "927df50e5d870bc10da66fb0d9081280b6c5db916dee82127ab4805df5a62f9c",
+    "frontend/src/features/analytics/application/load-analytics.js": "71513ce79ba8ad5bb8d1b87c3449246414a826d5164aa82e40eb05edf01eab09",
+    "frontend/src/features/analytics/domain/analytics.js": "d52c9688bb88810b602c625c9e0235581bfdd6582fb65c6359fcb929df6d672c",
+    "frontend/src/features/analytics/domain/collective.js": "4fd375eb62bd3c7422c4fa8d9b9cc738589914025a096e7d5eeae78e9e6a073f",
+    "frontend/src/features/analytics/domain/comparison.js": "1fb67f85a4363626280b99c1e6b7838aa76dc71ce465f63c904a39a876bbab19",
+    "frontend/src/features/analytics/infrastructure/http-analytics-gateway.js": "8d9c5197c1ba3542a249364c73949810d08c0648e99f5873836ae947529a4cd9",
+    "frontend/src/features/analytics/presentation/AnalyticsPages.jsx": "6e96523936aa2c3280f87269f06ce9504ff0201bd5c8d88a61d207f05b95e2e1",
+    "frontend/src/features/analytics/presentation/AnalyticsUi.jsx": "078df6276f64b811c30d5c6f3fdbc015dc437680744bbe7166cdb6a43733b997",
+    "frontend/src/features/analytics/presentation/CollectiveDocumentation.jsx": "884dca1ebdf59b1576f6e04399c32b8fdb76f0dce06f9146011963cd5358a199",
+    "frontend/src/features/analytics/presentation/CollectivePages.jsx": "b6cfc7c6acbc42228db1efa63a1ded3afdd4e47ae086e92dee106c371b81f113",
+    "frontend/src/features/analytics/presentation/CollectivePlot.jsx": "9f853741d808f71648b890169562caa975a5ed72bf3e713d2e294022b8d38910",
+    "frontend/src/features/analytics/presentation/CollectiveUi.jsx": "4a205c2f4763876018d608f389bb70c0c5e1651286abd57e58bdc73f178624bd",
+    "frontend/src/features/analytics/presentation/ComparisonPage.jsx": "9ef83b785be3cdd7517b808ea0ccf90297e06c880b960298ef971d071276ec90",
+    "frontend/src/features/analytics/presentation/RankingPlot.jsx": "bf4f59badc603d74ce772dfe929c7450e9f3e8f243d206f42fc271f7fe4a963c",
+    "frontend/src/features/analytics/presentation/SportsIcon.jsx": "18c315cd478e780275d63852281d69ca16dc82a6baaeb15dd397e7cc8f9a874c",
+    "frontend/src/features/analytics/presentation/analytics-hooks.js": "8f0e80f13d36e3d6badeb4d3d83bae6c5a978f88c01bbde0be0d1c6e899232ba",
+    "frontend/src/features/analytics/presentation/format-value.js": "6bcce533e844598cdfb43f86f016ec35d1232dcf514f90aa8bffe0a583edb0d0",
+    "frontend/src/features/appearance/application/appearance.js": "cfd8d0efa9fde4dd8f17e7761e7ab236abb9d97be5caa9272a0aa54dc3864846",
+    "frontend/src/features/appearance/domain/theme.js": "007132838a15fb903f08f99f1c33a1cb9f2e17a0bd57094921337fc9347bcd56",
+    "frontend/src/features/appearance/infrastructure/browser-appearance.js": "0623223a73b51019b90d652ea2c695491967531675962c46e863f8e3a09a567b",
+    "frontend/src/features/appearance/presentation/AppearanceProvider.jsx": "bfed0d80a21b335077e8faa9d80f6f6517906fcd82b4a83d25fadea223861eef",
+    "frontend/src/features/appearance/presentation/ThemeToggle.jsx": "fbb8208cdf220b46e47c2efef5070874bf2702b43dfc29a4b78bc7be03421332",
+    "frontend/src/features/appearance/presentation/appearance-context.js": "09e60886e532bf0ee3215b2e6ba7fa26addbed3a4bfe6322cfc7b01f9d290305",
+    "frontend/src/features/identity/presentation/Brand.jsx": "026195b40cc5beb9eb700280c6ed5e2536b101ca9c7d45219d1a4ed876d5c11f",
+    "frontend/src/features/landing/domain/season-preview.js": "1080056cc6497b95f57da25b0a0fae909c1c068ea3dd273d491592d617fc1166",
+    "frontend/src/features/landing/presentation/DataFlow.jsx": "17ed0267605be0cb2403a878f01a4bc271157f3916a33457764b690f3158b7f6",
+    "frontend/src/features/landing/presentation/FeatureIllustrations.jsx": "9d16036f8927e43ea7936e4fa090fb144511f88a2a8f816f948b619de7d3d969",
+    "frontend/src/features/landing/presentation/LandingPage.jsx": "0614364053ceca5f9801c799adf2260d42b92316869118f25fb2aa8194633492",
+    "frontend/src/features/landing/presentation/StadiumArt.jsx": "3e2c760b26daa1fe7192aca3e3976c7f4c5d2e4b74a911988ef08451e32db7d5",
+    "frontend/src/features/project-status/application/load-project-status.js": "7e6a1a6d64b591de535e814f8391e91a1585c0a1a18486d76bbd944106f249eb",
+    "frontend/src/features/project-status/domain/project-status.js": "dbfbdef4167c78cd873775a9b6dbdd440d411c3739dff8c34ff44092507b31b7",
+    "frontend/src/features/project-status/infrastructure/http-project-gateway.js": "29fc1e6a93a37e4d3d2014538fcca4a9c874f53908d25bdb00e632836e44f843",
+    "frontend/src/features/project-status/presentation/ProjectStatus.jsx": "fbd4ffdc0d4082ee32641696ef49a248a8385f2ac71b51bbc8dd38ca417722a7",
+    "packages/domain/package.json": "4061aae972f1730f4b9a9fd45cb08949b93b13c85b109dd9b79bd03ee9b126ff",
+    "packages/domain/src/metrics.js": "622e40952bd55da04a44c7bbe496624ed2d79180b4053846bc3f0288e9319da6",
+    "packages/domain/src/scope.js": "2de815f9f3861233ecb2cdfcf236bf11dbf68e3e8aef22e1cc5be59060f916f9",
+    "pipeline/pyproject.toml": "15a656bc41d43b78ebcf3b3308efac6ecfd6760aead7c915a2bcae9724954274",
+    "pipeline/requirements.lock.txt": "5fc6f9bd79e6a9ec6d680b8ed106ca4b22709467d889972c816538a0c6729eab",
+    "pipeline/src/flamengo_pipeline/adapters/cli.py": "7ca8a342a4a935ea4efd3cbe1ab807fdf9fa7a77ce12792199beb62fc8a70e21",
+    "pipeline/src/flamengo_pipeline/adapters/reference_cli.py": "05e83653d20dd3581af18689b7cb14bfe77cac6972082daaf1c73669940ccd58",
+    "pipeline/src/flamengo_pipeline/adapters/source_audit_cli.py": "7f28c75ccff4f19e436da7fa43699d767b6fce6c9a4a31bf5adc1de0b2eac374",
+    "pipeline/src/flamengo_pipeline/application/audit_sources.py": "16e7cf1072c9c3b8da8293debd0913f5c3cfd41ba7c66a67c18d876b16c66823",
+    "pipeline/src/flamengo_pipeline/application/errors.py": "f1d64f6e5b946ece1a16211ded2d63805882758728b6c13ab2516fd68edcd48b",
+    "pipeline/src/flamengo_pipeline/application/export_powerbi.py": "e45a3fa432003d43259093e972b2a1558b08a2203e6490b492a9ac6dde65b50c",
+    "pipeline/src/flamengo_pipeline/application/import_collective.py": "7c3d753f4189d07534050827a63d940315663eb2d03dec065e5ff444e79abc44",
+    "pipeline/src/flamengo_pipeline/application/import_individual.py": "3394d78fedba0f157833d1a938c4c0f8fbcd122202b0ddbea643a1ecfbef34a1",
+    "pipeline/src/flamengo_pipeline/application/import_references.py": "29820b81bf014ec492c2cf3f44c524f538177489f6775fd7ed3d3c706a2ee024",
+    "pipeline/src/flamengo_pipeline/application/research_analysis.py": "49ffd984128f84ecbcaa89e63fe80081c1ed373816e549740deb287106421870",
+    "pipeline/src/flamengo_pipeline/application/validate_manifest.py": "a6d7c5dd90dbdab3e1085c1c09809d2b10d9b4279a4ed8291d58db8663a294c7",
+    "pipeline/src/flamengo_pipeline/domain/collective.py": "1edf864c63ba21e0443d97d234c3b131459c8458d8c2c73b0a5d679239f9f230",
+    "pipeline/src/flamengo_pipeline/domain/eligibility.py": "46bf05dd5bd6b56a4f39035322b224e4d6908da0ddd857c8ef3f5dd00d94f93a",
+    "pipeline/src/flamengo_pipeline/domain/individual.py": "eef1a762cc3ce73c0c4621ad6b12f3c3cec524a90d135a248959f00b51651f9c",
+    "pipeline/src/flamengo_pipeline/domain/manifest.py": "bf8cba3b322053e66fab87d0802e5bf4dc70714b14ce2e1e6fe0172d891a774d",
+    "pipeline/src/flamengo_pipeline/domain/models.py": "dd74f14c04c09ca7e22953d96310ddc4a9f8c97c2f641f57b5b1f38adfabe5da",
+    "pipeline/src/flamengo_pipeline/domain/source_approval.py": "ed987d3f7a7c2b12cbbf95631b9e91de8bd771b8cc35bd8ebc3f7cbe4401b9a9",
+    "pipeline/src/flamengo_pipeline/domain/source_quality.py": "ae836ed5a23cf7e489e2093fd1dcc7f8b985e37c22d2b26f12ce7201fe1c3a91",
+    "pipeline/src/flamengo_pipeline/domain/statistics.py": "dd4793c22f5f1f6a4088724c50972888149dc12716a3a2e31054487f87242961",
+    "pipeline/src/flamengo_pipeline/infrastructure/collective_files.py": "6d3e572998a152c78f4697f7feadc5459001417f56c89633c9b620c92af726d9",
+    "pipeline/src/flamengo_pipeline/infrastructure/collective_powerbi.py": "bda5cd52e1952c3a1171fb3c771f4f0da2b4fff731b117aed0e270190ea29d34",
+    "pipeline/src/flamengo_pipeline/infrastructure/collective_research.py": "1a2b907980f03e15ae98a7d09e0c4b0fe375323d13db5a9a59f896e470a32428",
+    "pipeline/src/flamengo_pipeline/infrastructure/individual_files.py": "407d5100fc33c61111afbe6b4905012e5a915ee39e2a775e88b8889b5760a7e6",
+    "pipeline/src/flamengo_pipeline/infrastructure/json_manifest_reader.py": "35cc002f79bcc06f52d1b4ee1f3401c997a16052e54f0e0b990fd187fff60f41",
+    "pipeline/src/flamengo_pipeline/infrastructure/official_collective_audit.py": "983498b20c77071d018c47941c8c305fb4d2ec6e37f39c41d1b14174c42dc1a2",
+    "pipeline/src/flamengo_pipeline/infrastructure/reference_files.py": "9494aa9372af0e135f91a886a6ade37f22e5c370e1344a4179b9851371295837",
+    "pipeline/src/flamengo_pipeline/infrastructure/research_files.py": "55ed7c80fafc8516b7ef4031e3c5ca999279ef467e676ad9a65108920ee428e6",
+    "pipeline/src/flamengo_pipeline/infrastructure/source_audit_readers.py": "45f8f955f87c9a710f048006453aedcb83e90510d6502b18294d880a0501b736",
+    "pipeline/src/flamengo_pipeline/main/analyze_collective.py": "ca9c027e03cf34f1a596752ddc82454604c3c4a49fbc54eea88a33039ecfc4db",
+    "pipeline/src/flamengo_pipeline/main/audit_collective.py": "822228e969e1d02a8b46d60b7fef8b1bf047668bc5f47bf93c6ab6c7e7f26b85",
+    "pipeline/src/flamengo_pipeline/main/audit_sources.py": "83696ead96ca03b49abd88ab91b6130cc7f452d76ab9faf1dab7270f5ab42952",
+    "pipeline/src/flamengo_pipeline/main/cli.py": "bc049b87903309793fb76794e66e3d88a4b95caf95e34684931dbc1df2fb2d88",
+    "pipeline/src/flamengo_pipeline/main/export_collective_powerbi.py": "888597e16907ecd6556cabf617f0f95c175937b7910967c5b180ad81d5a4e138",
+    "pipeline/src/flamengo_pipeline/main/export_powerbi.py": "aa6a8b58bd365532f6fd6d18bd1bbd4fffd314f5c0360cf9441918edc3f8756f",
+    "pipeline/src/flamengo_pipeline/main/import_collective.py": "ff86a6eb22524d4ff3b134e9e8cd0d72936831c86de336e70596bdfdb6140a31",
+    "pipeline/src/flamengo_pipeline/main/import_individual.py": "a7427935b864e99fb497e8e1696fbf26cec476ad2e4308cb3ff6c83305e51749",
+    "pipeline/src/flamengo_pipeline/main/import_references.py": "42fabfa25a1637f308042a6f4d76623facb8266abdc0899875753a48c7043250",
+    "pipeline/src/flamengo_pipeline/main/run_notebooks.py": "196f2e72f19dcba91e90b1919656d85f6ffd8c4d7aa32dbd0822a830938c4c2a",
+    "pipeline/tests/README.md": "811cae1fba430199b50ee88ea35bd298a2eb4bdf6632795ba365ef7a8916950d",
+    "pipeline/tests/conftest.py": "1072ba8236e0670150919e5b9fd136cb53d9631bb93b8789412f571b26a57803",
+    "pipeline/tests/fixtures.py": "6f225b99f8126ee01b125c0c4ac061febd9fb1e2f3bf33594d77792944bc7eee",
+    "pipeline/tests/test_architecture.py": "9c4c25db8295ae87887616eab7905367b1d690c100da7ab8f86f44b78d5c3f82",
+    "pipeline/tests/test_collective.py": "8e822d97a575b19bf009e7644c3912069245126b08a9076da8e781899cc516a7",
+    "pipeline/tests/test_eligibility.py": "fe67c0676c4daf03d67494580f69728d2647a196d54fe1b234f50f7ebe35db0e",
+    "pipeline/tests/test_ingestion.py": "72c0d3bb0a315cc757bcb161854a971aa4d022d107deab97cae6c326890b355b",
+    "pipeline/tests/test_json_reader_and_cli.py": "e1b87b2f8edbf9ba60de469863bfc48c4f3a78d1b6578b01521b81ce17fe957a",
+    "pipeline/tests/test_manifest.py": "a9cf8910c0437137a0838303f81eac7321771ae7b92fbdc53fa577972f9a7cee",
+    "pipeline/tests/test_notebooks.py": "1b59d781f3ca7a1506be9723a0f780192bb4f2f72ebc65e3f76d8a1c5869cd83",
+    "pipeline/tests/test_source_audit.py": "fed72f3817989f35160bd426b0fcba2de01a6b2b3024aa044b6ad1c2f9a057f3",
+    "pipeline/tests/test_statistics.py": "af604af671fe18f09e9e0337fbf4e77e9305cd57aa9e4482a0abfd40b9d04518"
+  },
+  "direct_dependencies_removed": ["tailwindcss@4.3.3", "@tailwindcss/vite@4.3.3"],
+  "dependencies": {
+    "build_identical": true,
+    "build_files_compared": 19,
+    "lock_removed_entries": [
+      "node_modules/@tailwindcss/node",
+      "node_modules/@tailwindcss/oxide",
+      "node_modules/@tailwindcss/oxide-android-arm64",
+      "node_modules/@tailwindcss/oxide-darwin-arm64",
+      "node_modules/@tailwindcss/oxide-darwin-x64",
+      "node_modules/@tailwindcss/oxide-freebsd-x64",
+      "node_modules/@tailwindcss/oxide-linux-arm-gnueabihf",
+      "node_modules/@tailwindcss/oxide-linux-arm64-gnu",
+      "node_modules/@tailwindcss/oxide-linux-arm64-musl",
+      "node_modules/@tailwindcss/oxide-linux-x64-gnu",
+      "node_modules/@tailwindcss/oxide-linux-x64-musl",
+      "node_modules/@tailwindcss/oxide-wasm32-wasi",
+      "node_modules/@tailwindcss/oxide-win32-arm64-msvc",
+      "node_modules/@tailwindcss/oxide-win32-x64-msvc",
+      "node_modules/@tailwindcss/vite",
+      "node_modules/enhanced-resolve",
+      "node_modules/graceful-fs",
+      "node_modules/jiti",
+      "node_modules/lightningcss",
+      "node_modules/lightningcss-android-arm64",
+      "node_modules/lightningcss-darwin-arm64",
+      "node_modules/lightningcss-darwin-x64",
+      "node_modules/lightningcss-freebsd-x64",
+      "node_modules/lightningcss-linux-arm-gnueabihf",
+      "node_modules/lightningcss-linux-arm64-gnu",
+      "node_modules/lightningcss-linux-arm64-musl",
+      "node_modules/lightningcss-linux-x64-gnu",
+      "node_modules/lightningcss-linux-x64-musl",
+      "node_modules/lightningcss-win32-arm64-msvc",
+      "node_modules/lightningcss-win32-x64-msvc",
+      "node_modules/magic-string",
+      "node_modules/tailwindcss",
+      "node_modules/tapable"
+    ],
+    "retained_version_changes": [],
+    "lock_added_entries": []
+  },
+  "identical_build_files": {
+    "index.html": "11a0d7a86877e2c54140146360744cff51f3643939fcb318b041f29fea667012",
+    "theme-init.js": "5b4834e37d5dcb401ee6ad9e6b865fe733d42986bd8566a9d7a2b88023c507fd",
+    "assets/BarChart-HG-Q9SkN.js": "4815d71c6fc59008da9a0cfdefe47ca878294c47526ed71705dfc6bba3213d3f",
+    "assets/CollectivePlot-DKNe__qv.js": "503c08cda18aeba140876cab00961691dac08413eaceb7bf51307ebb318ca3cb",
+    "assets/index-Bhe-mioi.js": "837e03e0d297c5db3cb7585a0b8edac47b6d92e95fb7a496dc7acd0c3484218c",
+    "assets/index-CifHtsb1.css": "2fc1c1f941dd0b29963fb2a37593f12ee7c5cdab69d21b5ea22e6ac319beeec9",
+    "assets/poppins-latin-400-normal-BOb3E3N0.woff": "6076b418803564833cde2aece96c51b29927ab0a98dfbe727774d1a6c6e6c445",
+    "assets/poppins-latin-400-normal-cpxAROuN.woff2": "7d93459d86585bfcdbb7e0376056226adb25821ee54b96236fe2123e9560929f",
+    "assets/poppins-latin-500-italic-Ce_qjtl5.woff": "aa38f2c8fefe13d5e0f02e93cf1b0d25a1c37c6497241dc2bcd527e9edde1830",
+    "assets/poppins-latin-500-italic-o28Otv0U.woff2": "1ddb074f9963be8f6275c42dbd54d18625da8f91c85803121094ec81649f488b",
+    "assets/poppins-latin-500-normal-C8OXljZJ.woff2": "cd36de204aca2d5fa263a731f7c20009b5e3d754ba1f1e03c33e93a48f3e7446",
+    "assets/poppins-latin-500-normal-DGXqpDMm.woff": "abdc91ec7e4438b1e1d7f808d388614789d69037059b74a9d6166d00eb9b8b04",
+    "assets/poppins-latin-600-normal-BJdTmd5m.woff": "55fffef7b100460605349fa5215eb7dcd6e558e195d08e43eddc64c4b27d43b3",
+    "assets/poppins-latin-600-normal-zEkxB9Mr.woff2": "f4e80d9dfd374d02989b87a27b5ed4cb78fbb177c27f1478e9a8b0afb7513149",
+    "assets/poppins-latin-700-normal-BVuQR_eA.woff": "927ba66258ea405f06205be694080f1126d186633c3c69cb839cfd0cfc5ee8ff",
+    "assets/poppins-latin-700-normal-Qrb0O0WB.woff2": "9338e65fc077355c7a87ae0d64cc101e23b9bf8ad78ae65f0f319c857311b526",
+    "assets/RankingPlot-zYvV9LqU.js": "0f6e48e0492d4ceaf9ca16ca62d6609a6e7d297fad7ec82a3b9f94e3394e812f",
+    "brand/flamengo.png": "73b7260449100cd4e28838e27188b56fb1f92134419265ee17d4fd8fe51fbee7",
+    "brand/Poppins-OFL.txt": "5c4a92c8f8ce0ab211f4c72889d82383c9644546115d9ba39a4f2d5b8f37014b"
+  },
+  "obsolete_public_logo_absent_from_build": true,
+  "development_photo_absent_from_build": true,
+  "security": {
+    "commits_scanned": 17,
+    "reachable_blobs_scanned": 608,
+    "tracked_sensitive_paths": [],
+    "reviewed_current_candidates": 1,
+    "reviewed_historical_candidates": 2,
+    "candidate_classification": "Synthetic credential in confidentiality regression test; no real secret identified by pattern scan",
+    "limitations": "DetecÃ§Ã£o por padrÃµes em Ã¡rvore atual nÃ£o ignorada e blobs alcanÃ§Ã¡veis de todas as refs locais; nÃ£o garante ausÃªncia de segredos ofuscados, refs remotas ausentes ou objetos inalcanÃ§Ã¡veis."
+  },
+  "notebooks": [
+    {
+      "name": "01_entendimento.ipynb",
+      "code_cells": 3,
+      "executed_cells": 3,
+      "error_outputs": 0
+    },
+    {
+      "name": "02_qualidade.ipynb",
+      "code_cells": 3,
+      "executed_cells": 3,
+      "error_outputs": 0
+    },
+    {
+      "name": "03_ataque.ipynb",
+      "code_cells": 3,
+      "executed_cells": 3,
+      "error_outputs": 0
+    },
+    {
+      "name": "04_defesa.ipynb",
+      "code_cells": 3,
+      "executed_cells": 3,
+      "error_outputs": 0
+    },
+    {
+      "name": "05_comparacao.ipynb",
+      "code_cells": 3,
+      "executed_cells": 3,
+      "error_outputs": 0
+    },
+    {
+      "name": "06_estatistica.ipynb",
+      "code_cells": 4,
+      "executed_cells": 4,
+      "error_outputs": 0
+    }
+  ],
+  "verification_results": {
+    "backend": 46,
+    "frontend": 94,
+    "architecture_contracts_artifacts": 10,
+    "python": 175,
+    "isolated_postgresql": 35,
+    "browser": {
+      "startTime": "2026-10-22T18:48:54.485Z",
+      "duration": 210742.10499999998,
+      "expected": 96,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "total_suite_passes_without_repeats": 456,
+    "eslint": "passed",
+    "ruff": "passed",
+    "prettier": "passed",
+    "build": "passed",
+    "smoke": "passed",
+    "reviewed_screenshots": [
+      {
+        "path": ".tmp/browser-tests/visualizations-preserva-a--50d4f--temas-na-navegação-pública-1440-light/editorial-hero.png",
+        "sha256": "c2b8b084ff5198296c7267d916edd3bb42765926621a6d4f279abcc5b2242bec"
+      },
+      {
+        "path": ".tmp/browser-tests/visualizations-preserva-a--50d4f--temas-na-navegação-pública-375-dark/editorial-hero.png",
+        "sha256": "09180f2369a02921a7c331de304ab6c5d3f9465bd28ab1148e97d15cc6ff437b"
+      },
+      {
+        "path": ".tmp/browser-tests/visualizations-audita-os-g-bdcb7-s-do-dashboard-com-CSS-real-375-dark/dashboard-page.png",
+        "sha256": "4b340afcddec58a10294a2c6e0038e724e46c3bdda3c44ac35c6aab776fab2dc"
+      },
+      {
+        "path": ".tmp/browser-tests/landing-polish-restaura-a--fcc32-eto-e-preserva-a-comparação-1440-light/polish-comparison.png",
+        "sha256": "9e0dba5db62a9f5393ede1288494757ec7f0b235258c0fd7df9f8dc571c63cf9"
+      }
+    ]
+  },
+  "production_composition_unchanged": true,
+  "existing_database_operations": "READ ONLY diagnostics and SELECT-only API requests; no migration or import"
+}

@@ -1,0 +1,246 @@
+{
+  "checked_at": "2026-10-22T19:12:46.542212+00:00",
+  "scope": "Visual input images at repository root and obsolete reference screenshots; current documentation evidence preserved",
+  "root_images_before": 9,
+  "root_images_after": 0,
+  "removed_image_count": 11,
+  "removed_image_bytes": 6976187,
+  "removed": [
+    {
+      "path": "01-hero-estadio-versao-anterior.png",
+      "format": "JPEG",
+      "width": 720,
+      "height": 480,
+      "bytes": 110247,
+      "sha256": "b279ae54b7e8a1d81320f08fccefd92464deb204469f68466e5e098ec91b4e71",
+      "reason": "JPEG da torcida com extensão incorreta; duplicata byte a byte da foto ativa.",
+      "preserved_equivalent": "frontend/src/features/landing/presentation/assets/torcida-estadio.jpg"
+    },
+    {
+      "path": "02-card-comparacao-inclinado.png",
+      "format": "PNG",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 805273,
+      "sha256": "7fc67da480a5e19d99b8983978002bd090f15f08e82a272911eb50e5d673ef77",
+      "reason": "Screenshot antigo do hero; sem consumidor ativo; pixels idênticos ao screenshot flamengo-logo-original (1).png.",
+      "preserved_equivalent": null
+    },
+    {
+      "path": "04-torcida-estadio-foto.jpg",
+      "format": "PNG",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 185500,
+      "sha256": "d17080fc93a56b12d36a089ff8024a8c7402547c75c3446a9670634a4b695aab",
+      "reason": "PNG de screenshot antigo da seção O projeto, não fotografia de fundo; sem consumidor ativo.",
+      "preserved_equivalent": null
+    },
+    {
+      "path": "flamengo-logo-original (1).png",
+      "format": "PNG",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 618899,
+      "sha256": "66361e75011cb725e78ba94e0888726330c4567d37d1818f37f3163920a3b4dd",
+      "reason": "Screenshot antigo do hero, não logo; duplicata por pixels de 02-card-comparacao-inclinado.png.",
+      "preserved_equivalent": null
+    },
+    {
+      "path": "flamengo_logo.png",
+      "format": "PNG",
+      "width": 2048,
+      "height": 1536,
+      "bytes": 2137559,
+      "sha256": "d4fff46a711fbfaeb83c44180105d850d14b418dc63aa14024a50fe0ce939286",
+      "reason": "Referência visual Finexa, não logo; duplicata byte a byte da referência antiga em referencias/.",
+      "preserved_equivalent": null
+    },
+    {
+      "path": "grafico_mandante_visitante_atual.png",
+      "format": "PNG",
+      "width": 568,
+      "height": 568,
+      "bytes": 173718,
+      "sha256": "73b7260449100cd4e28838e27188b56fb1f92134419265ee17d4fd8fe51fbee7",
+      "reason": "Logo com nome incorreto; duplicata byte a byte da marca ativa e do original documentado.",
+      "preserved_equivalent": "frontend/public/brand/flamengo.png"
+    },
+    {
+      "path": "landing-comparacao-atual (1).png",
+      "format": "PNG",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 332909,
+      "sha256": "fdb76eae8bc77dc50fc8fedcb8f980c0365a0b3526b18831594d20de92ccb648",
+      "reason": "Screenshot antigo dos cards sem consumidor ativo ou referência documental atual que exija o arquivo.",
+      "preserved_equivalent": null
+    },
+    {
+      "path": "landing-hero-atual (1).png",
+      "format": "PNG",
+      "width": 72,
+      "height": 74,
+      "bytes": 3466,
+      "sha256": "19b897f58ea5437dcf10f11612fa46b61427940df1ad39bce287405f7872481c",
+      "reason": "Recorte pequeno da marca com caixa branca; não é a logo utilizada nem o hero.",
+      "preserved_equivalent": null
+    },
+    {
+      "path": "logo-com-moldura-atual (1).png",
+      "format": "PNG",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 445364,
+      "sha256": "dcf60eb73d69ac0f21a8cdc9caff905f9882d604655a745b63c680834b947c75",
+      "reason": "Screenshot antigo da comparação; não é asset da marca nem evidência usada pela documentação atual.",
+      "preserved_equivalent": null
+    },
+    {
+      "path": "referencias/grafico_mandante_visitante_atual.png",
+      "format": "PNG",
+      "width": 736,
+      "height": 558,
+      "bytes": 25693,
+      "sha256": "52140a0ad811daa597c52581c231ad223503a479e0c06de043fbeb7826dd26b1",
+      "reason": "Screenshot antigo de depuração sem consumidor; capturas posteriores de gráficos foram preservadas em docs/evidence/.",
+      "preserved_equivalent": null
+    },
+    {
+      "path": "referencias/landing_finexa_referencia.png",
+      "format": "PNG",
+      "width": 2048,
+      "height": 1536,
+      "bytes": 2137559,
+      "sha256": "d4fff46a711fbfaeb83c44180105d850d14b418dc63aa14024a50fe0ce939286",
+      "reason": "Referência antiga de design sem consumidor em produto ou documentação atual; duplicata da referência Finexa da raiz.",
+      "preserved_equivalent": null
+    }
+  ],
+  "preserved": [
+    {
+      "path": "referencias/flamengo_logo.png",
+      "format": "PNG",
+      "width": 568,
+      "height": 568,
+      "bytes": 173718,
+      "sha256": "73b7260449100cd4e28838e27188b56fb1f92134419265ee17d4fd8fe51fbee7",
+      "referenced_by": ["README.md"],
+      "unchanged": true
+    },
+    {
+      "path": "frontend/public/brand/flamengo.png",
+      "format": "PNG",
+      "width": 568,
+      "height": 568,
+      "bytes": 173718,
+      "sha256": "73b7260449100cd4e28838e27188b56fb1f92134419265ee17d4fd8fe51fbee7",
+      "referenced_by": [
+        "frontend/src/features/identity/presentation/Brand.jsx",
+        "frontend/src/features/landing/presentation/LandingPage.jsx",
+        "frontend/src/features/analytics/presentation/CollectivePages.jsx",
+        "frontend/index.html",
+        "frontend/src/app/design-system.css",
+        "powerbi/README.md",
+        "frontend/browser/visualizations.spec.js",
+        "scripts/smoke.mjs"
+      ],
+      "unchanged": true
+    },
+    {
+      "path": "frontend/src/features/landing/presentation/assets/torcida-estadio.jpg",
+      "format": "JPEG",
+      "width": 720,
+      "height": 480,
+      "bytes": 110247,
+      "sha256": "b279ae54b7e8a1d81320f08fccefd92464deb204469f68466e5e098ec91b4e71",
+      "referenced_by": [
+        "frontend/src/features/landing/presentation/ProjectAtmosphere.jsx",
+        "frontend/src/features/landing/presentation/landing-polish.css",
+        "frontend/browser/landing-polish.spec.js"
+      ],
+      "unchanged": true
+    }
+  ],
+  "archived_prompt": {
+    "from": "PROMPT_CODEX_MENGODATA_LANDING_POLIMENTO_VISUAL (1).md",
+    "to": "docs/history/visual-design/landing-polish-prompt.md",
+    "sha256": "5f247fa4b2de30f53bcd5b995c97c4cbf5f896ce02696855ada3242a5a2b6f1f",
+    "unchanged_bytes": true
+  },
+  "reference_audit": {
+    "reviewed": "React and HTML src/href, static and dynamic imports, new URL/import.meta.glob, CSS url and custom properties, scripts, tests, notebooks and Markdown/JSON documentation",
+    "runtime_root_image_consumers": [],
+    "historical_mentions_preserved": [
+      "Archived landing polish prompt names former inputs, with names not matching real contents",
+      "docs/evidence/landing-polish-browser.json records origin of photo; canonical active photo remains available"
+    ],
+    "canonical_asset_paths_unchanged": true,
+    "photo_behavior": "DEV-only background retained; production keeps existing vector fallback"
+  },
+  "integrity": {
+    "modified_existing_files": ["README.md"],
+    "unchanged_existing_files": 364,
+    "unchanged_code_contracts_config_files": 156,
+    "code_manifest_sha256": "79bb16808d17fef9bead1d8f10ad6f31b612fe69c05c4294bc003de45592ca50",
+    "unchanged_data_research_files": 49,
+    "data_manifest_sha256": "9a092bac1bf42c694270793c933f2cabd579071ded4376af551797196a8322d7",
+    "unchanged_documentation_images": 90,
+    "documentation_image_manifest_sha256": "a013ff87d51c8ed5fbc66435fab7729c627070f283cbcad79cb5a8ec092cb476",
+    "build_files_compared": 19,
+    "build_identical": true,
+    "build_sha256": {
+      "index.html": "11a0d7a86877e2c54140146360744cff51f3643939fcb318b041f29fea667012",
+      "theme-init.js": "5b4834e37d5dcb401ee6ad9e6b865fe733d42986bd8566a9d7a2b88023c507fd",
+      "assets/BarChart-HG-Q9SkN.js": "4815d71c6fc59008da9a0cfdefe47ca878294c47526ed71705dfc6bba3213d3f",
+      "assets/CollectivePlot-DKNe__qv.js": "503c08cda18aeba140876cab00961691dac08413eaceb7bf51307ebb318ca3cb",
+      "assets/index-Bhe-mioi.js": "837e03e0d297c5db3cb7585a0b8edac47b6d92e95fb7a496dc7acd0c3484218c",
+      "assets/index-CifHtsb1.css": "2fc1c1f941dd0b29963fb2a37593f12ee7c5cdab69d21b5ea22e6ac319beeec9",
+      "assets/poppins-latin-400-normal-BOb3E3N0.woff": "6076b418803564833cde2aece96c51b29927ab0a98dfbe727774d1a6c6e6c445",
+      "assets/poppins-latin-400-normal-cpxAROuN.woff2": "7d93459d86585bfcdbb7e0376056226adb25821ee54b96236fe2123e9560929f",
+      "assets/poppins-latin-500-italic-Ce_qjtl5.woff": "aa38f2c8fefe13d5e0f02e93cf1b0d25a1c37c6497241dc2bcd527e9edde1830",
+      "assets/poppins-latin-500-italic-o28Otv0U.woff2": "1ddb074f9963be8f6275c42dbd54d18625da8f91c85803121094ec81649f488b",
+      "assets/poppins-latin-500-normal-C8OXljZJ.woff2": "cd36de204aca2d5fa263a731f7c20009b5e3d754ba1f1e03c33e93a48f3e7446",
+      "assets/poppins-latin-500-normal-DGXqpDMm.woff": "abdc91ec7e4438b1e1d7f808d388614789d69037059b74a9d6166d00eb9b8b04",
+      "assets/poppins-latin-600-normal-BJdTmd5m.woff": "55fffef7b100460605349fa5215eb7dcd6e558e195d08e43eddc64c4b27d43b3",
+      "assets/poppins-latin-600-normal-zEkxB9Mr.woff2": "f4e80d9dfd374d02989b87a27b5ed4cb78fbb177c27f1478e9a8b0afb7513149",
+      "assets/poppins-latin-700-normal-BVuQR_eA.woff": "927ba66258ea405f06205be694080f1126d186633c3c69cb839cfd0cfc5ee8ff",
+      "assets/poppins-latin-700-normal-Qrb0O0WB.woff2": "9338e65fc077355c7a87ae0d64cc101e23b9bf8ad78ae65f0f319c857311b526",
+      "assets/RankingPlot-zYvV9LqU.js": "0f6e48e0492d4ceaf9ca16ca62d6609a6e7d297fad7ec82a3b9f94e3394e812f",
+      "brand/flamengo.png": "73b7260449100cd4e28838e27188b56fb1f92134419265ee17d4fd8fe51fbee7",
+      "brand/Poppins-OFL.txt": "5c4a92c8f8ce0ab211f4c72889d82383c9644546115d9ba39a4f2d5b8f37014b"
+    },
+    "existing_database_accessed": false,
+    "api_and_python_pipeline_unchanged": true
+  },
+  "verification": {
+    "frontend": 94,
+    "architecture_and_comments": 2,
+    "browser": {
+      "startTime": "2026-10-22T19:08:14.609Z",
+      "duration": 205448.295,
+      "expected": 96,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "total_test_passes": 192,
+    "eslint": "passed",
+    "build": "passed",
+    "prettier": "passed",
+    "full_browser_errors": [],
+    "http_assets_checked": [
+      {
+        "path": "/brand/flamengo.png",
+        "status": 200,
+        "bytes_equal_canonical_file": true
+      },
+      {
+        "path": "/src/features/landing/presentation/assets/torcida-estadio.jpg",
+        "status": 200,
+        "bytes_equal_canonical_file": true
+      }
+    ],
+    "not_executed": "Backend, PostgreSQL and Python tests were not rerun for this image-only cleanup; no existing database was accessed"
+  }
+}

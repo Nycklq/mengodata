@@ -111,13 +111,30 @@ describe('landing pública e navegação MengoData', () => {
     ['ofensivo', 'Análise ofensiva'],
     ['defensivo', 'Análise defensiva'],
     ['estatisticas', 'Estatística descritiva'],
-    ['power-bi', 'Power BI'],
     ['metodologia', 'Metodologia e fontes'],
   ])('abre rota canônica %s', async (path, title) => {
     mount('/dashboard/' + path);
     expect(
       await screen.findByRole('heading', { level: 1, name: title }),
     ).toBeInTheDocument();
+  });
+  it.each(['/power-bi', '/dashboard/power-bi'])(
+    'redireciona %s para a visão geral sem expor Power BI',
+    async (path) => {
+      mount(path);
+      expect(
+        await screen.findByRole('heading', { level: 1, name: /Uma temporada/ }),
+      ).toBeInTheDocument();
+      expect(screen.getByLabelText('Endereço atual')).toHaveTextContent('/dashboard');
+      expect(screen.getByLabelText('Endereço atual')).not.toHaveTextContent('power-bi');
+      expect(screen.queryByRole('link', { name: 'Power BI' })).not.toBeInTheDocument();
+    },
+  );
+  it('não oferece Power BI na landing pública', async () => {
+    mount();
+    await screen.findByText('380');
+    expect(screen.queryByText(/Power BI/)).not.toBeInTheDocument();
+    expect(document.querySelector('a[href*="power-bi"]')).toBeNull();
   });
   it('mantém o tema da landing ao navegar para o dashboard e voltar', async () => {
     localStorage.clear();

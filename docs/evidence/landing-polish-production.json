@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-22",
+  "localPhotoExcludedFromBuild": true,
+  "productionChecks": [
+    {
+      "theme": "light",
+      "photo": "none",
+      "vectorOpacity": "0.055",
+      "hasLocalPhoto": false,
+      "photoRequests": [],
+      "errors": []
+    },
+    {
+      "theme": "dark",
+      "photo": "none",
+      "vectorOpacity": "0.055",
+      "hasLocalPhoto": false,
+      "photoRequests": [],
+      "errors": []
+    }
+  ]
+}

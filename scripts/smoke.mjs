@@ -99,11 +99,12 @@ try {
     'ofensivo',
     'defensivo',
     'estatisticas',
-    'power-bi',
     'metodologia',
   ];
   const paths = [
     '',
+    'power-bi',
+    'dashboard/power-bi',
     ...pages.map((path) => 'dashboard' + (path ? '/' + path : '')),
     ...pages.filter(Boolean),
   ];
@@ -127,8 +128,9 @@ try {
       rounds: [1, 38],
       matches: 380,
       flamengo_points: 79,
-      spa_pages: 10,
-      legacy_paths: 8,
+      spa_pages: 9,
+      legacy_paths: 7,
+      retired_redirects: 2,
       home_points: 47,
       away_points: 32,
     }) + '\n',

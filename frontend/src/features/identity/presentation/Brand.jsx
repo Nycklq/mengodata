@@ -7,14 +7,13 @@ export function Brand({ compact = false }) {
       to="/"
       aria-label="MengoData — página inicial"
     >
-      <span className="crest-surface">
-        <img
-          src="/brand/flamengo.png"
-          width="42"
-          height="42"
-          alt="Escudo do Flamengo"
-        />
-      </span>
+      <img
+        className="brand-crest"
+        src="/brand/flamengo.png"
+        width="42"
+        height="42"
+        alt="Escudo do Flamengo"
+      />
       <span className="wordmark">
         Mengo<span className="wordmark-data">Data</span>
         <small>INTELIGÊNCIA ESPORTIVA</small>

@@ -38,16 +38,6 @@ export function OverviewPage() {
       <Ready query={summary}>
         {(document) => (
           <>
-            <div className="notice success">
-              <SportsIcon kind="shield" size={22} />
-              <div>
-                <strong>380 partidas verificadas · 38 rodadas · 20 clubes</strong>
-                <p>
-                  Fonte OpenFootball · CC0. Flamengo: 38 partidas na temporada completa.
-                  Filtros alteram os indicadores abaixo.
-                </p>
-              </div>
-            </div>
             <Cards row={document.data.club} />
             <div className="two-columns">
               <Panel

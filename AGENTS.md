@@ -5,7 +5,7 @@ Identidade e recorte obrigatório
 - Abrangência: resultados e placares dos 20 clubes nesse recorte. Excluir rodadas fora de 1 a 38, outras competições e temporadas. Estatísticas individuais não são requisito nem fluxo principal; módulos legados permanecem isolados e inativos.
 - Jogos adiados pertencem à rodada oficial de origem; não substituir o recorte por intervalo de datas ou ordem cronológica dos jogos.
 - A decisão anterior de primeiro turno de 2026 foi cancelada pelo usuário. O histórico em docs/history/2026 não é norma operacional.
-- Antes de implementar algo que envolva escopo, métricas ou fonte, consulte docs/FLAMENGO_ANALYTICS_CONTEXT.md, principalmente a atualização de escopo e as seções de coleta, modelagem, arquitetura e testes.
+- Antes de implementar algo que envolva escopo, métricas ou fonte, consulte README.md, principalmente as seções de arquitetura/contexto operacional, reprodução e testes. Os Markdown diretamente em docs/ foram removidos pelo usuário em 22/10/2026, com confirmação explícita para mantê-los removidos.
 - O documento é planejamento, não evidência de implementação. Inspecione o repositório antes de declarar que algo já existe.
 Clean Architecture — regra inegociável
 - Nunca implementar código novo fora de Clean Architecture, nem provisoriamente. Fazer as dependências apontarem para o núcleo de negócio.

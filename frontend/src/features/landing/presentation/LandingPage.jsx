@@ -23,6 +23,9 @@ import { seasonComparison, seasonPreview } from '../domain/season-preview.js';
 import { StadiumArt } from './StadiumArt.jsx';
 import { DataFlow } from './DataFlow.jsx';
 import { EvolutionIllustration, VenueIllustration } from './FeatureIllustrations.jsx';
+import { ProjectAtmosphere } from './ProjectAtmosphere.jsx';
+import { useScrollReveal } from './use-scroll-reveal.js';
+import './landing-polish.css';
 
 const anchors = [
   ['#projeto', 'Projeto'],
@@ -178,6 +181,8 @@ function PreviewAvailability({ query }) {
 }
 
 export function LandingPage() {
+  const landing = useRef(null);
+  useScrollReveal(landing);
   const summary = useAnalytics('summary');
   const evolution = useAnalytics('evolution');
   const [opponent, setOpponent] = useState('club:palmeiras');
@@ -204,7 +209,7 @@ export function LandingPage() {
     '/dashboard/comparar?' +
     new URLSearchParams({ club_id: 'club:flamengo', opponent_id: opponent });
   return (
-    <div className="landing-page">
+    <div className="landing-page" ref={landing}>
       <a className="skip-link" href="#landing-main">
         Pular para o conteúdo
       </a>
@@ -257,15 +262,23 @@ export function LandingPage() {
             </a>
           </div>
         </section>
-        <section id="projeto" className="landing-section editorial-section">
+        <section
+          id="projeto"
+          className="landing-section editorial-section"
+          aria-labelledby="project-title"
+        >
+          <ProjectAtmosphere />
           <Kicker>O PROJETO</Kicker>
-          <p className="editorial-statement">
-            <strong>MengoData transforma o placar em perspectiva.</strong> Uma
-            plataforma para entender a campanha do Flamengo, descobrir padrões e
-            comparar o desempenho coletivo com os outros clubes.{' '}
-            <span>Porque acompanhar o jogo é só o começo.</span>
-          </p>
-          <div className="coverage-metrics">
+          <div className="project-introduction" data-reveal="">
+            <h2 id="project-title">Do placar à perspectiva.</h2>
+            <p className="project-subtitle">A campanha, vista por outros ângulos.</p>
+            <p className="editorial-statement">
+              O MengoData transforma resultados em contexto para entender a campanha do
+              Flamengo, descobrir padrões e comparar o desempenho coletivo com os outros
+              clubes do Brasileirão 2025.
+            </p>
+          </div>
+          <div className="coverage-metrics" data-reveal="">
             {[
               [
                 'rounds',
@@ -298,12 +311,12 @@ export function LandingPage() {
               </div>
             ))}
           </div>
-          <Link className="button secondary" to="/dashboard/metodologia">
+          <Link className="button secondary" to="/dashboard/metodologia" data-reveal="">
             Conhecer o projeto <ArrowUpRight size={15} />
           </Link>
         </section>
         <section id="indicadores" className="landing-section resources-section">
-          <div className="section-center">
+          <div className="section-center" data-reveal="">
             <Kicker>LEITURAS QUE FAZEM A DIFERENÇA</Kicker>
             <h2>
               Cada partida conta.
@@ -317,7 +330,7 @@ export function LandingPage() {
             </p>
           </div>
           <div className="feature-grid">
-            <Link className="feature-card" to="/dashboard">
+            <Link className="feature-card" to="/dashboard" data-reveal="">
               <div className="feature-art evolution-art">
                 <span className="feature-number">01 / EVOLUÇÃO</span>
                 <EvolutionIllustration rows={series} />
@@ -329,19 +342,18 @@ export function LandingPage() {
                 <ArrowUpRight size={19} />
               </div>
             </Link>
-            <Link className="feature-card" to={compareUrl}>
+            <Link className="feature-card" to={compareUrl} data-reveal="">
               <div className="feature-art comparison-art">
                 <span className="feature-number">02 / FRENTE A FRENTE</span>
                 <div className="versus-preview">
-                  <span className="crest-surface">
-                    <img
-                      src="/brand/flamengo.png"
-                      width="54"
-                      height="54"
-                      alt="Escudo do Flamengo"
-                      loading="lazy"
-                    />
-                  </span>
+                  <img
+                    className="comparison-crest"
+                    src="/brand/flamengo.png"
+                    width="80"
+                    height="80"
+                    alt="Escudo do Flamengo"
+                    loading="lazy"
+                  />
                   <i>×</i>
                   <span className="neutral-club">
                     <SportsIcon kind="shirt" size={44} />
@@ -355,7 +367,7 @@ export function LandingPage() {
                 <ArrowUpRight size={19} />
               </div>
             </Link>
-            <Link className="feature-card" to="/dashboard#casa-fora">
+            <Link className="feature-card" to="/dashboard#casa-fora" data-reveal="">
               <div className="feature-art venue-art">
                 <span className="feature-number">03 / O PESO DO MANDO</span>
                 <VenueIllustration rows={venues} />
@@ -373,7 +385,7 @@ export function LandingPage() {
           className="landing-section story-section"
           aria-labelledby="context-title"
         >
-          <div className="story-copy">
+          <div className="story-copy" data-reveal="">
             <Kicker>O CONTEXTO DA CAMPANHA</Kicker>
             <h2 id="context-title">
               Mais do que
@@ -431,7 +443,7 @@ export function LandingPage() {
               Explorar os indicadores <ArrowUpRight size={16} />
             </Link>
           </div>
-          <div className="story-visual venue-story">
+          <div className="story-visual venue-story" data-reveal="">
             <div className="visual-topline">
               <span>FLAMENGO · 2025</span>
               <SportsIcon kind="pitch" size={26} />
@@ -462,7 +474,7 @@ export function LandingPage() {
           className="landing-section story-section reverse-story"
           aria-labelledby="comparison-title"
         >
-          <div className="story-visual live-comparison">
+          <div className="story-visual live-comparison" data-reveal="">
             <div className="visual-topline">
               <span>FRENTE A FRENTE</span>
               <GitCompareArrows size={22} />
@@ -540,7 +552,7 @@ export function LandingPage() {
               Em gols sofridos, menor é melhor.
             </p>
           </div>
-          <div className="story-copy">
+          <div className="story-copy" data-reveal="">
             <Kicker>A MESMA RÉGUA PARA TODOS</Kicker>
             <h2 id="comparison-title">
               Flamengo, frente
@@ -566,7 +578,7 @@ export function LandingPage() {
           </div>
         </section>
         <section className="landing-section engineering-section">
-          <div className="section-center">
+          <div className="section-center" data-reveal="">
             <Kicker>DO PLACAR À PERSPECTIVA</Kicker>
             <h2>
               O trabalho por trás
@@ -579,10 +591,12 @@ export function LandingPage() {
               Coleta, qualidade e análise conectadas pela mesma base.
             </p>
           </div>
-          <DataFlow />
+          <div data-reveal="">
+            <DataFlow />
+          </div>
         </section>
         <section id="metodologia" className="landing-section methodology-section">
-          <div className="story-copy">
+          <div className="story-copy" data-reveal="">
             <Kicker>CLAREZA TAMBÉM É MÉTODO</Kicker>
             <h2>
               Dados com origem.
@@ -598,7 +612,7 @@ export function LandingPage() {
               Ler a metodologia completa <ArrowUpRight size={16} />
             </Link>
           </div>
-          <div className="methodology-accordions">
+          <div className="methodology-accordions" data-reveal="">
             <details open>
               <summary>De onde vêm os dados?</summary>
               <p>
@@ -631,20 +645,9 @@ export function LandingPage() {
                 demonstra causalidade.
               </p>
             </details>
-            <details>
-              <summary>Onde entra o Power BI?</summary>
-              <p>
-                O relatório usa a mesma base Gold e as mesmas definições do dashboard.
-                Os materiais de montagem estão disponíveis; o arquivo nativo ainda
-                depende de validação no Desktop.
-              </p>
-              <Link className="text-link" to="/dashboard/power-bi">
-                Conhecer os materiais <ArrowUpRight size={13} />
-              </Link>
-            </details>
           </div>
         </section>
-        <section className="landing-section final-cta">
+        <section className="landing-section final-cta" data-reveal="">
           <SportsIcon kind="pitch" size={48} />
           <Kicker>O PRÓXIMO ÂNGULO É SEU</Kicker>
           <h2>
@@ -667,7 +670,7 @@ export function LandingPage() {
         </p>
         <div>
           <a href="#metodologia">Fontes e metodologia</a>
-          <Link to="/dashboard/power-bi">Power BI</Link>
+          <Link to="/dashboard">Explorar dashboard</Link>
           <span>Feito de futebol e dados.</span>
         </div>
       </footer>

@@ -1,0 +1,785 @@
+{
+  "date": "2026-10-22",
+  "browser": "Installed Chrome, Playwright 1.64.1, isolated headless profile",
+  "data": "Validated real Gold through production services in isolated HTTP harness",
+  "matrix": [
+    {
+      "width": 375,
+      "theme": "light"
+    },
+    {
+      "width": 375,
+      "theme": "dark"
+    },
+    {
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "width": 1024,
+      "theme": "light"
+    },
+    {
+      "width": 1024,
+      "theme": "dark"
+    },
+    {
+      "width": 1440,
+      "theme": "light"
+    },
+    {
+      "width": 1440,
+      "theme": "dark"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-22T17:48:43.928Z",
+    "duration": 154965.679,
+    "expected": 56,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "project": "375-light",
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12108,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-light",
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4560,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-light",
+      "title": "a legenda alterna as séries sem perder a escala",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2283,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-light",
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2664,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-light",
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3642,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-light",
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2148,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-light",
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4827,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-dark",
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 13048,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-dark",
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4749,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-dark",
+      "title": "a legenda alterna as séries sem perder a escala",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2089,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-dark",
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2597,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-dark",
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3756,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-dark",
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2648,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "375-dark",
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4595,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-light",
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12352,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-light",
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4299,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-light",
+      "title": "a legenda alterna as séries sem perder a escala",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2547,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-light",
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3350,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-light",
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4266,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-light",
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2548,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-light",
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6530,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-dark",
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 13272,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-dark",
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4659,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-dark",
+      "title": "a legenda alterna as séries sem perder a escala",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2775,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-dark",
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2714,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-dark",
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5174,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-dark",
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2979,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "768-dark",
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5983,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-light",
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 14962,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-light",
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4657,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-light",
+      "title": "a legenda alterna as séries sem perder a escala",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2353,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-light",
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3510,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-light",
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5130,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-light",
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2029,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-light",
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6006,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-dark",
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 14707,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-dark",
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5408,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-dark",
+      "title": "a legenda alterna as séries sem perder a escala",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2707,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-dark",
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3330,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-dark",
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4709,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-dark",
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1660,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1024-dark",
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5934,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-light",
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 15128,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-light",
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5258,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-light",
+      "title": "a legenda alterna as séries sem perder a escala",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2392,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-light",
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2595,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-light",
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4629,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-light",
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2201,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-light",
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5573,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-dark",
+      "title": "audita os gráficos de todas as páginas do dashboard com CSS real",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 15907,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-dark",
+      "title": "mantém barras proporcionais, tooltips e atualização por rodada",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4471,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-dark",
+      "title": "a legenda alterna as séries sem perder a escala",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2157,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-dark",
+      "title": "mostra as três ilustrações da landing com valores reais e proporções úteis",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4020,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-dark",
+      "title": "preserva a landing, o escudo sem caixa e os temas na navegação pública",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5100,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-dark",
+      "title": "redireciona Power BI e mantém as oito páginas e o menu acessível",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1547,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "project": "1440-dark",
+      "title": "compara clubes reais com os mesmos filtros e permite trocar e restaurar",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3977,
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    "editorial/1024-dark-dashboard-page.png",
+    "editorial/1024-light-dashboard-page.png",
+    "editorial/1440-dark-dashboard-page.png",
+    "editorial/1440-light-dashboard-page.png",
+    "editorial/1440-light-comparar-page.png",
+    "editorial/1440-light-partidas-page.png",
+    "editorial/1440-light-classificacao-page.png",
+    "editorial/1440-light-ofensivo-page.png",
+    "editorial/1440-light-defensivo-page.png",
+    "editorial/1440-light-estatisticas-page.png",
+    "editorial/1440-light-metodologia-page.png",
+    "editorial/375-dark-dashboard-page.png",
+    "editorial/375-dark-comparar-page.png",
+    "editorial/375-dark-partidas-page.png",
+    "editorial/375-dark-classificacao-page.png",
+    "editorial/375-dark-ofensivo-page.png",
+    "editorial/375-dark-defensivo-page.png",
+    "editorial/375-dark-estatisticas-page.png",
+    "editorial/375-dark-metodologia-page.png",
+    "editorial/375-light-dashboard-page.png",
+    "editorial/768-dark-dashboard-page.png",
+    "editorial/768-light-dashboard-page.png",
+    "editorial/1024-dark-landing-features.png",
+    "editorial/1024-light-landing-features.png",
+    "editorial/1440-dark-landing-features.png",
+    "editorial/1440-light-landing-features.png",
+    "editorial/375-dark-landing-features.png",
+    "editorial/375-light-landing-features.png",
+    "editorial/768-dark-landing-features.png",
+    "editorial/768-light-landing-features.png",
+    "editorial/1440-dark-editorial-landing.png",
+    "editorial/1440-dark-editorial-hero.png",
+    "editorial/1440-dark-editorial-comparison.png",
+    "editorial/1440-light-editorial-landing.png",
+    "editorial/1440-light-editorial-hero.png",
+    "editorial/1440-light-editorial-comparison.png",
+    "editorial/375-dark-editorial-landing.png",
+    "editorial/375-dark-editorial-hero.png",
+    "editorial/375-dark-editorial-comparison.png",
+    "editorial/375-light-editorial-landing.png",
+    "editorial/375-light-editorial-hero.png",
+    "editorial/375-light-editorial-comparison.png",
+    "editorial/before-1440-light-landing.png",
+    "editorial/before-1440-light-dashboard.png",
+    "editorial/before-1440-light-comparison.png"
+  ],
+  "operationalBrowser": {
+    "origin": "http://127.0.0.1:5173",
+    "api": "Existing local API with PostgreSQL configuration",
+    "stats": {
+      "startTime": "2026-10-22T17:52:03.126Z",
+      "duration": 10843.579,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "actions": [
+      "Home/away bars and round window changes",
+      "Arbitrary club comparison, swap, reload and restore"
+    ],
+    "databaseWrites": false
+  }
+}

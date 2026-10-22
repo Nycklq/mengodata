@@ -1,6 +1,5 @@
 import { PageTitle, Panel, QueryState } from './AnalyticsUi.jsx';
 import { useAnalytics } from './analytics-hooks.js';
-import { Cards, Ready } from './CollectiveUi.jsx';
 import { Link } from 'react-router-dom';
 import { SportsIcon } from './SportsIcon.jsx';
 
@@ -75,7 +74,7 @@ export function MethodologyPage() {
             <li>Bronze: JSON original imutável, hash e proveniência.</li>
             <li>Silver: clubes canônicos, placares tipados, validação de 380 jogos.</li>
             <li>Gold: 760 registros clube × partida, totais e 760 acumulados.</li>
-            <li>Parquet/CSV → PostgreSQL → API → React e Power BI.</li>
+            <li>Parquet/CSV → PostgreSQL → API → MengoData.</li>
           </ol>
         </Panel>
         <Panel title="Fórmulas e limites">
@@ -116,61 +115,6 @@ export function MethodologyPage() {
           com o sinal preservado nos valores.
         </p>
       </Panel>
-    </>
-  );
-}
-
-export function PowerBiPage() {
-  const summary = useAnalytics('summary');
-  return (
-    <>
-      <PageTitle
-        kicker="BUSINESS INTELLIGENCE"
-        title="Power BI"
-        description="Modelo coletivo com a mesma semântica da API e do Python."
-      />
-      <div className="notice">
-        <div>
-          <strong>Materiais de montagem disponíveis</strong>
-          <p>
-            Não há PBIX/PBIP validado. A abertura, montagem e conferência no Power BI
-            Desktop permanecem uma etapa manual documentada.
-          </p>
-        </div>
-      </div>
-      <Ready query={summary}>
-        {(document) => (
-          <Cards
-            row={document.data.club}
-            metrics={['played', 'points', 'goals_for', 'goals_against']}
-          />
-        )}
-      </Ready>
-      <div className="two-columns">
-        <Panel title="Arquivos no diretório powerbi/">
-          <ol className="report-pages">
-            <li>model.json: fatos, dimensões e relações.</li>
-            <li>queries/Collective.m: importação das tabelas reais.</li>
-            <li>measures.dax: pontos, gols e aproveitamento.</li>
-            <li>theme.json: identidade visual preservada.</li>
-            <li>README.md: montagem e valores para conferência.</li>
-          </ol>
-        </Panel>
-        <Panel title="Páginas do relatório">
-          <ol className="report-pages">
-            <li>Temporada e campanha do Flamengo.</li>
-            <li>Comparação dos 20 clubes.</li>
-            <li>Análise ofensiva e defensiva.</li>
-            <li>Mandante versus visitante.</li>
-            <li>Evolução e qualidade dos dados.</li>
-          </ol>
-          <p className="prose">
-            Exporte os dados com npm run powerbi:prepare. Configure o caminho local no
-            Power Query, crie as relações e importe o tema. Os detalhes estão no guia do
-            repositório.
-          </p>
-        </Panel>
-      </div>
     </>
   );
 }

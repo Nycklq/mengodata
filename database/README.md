@@ -1,6 +1,6 @@
 # PostgreSQL coletivo
 
-Destino ativo: `127.0.0.1:5432/mengo_data`, role `flamengo_app`, configurado no `.env` ignorado pelo Git. Consultas reais confirmaram 380 partidas/20 clubes/38 rodadas de 2025, 760 fatos, 20 totais e 760 acumulados. Importação e reimportação idempotente concluídas. [Evidências](../docs/POSTGRESQL_MENGO_DATA.md).
+Destino ativo: `127.0.0.1:5432/mengo_data`, role `flamengo_app`, configurado no `.env` ignorado pelo Git. Consultas reais confirmaram 380 partidas/20 clubes/38 rodadas de 2025, 760 fatos, 20 totais e 760 acumulados. Importação e reimportação idempotente concluídas em etapa anterior. [Diagnóstico somente leitura desta limpeza](../docs/evidence/repository-cleanup-runtime.json).
 
 ## Permissões no MengoData
 

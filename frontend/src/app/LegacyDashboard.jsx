@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import {
   ArrowUpRight,
-  BarChart3,
   BookOpen,
   ChartNoAxesCombined,
   ChevronRight,
@@ -26,7 +25,6 @@ import {
 import {
   MethodologyPage,
   NotFoundPage,
-  PowerBiPage,
 } from '../features/analytics/presentation/DocumentationPages.jsx';
 import { AnalyticsContext } from '../features/analytics/presentation/analytics-hooks.js';
 import { SportsIcon } from '../features/analytics/presentation/SportsIcon.jsx';
@@ -39,7 +37,6 @@ const navigation = [
   ['/ofensivo', 'Análise ofensiva', Target],
   ['/defensivo', 'Análise defensiva', ShieldCheck],
   ['/estatisticas', 'Estatística', ChartNoAxesCombined],
-  ['/power-bi', 'Power BI', BarChart3],
   ['/metodologia', 'Metodologia', BookOpen],
 ];
 export function Dashboard({ loadAnalytics }) {
@@ -146,7 +143,6 @@ export function Dashboard({ loadAnalytics }) {
               element={<AnalysisPage key="defensive" kind="defensive" />}
             />
             <Route path="/estatisticas" element={<StatisticsPage />} />
-            <Route path="/power-bi" element={<PowerBiPage />} />
             <Route path="/metodologia" element={<MethodologyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

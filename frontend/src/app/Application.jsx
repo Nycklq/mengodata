@@ -40,11 +40,11 @@ export function Application({ loadAnalytics }) {
         'ofensivo',
         'defensivo',
         'estatisticas',
-        'power-bi',
         'metodologia',
       ].map((path) => (
         <Route key={path} path={`/${path}`} element={<LegacyRedirect />} />
       ))}
+      <Route path="/power-bi" element={<Navigate replace to="/dashboard" />} />
       <Route
         path="*"
         element={
