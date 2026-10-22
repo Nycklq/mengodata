@@ -22,6 +22,7 @@ import { SportsIcon } from '../../analytics/presentation/SportsIcon.jsx';
 import { seasonComparison, seasonPreview } from '../domain/season-preview.js';
 import { StadiumArt } from './StadiumArt.jsx';
 import { DataFlow } from './DataFlow.jsx';
+import { EvolutionIllustration, VenueIllustration } from './FeatureIllustrations.jsx';
 
 const anchors = [
   ['#projeto', 'Projeto'],
@@ -319,14 +320,7 @@ export function LandingPage() {
             <Link className="feature-card" to="/dashboard">
               <div className="feature-art evolution-art">
                 <span className="feature-number">01 / EVOLUÇÃO</span>
-                <div className="feature-chart">
-                  <Chart
-                    rows={series}
-                    metrics={['points']}
-                    height={160}
-                    interactive={false}
-                  />
-                </div>
+                <EvolutionIllustration rows={series} />
                 <span className="mini-label">DO PRIMEIRO AO ÚLTIMO APITO</span>
               </div>
               <div className="feature-copy">
@@ -364,16 +358,7 @@ export function LandingPage() {
             <Link className="feature-card" to="/dashboard#casa-fora">
               <div className="feature-art venue-art">
                 <span className="feature-number">03 / O PESO DO MANDO</span>
-                <div className="venue-mini">
-                  <Chart
-                    rows={venues}
-                    metrics={['points']}
-                    category="name"
-                    bars
-                    height={160}
-                    interactive={false}
-                  />
-                </div>
+                <VenueIllustration rows={venues} />
                 <span className="mini-label">EM CASA OU LONGE DELA</span>
               </div>
               <div className="feature-copy">
