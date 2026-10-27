@@ -117,8 +117,31 @@ A verificação completa também executa verificações do pipeline Python, note
 - Notebooks: notebooks/README.md
 - Relatórios coletivos: reports/collective/README.md
 
+## Dados, metodologia e resultados
 
+### Fonte e processamento
 
+A fonte dos resultados é o arquivo `football.json` do OpenFootball, sob licença CC0 e com revisão e hash registrados no [contrato da fonte](contracts/collective-source.json). O pipeline organiza os dados em três etapas: Bronze preserva a fonte original e sua proveniência; Silver valida partidas, clubes e rodadas; Gold publica os dados analíticos usados pela aplicação.
 
+A base cobre 380 partidas, 20 clubes e 38 rodadas. Os 380 placares foram comparados com a tabela detalhada da CBF, sem divergências. Jogos adiados permanecem associados à rodada oficial de origem. Consulte a [auditoria da CBF](docs/evidence/collective-cbf-audit.json).
 
+### Flamengo na temporada
 
+| Indicador | Resultado |
+|---|---:|
+| Pontos | 79 |
+| Vitórias | 23 |
+| Empates | 10 |
+| Derrotas | 5 |
+| Gols marcados | 78 |
+| Gols sofridos | 27 |
+| Saldo de gols | +51 |
+| Jogos sem sofrer gol | 18 |
+| Aproveitamento | 69,30% |
+| Pontos em casa / fora | 47 / 32 |
+
+A classificação é calculada a partir dos resultados analisados e deve ser entendida como uma reconstrução estatística.
+
+### Limitações
+
+A base é centrada nos resultados das partidas e não inclui estatísticas individuais, posse de bola, passes ou gols esperados (xG). A conciliação disponível com a CBF não explicita dez rodadas e uma data; esses dados não foram inferidos. A classificação calculada também não certifica sanções ou critérios disciplinares de desempate.
