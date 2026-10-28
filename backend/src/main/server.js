@@ -2,6 +2,7 @@ import pino from 'pino';
 import { fileURLToPath } from 'node:url';
 import { createCollectiveService } from '../application/get-collective.js';
 import { createCollectiveFiles } from '../infrastructure/persistence/collective-files.js';
+import { createCachedCollectiveRepository } from '../infrastructure/persistence/cached-collective.js';
 import { createPostgresCollective } from '../infrastructure/persistence/postgres-collective.js';
 import { createPostgresPool } from '../infrastructure/persistence/postgres-pool.js';
 
@@ -24,8 +25,9 @@ const logger = pino({
     'req.headers["x-api-key"]',
   ],
 });
+const collectiveRepository = pool ? createPostgresCollective(pool, files) : files;
 const collective = createCollectiveService(
-  pool ? createPostgresCollective(pool, files) : files,
+  createCachedCollectiveRepository(collectiveRepository),
 );
 const app = createApp({
   getMetadata: async () => {
