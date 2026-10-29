@@ -1,11 +1,12 @@
 ## MengoData
 
+🌐 **Acesse o projeto:** [mengodata.vercel.app](https://mengodata.vercel.app/)
+
 O MengoData é um projeto acadêmico desenvolvido para a disciplina de Big Data com Python. O objetivo é organizar, analisar e apresentar os resultados do Campeonato Brasileiro Série A masculino de 2025, com dados dos 20 clubes ao longo das 38 rodadas.
 
 Escolhemos criar uma aplicação web para facilitar a exploração dos dados. Nela, é possível consultar partidas e indicadores e comparar o desempenho dos clubes. Usamos Python no processamento e na análise dos dados, além de React, Vite e uma API em Node.js para construir a aplicação.
 
 O projeto nos permitiu colocar em prática os conceitos estudados na disciplina e também aprender mais sobre desenvolvimento web, integrando as duas áreas em uma única solução.
-
 ## Capturas de tela
 
 | Página inicial Dark | Página inicial White | Opções |
